@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 PASS src/App.test.tsx
-  ✓ renders learn react link (35 ms)
+  ✓ renders learn react link (42 ms)
 
 --------------------|---------|----------|---------|---------|-------------------
 File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
@@ -16,7 +16,7 @@ All files           |    8.33 |        0 |   33.33 |    8.33 |
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        2.015 s
+Time:        2.162 s
 Ran all test suites.
 Jest did not exit one second after the test run has completed.
 
