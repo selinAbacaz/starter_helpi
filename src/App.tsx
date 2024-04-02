@@ -37,7 +37,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React NERDS !!!
+          Learn React NERDS !!! I am a nerd
         </a>
       </header>
       <Form>
