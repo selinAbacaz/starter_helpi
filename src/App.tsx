@@ -51,3 +51,5 @@ function App() {
 }
 
 export default App;
+
+//to deploy website: npm run start
