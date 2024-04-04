@@ -39,6 +39,7 @@ function App() {
         >
           Learn React NERDS !!! I am a nerd, Taylor Swift
         </a>
+        <a> Selin Bacaz :) </a>
       </header>
       <Form>
         <Form.Label>API Key:</Form.Label>
