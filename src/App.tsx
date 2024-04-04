@@ -37,7 +37,8 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React Deploy Test
+          Learn React NERDS !!! I am a nerd, Taylor Swift 
+          Nathan Rowell
         </a>
         <a> Selin Bacaz :) </a>
       </header>
@@ -52,5 +53,3 @@ function App() {
 }
 
 export default App;
-
-//to deploy website: npm run start
