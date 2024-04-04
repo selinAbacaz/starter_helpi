@@ -25,23 +25,20 @@ function App() {
     setKey(event.target.value);
   }
   return (
+    
     <div className="App">
+
+      <div style={ {border: '3px solid grey', padding: '8px'} }>
+        <p>Home | Account | LogOut | Results</p>
+        <p> Quiz Home Page</p> 
+      </div>
+
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p>Brandon Nauta</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React NERDS !!! I am a nerd, Taylor Swift 
-        </a>
+
         <p> Nathan Rowell </p>
         <p> Selin Bacaz </p>
+        <p> Brandon Nauta</p>
+
       </header>
       <Form>
         <Form.Label>API Key:</Form.Label>
