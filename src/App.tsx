@@ -41,7 +41,7 @@ function App() {
           Learn React NERDS !!! I am a nerd, Taylor Swift 
           Nathan Rowell
         </a>
-        <a> Selin Bacaz </a>
+        <p> Selin Bacaz </p>
       </header>
       <Form>
         <Form.Label>API Key:</Form.Label>
