@@ -39,8 +39,8 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React NERDS !!! I am a nerd, Taylor Swift 
-        <p> Nathan Rowell </p>
         </a>
+        <p> Nathan Rowell </p>
         <p> Selin Bacaz </p>
       </header>
       <Form>
