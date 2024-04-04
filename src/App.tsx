@@ -39,7 +39,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React NERDS !!! I am a nerd, Taylor Swift 
-          Nathan Rowell
+        <p> Nathan Rowell </p>
         </a>
         <p> Selin Bacaz </p>
       </header>
