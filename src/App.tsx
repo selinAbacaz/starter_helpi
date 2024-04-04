@@ -37,7 +37,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React NERDS !!! I am a nerd, Taylor Swift
+          Learn React Deploy Test
         </a>
       </header>
       <Form>
