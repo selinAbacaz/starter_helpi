@@ -1,7 +1,13 @@
 import { Button } from "react-bootstrap";
+import { SwitchPages } from "../interfaces/SwitchPages";
 
-export function basicQButton () {
+
+export function BasicQButton ({ setCurrentPage }: SwitchPages) {
+    function changeToBasicQuestions () {
+        setCurrentPage(1)
+    }
+
     return (
-        <a href="BasicQuestions.tsx"><><Button></Button></></a>
+        <Button onClick={changeToBasicQuestions}>Basic Questions</Button>
     )
 }
