@@ -2,6 +2,10 @@ import React, { useState } from "react";
 export {}
 const answerArray: string[] = ["", "", "", "", "", "", "", "", "",""]
 export function BasicQuestions(): JSX.Element {
+    const [userAnswer, setUserAnswer] = useState<string>("");
+    function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
+        setUserAnswer(event.target.value);
+    }
     function Description(): JSX.Element {
         return (
         <div> 
@@ -10,10 +14,6 @@ export function BasicQuestions(): JSX.Element {
         );
     }
     function Question1(): JSX.Element {
-        const [userAnswer, setUserAnswer] = useState<string>("");
-        function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
-            setUserAnswer(event.target.value);
-        }
         return (
             <div>
                 <h3>Question 1: What is most important to you in a job between: Salary, Work Life Balance, Growth, Helping Others, Making a Difference</h3>
@@ -24,10 +24,6 @@ export function BasicQuestions(): JSX.Element {
         );
     }
     function Question2(): JSX.Element {
-        const [userAnswer, setUserAnswer] = useState<string>("");
-        function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
-            setUserAnswer(event.target.value);
-        }
         return (
             <div>
                 <h3>Question 2: Do you prefer working solo or with others?</h3>
@@ -38,10 +34,6 @@ export function BasicQuestions(): JSX.Element {
         );
     }
     function Question3(): JSX.Element {
-        const [userAnswer, setUserAnswer] = useState<string>("");
-        function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
-            setUserAnswer(event.target.value);
-        }
         return (
             <div>
                 <h3>Question 3: What is your favorite subject in school?</h3>
@@ -52,10 +44,6 @@ export function BasicQuestions(): JSX.Element {
         );
     }
     function Question4(): JSX.Element {
-        const [userAnswer, setUserAnswer] = useState<string>("");
-        function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
-            setUserAnswer(event.target.value);
-        }
         return (
             <div>
                 <h3>Question 4: What type of workplace suits you best between: Fast-Paced, Collaborative, Structured, Flexible?</h3>
@@ -66,10 +54,6 @@ export function BasicQuestions(): JSX.Element {
         );
     }
     function Question5(): JSX.Element {
-        const [userAnswer, setUserAnswer] = useState<string>("");
-        function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
-            setUserAnswer(event.target.value);
-        }
         return (
             <div>
                 <h3>Question 5: On a scale of 1-10, how much do you like working with technology?</h3>
@@ -80,10 +64,6 @@ export function BasicQuestions(): JSX.Element {
         );
     }
     function Question6(): JSX.Element {
-        const [userAnswer, setUserAnswer] = useState<string>("");
-        function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
-            setUserAnswer(event.target.value);
-        }
         return (
             <div>
                 <h3>Question 6: On a scale of 1-10, how much do you enjoy doing art?</h3>
@@ -94,10 +74,6 @@ export function BasicQuestions(): JSX.Element {
         );
     }
     function Question7(): JSX.Element {
-        const [userAnswer, setUserAnswer] = useState<string>("");
-        function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
-            setUserAnswer(event.target.value);
-        }
         return (
             <div>
                 <h3>Question 7: Do you prefer working indoors or outdoors?</h3>
@@ -108,10 +84,6 @@ export function BasicQuestions(): JSX.Element {
         );
     }
     function Question8(): JSX.Element {
-        const [userAnswer, setUserAnswer] = useState<string>("");
-        function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
-            setUserAnswer(event.target.value);
-        }
         return (
             <div>
                 <h3>Question 8: Do you enjoy coming up with new ideas and solutions?</h3>
@@ -122,10 +94,6 @@ export function BasicQuestions(): JSX.Element {
         );
     }
     function Question9(): JSX.Element {
-        const [userAnswer, setUserAnswer] = useState<string>("");
-        function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
-            setUserAnswer(event.target.value);
-        }
         return (
             <div>
                 <h3>Question 9: Do you like tasks that vary each day, or stay the same?</h3>
@@ -136,10 +104,6 @@ export function BasicQuestions(): JSX.Element {
         );
     }
     function Question10(): JSX.Element {
-        const [userAnswer, setUserAnswer] = useState<string>("");
-        function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
-            setUserAnswer(event.target.value);
-        }
         return (
             <div>
                 <h3>Question 10: How much education do you plan to pursue? (High School Diploma, Bachelors, Masters, Doctorate)</h3>
