@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { ShowProgressBar } from "./components/ProgressBar";
 
 const answerArray: string[] = ["", "", "", "", "", "", "", "", "",""]
 
 export function BasicQuestions(): JSX.Element {
     const [userAnswer, setUserAnswer] = useState<string>("");
+    let numQuestionsAnswered: number = 0;
 
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
         setUserAnswer(event.target.value);
@@ -24,6 +26,7 @@ export function BasicQuestions(): JSX.Element {
                 <input type="text" value={userAnswer} onChange={updateAnswer} />
                 <div>userAnswer</div>
                 {answerArray[0] = userAnswer};
+                {numQuestionsAnswered++};
             </div>
         );
     }
@@ -35,6 +38,7 @@ export function BasicQuestions(): JSX.Element {
                 <input type="text" value={userAnswer} onChange={updateAnswer} />
                 <div>userAnswer</div>
                 {answerArray[1] = userAnswer};
+                {numQuestionsAnswered++};
             </div>
         );
     }
@@ -46,6 +50,7 @@ export function BasicQuestions(): JSX.Element {
                 <input type="text" value={userAnswer} onChange={updateAnswer} />
                 <div>userAnswer</div>
                 {answerArray[2] = userAnswer};
+                {numQuestionsAnswered++};
             </div>
         );
     }
@@ -57,6 +62,7 @@ export function BasicQuestions(): JSX.Element {
                 <input type="text" value={userAnswer} onChange={updateAnswer} />
                 <div>userAnswer</div>
                 {answerArray[3] = userAnswer};
+                {numQuestionsAnswered++};
             </div>
         );
     }
@@ -68,6 +74,7 @@ export function BasicQuestions(): JSX.Element {
                 <input type="text" value={userAnswer} onChange={updateAnswer} />
                 <div>userAnswer</div>
                 {answerArray[4] = userAnswer};
+                {numQuestionsAnswered++};
             </div>
         );
     }
@@ -79,6 +86,7 @@ export function BasicQuestions(): JSX.Element {
                 <input type="text" value={userAnswer} onChange={updateAnswer} />
                 <div>userAnswer</div>
                 {answerArray[5] = userAnswer};
+                {numQuestionsAnswered++};
             </div>
         );
     }
@@ -90,6 +98,7 @@ export function BasicQuestions(): JSX.Element {
                 <input type="text" value={userAnswer} onChange={updateAnswer} />
                 <div>userAnswer</div>
                 {answerArray[6] = userAnswer};
+                {numQuestionsAnswered++};
             </div>
         );
     }
@@ -101,6 +110,7 @@ export function BasicQuestions(): JSX.Element {
                 <input type="text" value={userAnswer} onChange={updateAnswer} />
                 <div>userAnswer</div>
                 {answerArray[7] = userAnswer};
+                {numQuestionsAnswered++};
             </div>
         );
     }
@@ -112,10 +122,11 @@ export function BasicQuestions(): JSX.Element {
                 <input type="text" value={userAnswer} onChange={updateAnswer} />
                 <div>userAnswer</div>
                 {answerArray[8] = userAnswer};
+                {numQuestionsAnswered++};
             </div>
         );
     }
-    
+
     function Question10(): JSX.Element {
         return (
             <div>
@@ -123,11 +134,13 @@ export function BasicQuestions(): JSX.Element {
                 <input type="text" value={userAnswer} onChange={updateAnswer} />
                 <div>userAnswer</div>
                 {answerArray[9] = userAnswer};
+                {numQuestionsAnswered++};
             </div>
         );
     }
     return (
         <div>
+            <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={answerArray.length}></ShowProgressBar>
             <Question1></Question1>
             <Question2></Question2>
             <Question3></Question3>
