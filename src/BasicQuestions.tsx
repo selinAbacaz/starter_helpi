@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-export {}
+
 const answerArray: string[] = ["", "", "", "", "", "", "", "", "",""]
+
 export function BasicQuestions(): JSX.Element {
     const [userAnswer, setUserAnswer] = useState<string>("");
+
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
         setUserAnswer(event.target.value);
     }
+
     function Description(): JSX.Element {
         return (
         <div> 
@@ -13,6 +16,7 @@ export function BasicQuestions(): JSX.Element {
         </div>
         );
     }
+
     function Question1(): JSX.Element {
         return (
             <div>
@@ -23,6 +27,7 @@ export function BasicQuestions(): JSX.Element {
             </div>
         );
     }
+
     function Question2(): JSX.Element {
         return (
             <div>
@@ -33,6 +38,7 @@ export function BasicQuestions(): JSX.Element {
             </div>
         );
     }
+
     function Question3(): JSX.Element {
         return (
             <div>
@@ -43,6 +49,7 @@ export function BasicQuestions(): JSX.Element {
             </div>
         );
     }
+    
     function Question4(): JSX.Element {
         return (
             <div>
@@ -53,6 +60,7 @@ export function BasicQuestions(): JSX.Element {
             </div>
         );
     }
+
     function Question5(): JSX.Element {
         return (
             <div>
@@ -63,6 +71,7 @@ export function BasicQuestions(): JSX.Element {
             </div>
         );
     }
+
     function Question6(): JSX.Element {
         return (
             <div>
@@ -73,6 +82,7 @@ export function BasicQuestions(): JSX.Element {
             </div>
         );
     }
+
     function Question7(): JSX.Element {
         return (
             <div>
@@ -83,6 +93,7 @@ export function BasicQuestions(): JSX.Element {
             </div>
         );
     }
+
     function Question8(): JSX.Element {
         return (
             <div>
@@ -93,6 +104,7 @@ export function BasicQuestions(): JSX.Element {
             </div>
         );
     }
+
     function Question9(): JSX.Element {
         return (
             <div>
@@ -103,6 +115,7 @@ export function BasicQuestions(): JSX.Element {
             </div>
         );
     }
+    
     function Question10(): JSX.Element {
         return (
             <div>
@@ -112,17 +125,19 @@ export function BasicQuestions(): JSX.Element {
                 {answerArray[9] = userAnswer};
             </div>
         );
-}       return (
-    <><div>{Question1()}</div>
-    <div>{Question2()}</div>
-    <div>{Question3()}</div>
-    <div>{Question4()}</div>
-    <div>{Question5()}</div>
-    <div>{Question6()}</div>
-    <div>{Question7()}</div>
-    <div>{Question8()}</div>
-    <div>{Question9()}</div>
-    <div>{Question10()}</div></>
-)
-
+    }
+    return (
+        <div>
+            <Question1></Question1>
+            <Question2></Question2>
+            <Question3></Question3>
+            <Question4></Question4>
+            <Question5></Question5>
+            <Question6></Question6>
+            <Question7></Question7>
+            <Question8></Question8>
+            <Question9></Question9>
+            <Question10></Question10>
+        </div>
+    )
 } 
