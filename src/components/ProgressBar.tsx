@@ -6,7 +6,8 @@ interface ShowProgressBarProps {
 }
 
 export function ShowProgressBar ({numQuestionsAnswered, totalQuestions}: ShowProgressBarProps) {
+    const progress: number = (numQuestionsAnswered * 100) / totalQuestions;
     return (
-        <ProgressBar now={(numQuestionsAnswered * 100) / totalQuestions}></ProgressBar>
+        <ProgressBar now={progress} label={`${progress}%`} striped></ProgressBar>
     )
 }
