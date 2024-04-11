@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ShowProgressBar } from "./components/ProgressBar";
 
 interface DetailedQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -198,6 +199,7 @@ export function DetailedQuestions(): JSX.Element {
 
     return (
         <div>
+            <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={answerArray.length}></ShowProgressBar>
             <Question1 setNumQuestionAnswered={setNumQuestionsAnswered}></Question1>
             <Question2 setNumQuestionAnswered={setNumQuestionsAnswered}></Question2>
             <Question3 setNumQuestionAnswered={setNumQuestionsAnswered}></Question3>
