@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap";
 import { SwitchPages } from "../interfaces/SwitchPages";
 
-export function Header ({ setCurrentPage }: SwitchPages) {
+export function ShowHeader ({ setCurrentPage }: SwitchPages) {
 
     function changeToHome () {
         setCurrentPage(0);
