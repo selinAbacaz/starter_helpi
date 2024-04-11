@@ -189,13 +189,13 @@ function Question10({setNumQuestionAnswered}: BasicQuestionsProps): JSX.Element 
 
 export function BasicQuestions(): JSX.Element {
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(0);
-    function Description(): JSX.Element {
+    /*function Description(): JSX.Element {
         return (
         <div> 
             <p>Take the basic career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The basic quiz consists of __ shorter questions to provide a quick and easy experience to determine your results. </p>
         </div>
         );
-    }
+    }*/
 
     return (
         <div>
