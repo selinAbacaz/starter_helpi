@@ -186,7 +186,7 @@ function Question10({setNumQuestionAnswered}: DetailedQuestionsProps): JSX.Eleme
     );
 }
 
-export function BasicQuestions(): JSX.Element {
+export function DetailedQuestions(): JSX.Element {
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(0);
     /*function Description(): JSX.Element {
         return (
