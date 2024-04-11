@@ -174,7 +174,7 @@ function Question10({setNumQuestionAnswered}: BasicQuestionsProps): JSX.Element 
 
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
         setUserAnswer(event.target.value);
-        answerArray[9] = userAnswer;
+        answerArray[9] = event.target.value;
         setNumQuestionAnswered(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     }
 
