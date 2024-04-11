@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
+import { ShowAlert } from "./components/Alert";
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -19,7 +20,7 @@ function Question1({setNumQuestionAnswered}: BasicQuestionsProps): JSX.Element {
     return (
         <div>
             <h3>Question 1: What is most important to you in a job between: Salary, Work Life Balance, Growth, Helping Others, Making a Difference</h3>
-            <input type="text" value={userAnswer} onChange={updateAnswer} />
+            <input type="text" value={userAnswer} onChange={updateAnswer}/>
             <div>{userAnswer}</div>
         </div>
     );
@@ -200,6 +201,7 @@ export function BasicQuestions(): JSX.Element {
     return (
         <div>
             <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={answerArray.length}></ShowProgressBar>
+            {numQuestionsAnswered === 10 && <ShowAlert></ShowAlert>}
             <Question1 setNumQuestionAnswered={setNumQuestionsAnswered}></Question1>
             <Question2 setNumQuestionAnswered={setNumQuestionsAnswered}></Question2>
             <Question3 setNumQuestionAnswered={setNumQuestionsAnswered}></Question3>
@@ -210,6 +212,8 @@ export function BasicQuestions(): JSX.Element {
             <Question8 setNumQuestionAnswered={setNumQuestionsAnswered}></Question8>
             <Question9 setNumQuestionAnswered={setNumQuestionsAnswered}></Question9>
             <Question10 setNumQuestionAnswered={setNumQuestionsAnswered}></Question10>
+            <br></br>
+            {numQuestionsAnswered === 10 && <h2>All Questions Answered!</h2>}
         </div>
     )
 } 
