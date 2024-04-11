@@ -30,7 +30,7 @@ export function HomePage ({setCurrentPage}: SwitchPages) {
                                 <BasicQButton setCurrentPage={setCurrentPage}></BasicQButton>
                             </Col>
                             <Col className= "  green box">
-                                Take the basic career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The basic quiz consists of __ shorter questions to provide a quick and easy experience to determine your results.
+                                Take the basic career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The basic quiz consists of 10 shorter questions to provide a quick and easy experience to determine your results.
                             </Col>
                             </Row>
                             <Row style={{display:"flex", justifyContent:"right"}}>
@@ -38,7 +38,7 @@ export function HomePage ({setCurrentPage}: SwitchPages) {
                                     <DetailedQButton setCurrentPage={setCurrentPage}></DetailedQButton>
                                 </Col>
                                 <Col className= "  orange box">
-                                Take the detailed career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The detailed quiz consists of __ longer and more detailed questions to provide the more accurate results.
+                                Take the detailed career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The detailed quiz consists of 10 longer and more detailed questions to provide the more accurate results.
                                 </Col>
                             </Row>
                         </Col>
