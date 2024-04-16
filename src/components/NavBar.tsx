@@ -1,8 +1,7 @@
-import { SwitchPages } from "../interfaces/SwitchPages";
-import { SwitchPage } from "./SwitchPage";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
-export function NavBar ({setCurrentPage}: SwitchPages) {
+export function NavBar () {
     return (
-        <SwitchPage setCurrentPage={setCurrentPage} pageNumber={0}></SwitchPage>
+        <div></div>
     )
 }
