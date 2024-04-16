@@ -9,7 +9,7 @@ interface BasicQuestionsProps {
     answerPlacement: number;
 }
 
-const answerArray: string[] = ["", "", "", "", "", "", "", "", "",""];
+const answerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
 const questionsArray: string[] = 
 [
     "Question 1: What is most important to you in a job between: Salary, Work Life Balance, Growth, Helping Others, Making a Difference",
