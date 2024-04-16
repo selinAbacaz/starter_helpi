@@ -201,7 +201,7 @@ export function DetailedQuestions({setCurrentPage}: SwitchPages): JSX.Element {
 
     return (
         <div>
-            <ShowHeader setCurrentPage={setCurrentPage}></ShowHeader>
+            <ShowHeader setCurrentPage={setCurrentPage} pageNumber={0}></ShowHeader>
             <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={answerArray.length}></ShowProgressBar>
             <Question1 setNumQuestionAnswered={setNumQuestionsAnswered}></Question1>
             <Question2 setNumQuestionAnswered={setNumQuestionsAnswered}></Question2>

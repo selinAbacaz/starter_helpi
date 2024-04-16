@@ -30,9 +30,9 @@ function App() {
 
   return (
       <div className="App">
-        {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage}></HomePage>}
-        {currentPage === 1 && <BasicQuestions setCurrentPage={setCurrentPage}></BasicQuestions>}
-        {currentPage === 2 && <DetailedQuestions setCurrentPage={setCurrentPage}></DetailedQuestions>}
+        {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} pageNumber={0}></HomePage>}
+        {currentPage === 1 && <BasicQuestions setCurrentPage={setCurrentPage} pageNumber={1}></BasicQuestions>}
+        {currentPage === 2 && <DetailedQuestions setCurrentPage={setCurrentPage} pageNumber={2}></DetailedQuestions>}
         <Form>
           <Form.Label>API Key:</Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
