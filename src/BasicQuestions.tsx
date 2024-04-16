@@ -43,7 +43,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement}: BasicQue
 }
 
 export function BasicQuestions({setCurrentPage}: SwitchPages): JSX.Element {
-    const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(0);
+    const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     /*function Description(): JSX.Element {
         return (
         <div> 
