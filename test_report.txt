@@ -7,7 +7,7 @@
         at body
         at div
         at div
-        at HomePage (/home/runner/work/starter_helpi/starter_helpi/src/homePage.tsx:7:28)
+        at HomePage (/home/runner/work/starter_helpi/starter_helpi/src/homePage.tsx:6:28)
         at div
         at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:17:33)
 
@@ -41,7 +41,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (108 ms)
+  ✕ renders learn react link (81 ms)
 
   ● renders learn react link
 
@@ -184,30 +184,6 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
-------------------------|---------|----------|---------|---------|-------------------
-File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-------------------------|---------|----------|---------|---------|-------------------
-All files               |    7.36 |     8.62 |    5.33 |    8.39 |                   
- src                    |    6.71 |     9.61 |    2.94 |    7.75 |                   
-  App.tsx               |   63.63 |     62.5 |   33.33 |   63.63 | 13,22-28          
-  BasicQuestions.tsx    |    1.58 |        0 |       0 |    1.88 | 13-202            
-  DetailedQuestions.tsx |    1.58 |        0 |       0 |    1.88 | 13-202            
-  homePage.tsx          |     100 |      100 |     100 |     100 |                   
-  index.tsx             |       0 |      100 |     100 |       0 | 8-20              
-  reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
- src/components         |   14.28 |        0 |   28.57 |   14.28 |                   
-  DetailedQButton.tsx   |      50 |      100 |      50 |      50 | 7                 
-  Header.tsx            |       0 |      100 |       0 |       0 | 7-10              
-  ProgressBar.tsx       |       0 |        0 |       0 |       0 | 9-21              
-  basicQButton.tsx      |      50 |      100 |      50 |      50 | 7                 
- src/interfaces         |       0 |        0 |       0 |       0 |                   
-  SwitchPages.ts        |       0 |        0 |       0 |       0 |                   
-------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
-Snapshots:   0 total
-Time:        3.627 s
-Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
 declaring it in its dependencies. This is currently working because
@@ -220,3 +196,26 @@ ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
   
+------------------------|---------|----------|---------|---------|-------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+------------------------|---------|----------|---------|---------|-------------------
+All files               |    7.45 |     8.62 |    4.16 |    8.51 |                   
+ src                    |    6.71 |     9.61 |    2.94 |    7.75 |                   
+  App.tsx               |   63.63 |     62.5 |   33.33 |   63.63 | 13,22-28          
+  BasicQuestions.tsx    |    1.58 |        0 |       0 |    1.88 | 13-202            
+  DetailedQuestions.tsx |    1.58 |        0 |       0 |    1.88 | 13-202            
+  homePage.tsx          |     100 |      100 |     100 |     100 |                   
+  index.tsx             |       0 |      100 |     100 |       0 | 8-20              
+  reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
+ src/components         |   16.66 |        0 |      25 |   16.66 |                   
+  Header.tsx            |       0 |      100 |       0 |       0 | 5                 
+  ProgressBar.tsx       |       0 |        0 |       0 |       0 | 9-21              
+  SwitchPage.tsx        |   66.66 |      100 |      50 |   66.66 | 8                 
+ src/interfaces         |       0 |        0 |       0 |       0 |                   
+  SwitchPages.ts        |       0 |        0 |       0 |       0 |                   
+------------------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        3.47 s
+Ran all test suites.
