@@ -1,8 +1,7 @@
 import './homePage.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import { SwitchPages } from './interfaces/SwitchPages';
-import { BasicQButton } from './components/basicQButton';
-import { DetailedQButton } from './components/DetailedQButton';
+import { SwitchPage } from './components/SwitchPage';
 
 export function HomePage ({setCurrentPage}: SwitchPages) {
 
@@ -27,7 +26,7 @@ export function HomePage ({setCurrentPage}: SwitchPages) {
                         <Col>
                             <Row style={{display:"flex", justifyContent:"right"}}>
                             <Col className= "  red box">
-                                <BasicQButton setCurrentPage={setCurrentPage}></BasicQButton>
+                                <SwitchPage setCurrentPage={setCurrentPage} pageNumber={1} /*Basic Question Button*/></SwitchPage> 
                             </Col>
                             <Col className= "  green box">
                                 Take the basic career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The basic quiz consists of 10 shorter questions to provide a quick and easy experience to determine your results.
@@ -35,7 +34,7 @@ export function HomePage ({setCurrentPage}: SwitchPages) {
                             </Row>
                             <Row style={{display:"flex", justifyContent:"right"}}>
                                 <Col className= "  pink box">
-                                    <DetailedQButton setCurrentPage={setCurrentPage}></DetailedQButton>
+                                    <SwitchPage setCurrentPage={setCurrentPage} pageNumber={2} /*Detailed Question Button*/></SwitchPage>
                                 </Col>
                                 <Col className= "  orange box">
                                 Take the detailed career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The detailed quiz consists of 10 longer and more detailed questions to provide the more accurate results.
