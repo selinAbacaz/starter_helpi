@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
 import { SwitchPages } from "./interfaces/SwitchPages";
 import { ShowHeader } from "./components/Header";
+import { ShowAlert } from "./components/Alert";
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -55,6 +56,7 @@ export function BasicQuestions({setCurrentPage}: SwitchPages): JSX.Element {
     return (
         <div>
             <ShowHeader setCurrentPage={setCurrentPage} pageNumber={0}></ShowHeader>
+            {numQuestionsAnswered === 10 && <ShowAlert></ShowAlert>}
             <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={answerArray.length}></ShowProgressBar>
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[0]} answerPlacement={0}></Question>
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[1]} answerPlacement={1}></Question>
