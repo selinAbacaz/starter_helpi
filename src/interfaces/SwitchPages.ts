@@ -1,4 +1,10 @@
 export interface SwitchPages {
     setCurrentPage: (newPage: number) => void; // Function to change to a new Page
-    currentPage: number; // Current Page represented as a number 0 - Home, 1 - Basic Questions, 2 - Detailed Questions
+    pageNumber: number
+
+    /*
+    * 0 - Home Page
+    * 1 - Basic Questions Page
+    * 2 - Detailed Questions Page
+    */
 }
