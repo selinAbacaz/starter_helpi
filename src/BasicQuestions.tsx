@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
 import { SwitchPages } from "./interfaces/SwitchPages";
 import { ShowHeader } from "./components/Header";
+import { GenerateText } from "./GPT";
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -66,6 +67,7 @@ export function BasicQuestions({setCurrentPage}: SwitchPages): JSX.Element {
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[7]} answerPlacement={7}></Question>
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8}></Question>
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9}></Question>
+            <GenerateText></GenerateText>
         </div>
     )
 } 
