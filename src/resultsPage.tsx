@@ -17,30 +17,32 @@ export function ResultsPage ({setCurrentPage}: SwitchPages) {
                 </header>
                 <body style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#aebcda", justifyContent:"right"} }>
                     <div >
+                        <Container>
+                        <Col className = "navBar" style={{width: 3}}> 
+                        NAV BAR
+                    </Col>
+                        </Container>
                     <Container >
-                    <Row >
-                        <Col className=" box2">
+                        <Row>
+                    <Col>
+                        <Row className ="box2">
                                 Overview
-                        </Col>
-                        <Col>
-                            <Row style={{display:"flex"}}>
-                            <Col className= "  red box">
+                        </Row>
+                        <Row className = "red box" style={{display:"flex"}}>
                                 Industry 
-                            </Col>
-                            <Col className= "  green box">
-                                Specific Jobs
-                            </Col>
-                            </Row>
-                            <Row style={{display:"flex"}}>
-                                <Col className= "  pink box">
+                        </Row>
+                        <Row className= "  green box">
+                            Specific Jobs
+                        </Row>
+                        <Row className = " pink box" style={{display:"flex"}}>
                                 Other
-                                </Col>
-                                <Col className= "  orange box">
+                        </Row>
+                        <Row className = " orange box">
                                 Other 2
-                                </Col>
-                            </Row>
-                        </Col>
-                    </Row>
+                        </Row>
+                    </Col>
+                        </Row>
+                   
                     </Container>
                     </div>
                 </body>

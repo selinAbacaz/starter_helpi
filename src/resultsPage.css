@@ -10,14 +10,20 @@
 
 
 }
+.navBar {
+    width: 2px;
+    height: 300px;
+    border: white 3px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+
+
+}
 .box2 {
-  border: white 3px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #2062bf;
+  background-color: #ff6347;
 
 
 }
