@@ -46,8 +46,8 @@ function callAPI () {
         body: JSON.stringify({
           model: 'gpt-4-turbo',
           messages: [
-            { role: "user", content: "Based on my answers what kind of industries should I be working in? " + combinedAnswers },
-            { role: "system", content: "Use these questions as context: " + combinedQuestions}
+            { role: "user", content: "Based on my answers what kind of industries should I be working in? " + combinedAnswers},
+            { role: "system", content: "Use these questions as context: " + combinedQuestions  + ". Section out the respons based on Industries. The industries should be a header font, with bulletpoints" }
           ]
         })
       });
