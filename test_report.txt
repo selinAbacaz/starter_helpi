@@ -9,7 +9,7 @@
         at div
         at HomePage (/home/runner/work/starter_helpi/starter_helpi/src/homePage.tsx:6:28)
         at div
-        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:17:33)
+        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:18:33)
 
       4 |
       5 | test('renders learn react link', () => {
@@ -41,7 +41,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (117 ms)
+  ✕ renders learn react link (102 ms)
 
   ● renders learn react link
 
@@ -187,15 +187,15 @@ FAIL src/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   24.56 |    19.23 |      15 |   26.41 |                   
- src                    |   26.66 |       25 |    12.5 |   29.26 |                   
-  App.tsx               |   63.63 |     62.5 |   33.33 |   63.63 | 13,22-28          
+All files               |   24.13 |    21.42 |   14.28 |   25.92 |                   
+ src                    |   26.08 |    27.27 |   11.76 |   28.57 |                   
+  App.tsx               |   63.63 |       60 |   33.33 |   63.63 | 14,23-29          
   BasicQuestions.tsx    |   18.18 |        0 |       0 |   22.22 | 28-55             
   DetailedQuestions.tsx |   18.18 |        0 |       0 |   22.22 | 28-55             
   homePage.tsx          |     100 |      100 |     100 |     100 |                   
   index.tsx             |       0 |      100 |     100 |       0 | 8-20              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
-  resultsPage.tsx       |       0 |        0 |       0 |       0 |                   
+  resultsPage.tsx       |       0 |      100 |       0 |       0 | 7                 
  src/components         |   16.66 |        0 |      25 |   16.66 |                   
   Header.tsx            |       0 |      100 |       0 |       0 | 5                 
   ProgressBar.tsx       |       0 |        0 |       0 |       0 | 9-21              
@@ -206,7 +206,7 @@ All files               |   24.56 |    19.23 |      15 |   26.41 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.207 s
+Time:        3.078 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
