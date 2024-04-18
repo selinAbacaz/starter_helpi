@@ -1,1 +1,78 @@
-export {}
+.box {
+    width: 400px;
+    height: 300px;
+    border: white 3px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.navBar {
+    width: 2px;
+    height: 300px;
+    border: white 3px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+
+
+}
+.box2 {
+  background-color: #ff6347;
+
+
+}
+
+.red {
+    background-color: #ff6347;
+}
+.green {
+    background-color: #79cb6f;
+}
+
+.left {
+    justify-content: left;
+  }
+  
+  .right {
+    float: right;
+  }
+  .pink {
+    background-color: #e36c6c;
+  }
+  .orange {
+    background-color: #f09d22;
+  }
+
+
+.HomePage-body {
+    background-color: #4f689b;
+    min-height: 100vh;
+
+    /*
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: rgb(248, 233, 233);*/
+
+  }
+
+  .home-header {
+    width: 100%;
+    background-color: #282c34;
+    background-color: #c74545;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
