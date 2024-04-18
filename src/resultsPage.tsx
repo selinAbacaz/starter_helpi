@@ -55,7 +55,7 @@ export function ResultsPage ({setCurrentPage}: SwitchPages) {
                                 Other
                                 </Col>
                                 <Col className = "textBox">
-                                TEXT WILL BE ENTERED HERE
+                                TEXT WILL BE ENTERED HERE.
                             </Col>
                         </Row>
                         <Row >
