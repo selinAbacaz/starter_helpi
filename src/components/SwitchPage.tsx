@@ -3,7 +3,7 @@ import { SwitchPages } from "../interfaces/SwitchPages";
 
 
 export function SwitchPage ({ setCurrentPage, pageNumber }: SwitchPages) {
-    const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions"];
+    const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions","Results"];
     function changePage () {
         setCurrentPage(pageNumber);
     }
