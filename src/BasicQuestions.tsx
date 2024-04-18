@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
 import { SwitchPages } from "./interfaces/SwitchPages";
 import { ShowHeader } from "./components/Header";
+import { keyData } from "./App";
+import { Button } from "react-bootstrap";
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -9,6 +11,7 @@ interface BasicQuestionsProps {
     answerPlacement: number;
 }
 
+let result: string = "Hello";
 const answerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
 const questionsArray: string[] = 
 [
@@ -23,6 +26,39 @@ const questionsArray: string[] =
     "Question 9: Do you like tasks that vary each day, or stay the same?",
     "Question 10: How much education do you plan to pursue? (High School Diploma, Bachelors, Masters, Doctorate)"
 ];
+
+function callAPI () {
+    const combinedQuestions: string = questionsArray.join(",");
+    const combinedAnswers: string = answerArray.join(",");
+    test(keyData, combinedQuestions, combinedAnswers);
+}
+  
+  async function test (key: string, combinedQuestions: string, combinedAnswers: string) {
+    const apiUrl = 'https://api.openai.com/v1/chat/completions';
+    
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${key}`
+        },
+        body: JSON.stringify({
+          model: 'gpt-4-turbo',
+          messages: [
+            { role: "user", content: "Based on my answers what kind of industries should I be working in? " + combinedAnswers },
+            { role: "assistant", content: "Use these questions as context: " + combinedQuestions}
+          ]
+        })
+      });
+  
+      const data = await response.json();
+      console.log(data.choices[0]);
+      result = data.choices[0].message.content;
+    } catch (error) {
+      result = "error!";
+    }
+  }
 
 function Question ({setNumQuestionAnswered, question, answerPlacement}: BasicQuestionsProps) {
     const [userAnswer, setUserAnswer] = useState<string>(answerArray[answerPlacement]);
@@ -66,6 +102,8 @@ export function BasicQuestions({setCurrentPage}: SwitchPages): JSX.Element {
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[7]} answerPlacement={7}></Question>
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8}></Question>
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9}></Question>
+            <Button onClick={callAPI}>Trigger API call</Button>
+            <div>{result}</div>
         </div>
     )
 } 
