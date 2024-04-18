@@ -1,4 +1,4 @@
-import './homePage.css';
+import './resultsPage.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import { SwitchPages } from './interfaces/SwitchPages';
 
@@ -17,28 +17,54 @@ export function ResultsPage ({setCurrentPage}: SwitchPages) {
                 </header>
                 <body style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#aebcda", justifyContent:"right"} }>
                     <div >
-                        <Container>
-                        <Col className = "navBar" style={{width: 3}}> 
-                        NAV BAR
-                    </Col>
-                        </Container>
                     <Container >
                         <Row>
+                        <Col className = "navBar" style={{width: "3px"}}> 
+                        Overview 
+                        Industry
+                        Specific Jobs 
+                        Other 
+                    </Col>
                     <Col>
-                        <Row className ="box2">
+                    <Row>
+                            <Col className ="box2">
                                 Overview
-                        </Row>
-                        <Row className = "red box" style={{display:"flex"}}>
+                            </Col>
+                            <Col className = "textBox" style = {{width: "200px"}}>
+                                TEXT WILL BE ENTERED HERE
+                            </Col>
+                            </Row>
+                        <Row >
+                            <Col className = "red box" style={{display:"flex"}}>
                                 Industry 
+                                </Col>
+                                <Col className = "textBox">
+                                TEXT WILL BE ENTERED HERE
+                            </Col>
                         </Row>
-                        <Row className= "  green box">
+                        <Row >
+                            <Col className= "  green box">
                             Specific Jobs
+                            </Col>
+                            <Col className = "textBox">
+                                TEXT WILL BE ENTERED HERE
+                            </Col>
                         </Row>
-                        <Row className = " pink box" style={{display:"flex"}}>
+                        <Row >
+                            <Col className = " pink box" style={{display:"flex"}}>
                                 Other
+                                </Col>
+                                <Col className = "textBox">
+                                TEXT WILL BE ENTERED HERE
+                            </Col>
                         </Row>
-                        <Row className = " orange box">
+                        <Row >
+                            <Col className = " orange box">
                                 Other 2
+                                </Col>
+                                <Col className = "textBox">
+                                TEXT WILL BE ENTERED HERE
+                            </Col>
                         </Row>
                     </Col>
                         </Row>
