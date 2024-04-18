@@ -47,7 +47,7 @@ function callAPI () {
           model: 'gpt-4-turbo',
           messages: [
             { role: "user", content: "Based on my answers what kind of industries should I be working in? " + combinedAnswers },
-            { role: "assistant", content: "Use these questions as context: " + combinedQuestions}
+            { role: "system", content: "Use these questions as context: " + combinedQuestions}
           ]
         })
       });
