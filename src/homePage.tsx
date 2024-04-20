@@ -1,5 +1,5 @@
 import './homePage.css';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { SwitchPages } from './interfaces/SwitchPages';
 import { SwitchPage } from './components/SwitchPage';
 
