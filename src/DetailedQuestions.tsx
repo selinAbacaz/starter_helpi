@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
-import { SwitchPages } from "./interfaces/SwitchPages";
-import { ShowHeader } from "./components/Header";
 
 interface DetailedQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -42,7 +40,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement}: Detailed
     );
 }
 
-export function DetailedQuestions({setCurrentPage}: SwitchPages): JSX.Element {
+export function DetailedQuestions(): JSX.Element {
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     /*function Description(): JSX.Element {
         return (
@@ -54,7 +52,6 @@ export function DetailedQuestions({setCurrentPage}: SwitchPages): JSX.Element {
 
     return (
         <div>
-            <ShowHeader setCurrentPage={setCurrentPage} pageNumber={0}></ShowHeader>
             <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={answerArray.length}></ShowProgressBar>
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[0]} answerPlacement={0}></Question>
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[1]} answerPlacement={1}></Question>

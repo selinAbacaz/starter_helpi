@@ -4,7 +4,9 @@ import { Button, Form } from 'react-bootstrap';
 import { HomePage } from './homePage';
 import { BasicQuestions } from './BasicQuestions';
 import { DetailedQuestions } from './DetailedQuestions';
+import { NavBar } from './components/NavBar';
 import { ResultsPage } from './resultsPage';
+
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -31,6 +33,8 @@ function App() {
 
   return (
       <div className="App">
+
+        <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} varaint={""} type={""}></NavBar>
         {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} pageNumber={0}></HomePage>}
         {currentPage === 1 && <BasicQuestions setCurrentPage={setCurrentPage} pageNumber={1}></BasicQuestions>}
         {currentPage === 2 && <DetailedQuestions setCurrentPage={setCurrentPage} pageNumber={2}></DetailedQuestions>}
@@ -42,8 +46,6 @@ function App() {
           <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
         </Form>
       </div>
- 
-    
   );
 }
 
