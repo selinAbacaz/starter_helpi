@@ -35,10 +35,10 @@ function App() {
       <div className="App">
 
         <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} varaint={""} type={""}></NavBar>
-        {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} pageNumber={0}></HomePage>}
-        {currentPage === 1 && <BasicQuestions setCurrentPage={setCurrentPage} pageNumber={1}></BasicQuestions>}
-        {currentPage === 2 && <DetailedQuestions setCurrentPage={setCurrentPage} pageNumber={2}></DetailedQuestions>}
-        {currentPage === 3 && <ResultsPage setCurrentPage={setCurrentPage} pageNumber={3}></ResultsPage>}
+        {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} pageNumber={0} varaint={""} type={""}></HomePage>}
+        {currentPage === 1 && <BasicQuestions></BasicQuestions>}
+        {currentPage === 2 && <DetailedQuestions></DetailedQuestions>}
+        {currentPage === 3 && <ResultsPage></ResultsPage>}
         <Form>
           <Form.Label>API Key:</Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
