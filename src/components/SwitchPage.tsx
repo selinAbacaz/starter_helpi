@@ -1,7 +1,7 @@
 import { Button, Nav } from "react-bootstrap";
 import { SwitchPages } from "../interfaces/SwitchPages";
 
-export function SwitchPage ({ setCurrentPage, pageNumber }: SwitchPages) {
+export function SwitchPage ({ setCurrentPage, pageNumber, varaint, type }: SwitchPages) {
     const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions","Results"];
   
     function changePage () {
