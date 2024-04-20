@@ -1,5 +1,5 @@
 import './homePage.css';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { SwitchPages } from './interfaces/SwitchPages';
 import { SwitchPage } from './components/SwitchPage';
 
@@ -17,7 +17,7 @@ export function HomePage ({setCurrentPage}: SwitchPages) {
                     <Col>
                         <Row style={{display:"flex", justifyContent:"right"}}>
                         <Col className= "  red box">
-                            <SwitchPage setCurrentPage={setCurrentPage} pageNumber={1} varaint={"primary"} /*Basic Question Button*/></SwitchPage> 
+                            <SwitchPage setCurrentPage={setCurrentPage} pageNumber={1} varaint={"primary"} type={"button"} /*Basic Question Button*/></SwitchPage>
                         </Col>
                         <Col className= "  green box">
                             Take the basic career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The basic quiz consists of 10 shorter questions to provide a quick and easy experience to determine your results.
@@ -25,7 +25,7 @@ export function HomePage ({setCurrentPage}: SwitchPages) {
                         </Row>
                         <Row style={{display:"flex", justifyContent:"right"}}>
                             <Col className= "  pink box">
-                                <SwitchPage setCurrentPage={setCurrentPage} pageNumber={2} varaint={"primary"} /*Detailed Question Button*/></SwitchPage>
+                                <SwitchPage setCurrentPage={setCurrentPage} pageNumber={2} varaint={"primary"} type={"button"}/*Detailed Question Button*/></SwitchPage>
                             </Col>
                             <Col className= "  orange box">
                             Take the detailed career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The detailed quiz consists of 10 longer and more detailed questions to provide the more accurate results.

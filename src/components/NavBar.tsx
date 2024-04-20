@@ -2,24 +2,18 @@ import { Nav, Navbar } from "react-bootstrap";
 import { SwitchPages } from "../interfaces/SwitchPages";
 import { SwitchPage } from "./SwitchPage";
 
-export function NavBar ({setCurrentPage, pageNumber}: SwitchPages) {
-    const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions"];
+export function NavBar ({setCurrentPage}: SwitchPages) {
     return (
-        <div>
-        <Navbar sticky="top">
-            <Navbar.Brand style={{fontSize: "25px"}}>Career Helpi</Navbar.Brand>
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav>
-                    <Nav.Link><SwitchPage setCurrentPage={setCurrentPage} pageNumber={0} varaint={"me-auto"}></SwitchPage></Nav.Link>
-                    <Nav.Link><SwitchPage setCurrentPage={setCurrentPage} pageNumber={1} varaint={"me-auto"}></SwitchPage></Nav.Link>
-                    <Nav.Link><SwitchPage setCurrentPage={setCurrentPage} pageNumber={2} varaint={"me-auto"}></SwitchPage></Nav.Link>
-                </Nav>
-                <Navbar.Collapse className="justify-content-center">
-                    <Navbar.Text style={{fontSize: "25px"}}>{buttonNames[pageNumber]}</Navbar.Text>
-                </Navbar.Collapse>
-            </Navbar.Collapse>
-        </Navbar>
-        </div>
-        
+    <Navbar sticky="top" style={{fontFamily: "Helvetica"}}>
+        <Navbar.Brand style={{fontSize: "25px"}}>Career Helpi</Navbar.Brand>
+        <Navbar.Collapse id="basic-navbar-nav">
+            <Nav variant="tabs" defaultActiveKey="Home">
+                <SwitchPage setCurrentPage={setCurrentPage} pageNumber={0} varaint={""} type={"nav"}></SwitchPage>
+                <SwitchPage setCurrentPage={setCurrentPage} pageNumber={1} varaint={""} type={"nav"}></SwitchPage>
+                <SwitchPage setCurrentPage={setCurrentPage} pageNumber={2} varaint={""} type={"nav"}></SwitchPage>
+            </Nav>
+        </Navbar.Collapse>
+       
+    </Navbar>
     )
 }

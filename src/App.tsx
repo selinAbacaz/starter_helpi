@@ -31,8 +31,8 @@ function App() {
 
   return (
       <div className="App">
-        <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} varaint={""}></NavBar>
-        {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} pageNumber={0} varaint={""}></HomePage>}
+        <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} varaint={""} type={""}></NavBar>
+        {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} pageNumber={0} varaint={""} type={""}></HomePage>}
         {currentPage === 1 && <BasicQuestions></BasicQuestions>}
         {currentPage === 2 && <DetailedQuestions></DetailedQuestions>}
         <Form>
