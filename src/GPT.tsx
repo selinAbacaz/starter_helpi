@@ -29,7 +29,7 @@ async function callGPT (key: string, combinedQuestions: string, combinedAnswers:
             { role: "user", content: "Based on my answers what kind of industries should I be working in? " + combinedAnswers},
             { role: "system", content: "You are a helpful assistant meant that helps people determine what industries they should be working in." },
             { role: "system", content: "Use these questions as context: " + combinedQuestions},
-            { role: "system", content: "Format the text as follows: Separate the answer into different industries. Put each bullet point on a new line."}
+            { role: "system", content: "Format the text as follows: Separate the answer into different industries."}
           ]
         })
       });
@@ -41,7 +41,7 @@ async function callGPT (key: string, combinedQuestions: string, combinedAnswers:
     } catch (error) {
       result = "Error!";
     }
-    return result;
+    return result.replace("\n", "");
 }
 
 export function GenerateText () {
@@ -54,7 +54,7 @@ export function GenerateText () {
   return (
     <div>
       <Button onClick={getAnswer}>Get Results!</Button>
-      <p style={{whiteSpace: "pre-wrap"}}>{result}</p>
+      <p>{result}</p>
     </div>
   );
 }
