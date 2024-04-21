@@ -10,7 +10,6 @@ async function formatQuestionsAndAnswers () {
   const combinedQuestions: string = questionsArray.join(",");
   const combinedAnswers: string = (answerArray.map((answer: string): string => "Question" + `${answerArray.indexOf(answer)}` + " Answer: " + answer)).join(",");
   const result: string = await callGPT(keyData, combinedQuestions, combinedAnswers)
-  
   return result;
 }
 
@@ -28,8 +27,7 @@ async function callGPT (key: string, combinedQuestions: string, combinedAnswers:
           messages: [
             { role: "user", content: "Based on my answers what kind of industries should I be working in? " + combinedAnswers},
             { role: "system", content: "You are a helpful assistant meant that helps people determine what industries they should be working in." },
-            { role: "system", content: "Use these questions as context: " + combinedQuestions},
-            { role: "system", content: "Format the text as follows: Separate the answer into different industries."}
+            { role: "system", content: "Use these questions as context: " + combinedQuestions}
           ]
         })
       });
