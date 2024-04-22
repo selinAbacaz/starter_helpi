@@ -3,7 +3,7 @@ import { ShowProgressBar } from "./components/ProgressBar";
 import { SwitchPages } from "./interfaces/SwitchPages";
 import { ShowHeader } from "./components/Header";
 import './BasicQuestions.css';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Form } from 'react-bootstrap';
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -57,14 +57,6 @@ export function BasicQuestions({setCurrentPage}: SwitchPages): JSX.Element {
 
     return (
         <div>
-            <title> header of basic questions page</title>
-            <header >
-                <div style={ {border: '3px pink', fontSize: 16, padding: '8px', color: "#ff6347", backgroundColor: "white"} }>
-                    <div className="right" style= {{marginLeft: 50}}> <p> Account | LogOut | Results   </p> </div>
-                    <div className="right"><ShowHeader setCurrentPage={setCurrentPage } pageNumber={0} ></ShowHeader></div>
-                    <p> Basic Questions Page </p>
-                </div>
-            </header>
 
 
             <title> header with information on how to take the quiz</title>
