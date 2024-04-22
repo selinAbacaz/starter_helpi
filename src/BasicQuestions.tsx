@@ -69,11 +69,11 @@ export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.El
     }*/
 
     return (
-        <div>
-            <div className="disableBlur">
+        <div className="disableBlur">
+            <div>
                 {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage}></ShowAlert>}
             </div>
-            <div className="disableBlur">
+            <div className={blurPage ? "enableBlur" : ""}>
                 <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={answerArray.length}></ShowProgressBar>
                 <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[0]} answerPlacement={0} submitted={submitted}></Question>
                 <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[1]} answerPlacement={1} submitted={submitted}></Question>

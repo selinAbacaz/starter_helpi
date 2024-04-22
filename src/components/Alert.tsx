@@ -11,13 +11,16 @@ export function ShowAlert ({ setBlurPage }: BlurPageProps) {
         setBlurPage(false);
     }
     return (
-        <ToastContainer position="middle-center" style={{filter: "blur(0)"}}>
-            <Toast show={showMessage} onClose={dismissMessage} >
-                <Toast.Header>
-                <strong className="me-auto">Quiz Completed!</strong>
-                </Toast.Header>
-                <Toast.Body>Congratulations! You have completed all of the questions! Go see your results!</Toast.Body>
-            </Toast>
-        </ToastContainer>
+        <div>
+            <ToastContainer position="middle-center">
+                <Toast show={showMessage} onClose={dismissMessage}>
+                    <Toast.Header>
+                        <strong className="me-auto">Quiz Completed!</strong>
+                    </Toast.Header>
+                    <Toast.Body>Congratulations! You have completed all of the questions! Go see your results!</Toast.Body>
+                </Toast>
+            </ToastContainer>
+        </div>
+        
     )
 }
