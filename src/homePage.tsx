@@ -25,7 +25,7 @@ export function HomePage ({setCurrentPage}: SwitchPages) {
                         </Row>
                         <Row style={{display:"flex", justifyContent:"right"}}>
                             <Col className= "  pink box">
-                                <SwitchPage setCurrentPage={setCurrentPage} pageNumber={2} varaint={"primary"} type={"button"}/*Detailed Question Button*/></SwitchPage>
+                                <SwitchPage setCurrentPage={setCurrentPage} pageNumber={2} varaint={"primary"} type={"button"} /*Detailed Question Button*/></SwitchPage>
                             </Col>
                             <Col className= "  orange box">
                             Take the detailed career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The detailed quiz consists of 10 longer and more detailed questions to provide the more accurate results.

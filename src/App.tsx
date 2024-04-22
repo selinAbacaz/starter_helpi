@@ -18,7 +18,7 @@ if (prevKey !== null) {
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
-  const [currentPage, setCurrentPage] = useState<number>(0)
+  const [currentPage, setCurrentPage] = useState<number>(0);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -33,7 +33,6 @@ function App() {
 
   return (
       <div className="App">
-
         <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} varaint={""} type={""}></NavBar>
         {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} pageNumber={0} varaint={""} type={""}></HomePage>}
         {currentPage === 1 && <BasicQuestions></BasicQuestions>}

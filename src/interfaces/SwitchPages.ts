@@ -8,5 +8,6 @@ export interface SwitchPages {
     * 0 - Home Page
     * 1 - Basic Questions Page
     * 2 - Detailed Questions Page
+    * 3 - Results Page
     */
 }

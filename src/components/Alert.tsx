@@ -3,7 +3,7 @@ import {  Toast, ToastContainer } from "react-bootstrap";
 
 export function ShowAlert () {
     const [showMessage, setShowMessage] = useState<boolean>(true);
-
+    
     function dismissMessage () {
         setShowMessage(false);
     }

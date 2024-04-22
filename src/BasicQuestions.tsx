@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
-import { ShowAlert } from "./components/Alert";
+import { Button } from "react-bootstrap";
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -64,6 +64,7 @@ export function BasicQuestions(): JSX.Element {
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[7]} answerPlacement={7}></Question>
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8}></Question>
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9}></Question>
+            <Button disabled={numQuestionsAnswered === 10}>Submit</Button>
         </div>
     )
 } 

@@ -14,6 +14,6 @@ export function SwitchPage ({ setCurrentPage, pageNumber, varaint, type }: Switc
         )
     }
     return (
-        <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={buttonNames[pageNumber]}><b>{buttonNames[pageNumber]}</b></Nav.Link>
+        <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={pageNumber}><b>{buttonNames[pageNumber]}</b></Nav.Link>
     )
 }
