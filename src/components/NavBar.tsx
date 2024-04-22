@@ -5,7 +5,7 @@ import { SwitchPage } from "./SwitchPage";
 
 export function NavBar ({setCurrentPage, pageNumber, blurPage}: SwitchPages3) {
     return (
-    <Navbar sticky="top" style={{fontFamily: "Helvetica"}}>
+    <Navbar style={{fontFamily: "Helvetica"}}>
         <Navbar.Brand style={{fontSize: "25px"}}>Career Helpi</Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav variant="tabs" defaultActiveKey={pageNumber} activeKey={pageNumber}>

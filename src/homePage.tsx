@@ -7,7 +7,7 @@ export function HomePage ({setCurrentPage, blurPage}: SwitchPages5) {
 
     return(
         <div>
-            <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#aebcda", justifyContent:"right"} }>
+            <div style={ {border: '3px white', padding: '4px', color: "#44506a", justifyContent:"right"} }>
                 <div >
                 <Container >
                 <Row >
@@ -18,9 +18,6 @@ export function HomePage ({setCurrentPage, blurPage}: SwitchPages5) {
                         <Row style={{display:"flex", justifyContent:"right"}}>
                         <Col className= "  red box">
                             <SwitchPage setCurrentPage={setCurrentPage} pageNumber={1} varaint={"primary"} type={"button"} blurPage={blurPage} /*Basic Question Button*/></SwitchPage>
-                        </Col>
-                        <Col className= "  green box">
-                            Take the basic career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The basic quiz consists of 10 shorter questions to provide a quick and easy experience to determine your results.
                         </Col>
                         </Row>
                         <Row style={{display:"flex", justifyContent:"right"}}>
