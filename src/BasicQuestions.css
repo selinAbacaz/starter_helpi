@@ -1,87 +1,36 @@
 .box {
-    height: 300px;
-    border: white 3px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
+  height: 300px;
+  border: white 3px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
 }
 
 .Questions {
-    
-    margin: 80px auto; /* Center the box horizontally */
-    text-align: left;
-    margin-left: 30px; /* for left margin */
-    margin-right: 350px; /* for right margin */
-    justify-content: column;
-}
-.red {
-    background-color: #ff6347;
-}
-.green {
-    background-color: #79cb6f;
+
+  margin: 80px auto; /* Center the box horizontally */
+  text-align: left;
+  margin-left: 30px; /* for left margin */
+  margin-right: 350px; /* for right margin */
+  justify-content: column;
+
 }
 
-.left {
-    justify-content: left;
-  }
-  
-  .right {
-    float: right;
-  }
+.margins{
 
-  .inlineEnd{
-    float: inline-end;
-  }
+  margin-left: 180px; /* for left margin */
+  margin-right: 180px; /* for right margin */
 
-  .margins{
-    margin-left: 180px; /* for left margin */
-    margin-right: 180px; /* for right margin */
-  }
-
-  .pink {
-    background-color: #e36c6c;
-  }
-  .orange {
-    background-color: #f2a635;
-  }
-
-
-.HomePage-body {
-    background-color: #4f689b;
-    min-height: 100vh;
-
-
-
-    /*
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: rgb(248, 233, 233);*/
-
-  }
-
-  .home-header {
-    width: 100%;
-    background-color: #282c34;
-    background-color: #c74545;
-    min-height: 40vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
 }
 
-.test {
-    background: #ffba6f url('C:\Users\selin\Desktop\CISC Classes\CISC 275\starter_helpi\testAgain.png') center center no-repeat; /* Solid color background with background image */
+.image {
+
+    background: #ffba6f url("././assets/images/BasicBG2.png") center center no-repeat; /* Solid color background with background image */
     background-size: cover; /* Cover the entire container */
     height: 50vh; /* Adjust height as needed */
-    /* Additional styles for your container */
+
 }
