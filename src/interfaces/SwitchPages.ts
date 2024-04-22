@@ -1,6 +1,8 @@
 export interface SwitchPages {
     setCurrentPage: (newPage: number) => void; // Function to change to a new Page
-    pageNumber: number
+    pageNumber: number // Determines the page
+    varaint: string // Determines varaint of button
+    type: string
 
     /*
     * 0 - Home Page

@@ -45,7 +45,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement}: BasicQue
     );
 }
 
-export function BasicQuestions({setCurrentPage}: SwitchPages): JSX.Element {
+export function BasicQuestions(): JSX.Element {
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     /*function Description(): JSX.Element {
         return (
@@ -57,6 +57,7 @@ export function BasicQuestions({setCurrentPage}: SwitchPages): JSX.Element {
 
     return (
         <div>
+
 
 
             <title> header with information on how to take the quiz</title>
