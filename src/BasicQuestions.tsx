@@ -86,7 +86,7 @@ export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.El
                 <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8} submitted={submitted}></Question>
                 <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9} submitted={submitted}></Question>
                 <br></br>
-                <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10}>{submitButtonText}</Button>
+                <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10 || blurPage}>{submitButtonText}</Button>
             </div>
         </div>
         

@@ -1,7 +1,7 @@
 import { Button, Nav } from "react-bootstrap";
-import { SwitchPages } from "../interfaces/SwitchPages";
+import { SwitchPages4 } from "../interfaces/SwitchPages";
 
-export function SwitchPage ({ setCurrentPage, pageNumber, varaint, type }: SwitchPages) {
+export function SwitchPage ({ setCurrentPage, pageNumber, varaint, type, blurPage }: SwitchPages4) {
     const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions","Results"];
   
     function changePage () {
@@ -10,10 +10,11 @@ export function SwitchPage ({ setCurrentPage, pageNumber, varaint, type }: Switc
 
     if (type === "button") {
         return (
-            <Button variant={varaint} onClick={changePage}>{buttonNames[pageNumber]}</Button>
+            <Button 
+            variant={varaint} onClick={changePage} disabled={blurPage}>{buttonNames[pageNumber]}</Button>
         )
     }
     return (
-        <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={pageNumber}><b>{buttonNames[pageNumber]}</b></Nav.Link>
+        <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={pageNumber} disabled={blurPage}><b>{buttonNames[pageNumber]}</b></Nav.Link>
     )
 }

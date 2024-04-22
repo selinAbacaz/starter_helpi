@@ -34,16 +34,16 @@ function App() {
 
   return (
       <div className={blurPage ? "App enableBlur" : "App"}>
-        <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} varaint={""} type={""}></NavBar>
-        {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} pageNumber={0} varaint={""} type={""}></HomePage>}
+        <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} blurPage={blurPage}></NavBar>
+        {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} blurPage={blurPage}></HomePage>}
         {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage}></BasicQuestions>}
         {currentPage === 2 && <DetailedQuestions></DetailedQuestions>}
         {currentPage === 3 && <ResultsPage></ResultsPage>}
         <Form>
           <Form.Label>API Key:</Form.Label>
-          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage}></Form.Control>
           <br></br>
-          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+          <Button className="Submit-Button" onClick={handleSubmit} disabled={blurPage}>Submit</Button>
         </Form>
       </div>
   );
