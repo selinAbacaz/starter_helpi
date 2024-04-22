@@ -17,7 +17,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #2062bf;
+  background-color: #ffaf6e;
 
 
 }
@@ -40,12 +40,12 @@
     background-color: #e36c6c;
   }
   .orange {
-    background-color: #f09d22;
+    background-color: #ffb74a;
   }
 
 
 .HomePage-body {
-    background-color: #4f689b;
+    background-color: #ffaf6e;
     min-height: 100vh;
 
     /*
@@ -60,8 +60,7 @@
 
   .home-header {
     width: 100%;
-    background-color: #282c34;
-    background-color: #c74545;
+    background-color: #ffaf6e;
     min-height: 40vh;
     display: flex;
     flex-direction: column;
