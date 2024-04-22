@@ -6,6 +6,7 @@ interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
     question: string;
     answerPlacement: number;
+    submitted: boolean
 }
 
 const answerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
@@ -23,7 +24,7 @@ const questionsArray: string[] =
     "Question 10: How much education do you plan to pursue? (High School Diploma, Bachelors, Masters, Doctorate)"
 ];
 
-function Question ({setNumQuestionAnswered, question, answerPlacement}: BasicQuestionsProps) {
+function Question ({setNumQuestionAnswered, question, answerPlacement, submitted}: BasicQuestionsProps) {
     const [userAnswer, setUserAnswer] = useState<string>(answerArray[answerPlacement]);
     
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
@@ -35,7 +36,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement}: BasicQue
     return (
         <div>
             <h3>{question}</h3>
-            <input type="text" value={userAnswer} onChange={updateAnswer} />
+            <input type="text" value={userAnswer} onChange={updateAnswer} disabled={submitted}/>
             <div>{userAnswer}</div>
         </div>
     );
@@ -43,6 +44,18 @@ function Question ({setNumQuestionAnswered, question, answerPlacement}: BasicQue
 
 export function BasicQuestions(): JSX.Element {
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
+    const [submitted, setSubmittedAnswers] = useState<boolean>(false);
+    const [submitButtonText, setSubmittButtonText] = useState<string>("Submit Answers");
+
+    function changeSubmitState () {
+        setSubmittedAnswers(!submitted)
+        if (submitButtonText === "Submit Answers") {
+            setSubmittButtonText("Change Answers");
+        }
+        else {
+            setSubmittButtonText("Submit Answers");
+        }
+    }
     /*function Description(): JSX.Element {
         return (
         <div> 
@@ -54,17 +67,18 @@ export function BasicQuestions(): JSX.Element {
     return (
         <div>
             <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={answerArray.length}></ShowProgressBar>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[0]} answerPlacement={0}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[1]} answerPlacement={1}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[2]} answerPlacement={2}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[3]} answerPlacement={3}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[4]} answerPlacement={4}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[5]} answerPlacement={5}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[6]} answerPlacement={6}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[7]} answerPlacement={7}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9}></Question>
-            <Button disabled={numQuestionsAnswered === 10}>Submit</Button>
+            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[0]} answerPlacement={0} submitted={submitted}></Question>
+            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[1]} answerPlacement={1} submitted={submitted}></Question>
+            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[2]} answerPlacement={2} submitted={submitted}></Question>
+            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[3]} answerPlacement={3} submitted={submitted}></Question>
+            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[4]} answerPlacement={4} submitted={submitted}></Question>
+            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[5]} answerPlacement={5} submitted={submitted}></Question>
+            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[6]} answerPlacement={6} submitted={submitted}></Question>
+            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[7]} answerPlacement={7} submitted={submitted}></Question>
+            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8} submitted={submitted}></Question>
+            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9} submitted={submitted}></Question>
+            <br></br>
+            <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10}>{submitButtonText}</Button>
         </div>
     )
 } 
