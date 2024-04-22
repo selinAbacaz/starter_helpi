@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
-import { SwitchPages } from "./interfaces/SwitchPages";
-import { ShowHeader } from "./components/Header";
+import { Col, Row } from 'react-bootstrap';
 import './BasicQuestions.css';
-import { Col, Container, Row, Form } from 'react-bootstrap';
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -57,16 +55,12 @@ export function BasicQuestions(): JSX.Element {
 
     return (
         <div>
-
-
-
-            <title> header with information on how to take the quiz</title>
-            <Row className="test" style={ {border: '2px white', padding: '2px', color: "#44506a"} }>
-
+            {/* Header with information on how to take the quiz */}
+            <Row className="image" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
                 <Col style= {{marginLeft: 340}}>
                     <header className= "box">
                         <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                            <div  > <p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
+                            <div> <p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
                         </div>
                     </header>
                 </Col>
@@ -78,10 +72,8 @@ export function BasicQuestions(): JSX.Element {
                     </header>
                     
                 </Col>
-                
             </Row>
-
-            <title> progress bar's own little box </title>
+            {/* progress bar's own little box */}
             <header>
                 <div style={ {padding: '8px', backgroundColor: "white"} }>
                     <p></p>
@@ -89,23 +81,21 @@ export function BasicQuestions(): JSX.Element {
                     <p></p>
                 </div>
             </header>
-
-            <title> body with all questions</title>
-            <body className= "margins" style={ {padding: '4px', color: "white", backgroundColor: "salmon", justifyContent:"right", borderRadius: 20} }>
+            {/* Body with all questions */}
+            <div className= "margins" style={ {padding: '4px', color: "white", backgroundColor: "salmon", justifyContent:"right", borderRadius: 20} }>
                 <div className= "Questions">
-                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[0]} answerPlacement={0} ></Question>
-                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[1]} answerPlacement={1}></Question>
-                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[2]} answerPlacement={2}></Question>
-                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[3]} answerPlacement={3}></Question>
-                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[4]} answerPlacement={4}></Question>
-                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[5]} answerPlacement={5}></Question>
-                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[6]} answerPlacement={6}></Question>
-                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[7]} answerPlacement={7}></Question>
-                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8}></Question>
-                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[0]} answerPlacement={0}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[1]} answerPlacement={1}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[2]} answerPlacement={2}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[3]} answerPlacement={3}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[4]} answerPlacement={4}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[5]} answerPlacement={5}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[6]} answerPlacement={6}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[7]} answerPlacement={7}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9}></Question>
                 </div>
-                
-            </body>
+            </div>
         </div>
     )
 } 
