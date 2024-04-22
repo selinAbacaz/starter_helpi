@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
 import { Button } from "react-bootstrap";
+import { ShowAlert } from "./components/Alert";
+import { BlurPageProps } from "./interfaces/BlurPage";
+import "./App.css"
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -42,7 +45,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
     );
 }
 
-export function BasicQuestions(): JSX.Element {
+export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.Element {
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false);
     const [submitButtonText, setSubmittButtonText] = useState<string>("Submit Answers");
@@ -51,6 +54,7 @@ export function BasicQuestions(): JSX.Element {
         setSubmittedAnswers(!submitted)
         if (submitButtonText === "Submit Answers") {
             setSubmittButtonText("Change Answers");
+            setBlurPage(true);
         }
         else {
             setSubmittButtonText("Submit Answers");
@@ -66,19 +70,25 @@ export function BasicQuestions(): JSX.Element {
 
     return (
         <div>
-            <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={answerArray.length}></ShowProgressBar>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[0]} answerPlacement={0} submitted={submitted}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[1]} answerPlacement={1} submitted={submitted}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[2]} answerPlacement={2} submitted={submitted}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[3]} answerPlacement={3} submitted={submitted}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[4]} answerPlacement={4} submitted={submitted}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[5]} answerPlacement={5} submitted={submitted}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[6]} answerPlacement={6} submitted={submitted}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[7]} answerPlacement={7} submitted={submitted}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8} submitted={submitted}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9} submitted={submitted}></Question>
-            <br></br>
-            <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10}>{submitButtonText}</Button>
+            <div className="disableBlur">
+                {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage}></ShowAlert>}
+            </div>
+            <div className="disableBlur">
+                <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={answerArray.length}></ShowProgressBar>
+                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[0]} answerPlacement={0} submitted={submitted}></Question>
+                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[1]} answerPlacement={1} submitted={submitted}></Question>
+                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[2]} answerPlacement={2} submitted={submitted}></Question>
+                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[3]} answerPlacement={3} submitted={submitted}></Question>
+                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[4]} answerPlacement={4} submitted={submitted}></Question>
+                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[5]} answerPlacement={5} submitted={submitted}></Question>
+                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[6]} answerPlacement={6} submitted={submitted}></Question>
+                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[7]} answerPlacement={7} submitted={submitted}></Question>
+                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8} submitted={submitted}></Question>
+                <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9} submitted={submitted}></Question>
+                <br></br>
+                <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10}>{submitButtonText}</Button>
+            </div>
         </div>
+        
     )
 } 

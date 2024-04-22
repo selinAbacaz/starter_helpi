@@ -1,3 +1,11 @@
+.enableBlur>* {
+  filter: blur(3px);
+}
+
+.disableBlur {
+  filter: blur(0);
+}
+
 .App {
   text-align: center;
 }

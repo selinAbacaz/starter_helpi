@@ -19,6 +19,7 @@ if (prevKey !== null) {
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [currentPage, setCurrentPage] = useState<number>(0);
+  const [blurPage, setBlurPage] = useState<boolean>(false);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -32,10 +33,10 @@ function App() {
   }
 
   return (
-      <div className="App">
+      <div className={blurPage ? "App enableBlur" : "App"}>
         <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} varaint={""} type={""}></NavBar>
         {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} pageNumber={0} varaint={""} type={""}></HomePage>}
-        {currentPage === 1 && <BasicQuestions></BasicQuestions>}
+        {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage}></BasicQuestions>}
         {currentPage === 2 && <DetailedQuestions></DetailedQuestions>}
         {currentPage === 3 && <ResultsPage></ResultsPage>}
         <Form>

@@ -1,14 +1,17 @@
 import { useState } from "react";
 import {  Toast, ToastContainer } from "react-bootstrap";
+import { BlurPageProps } from "../interfaces/BlurPage";
+import "../App.css"
 
-export function ShowAlert () {
+export function ShowAlert ({ setBlurPage }: BlurPageProps) {
     const [showMessage, setShowMessage] = useState<boolean>(true);
     
     function dismissMessage () {
         setShowMessage(false);
+        setBlurPage(false);
     }
     return (
-        <ToastContainer position="top-start">
+        <ToastContainer position="middle-center" style={{filter: "blur(0)"}}>
             <Toast show={showMessage} onClose={dismissMessage} >
                 <Toast.Header>
                 <strong className="me-auto">Quiz Completed!</strong>
