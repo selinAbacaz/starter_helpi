@@ -4,7 +4,9 @@ import { Button, Form } from 'react-bootstrap';
 import { HomePage } from './homePage';
 import { BasicQuestions } from './BasicQuestions';
 import { DetailedQuestions } from './DetailedQuestions';
+import { NavBar } from './components/NavBar';
 import { ResultsPage } from './resultsPage';
+
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -16,7 +18,8 @@ if (prevKey !== null) {
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
-  const [currentPage, setCurrentPage] = useState<number>(0)
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [blurPage, setBlurPage] = useState<boolean>(false);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -30,20 +33,19 @@ function App() {
   }
 
   return (
-      <div className="App">
-        {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} pageNumber={0}></HomePage>}
-        {currentPage === 1 && <BasicQuestions setCurrentPage={setCurrentPage} pageNumber={1}></BasicQuestions>}
-        {currentPage === 2 && <DetailedQuestions setCurrentPage={setCurrentPage} pageNumber={2}></DetailedQuestions>}
-        {currentPage === 3 && <ResultsPage setCurrentPage={setCurrentPage} pageNumber={3}></ResultsPage>}
+      <div className={blurPage ? "App enableBlur" : "App"}>
+        <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} blurPage={blurPage}></NavBar>
+        {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} blurPage={blurPage}></HomePage>}
+        {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage}></BasicQuestions>}
+        {currentPage === 2 && <DetailedQuestions></DetailedQuestions>}
+        {currentPage === 3 && <ResultsPage></ResultsPage>}
         <Form>
           <Form.Label>API Key:</Form.Label>
-          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage}></Form.Control>
           <br></br>
-          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+          <Button className="Submit-Button" onClick={handleSubmit} disabled={blurPage}>Submit</Button>
         </Form>
       </div>
- 
-    
   );
 }
 
