@@ -1,8 +1,7 @@
 import './resultsPage.css';
-import { Col, Container, Row } from 'react-bootstrap';
-import { SwitchPages } from './interfaces/SwitchPages';
+import {Col} from 'react-bootstrap';
 
-export function ResultsPage ({setCurrentPage}: SwitchPages) {
+export function ResultsPage () {
 
     return(
         <div>
