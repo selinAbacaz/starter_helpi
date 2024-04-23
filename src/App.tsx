@@ -37,7 +37,7 @@ function App() {
         <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} blurPage={blurPage}></NavBar>
         {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} blurPage={blurPage}></HomePage>}
         {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage}></BasicQuestions>}
-        {currentPage === 2 && <DetailedQuestions></DetailedQuestions>}
+        {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage}></DetailedQuestions>}
         {currentPage === 3 && <ResultsPage></ResultsPage>}
         <Form>
           <Form.Label>API Key:</Form.Label>
