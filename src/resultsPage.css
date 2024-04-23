@@ -4,7 +4,6 @@
   padding-left: 100px;
   padding-top: 50px;
   width: 1200px;
-  height: 1200px;
   background-color: white;
   align-items: center;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
@@ -26,3 +25,37 @@
   color: white;
 }
 
+.name1 {
+  width: 200px;
+  height: 300px;
+}
+.name2 img {
+  width: 500px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  align-items: center;
+}
+
+.name3 {
+  width: 300px;
+  height: 300px;
+}
+.name4 {
+  width: 200px;
+  height: 300px;
+}
+.title1 {
+  color: orange
+
+}
+.title2 {
+  color: purple
+
+}
+.title3 {
+  color: blue
+
+}
+.title4 {
+  color: green
+
+}
