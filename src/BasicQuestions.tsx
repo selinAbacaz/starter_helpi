@@ -93,23 +93,26 @@ export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.El
         */
         <div className="disableBlur">
             {/* Header with information on how to take the quiz */}
-            <Row className={blurPage ? "image enableBlur" : "image"} style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
-                <Col style= {{marginLeft: 340}}>
-                    <header className= "box">
-                        <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                            <div> <p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
-                        </div>
-                    </header>
-                </Col>
-                <Col style= {{marginRight: 340}}>
-                    <header className= "box " >
-                        <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                            <div  > <p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
-                        </div>
-                    </header>
-                    
-                </Col>
-            </Row>
+            <div className={blurPage ? "enableBlur" : ""}>
+                <Row className="image" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
+                    <Col style= {{marginLeft: 340}}>
+                        <header className= "box">
+                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
+                                <div> <p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
+                            </div>
+                        </header>
+                    </Col>
+                    <Col style= {{marginRight: 340}}>
+                        <header className= "box " >
+                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
+                                <div  > <p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
+                            </div>
+                        </header>
+                        
+                    </Col>
+                </Row>
+            </div>
+            
             {/* progress bar's own little box */}
             <header className={blurPage ? "enableBlur" : ""}>
                 <div style={ {padding: '8px', backgroundColor: "white"} }>
