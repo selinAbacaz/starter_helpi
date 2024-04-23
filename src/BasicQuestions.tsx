@@ -41,7 +41,6 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
         <div>
             <h3 style={{marginBottom:20}}>{question}</h3>
             <input type="text" value={userAnswer} onChange={updateAnswer} disabled={submitted}/>
-            <div>{userAnswer}</div>
             <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
         </div>
     );
@@ -62,13 +61,6 @@ export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.El
             setSubmittButtonText("Submit Answers");
         }
     }
-    /*function Description(): JSX.Element {
-        return (
-        <div> 
-            <p>Take the basic career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The basic quiz consists of __ shorter questions to provide a quick and easy experience to determine your results. </p>
-        </div>
-        );
-    }*/
 
     return (
         <div className="disableBlur">
