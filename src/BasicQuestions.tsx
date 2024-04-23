@@ -76,14 +76,33 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
         return (
             <div>
                 <h3 style={{marginBottom:20}}>{question}</h3>
-                <Form.Range min={1} max={10} step={1} defaultValue={1} onChange={updateAnswer} style={{width: "50%"}}>
-                </Form.Range>
+                <Form style={{width: "50%"}}>
+                    <Form.Range 
+                        min={1} 
+                        max={10} 
+                        step={1} 
+                        defaultValue={1} 
+                        onChange={updateAnswer}>
+                    </Form.Range>
+                    <Form.Text style={{color: "white"}}>
+                        <div className="d-flex justify-content-between">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                        </div>
+                    </Form.Text>
+                </Form>
                 <div>{userAnswer}</div>
                 <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
             </div>
         );
-        
-        
     }
     
     return (
