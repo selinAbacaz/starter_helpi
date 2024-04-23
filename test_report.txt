@@ -2,46 +2,8 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
-  console.error
-    Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
-        at body
-        at div
-        at div
-        at HomePage (/home/runner/work/starter_helpi/starter_helpi/src/homePage.tsx:6:28)
-        at div
-        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:20:33)
-
-      4 |
-      5 | test('renders learn react link', () => {
-    > 6 |   render(<App />);
-        |         ^
-      7 |   const linkElement = screen.getByText(/learn react/i);
-      8 |   expect(linkElement).toBeInTheDocument();
-      9 | });
-
-      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
-      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
-      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10847:7)
-      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10930:5)
-      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:22187:28)
-      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26593:16)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26568:5)
-      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
-      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
-      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
-      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
-      at act (node_modules/react/cjs/react.development.js:2582:11)
-      at node_modules/@testing-library/react/dist/act-compat.js:63:25
-      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
-      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
-      at Object.<anonymous> (src/App.test.tsx:6:9)
-      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
-      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
-      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
-      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
-
 FAIL src/App.test.tsx
-  ✕ renders learn react link (118 ms)
+  ✕ renders learn react link (68 ms)
 
   ● renders learn react link
 
@@ -72,7 +34,7 @@ FAIL src/App.test.tsx
               [36m>[39m
                 [36m<a[39m
                   [33mclass[39m=[32m"nav-link active"[39m
-                  [33mdata-rr-ui-event-key[39m=[32m"Home"[39m
+                  [33mdata-rr-ui-event-key[39m=[32m"0"[39m
                   [33mhref[39m=[32m"#"[39m
                   [33mrole[39m=[32m"button"[39m
                   [33mstyle[39m=[32m"color: rgb(255, 99, 71);"[39m
@@ -84,7 +46,7 @@ FAIL src/App.test.tsx
                 [36m</a>[39m
                 [36m<a[39m
                   [33mclass[39m=[32m"nav-link"[39m
-                  [33mdata-rr-ui-event-key[39m=[32m"Basic Questions"[39m
+                  [33mdata-rr-ui-event-key[39m=[32m"1"[39m
                   [33mhref[39m=[32m"#"[39m
                   [33mrole[39m=[32m"button"[39m
                   [33mstyle[39m=[32m"color: rgb(255, 99, 71);"[39m
@@ -96,7 +58,7 @@ FAIL src/App.test.tsx
                 [36m</a>[39m
                 [36m<a[39m
                   [33mclass[39m=[32m"nav-link"[39m
-                  [33mdata-rr-ui-event-key[39m=[32m"Detailed Questions"[39m
+                  [33mdata-rr-ui-event-key[39m=[32m"2"[39m
                   [33mhref[39m=[32m"#"[39m
                   [33mrole[39m=[32m"button"[39m
                   [33mstyle[39m=[32m"color: rgb(255, 99, 71);"[39m
@@ -110,76 +72,71 @@ FAIL src/App.test.tsx
             [36m</div>[39m
           [36m</nav>[39m
           [36m<div>[39m
-            [36m<title>[39m
-              [0m header of page [0m
-            [36m</title>[39m
-            [36m<div>[39m
-              [36m<body[39m
-                [33mstyle[39m=[32m"border: 3px white; padding: 4px; color: rgb(68, 80, 106); background-color: white; justify-content: right;"[39m
-              [36m>[39m
-                [36m<div>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"border: 3px white; padding: 4px; color: rgb(68, 80, 106); justify-content: right;"[39m
+            [36m>[39m
+              [36m<div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"container"[39m
+                [36m>[39m
                   [36m<div[39m
-                    [33mclass[39m=[32m"container"[39m
+                    [33mclass[39m=[32m"row"[39m
                   [36m>[39m
                     [36m<div[39m
-                      [33mclass[39m=[32m"row"[39m
+                      [33mclass[39m=[32m" box2 col"[39m
+                    [36m>[39m
+                      [0mmeow12[0m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"col"[39m
                     [36m>[39m
                       [36m<div[39m
-                        [33mclass[39m=[32m" box2 col"[39m
-                      [36m>[39m
-                        [0mmeow12[0m
-                      [36m</div>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"col"[39m
+                        [33mclass[39m=[32m"row"[39m
+                        [33mstyle[39m=[32m"display: flex; justify-content: right;"[39m
                       [36m>[39m
                         [36m<div[39m
-                          [33mclass[39m=[32m"row"[39m
-                          [33mstyle[39m=[32m"display: flex; justify-content: right;"[39m
+                          [33mclass[39m=[32m"box col"[39m
+                          [33mstyle[39m=[32m"background-color: salmon;"[39m
                         [36m>[39m
-                          [36m<div[39m
-                            [33mclass[39m=[32m"box col"[39m
-                            [33mstyle[39m=[32m"background-color: salmon;"[39m
+                          [36m<button[39m
+                            [33mclass[39m=[32m"btn btn-primary"[39m
+                            [33mtype[39m=[32m"button"[39m
                           [36m>[39m
-                            [36m<button[39m
-                              [33mclass[39m=[32m"btn btn-primary"[39m
-                              [33mtype[39m=[32m"button"[39m
-                            [36m>[39m
-                              [0mBasic Questions[0m
-                            [36m</button>[39m
-                          [36m</div>[39m
-                          [36m<div[39m
-                            [33mclass[39m=[32m"box col"[39m
-                            [33mstyle[39m=[32m"background-color: rgb(255, 99, 71);"[39m
-                          [36m>[39m
-                            [0mTake the basic career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The basic quiz consists of 10 shorter questions to provide a quick and easy experience to determine your results.[0m
-                          [36m</div>[39m
+                            [0mBasic Questions[0m
+                          [36m</button>[39m
                         [36m</div>[39m
                         [36m<div[39m
-                          [33mclass[39m=[32m"row"[39m
-                          [33mstyle[39m=[32m"display: flex; justify-content: right;"[39m
+                          [33mclass[39m=[32m"box col"[39m
+                          [33mstyle[39m=[32m"background-color: rgb(255, 99, 71);"[39m
                         [36m>[39m
-                          [36m<div[39m
-                            [33mclass[39m=[32m"box col"[39m
-                            [33mstyle[39m=[32m"background-color: rgb(254, 138, 46);"[39m
+                          [0mTake the basic career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The basic quiz consists of 10 shorter questions to provide a quick and easy experience to determine your results.[0m
+                        [36m</div>[39m
+                      [36m</div>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"row"[39m
+                        [33mstyle[39m=[32m"display: flex; justify-content: right;"[39m
+                      [36m>[39m
+                        [36m<div[39m
+                          [33mclass[39m=[32m"box col"[39m
+                          [33mstyle[39m=[32m"background-color: rgb(254, 138, 46);"[39m
+                        [36m>[39m
+                          [36m<button[39m
+                            [33mclass[39m=[32m"btn btn-primary"[39m
+                            [33mtype[39m=[32m"button"[39m
                           [36m>[39m
-                            [36m<button[39m
-                              [33mclass[39m=[32m"btn btn-primary"[39m
-                              [33mtype[39m=[32m"button"[39m
-                            [36m>[39m
-                              [0mDetailed Questions[0m
-                            [36m</button>[39m
-                          [36m</div>[39m
-                          [36m<div[39m
-                            [33mclass[39m=[32m"orange box col"[39m
-                          [36m>[39m
-                            [0mTake the detailed career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The detailed quiz consists of 10 longer and more detailed questions to provide the more accurate results.[0m
-                          [36m</div>[39m
+                            [0mDetailed Questions[0m
+                          [36m</button>[39m
+                        [36m</div>[39m
+                        [36m<div[39m
+                          [33mclass[39m=[32m"orange box col"[39m
+                        [36m>[39m
+                          [0mTake the detailed career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The detailed quiz consists of 10 longer and more detailed questions to provide the more accurate results.[0m
                         [36m</div>[39m
                       [36m</div>[39m
                     [36m</div>[39m
                   [36m</div>[39m
                 [36m</div>[39m
-              [36m</body>[39m
+              [36m</div>[39m
             [36m</div>[39m
           [36m</div>[39m
           [36m<form[39m
@@ -228,26 +185,28 @@ FAIL src/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   28.33 |    26.66 |   19.04 |   30.35 |                   
- src                    |   26.08 |    27.27 |   11.76 |   28.57 |                   
-  App.tsx               |   63.63 |       60 |   33.33 |   63.63 | 16,25-31          
-  BasicQuestions.tsx    |   18.18 |        0 |       0 |   22.22 | 28-56             
+All files               |   22.78 |    20.45 |   14.81 |      24 |                   
+ src                    |   24.07 |    19.44 |   11.11 |      26 |                   
+  App.tsx               |   66.66 |    58.33 |   33.33 |   66.66 | 16,26-32          
+  BasicQuestions.tsx    |   11.11 |        0 |       0 |    12.5 | 32-73             
   DetailedQuestions.tsx |   18.18 |        0 |       0 |   22.22 | 26-53             
   homePage.tsx          |     100 |      100 |     100 |     100 |                   
   index.tsx             |       0 |      100 |     100 |       0 | 8-20              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
   resultsPage.tsx       |       0 |      100 |       0 |       0 | 6                 
- src/components         |   35.71 |       25 |      50 |   35.71 |                   
+ src/components         |      20 |       25 |   22.22 |      20 |                   
+  Alert.tsx             |       0 |      100 |       0 |       0 | 7-27              
   NavBar.tsx            |     100 |      100 |     100 |     100 |                   
   ProgressBar.tsx       |       0 |        0 |       0 |       0 | 9-21              
   SwitchPage.tsx        |      80 |      100 |      50 |      80 | 8                 
  src/interfaces         |       0 |        0 |       0 |       0 |                   
+  BlurPage.ts           |       0 |        0 |       0 |       0 |                   
   SwitchPages.ts        |       0 |        0 |       0 |       0 |                   
 ------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.067 s
+Time:        3.353 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
