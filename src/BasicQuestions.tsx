@@ -13,7 +13,7 @@ interface BasicQuestionsProps {
     submitted: boolean
 }
 
-const answerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
+const answerArray: string[] = ["", "", "", "", "1", "1", "", "", "", ""];
 const questionsArray: string[] = 
 [
     "Question 1: What is most important to you in a job between: Salary, Work Life Balance, Growth, Helping Others, Making a Difference",
@@ -45,7 +45,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
     const [userAnswer, setUserAnswer] = useState<string>(answerArray[answerPlacement]);
     
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
-        setUserAnswer(event.target.value);
+        setUserAnswer(event.target.value.toString());
         answerArray[answerPlacement] = event.target.value;
         setNumQuestionAnswered(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     }
@@ -76,10 +76,9 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
         return (
             <div>
                 <h3 style={{marginBottom:20}}>{question}</h3>
-                <Form.Range
-                    min={1}
-                    max={10}>
+                <Form.Range min={1} max={10} step={1} defaultValue={1} onChange={updateAnswer} style={{width: "50%"}}>
                 </Form.Range>
+                <div>{userAnswer}</div>
                 <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
             </div>
         );
@@ -90,7 +89,16 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
     return (
         <div>
             <h3 style={{marginBottom:20}}>{question}</h3>
-            <input type="text" value={userAnswer} onChange={updateAnswer} disabled={submitted}/>
+            <Form style={{width: "50%"}}>
+                <Form.Control 
+                    type="input" 
+                    value={userAnswer} 
+                    onChange={updateAnswer} 
+                    disabled={submitted} 
+                    placeholder="Enter Answer Here...">
+                </Form.Control>
+            </Form>
+            <div>{userAnswer}</div>
             <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
         </div>
     );
@@ -164,6 +172,5 @@ export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.El
                 </div>
             </div>
         </div>
-        
     )
 } 
