@@ -5,7 +5,7 @@ import "../App.css"
 
 export function ShowAlert ({ setBlurPage }: BlurPageProps) {
     const [showMessage, setShowMessage] = useState<boolean>(true);
-    const [toastPosition, setToastPosition] = useState<number>(window.scrollY);
+    const [toastPosition, setToastPosition] = useState<number>(window.scrollY + 500);
     
     function dismissMessage () {
         setShowMessage(false);
@@ -14,7 +14,7 @@ export function ShowAlert ({ setBlurPage }: BlurPageProps) {
 
     useEffect(() => {
         const handleScroll = () => {
-          setToastPosition(window.scrollY);
+          setToastPosition(window.scrollY + 500);
         };
     
         window.addEventListener("scroll", handleScroll);
