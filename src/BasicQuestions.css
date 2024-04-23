@@ -1,0 +1,36 @@
+.box {
+
+  height: 300px;
+  border: white 3px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.Questions {
+
+  margin: 80px auto; /* Center the box horizontally */
+  text-align: left;
+  margin-left: 30px; /* for left margin */
+  margin-right: 350px; /* for right margin */
+  justify-content: column;
+
+}
+
+.margins{
+
+  margin-left: 180px; /* for left margin */
+  margin-right: 180px; /* for right margin */
+
+}
+
+.image {
+
+    background: #ffba6f url("././assets/images/BasicBG2.png") center center no-repeat; /* Solid color background with background image */
+    background-size: cover; /* Cover the entire container */
+    height: 50vh; /* Adjust height as needed */
+
+}
