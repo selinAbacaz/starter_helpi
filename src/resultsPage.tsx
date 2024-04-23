@@ -1,5 +1,6 @@
-import './homePage.css';
-import { Col, Container, Row } from 'react-bootstrap';
+import './resultsPage.css';
+import { SwitchPages } from './interfaces/SwitchPages';
+import {Col} from 'react-bootstrap';
 
 export function ResultsPage () {
 
@@ -14,35 +15,25 @@ export function ResultsPage () {
                     </div>
 
                 </header>
-                <body style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#aebcda", justifyContent:"right"} }>
+                <body style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
+
                     <div >
-                        <Container>
-                        <Col className = "navBar" style={{width: 3}}> 
-                        NAV BAR
-                    </Col>
-                        </Container>
-                    <Container >
-                        <Row>
-                    <Col>
-                        <Row className ="box2">
-                                Overview
-                        </Row>
-                        <Row className = "red box" style={{display:"flex"}}>
-                                Industry 
-                        </Row>
-                        <Row className= "  green box">
-                            Specific Jobs
-                        </Row>
-                        <Row className = " pink box" style={{display:"flex"}}>
-                                Other
-                        </Row>
-                        <Row className = " orange box">
-                                Other 2
-                        </Row>
-                    </Col>
-                        </Row>
-                   
-                    </Container>
+                    <Col className = "textBox">
+                            
+                            
+                    <p> Congratulations! You've just finished a complete assessment of your interests and personality and you're well on your way to discovering your ideal career path. </p>
+
+<p>In this free basic report, you'll see a summary of your scores in each of the six career interest areas. You'll learn more about what these scores mean, and how your top interest area can show which careers you are suited for. </p>
+
+<p>Then, we'll show you how key personality traits can point you toward a career that takes advantage of your natural strengths.</p>
+
+<p>Finally, we'll show you how to unlock your full report to get an in-depth profile of your interests and personality, along with personalized career planning advice and a complete listing of careers that match your individual interest profile.</p>
+
+<p>So, let's get started!</p>
+<h1> Your Work Style </h1>
+</Col>
+
+                    
                     </div>
                 </body>
             </div>
