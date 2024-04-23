@@ -26,7 +26,7 @@ export function ShowAlert ({ setBlurPage }: BlurPageProps) {
 
     return (
         <div>
-            <ToastContainer style={{top: toastPosition, transform: "translate(180%, 180%)"}}>
+            <ToastContainer style={{top: toastPosition, left: "50%", transform: "translate(-50%, -50%)"}}>
                 <Toast show={showMessage} onClose={dismissMessage} style={{width: "500px"}}>
                     <Toast.Header style={{fontSize: "28px"}}>
                         <strong className="me-auto">Quiz Completed!</strong>
