@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
 import { ShowAlert } from "./components/Alert";
 import { BlurPageProps } from "./interfaces/BlurPage";
-import { Button, Col, Form, Row } from 'react-bootstrap';
-import "./App.css"
+import { Button, Col, Row, Form } from 'react-bootstrap';
 import './BasicQuestions.css';
+import "./App.css"
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
