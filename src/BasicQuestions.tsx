@@ -67,7 +67,6 @@ export function BasicQuestions({setCurrentPage}: SwitchPages): JSX.Element {
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[7]} answerPlacement={7}></Question>
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8}></Question>
             <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9}></Question>
-            <GenerateText></GenerateText>
         </div>
     )
 } 
