@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
 import { ShowAlert } from "./components/Alert";
 import { BlurPageProps } from "./interfaces/BlurPage";
-import { Button, Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import './Questions.css';
 
 
