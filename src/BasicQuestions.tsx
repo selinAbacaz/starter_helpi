@@ -6,6 +6,7 @@ import './Questions.css';
 import './App.css'
 import { SwitchPage } from "./components/SwitchPage";
 import { SwitchPages6 } from "./interfaces/SwitchPages";
+import { GenerateText } from "./components/GPT";
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -130,16 +131,18 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
     );
 }
 
-export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage }: SwitchPages6): JSX.Element {
+export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverview, setIndustries }: SwitchPages6): JSX.Element {
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false);
     const [submitButtonText, setSubmittButtonText] = useState<string>("Submit Answers");
 
-    function changeSubmitState () {
+    async function changeSubmitState () {
         setSubmittedAnswers(!submitted)
         if (submitButtonText === "Submit Answers") {
             setSubmittButtonText("Change Answers");
             setBlurPage(true);
+            setOverview(await GenerateText("overview"));
+            setIndustries(await GenerateText("indsutry"));
         }
         else {
             setSubmittButtonText("Submit Answers");

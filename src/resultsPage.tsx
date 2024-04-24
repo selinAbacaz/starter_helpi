@@ -1,8 +1,8 @@
 import './resultsPage.css';
 import {Col, Row} from 'react-bootstrap';
+import { SwitchPages7 } from './interfaces/SwitchPages';
 
-export function ResultsPage () {
-
+export function ResultsPage ({setOverview, overview, setIndustries, industries}: SwitchPages7) {
     return(
         <div>
             <title> header of page </title>
@@ -22,10 +22,10 @@ export function ResultsPage () {
                             <p>Then, we'll show you how key personality traits can point you toward a career that takes advantage of your natural strengths.</p>
                             <p>Finally, we'll show you how to unlock your full report to get an in-depth profile of your interests and personality, along with personalized career planning advice and a complete listing of careers that match your individual interest profile.</p>
                             <p>So, let's get started!</p>
-                            <h1> Your Work Style </h1>
-                            <p>What motivates you? What do you find satisfying? What sorts of tasks and activities could you do every day, without getting bored?</p>
-                            <p>These are key questions to ask when searching for a career. Your ideal career will make the most of your strengths, so that your work feels natural and comfortable to you. It will tap into your core motivations, so that you have a sense that what you do is important and authentic to who you are. It will also suit you in a practical sense, by asking you to work on the sorts of tasks and activities that you naturally enjoy.</p>
-                            <p>The chart below describes how you process information and how you approach the problem-solving process. To read this chart and the other charts in this section, look at the size of each quadrant. A larger area indicates that a particular style is a better fit for you. Smaller areas indicate that the style is not a very good fit.</p>
+                            <h1> Overview </h1>
+                            <div>
+                                {overview}
+                            </div>
                             <Row>
                                 <Col>
                                     <Row className = "name1">
@@ -51,30 +51,10 @@ export function ResultsPage () {
                                     </Row>
                                 </Col>
                             </Row>
-                            <h1> Potential Jobs </h1>
-                            <Row>
-                                <Col>
-                                    <h3> JOB TITLE #1</h3>
-                                    <h5>Sample description. Sample description. Sample description. Sample description. Sample description. Sample description. Sample description. Sample description. Sample description. </h5>
-                                    <h6> Salary: ____</h6>
-                                    <h6> Job Location Type: ____</h6>
-                                    <h6> Education: ___</h6>
-                                </Col>
-                                <Col>
-                                    <h3> JOB TITLE #2</h3>
-                                    <h5>Sample description. Sample description. Sample description. Sample description. Sample description. Sample description. Sample description. Sample description. Sample description. </h5>
-                                    <h6> Salary: ____</h6>
-                                    <h6> Job Location Type: ____</h6>
-                                    <h6> Education: ___</h6>
-                                </Col>
-                                <Col>
-                                    <h3> JOB TITLE #3</h3>
-                                    <h5>Sample description. Sample description. Sample description. Sample description. Sample description. Sample description. Sample description. Sample description. Sample description. </h5>
-                                    <h6> Salary: ____</h6>
-                                    <h6> Job Location Type: ____</h6>
-                                    <h6> Education: ___</h6>
-                                </Col>
-                            </Row>
+                            <h1> Potential Industries </h1>
+                            <div>
+                                {industries}
+                            </div>
                         </Col>
                     </div>
                 </body>
