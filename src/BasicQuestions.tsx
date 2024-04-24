@@ -3,8 +3,7 @@ import { ShowProgressBar } from "./components/ProgressBar";
 import { ShowAlert } from "./components/Alert";
 import { BlurPageProps } from "./interfaces/BlurPage";
 import { Button, Col, Row } from 'react-bootstrap';
-import "./App.css"
-import './BasicQuestions.css';
+import './Questions.css';
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
