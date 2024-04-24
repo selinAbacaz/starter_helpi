@@ -10,11 +10,16 @@ export function SwitchPage ({ setCurrentPage, pageNumber, varaint, type, blurPag
 
     if (type === "button") {
         return (
-            <Button 
-            variant={varaint} onClick={changePage} disabled={blurPage}>{buttonNames[pageNumber]}</Button>
-        )
+            <Button variant={varaint} onClick={changePage} disabled={blurPage}>{buttonNames[pageNumber]}</Button>
+        );
+    }
+    else if (type === "results") {
+        return (
+            <Button variant={varaint} onClick={changePage}>Get Results!</Button>
+        );
+        
     }
     return (
         <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={pageNumber} disabled={blurPage}><b>{buttonNames[pageNumber]}</b></Nav.Link>
-    )
+    );
 }
