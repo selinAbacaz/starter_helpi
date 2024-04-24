@@ -1,11 +1,14 @@
 import { Button, Nav } from "react-bootstrap";
 import { SwitchPages4 } from "../interfaces/SwitchPages";
 
-export function SwitchPage ({ setCurrentPage, pageNumber, varaint, type, blurPage }: SwitchPages4) {
+export function SwitchPage ({ setCurrentPage, pageNumber, varaint, type, blurPage, setBlurPage }: SwitchPages4) {
     const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions", "Results"];
 
     function changePage () {
         setCurrentPage(pageNumber);
+        if (type === "results") {
+            setBlurPage(false);
+        }
     }
 
     if (type === "button") {

@@ -20,6 +20,7 @@ export interface SwitchPages3{
     setCurrentPage: (newPage: number) => void; // Function to change to a new Page
     pageNumber: number // Determines the page
     blurPage: boolean // Determines whether or not the page is blurred
+    setBlurPage: (blur: boolean) => void
 
 }
 
@@ -29,11 +30,13 @@ export interface SwitchPages4 {
     varaint: string // Determines varaint of button
     type: string
     blurPage: boolean
+    setBlurPage: (blur: boolean) => void
 }
 
 export interface SwitchPages5 {
     setCurrentPage: (newPage: number) => void; // Function to change to a new Page
     blurPage: boolean // Determines whether or not the page is blurred
+    setBlurPage: (blur: boolean) => void
 }
 
 export interface SwitchPages6 {

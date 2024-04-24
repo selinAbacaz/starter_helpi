@@ -34,8 +34,8 @@ function App() {
 
   return (
       <div className={blurPage ? "App enableBlur" : "App"}>
-        <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} blurPage={blurPage}></NavBar>
-        {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} blurPage={blurPage}></HomePage>}
+        <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} blurPage={blurPage} setBlurPage={setBlurPage}></NavBar>
+        {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} blurPage={blurPage} setBlurPage={setBlurPage}></HomePage>}
         {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage}></BasicQuestions>}
         {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage}></DetailedQuestions>}
         {currentPage === 3 && <ResultsPage></ResultsPage>}

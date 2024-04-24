@@ -196,7 +196,7 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage }: Switch
                     <br></br>
                     <span>
                         <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10 || blurPage}>{submitButtonText}</Button>
-                        {submitted && <SwitchPage setCurrentPage={setCurrentPage} pageNumber={3} varaint={"primary"} type={"results"} blurPage={blurPage}></SwitchPage>}
+                        {submitted && <SwitchPage setCurrentPage={setCurrentPage} pageNumber={3} varaint={"primary"} type={"results"} blurPage={blurPage} setBlurPage={setBlurPage}></SwitchPage>}
                     </span>
                     
                 </div>
