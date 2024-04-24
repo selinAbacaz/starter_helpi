@@ -3,7 +3,7 @@ import { ShowProgressBar } from "./components/ProgressBar";
 import { ShowAlert } from "./components/Alert";
 import { BlurPageProps } from "./interfaces/BlurPage";
 import { Button, Col, Row, Form } from 'react-bootstrap';
-import './BasicQuestions.css';
+import './Questions.css';
 import "./App.css"
 
 interface BasicQuestionsProps {
