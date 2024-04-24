@@ -13,7 +13,7 @@ interface BasicQuestionsProps {
     submitted: boolean
 }
 
-const answerArray: string[] = ["", "", "", "", "1", "1", "", "", "", ""];
+const answerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
 const questionsArray: string[] = 
 [
     "Question 1: What is most important to you in a job between: Salary, Work Life Balance, Growth, Helping Others, Making a Difference",
@@ -45,6 +45,14 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
     const [userAnswer, setUserAnswer] = useState<string>(answerArray[answerPlacement]);
     
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
+        if (answerPlacement === 6) {
+            if (!answerArray[4]) {
+                answerArray[4] = "1";
+            }
+            if (!answerArray[5]) {
+                answerArray[5] = "1";
+            }
+        }
         setUserAnswer(event.target.value.toString());
         answerArray[answerPlacement] = event.target.value;
         setNumQuestionAnswered(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
@@ -67,7 +75,6 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
                         disabled={submitted}>
                     </Form.Check>
                 ))}
-                <div>{userAnswer}</div>
                 <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
             </div>
         );
@@ -78,7 +85,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
                 <h3 style={{marginBottom:20}}>{question}</h3>
                 <Form style={{width: "50%"}}>
                     <Form.Range 
-                        min={1} 
+                        min={1}
                         max={10} 
                         step={1} 
                         defaultValue={1} 
@@ -100,7 +107,6 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
                         </div>
                     </Form.Text>
                 </Form>
-                <div>{userAnswer}</div>
                 <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
             </div>
         );
@@ -118,7 +124,6 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
                     placeholder="Enter Answer Here...">
                 </Form.Control>
             </Form>
-            <div>{userAnswer}</div>
             <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
         </div>
     );
@@ -155,7 +160,7 @@ export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.El
                     <Col style= {{marginRight: 340}}>
                         <header className= "box " >
                             <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                <div  > <p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
+                                <div><p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
                             </div>
                         </header>
                         
