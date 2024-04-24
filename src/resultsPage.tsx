@@ -7,13 +7,6 @@ export function ResultsPage () {
         <div>
             <title> header of page </title>
             <div>
-                <header >
-                    <div style={ {border: '3px', fontSize: 16, padding: '8px', color: "#ff6347", backgroundColor: "white"} }>
-                        <div className="right"> <p>Home | Account | LogOut | Results</p> </div>
-                        <p> Result Home Page</p> 
-                    </div>
-
-                </header>
                 <body style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
 
                     <div >
