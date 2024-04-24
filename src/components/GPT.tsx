@@ -1,6 +1,6 @@
-import { questionsArray } from "./BasicQuestions";
-import { answerArray } from "./BasicQuestions";
-import { keyData } from "./App";
+import { questionsArray } from "../BasicQuestions";
+import { answerArray } from "../BasicQuestions";
+import { keyData } from "../App";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 
