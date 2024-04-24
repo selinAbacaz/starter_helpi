@@ -36,8 +36,8 @@ function App() {
       <div className={blurPage ? "App enableBlur" : "App"}>
         <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} blurPage={blurPage}></NavBar>
         {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} blurPage={blurPage}></HomePage>}
-        {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage}></BasicQuestions>}
-        {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage}></DetailedQuestions>}
+        {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage}></BasicQuestions>}
+        {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage}></DetailedQuestions>}
         {currentPage === 3 && <ResultsPage></ResultsPage>}
         <Form>
           <Form.Label>API Key:</Form.Label>

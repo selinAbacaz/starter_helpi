@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import {  Button, Toast, ToastContainer } from "react-bootstrap";
-import { BlurPageProps } from "../interfaces/BlurPage";
+import { Toast, ToastContainer } from "react-bootstrap";
 import "../App.css"
+import { SwitchPages6 } from "../interfaces/SwitchPages";
+import { SwitchPage } from "./SwitchPage";
 
-export function ShowAlert ({ setBlurPage }: BlurPageProps) {
+export function ShowAlert ({ setBlurPage, setCurrentPage, blurPage }: SwitchPages6) {
     const [showMessage, setShowMessage] = useState<boolean>(true);
     const [toastPosition, setToastPosition] = useState<number>(window.scrollY)
     
@@ -33,7 +34,7 @@ export function ShowAlert ({ setBlurPage }: BlurPageProps) {
                     </Toast.Header>
                     <Toast.Body style={{fontSize: "25px"}}>
                         Congratulations! You have completed all of the questions! Go see your results!
-                        <Button>Get Results!</Button>
+                        <SwitchPage setCurrentPage={setCurrentPage} pageNumber={3} varaint={""} type={"button"} blurPage={blurPage}></SwitchPage>
                     </Toast.Body>
                 </Toast>
             </ToastContainer>

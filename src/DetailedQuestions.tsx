@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
 import { ShowAlert } from "./components/Alert";
-import { BlurPageProps } from "./interfaces/BlurPage";
 import { Button, Col, Row } from 'react-bootstrap';
 import './Questions.css';
 import './App.css'
+import { SwitchPages6 } from "./interfaces/SwitchPages";
 
 
 interface DetailedQuestionsProps {
@@ -48,7 +48,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
     );
 }
 
-export function DetailedQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.Element {
+export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage }: SwitchPages6): JSX.Element {
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false);
     const [submitButtonText, setSubmittButtonText] = useState<string>("Submit Answers");
@@ -87,7 +87,7 @@ export function DetailedQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX
                 </Row>
             </div>
             <div>
-                {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage}></ShowAlert>}
+                {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage} setCurrentPage={setCurrentPage}></ShowAlert>}
             </div>
             <div className={blurPage ? "enableBlur" : ""}>
                 <div className= "Questions">

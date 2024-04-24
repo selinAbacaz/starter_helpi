@@ -5,11 +5,14 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import OpenAI from "openai";
 
-const apiUrl = 'https://api.openai.com/v1/chat/completions';
-
 async function formatQuestionsAndAnswers () {
   const combinedQuestions: string = questionsArray.join(",");
-  const combinedAnswers: string = (answerArray.map((answer: string): string => "Question" + `${answerArray.indexOf(answer)}` + " Answer: " + answer)).join(",");
+  
+  const combinedAnswers: string = (answerArray.map((answer: string): string => 
+    "Question " + 
+    `${answerArray.indexOf(answer) + 1}` + 
+    " Answer: " + answer)).join(",");
+
   const result: string = await callGPT(combinedQuestions, combinedAnswers)
   return result;
 }

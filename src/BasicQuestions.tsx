@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
 import { ShowAlert } from "./components/Alert";
-import { BlurPageProps } from "./interfaces/BlurPage";
 import { Button, Col, Row, Form } from 'react-bootstrap';
 import './Questions.css';
 import './App.css'
-import { GenerateText } from "./components/GPT";
+import { SwitchPage } from "./components/SwitchPage";
+import { SwitchPages6 } from "./interfaces/SwitchPages";
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -130,7 +130,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
     );
 }
 
-export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.Element {
+export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage }: SwitchPages6): JSX.Element {
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false);
     const [submitButtonText, setSubmittButtonText] = useState<string>("Submit Answers");
@@ -179,7 +179,7 @@ export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.El
             </header>
             {/* Body with all questions */}
             <div>
-                {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage}></ShowAlert>}
+                {submitted && <ShowAlert setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} blurPage={blurPage}></ShowAlert>}
             </div>
             <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "white", backgroundColor: "salmon", justifyContent:"right", borderRadius: 20} }>
                 <div className= "Questions">
@@ -196,7 +196,7 @@ export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.El
                     <br></br>
                     <span>
                         <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10 || blurPage}>{submitButtonText}</Button>
-                        {submitted && <Button>Get Results!</Button>}
+                        {submitted && <SwitchPage setCurrentPage={setCurrentPage} pageNumber={3} varaint={""} type={"button"} blurPage={blurPage}></SwitchPage>}
                     </span>
                     
                 </div>

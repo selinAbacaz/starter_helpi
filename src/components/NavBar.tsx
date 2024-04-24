@@ -12,6 +12,7 @@ export function NavBar ({setCurrentPage, pageNumber, blurPage}: SwitchPages3) {
                 <SwitchPage setCurrentPage={setCurrentPage} pageNumber={0} varaint={""} type={"nav"} blurPage={blurPage}></SwitchPage>
                 <SwitchPage setCurrentPage={setCurrentPage} pageNumber={1} varaint={""} type={"nav"} blurPage={blurPage}></SwitchPage>
                 <SwitchPage setCurrentPage={setCurrentPage} pageNumber={2} varaint={""} type={"nav"} blurPage={blurPage}></SwitchPage>
+                <SwitchPage setCurrentPage={setCurrentPage} pageNumber={3} varaint={""} type={"nav"} blurPage={blurPage}></SwitchPage>
             </Nav>
         </Navbar.Collapse>
        
