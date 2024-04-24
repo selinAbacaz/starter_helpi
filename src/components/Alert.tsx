@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {  Toast, ToastContainer } from "react-bootstrap";
+import {  Button, Toast, ToastContainer } from "react-bootstrap";
 import { BlurPageProps } from "../interfaces/BlurPage";
 import "../App.css"
 
@@ -31,7 +31,10 @@ export function ShowAlert ({ setBlurPage }: BlurPageProps) {
                     <Toast.Header style={{fontSize: "28px"}}>
                         <strong className="me-auto">Quiz Completed!</strong>
                     </Toast.Header>
-                    <Toast.Body style={{fontSize: "25px"}}>Congratulations! You have completed all of the questions! Go see your results!</Toast.Body>
+                    <Toast.Body style={{fontSize: "25px"}}>
+                        Congratulations! You have completed all of the questions! Go see your results!
+                        <Button>Get Results!</Button>
+                    </Toast.Body>
                 </Toast>
             </ToastContainer>
         </div>

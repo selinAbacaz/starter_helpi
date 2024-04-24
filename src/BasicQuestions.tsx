@@ -5,6 +5,7 @@ import { BlurPageProps } from "./interfaces/BlurPage";
 import { Button, Col, Row, Form } from 'react-bootstrap';
 import './Questions.css';
 import './App.css'
+import { GenerateText } from "./components/GPT";
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -193,7 +194,11 @@ export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.El
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8} submitted={submitted}></Question>
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9} submitted={submitted}></Question>
                     <br></br>
-                    <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10 || blurPage}>{submitButtonText}</Button>
+                    <span>
+                        <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10 || blurPage}>{submitButtonText}</Button>
+                        {submitted && <Button>Get Results!</Button>}
+                    </span>
+                    
                 </div>
             </div>
         </div>
