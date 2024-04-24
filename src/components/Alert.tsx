@@ -5,28 +5,28 @@ import "../App.css"
 
 export function ShowAlert ({ setBlurPage }: BlurPageProps) {
     const [showMessage, setShowMessage] = useState<boolean>(true);
-    const [toastPosition, setToastPosition] = useState<number>(window.scrollY + 500);
+    const [toastPosition, setToastPosition] = useState<number>(window.scrollY)
     
     function dismissMessage () {
         setShowMessage(false);
         setBlurPage(false);
     }
-
+    
     useEffect(() => {
         const handleScroll = () => {
-          setToastPosition(window.scrollY + 500);
+            setToastPosition(window.scrollY);
         };
     
         window.addEventListener("scroll", handleScroll);
     
         return () => {
-          window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("scroll", handleScroll);
         };
-      }, []);
+    }, []);
 
     return (
         <div>
-            <ToastContainer style={{top: toastPosition, left: "50%", transform: "translate(-50%, -50%)"}}>
+            <ToastContainer style={{ position: "fixed", top: toastPosition, left: "50%", transform: "translate(-50%, 200%)"}}>
                 <Toast show={showMessage} onClose={dismissMessage} style={{width: "500px"}}>
                     <Toast.Header style={{fontSize: "28px"}}>
                         <strong className="me-auto">Quiz Completed!</strong>

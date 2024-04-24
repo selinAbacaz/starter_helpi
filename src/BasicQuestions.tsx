@@ -82,7 +82,8 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
                         max={10} 
                         step={1} 
                         defaultValue={1} 
-                        onChange={updateAnswer}>
+                        onChange={updateAnswer}
+                        disabled={submitted}>
                     </Form.Range>
                     <Form.Text style={{color: "white"}}>
                         <div className="d-flex justify-content-between">
