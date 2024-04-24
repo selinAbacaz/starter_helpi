@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
 import { ShowAlert } from "./components/Alert";
 import { BlurPageProps } from "./interfaces/BlurPage";
-import { Button, Col, Row } from 'react-bootstrap';
+import { Button, Col, Row, Form } from 'react-bootstrap';
 import './Questions.css';
+import "./App.css"
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -26,21 +27,103 @@ const questionsArray: string[] =
     "Question 9: Do you like tasks that vary each day, or stay the same?",
     "Question 10: How much education do you plan to pursue? (High School Diploma, Bachelors, Masters, Doctorate)"
 ];
+const optionsArrays: string[][] = 
+[
+    ["Salary", "Work Life Balance", "Growth", "Helping others", "Making a Difference"],
+    ["Solo", "With Others"],
+    [""],
+    ["Fast-Paced", "Collaborative", "Structured", "Flexible"],
+    [""],
+    [""],
+    ["Indoors", "Outdoors"],
+    ["Yes", "No"],
+    ["I like tasks that vary", "I like tasks that stay the same"],
+    [""]
+]
 
 function Question ({setNumQuestionAnswered, question, answerPlacement, submitted}: BasicQuestionsProps) {
     const [userAnswer, setUserAnswer] = useState<string>(answerArray[answerPlacement]);
     
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
-        setUserAnswer(event.target.value);
+        if (answerPlacement === 6) {
+            if (!answerArray[4]) {
+                answerArray[4] = "1";
+            }
+            if (!answerArray[5]) {
+                answerArray[5] = "1";
+            }
+        }
+        setUserAnswer(event.target.value.toString());
         answerArray[answerPlacement] = event.target.value;
         setNumQuestionAnswered(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
+    }
+
+    if (answerPlacement !== 2 && answerPlacement !== 4 && answerPlacement !== 5 && answerPlacement !== 9) {
+        return (
+            <div>
+                <h3 style={{marginBottom:20}}>{question}</h3>
+                {optionsArrays[answerPlacement].map((option: string) => (
+                    <Form.Check
+                        key={option}
+                        inline
+                        id={option}
+                        type="radio"
+                        name={answerPlacement.toString()}
+                        label={option}
+                        value={option}
+                        onChange={updateAnswer}
+                        disabled={submitted}>
+                    </Form.Check>
+                ))}
+                <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
+            </div>
+        );
+    }
+    else if (answerPlacement === 4 || answerPlacement === 5) {
+        return (
+            <div>
+                <h3 style={{marginBottom:20}}>{question}</h3>
+                <Form style={{width: "50%"}}>
+                    <Form.Range 
+                        min={1}
+                        max={10} 
+                        step={1} 
+                        defaultValue={1} 
+                        onChange={updateAnswer}
+                        disabled={submitted}>
+                    </Form.Range>
+                    <Form.Text style={{color: "white"}}>
+                        <div className="d-flex justify-content-between">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                        </div>
+                    </Form.Text>
+                </Form>
+                <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
+            </div>
+        );
     }
     
     return (
         <div>
             <h3 style={{marginBottom:20}}>{question}</h3>
-            <input type="text" value={userAnswer} onChange={updateAnswer} disabled={submitted}/>
-            <div>{userAnswer}</div>
+            <Form style={{width: "50%"}}>
+                <Form.Control 
+                    type="input" 
+                    value={userAnswer} 
+                    onChange={updateAnswer} 
+                    disabled={submitted} 
+                    placeholder="Enter Answer Here...">
+                </Form.Control>
+            </Form>
             <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
         </div>
     );
@@ -61,13 +144,6 @@ export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.El
             setSubmittButtonText("Submit Answers");
         }
     }
-    /*function Description(): JSX.Element {
-        return (
-        <div> 
-            <p>Take the basic career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The basic quiz consists of __ shorter questions to provide a quick and easy experience to determine your results. </p>
-        </div>
-        );
-    }*/
 
     return (
         <div className="disableBlur">
@@ -84,7 +160,7 @@ export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.El
                     <Col style= {{marginRight: 340}}>
                         <header className= "box " >
                             <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                <div  > <p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
+                                <div><p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
                             </div>
                         </header>
                         
@@ -121,6 +197,5 @@ export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.El
                 </div>
             </div>
         </div>
-        
     )
 } 
