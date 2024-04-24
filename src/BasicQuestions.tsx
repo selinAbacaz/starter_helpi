@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
-import { SwitchPages } from "./interfaces/SwitchPages";
-import { ShowHeader } from "./components/Header";
-import { GenerateText } from "./GPT";
+import { ShowAlert } from "./components/Alert";
+import { BlurPageProps } from "./interfaces/BlurPage";
+import { Button, Col, Row, Form } from 'react-bootstrap';
+import './Questions.css';
+import './App.css'
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
     question: string;
     answerPlacement: number;
+    submitted: boolean
 }
 
 export const answerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
@@ -24,49 +27,175 @@ export const questionsArray: string[] =
     "Question 9: Do you like tasks that vary each day, or stay the same?",
     "Question 10: How much education do you plan to pursue? (High School Diploma, Bachelors, Masters, Doctorate)"
 ];
-  
-function Question ({setNumQuestionAnswered, question, answerPlacement}: BasicQuestionsProps) {
+const optionsArrays: string[][] = 
+[
+    ["Salary", "Work Life Balance", "Growth", "Helping others", "Making a Difference"],
+    ["Solo", "With Others"],
+    [""],
+    ["Fast-Paced", "Collaborative", "Structured", "Flexible"],
+    [""],
+    [""],
+    ["Indoors", "Outdoors"],
+    ["Yes", "No"],
+    ["I like tasks that vary", "I like tasks that stay the same"],
+    [""]
+]
+
+function Question ({setNumQuestionAnswered, question, answerPlacement, submitted}: BasicQuestionsProps) {
     const [userAnswer, setUserAnswer] = useState<string>(answerArray[answerPlacement]);
     
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
-        setUserAnswer(event.target.value);
+        if (answerPlacement === 6) {
+            if (!answerArray[4]) {
+                answerArray[4] = "1";
+            }
+            if (!answerArray[5]) {
+                answerArray[5] = "1";
+            }
+        }
+        setUserAnswer(event.target.value.toString());
         answerArray[answerPlacement] = event.target.value;
         setNumQuestionAnswered(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
+    }
+
+    if (answerPlacement !== 2 && answerPlacement !== 4 && answerPlacement !== 5 && answerPlacement !== 9) {
+        return (
+            <div>
+                <h3 style={{marginBottom:20}}>{question}</h3>
+                {optionsArrays[answerPlacement].map((option: string) => (
+                    <Form.Check
+                        key={option}
+                        inline
+                        id={option}
+                        type="radio"
+                        name={answerPlacement.toString()}
+                        label={option}
+                        value={option}
+                        onChange={updateAnswer}
+                        disabled={submitted}>
+                    </Form.Check>
+                ))}
+                <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
+            </div>
+        );
+    }
+    else if (answerPlacement === 4 || answerPlacement === 5) {
+        return (
+            <div>
+                <h3 style={{marginBottom:20}}>{question}</h3>
+                <Form style={{width: "50%"}}>
+                    <Form.Range 
+                        min={1}
+                        max={10} 
+                        step={1} 
+                        defaultValue={1} 
+                        onChange={updateAnswer}
+                        disabled={submitted}>
+                    </Form.Range>
+                    <Form.Text style={{color: "white"}}>
+                        <div className="d-flex justify-content-between">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                        </div>
+                    </Form.Text>
+                </Form>
+                <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
+            </div>
+        );
     }
     
     return (
         <div>
-            <h3>{question}</h3>
-            <input type="text" value={userAnswer} onChange={updateAnswer} />
-            <div>{userAnswer}</div>
+            <h3 style={{marginBottom:20}}>{question}</h3>
+            <Form style={{width: "50%"}}>
+                <Form.Control 
+                    type="input" 
+                    value={userAnswer} 
+                    onChange={updateAnswer} 
+                    disabled={submitted} 
+                    placeholder="Enter Answer Here...">
+                </Form.Control>
+            </Form>
+            <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
         </div>
     );
 }
 
-export function BasicQuestions({setCurrentPage}: SwitchPages): JSX.Element {
+export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.Element {
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
-    /*function Description(): JSX.Element {
-        return (
-        <div> 
-            <p>Take the basic career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The basic quiz consists of __ shorter questions to provide a quick and easy experience to determine your results. </p>
-        </div>
-        );
-    }*/
+    const [submitted, setSubmittedAnswers] = useState<boolean>(false);
+    const [submitButtonText, setSubmittButtonText] = useState<string>("Submit Answers");
+
+    function changeSubmitState () {
+        setSubmittedAnswers(!submitted)
+        if (submitButtonText === "Submit Answers") {
+            setSubmittButtonText("Change Answers");
+            setBlurPage(true);
+        }
+        else {
+            setSubmittButtonText("Submit Answers");
+        }
+    }
 
     return (
-        <div>
-            <ShowHeader setCurrentPage={setCurrentPage} pageNumber={0}></ShowHeader>
-            <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={answerArray.length}></ShowProgressBar>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[0]} answerPlacement={0}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[1]} answerPlacement={1}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[2]} answerPlacement={2}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[3]} answerPlacement={3}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[4]} answerPlacement={4}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[5]} answerPlacement={5}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[6]} answerPlacement={6}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[7]} answerPlacement={7}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8}></Question>
-            <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9}></Question>
+        <div className="disableBlur">
+            {/* Header with information on how to take the quiz */}
+            <div className={blurPage ? "enableBlur" : ""}>
+                <Row className="image" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
+                    <Col style= {{marginLeft: 340}}>
+                        <header className= "box">
+                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
+                                <div> <p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
+                            </div>
+                        </header>
+                    </Col>
+                    <Col style= {{marginRight: 340}}>
+                        <header className= "box " >
+                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
+                                <div><p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
+                            </div>
+                        </header>
+                        
+                    </Col>
+                </Row>
+            </div>
+            
+            {/* progress bar's own little box */}
+            <header className={blurPage ? "enableBlur" : ""}>
+                <div style={ {padding: '8px', backgroundColor: "white"} }>
+                    <p></p>
+                    <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={answerArray.length}></ShowProgressBar>
+                    <p></p>
+                </div>
+            </header>
+            {/* Body with all questions */}
+            <div>
+                {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage}></ShowAlert>}
+            </div>
+            <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "white", backgroundColor: "salmon", justifyContent:"right", borderRadius: 20} }>
+                <div className= "Questions">
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[0]} answerPlacement={0} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[1]} answerPlacement={1} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[2]} answerPlacement={2} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[3]} answerPlacement={3} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[4]} answerPlacement={4} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[5]} answerPlacement={5} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[6]} answerPlacement={6} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[7]} answerPlacement={7} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9} submitted={submitted}></Question>
+                    <br></br>
+                    <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10 || blurPage}>{submitButtonText}</Button>
+                </div>
+            </div>
         </div>
     )
 } 

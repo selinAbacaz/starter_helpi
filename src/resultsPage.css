@@ -1,78 +1,61 @@
-.box {
-    width: 400px;
-    height: 300px;
-    border: white 3px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-
-}
-.navBar {
-    width: 2px;
-    height: 300px;
-    border: white 3px;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: left;
-
-
-}
-.box2 {
-  background-color: #ff6347;
+.textBox {
+  margin: auto;
+  text-align: left;
+  padding-left: 100px;
+  padding-top: 50px;
+  width: 1200px;
+  background-color: white;
+  align-items: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  marg
 
 
 }
 
-.red {
-    background-color: #ff6347;
+.home-header {
+  width: 100%;
+  background-color: #282c34;
+  background-color: #c74545;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
-.green {
-    background-color: #79cb6f;
+
+.name1 {
+  width: 200px;
+  height: 300px;
+}
+.name2 img {
+  width: 500px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  align-items: center;
 }
 
-.left {
-    justify-content: left;
-  }
-  
-  .right {
-    float: right;
-  }
-  .pink {
-    background-color: #e36c6c;
-  }
-  .orange {
-    background-color: #f09d22;
-  }
+.name3 {
+  width: 300px;
+  height: 300px;
+}
+.name4 {
+  width: 200px;
+  height: 300px;
+}
+.title1 {
+  color: orange
 
+}
+.title2 {
+  color: purple
 
-.HomePage-body {
-    background-color: #4f689b;
-    min-height: 100vh;
+}
+.title3 {
+  color: blue
 
-    /*
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: rgb(248, 233, 233);*/
+}
+.title4 {
+  color: green
 
-  }
-
-  .home-header {
-    width: 100%;
-    background-color: #282c34;
-    background-color: #c74545;
-    min-height: 40vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
 }
