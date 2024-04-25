@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (57 ms)
+  ✕ renders learn react link (59 ms)
 
   ● renders learn react link
 
@@ -209,18 +209,18 @@ go away.[0m
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   18.33 |     12.5 |   12.12 |   18.96 |                   
- src                    |   21.05 |    10.93 |      10 |   22.22 |                   
+All files               |   17.18 |     11.9 |   11.76 |   17.74 |                   
+ src                    |   20.51 |     10.6 |      10 |   21.62 |                   
   App.tsx               |   71.42 |    58.33 |   33.33 |   71.42 | 16,28-34          
   BasicQuestions.tsx    |    9.67 |        0 |       0 |   10.34 | 47-152            
-  DetailedQuestions.tsx |   11.11 |        0 |       0 |    12.5 | 33-67             
+  DetailedQuestions.tsx |      10 |        0 |       0 |   11.11 | 35-71             
   homePage.tsx          |     100 |      100 |     100 |     100 |                   
   index.tsx             |       0 |      100 |     100 |       0 | 8-20              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
   resultsPage.tsx       |       0 |      100 |       0 |       0 | 6                 
- src/components         |   13.63 |    18.75 |   15.38 |   13.63 |                   
+ src/components         |      12 |    16.66 |   14.28 |      12 |                   
   Alert.tsx             |       0 |      100 |       0 |       0 | 8-28              
-  GPT.tsx               |       0 |        0 |       0 |       0 | 7-51              
+  GPT.tsx               |       0 |        0 |       0 |       0 | 7-61              
   NavBar.tsx            |     100 |      100 |     100 |     100 |                   
   ProgressBar.tsx       |       0 |        0 |       0 |       0 | 9-21              
   SwitchPage.tsx        |   55.55 |       50 |      50 |   55.55 | 8-10,20           
@@ -231,5 +231,5 @@ All files               |   18.33 |     12.5 |   12.12 |   18.96 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.352 s
+Time:        3.375 s
 Ran all test suites.
