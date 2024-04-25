@@ -60,8 +60,8 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, setOv
         if (submitButtonText === "Submit Answers") {
             setSubmittButtonText("Change Answers");
             setBlurPage(true);
-            setOverview(await GenerateText("overview", "detailed"));
-            setIndustries(await GenerateText("industry", "detailed"));
+            setOverview(await GenerateText("overview", "detailed", ""));
+            setIndustries(await GenerateText("industry", "detailed", ""));
         }
         else {
             setSubmittButtonText("Submit Answers");

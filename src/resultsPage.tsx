@@ -1,10 +1,30 @@
 import './resultsPage.css';
-import {Col, Row} from 'react-bootstrap';
+import {Button, Col, Form, Row} from 'react-bootstrap';
 import { SwitchPages7 } from './interfaces/SwitchPages';
+import { useState } from 'react';
+import { GenerateText } from './components/GPT';
 
 export function ResultsPage ({setOverview, overview, setIndustries, industries}: SwitchPages7) {
+    const [userInput, setUserInput] = useState<string>("");
+    const [chatGPTReply, setChatGPTReply] = useState<string>("");
+    const [questionsToUse, setQuestionsToUse] = useState<string>("");
+
+    async function submitToGPT () {
+        setChatGPTReply(await GenerateText("user", questionsToUse, userInput));
+    }
+
+    function changeUserInput (event: React.ChangeEvent<HTMLInputElement>) {
+        setUserInput(event.target.value);
+    }
+
     return(
         <div>
+            <Form>
+                <Form.Label>Ask chatGPT anything about your results:</Form.Label>
+                <Form.Control type="input" placeholder="Ask chatGPT" onChange={changeUserInput}></Form.Control>
+                <Form.Select></Form.Select>
+                <Button onClick={submitToGPT}>Submit</Button>
+            </Form>
             <div>
                 <body style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
                     <div>
@@ -14,7 +34,7 @@ export function ResultsPage ({setOverview, overview, setIndustries, industries}:
                             <p>Then, we'll show you how key personality traits can point you toward a career that takes advantage of your natural strengths.</p>
                             <p>Finally, we'll show you how to unlock your full report to get an in-depth profile of your interests and personality, along with personalized career planning advice and a complete listing of careers that match your individual interest profile.</p>
                             <p>So, let's get started!</p>
-                            <h1> Overview </h1>
+                            <h1> Overview: </h1>
                             <div>
                                 {overview}
                             </div>
@@ -43,9 +63,13 @@ export function ResultsPage ({setOverview, overview, setIndustries, industries}:
                                     </Row>
                                 </Col>
                             </Row>
-                            <h1> Potential Industries </h1>
+                            <h1> Potential Industries: </h1>
                             <div>
                                 {industries}
+                            </div>
+                            <h1>Replies:</h1>
+                            <div>
+                                {chatGPTReply}
                             </div>
                         </Col>
                     </div>
