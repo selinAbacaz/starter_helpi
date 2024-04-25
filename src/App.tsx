@@ -9,7 +9,7 @@ import { ResultsPage } from './resultsPage';
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
-let keyData = "";
+export let keyData = "";
 const saveKeyData = "MYKEY";
 const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
 if (prevKey !== null) {
@@ -20,6 +20,8 @@ function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [blurPage, setBlurPage] = useState<boolean>(false);
+  const [overview, setOverview] = useState<string>("");
+  const [industries, setIndustries] = useState<string>("");
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -34,11 +36,11 @@ function App() {
 
   return (
       <div className={blurPage ? "App enableBlur" : "App"}>
-        <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} blurPage={blurPage}></NavBar>
-        {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} blurPage={blurPage}></HomePage>}
-        {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage}></BasicQuestions>}
-        {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage}></DetailedQuestions>}
-        {currentPage === 3 && <ResultsPage></ResultsPage>}
+        <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} blurPage={blurPage} setBlurPage={setBlurPage}></NavBar>
+        {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} blurPage={blurPage} setBlurPage={setBlurPage}></HomePage>}
+        {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} setOverview={setOverview} setIndustries={setIndustries}></BasicQuestions>}
+        {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} setOverview={setOverview} setIndustries={setIndustries}></DetailedQuestions>}
+        {currentPage === 3 && <ResultsPage setOverview={setOverview} overview={overview} setIndustries={setIndustries} industries={industries}></ResultsPage>}
         <Form>
           <Form.Label>API Key:</Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage}></Form.Control>

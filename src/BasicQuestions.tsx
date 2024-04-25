@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
 import { ShowAlert } from "./components/Alert";
-import { BlurPageProps } from "./interfaces/BlurPage";
 import { Button, Col, Row, Form } from 'react-bootstrap';
 import './Questions.css';
 import './App.css'
+import { SwitchPage } from "./components/SwitchPage";
+import { SwitchPages6 } from "./interfaces/SwitchPages";
+import { GenerateText } from "./components/GPT";
 
 interface BasicQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
@@ -13,8 +15,8 @@ interface BasicQuestionsProps {
     submitted: boolean
 }
 
-const answerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
-const questionsArray: string[] = 
+export const answerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
+export const questionsArray: string[] = 
 [
     "Question 1: What is most important to you in a job between: Salary, Work Life Balance, Growth, Helping Others, Making a Difference",
     "Question 2: Do you prefer working solo or with others?",
@@ -129,16 +131,18 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
     );
 }
 
-export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.Element {
+export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverview, setIndustries }: SwitchPages6): JSX.Element {
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false);
     const [submitButtonText, setSubmittButtonText] = useState<string>("Submit Answers");
 
-    function changeSubmitState () {
+    async function changeSubmitState () {
         setSubmittedAnswers(!submitted)
         if (submitButtonText === "Submit Answers") {
             setSubmittButtonText("Change Answers");
             setBlurPage(true);
+            setOverview(await GenerateText("overview"));
+            setIndustries(await GenerateText("industry"));
         }
         else {
             setSubmittButtonText("Submit Answers");
@@ -178,7 +182,7 @@ export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.El
             </header>
             {/* Body with all questions */}
             <div>
-                {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage}></ShowAlert>}
+                {submitted && <ShowAlert setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} blurPage={blurPage}></ShowAlert>}
             </div>
             <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "white", backgroundColor: "salmon", justifyContent:"right", borderRadius: 20} }>
                 <div className= "Questions">
@@ -193,7 +197,11 @@ export function BasicQuestions({ setBlurPage, blurPage }: BlurPageProps): JSX.El
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8} submitted={submitted}></Question>
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9} submitted={submitted}></Question>
                     <br></br>
-                    <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10 || blurPage}>{submitButtonText}</Button>
+                    <span>
+                        <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10 || blurPage}>{submitButtonText}</Button>
+                        {submitted && <SwitchPage setCurrentPage={setCurrentPage} pageNumber={3} varaint={"primary"} type={"results"} blurPage={blurPage} setBlurPage={setBlurPage}></SwitchPage>}
+                    </span>
+                    
                 </div>
             </div>
         </div>
