@@ -33,7 +33,8 @@ async function callGPT (combinedQuestions: string, combinedAnswers: string, user
     messages: 
     [
       { role: "user", content: userPrompt},
-      { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers + ". Do not mention the orginal questions and answers in your response. If the user asks for specific industries, give a list of specific indsutries that would suit them"}
+      //{ role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers + ". Do not mention the orginal questions and answers in your response. If the user asks for specific industries, give a list of specific indsutries that would suit them"}
+      {role: "system", content: "Only say test."}
     ],
       model: "gpt-4-turbo"
   });
