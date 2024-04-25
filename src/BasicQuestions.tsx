@@ -15,8 +15,8 @@ interface BasicQuestionsProps {
     submitted: boolean
 }
 
-export const answerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
-export const questionsArray: string[] = 
+export const basicAnswerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
+export const basicQuestionsArray: string[] = 
 [
     "Question 1: What is most important to you in a job between: Salary, Work Life Balance, Growth, Helping Others, Making a Difference",
     "Question 2: Do you prefer working solo or with others?",
@@ -44,20 +44,20 @@ const optionsArrays: string[][] =
 ]
 
 function Question ({setNumQuestionAnswered, question, answerPlacement, submitted}: BasicQuestionsProps) {
-    const [userAnswer, setUserAnswer] = useState<string>(answerArray[answerPlacement]);
+    const [userAnswer, setUserAnswer] = useState<string>(basicAnswerArray[answerPlacement]);
     
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
         if (answerPlacement === 6) {
-            if (!answerArray[4]) {
-                answerArray[4] = "1";
+            if (!basicAnswerArray[4]) {
+                basicAnswerArray[4] = "1";
             }
-            if (!answerArray[5]) {
-                answerArray[5] = "1";
+            if (!basicAnswerArray[5]) {
+                basicAnswerArray[5] = "1";
             }
         }
         setUserAnswer(event.target.value.toString());
-        answerArray[answerPlacement] = event.target.value;
-        setNumQuestionAnswered(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
+        basicAnswerArray[answerPlacement] = event.target.value;
+        setNumQuestionAnswered(basicAnswerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     }
 
     if (answerPlacement !== 2 && answerPlacement !== 4 && answerPlacement !== 5 && answerPlacement !== 9) {
@@ -132,7 +132,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
 }
 
 export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverview, setIndustries }: SwitchPages6): JSX.Element {
-    const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(answerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
+    const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(basicAnswerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false);
     const [submitButtonText, setSubmittButtonText] = useState<string>("Submit Answers");
 
@@ -141,8 +141,8 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverv
         if (submitButtonText === "Submit Answers") {
             setSubmittButtonText("Change Answers");
             setBlurPage(true);
-            setOverview(await GenerateText("overview"));
-            setIndustries(await GenerateText("industry"));
+            setOverview(await GenerateText("overview", "basic"));
+            setIndustries(await GenerateText("industry", "basic"));
         }
         else {
             setSubmittButtonText("Submit Answers");
@@ -176,7 +176,7 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverv
             <header className={blurPage ? "enableBlur" : ""}>
                 <div style={ {padding: '8px', backgroundColor: "white"} }>
                     <p></p>
-                    <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={answerArray.length}></ShowProgressBar>
+                    <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={basicAnswerArray.length}></ShowProgressBar>
                     <p></p>
                 </div>
             </header>
@@ -186,16 +186,16 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverv
             </div>
             <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "white", backgroundColor: "salmon", justifyContent:"right", borderRadius: 20} }>
                 <div className= "Questions">
-                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[0]} answerPlacement={0} submitted={submitted}></Question>
-                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[1]} answerPlacement={1} submitted={submitted}></Question>
-                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[2]} answerPlacement={2} submitted={submitted}></Question>
-                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[3]} answerPlacement={3} submitted={submitted}></Question>
-                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[4]} answerPlacement={4} submitted={submitted}></Question>
-                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[5]} answerPlacement={5} submitted={submitted}></Question>
-                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[6]} answerPlacement={6} submitted={submitted}></Question>
-                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[7]} answerPlacement={7} submitted={submitted}></Question>
-                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[8]} answerPlacement={8} submitted={submitted}></Question>
-                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[9]} answerPlacement={9} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[0]} answerPlacement={0} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[1]} answerPlacement={1} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[2]} answerPlacement={2} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[3]} answerPlacement={3} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[4]} answerPlacement={4} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[5]} answerPlacement={5} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[6]} answerPlacement={6} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[7]} answerPlacement={7} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[8]} answerPlacement={8} submitted={submitted}></Question>
+                    <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[9]} answerPlacement={9} submitted={submitted}></Question>
                     <br></br>
                     <span>
                         <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10 || blurPage}>{submitButtonText}</Button>
