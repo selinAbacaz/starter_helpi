@@ -94,7 +94,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
                         onChange={updateAnswer}
                         disabled={submitted}>
                     </Form.Range>
-                    <Form.Text style={{color: "white"}}>
+                    <Form.Text style={{color: "salmon"}}>
                         <div className="d-flex justify-content-between">
                             <span>1</span>
                             <span>2</span>
