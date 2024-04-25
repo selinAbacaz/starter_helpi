@@ -7,7 +7,7 @@ import { GenerateText } from './components/GPT';
 export function ResultsPage ({setOverview, overview, setIndustries, industries}: SwitchPages7) {
     const [userInput, setUserInput] = useState<string>("");
     const [chatGPTReply, setChatGPTReply] = useState<string>("");
-    const [questionsToUse, setQuestionsToUse] = useState<string>("");
+    const [questionsToUse, setQuestionsToUse] = useState<string>("basic");
 
     async function submitToGPT () {
         setChatGPTReply(await GenerateText("user", questionsToUse, userInput));
@@ -17,18 +17,37 @@ export function ResultsPage ({setOverview, overview, setIndustries, industries}:
         setUserInput(event.target.value);
     }
 
+    function changeQuestionsToUse (event: React.ChangeEvent<HTMLSelectElement>) {
+        setQuestionsToUse(event.target.value);
+        console.log(event.target.value)
+    }
+
     return(
         <div>
-            <Form>
-                <Form.Label>Ask chatGPT anything about your results:</Form.Label>
-                <Form.Control type="input" placeholder="Ask chatGPT" onChange={changeUserInput}></Form.Control>
-                <Form.Select></Form.Select>
-                <Button onClick={submitToGPT}>Submit</Button>
-            </Form>
             <div>
-                <body style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
+                <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
                     <div>
                         <Col className = "textBox">
+                            <div style={{border: "5px black", padding: '4px'}}>
+                                <h1>Ask chatGPT anything about your results:</h1>
+                                <br></br>
+                                <Form>
+                                    <Row>
+                                        <Col>
+                                            <Form.Control type="input" placeholder="Ask chatGPT" onChange={changeUserInput}></Form.Control>
+                                        </Col>
+                                        <Col>
+                                            <Form.Select onChange={changeQuestionsToUse}>
+                                                <option value="basic">Basic Questions</option>
+                                                <option value="detailed">Detailed Questions</option>
+                                            </Form.Select>
+                                        </Col>
+                                    </Row>
+                                    <Button onClick={submitToGPT} style={{justifyContent: "center", alignItems: "center" }}>Submit</Button>
+                                </Form>
+                            </div>
+                            <br></br>
+                            <br></br>
                             <p> Congratulations! You've just finished a complete assessment of your interests and personality and you're well on your way to discovering your ideal career path.</p>
                             <p>In this free basic report, you'll see a summary of your scores in each of the six career interest areas. You'll learn more about what these scores mean, and how your top interest area can show which careers you are suited for.</p>
                             <p>Then, we'll show you how key personality traits can point you toward a career that takes advantage of your natural strengths.</p>
@@ -73,7 +92,7 @@ export function ResultsPage ({setOverview, overview, setIndustries, industries}:
                             </div>
                         </Col>
                     </div>
-                </body>
+                </div>
             </div>
         </div>
     );
