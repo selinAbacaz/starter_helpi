@@ -142,7 +142,7 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverv
             setSubmittButtonText("Change Answers");
             setBlurPage(true);
             setOverview(await GenerateText("overview"));
-            setIndustries(await GenerateText("indsutry"));
+            setIndustries(await GenerateText("industry"));
         }
         else {
             setSubmittButtonText("Submit Answers");

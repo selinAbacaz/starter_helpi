@@ -25,7 +25,7 @@ async function callGPT (combinedQuestions: string, combinedAnswers: string, user
     messages: 
     [
       { role: "user", content: userPrompt},
-      { role: "system", content: "You are a helpful assistant that uses users answers to the provided questions to answer their questions. Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers}
+      { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers + ". Do not mention the orginal questions and answers in your response. If the user asks for specific industries, give a list of specific indsutries that would suit them"}
     ],
       model: "gpt-4-turbo"
   });
@@ -43,12 +43,11 @@ async function callGPT (combinedQuestions: string, combinedAnswers: string, user
 export async function GenerateText (type: string) {
   let result = "";
   if (type === "industry") {
-    result = await formatQuestionsAndAnswers("What kind of industries should I be working in? Only mention the industries.");
+    result = await formatQuestionsAndAnswers("Give a list of specific industries that would fit me, add a few bullet points as to why.");
   }
   else {
-    result = await formatQuestionsAndAnswers("Please provide a breif overview of what my results mean.");
+    result = await formatQuestionsAndAnswers("Please provide an overview of what my results mean.");
   }
-
   return (
     result
   );
