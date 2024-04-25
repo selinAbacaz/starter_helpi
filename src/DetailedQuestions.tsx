@@ -45,7 +45,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
             <h3 style={{marginBottom:20}}>{question}</h3>
             <input type="text" value={userAnswer} onChange={updateAnswer} disabled={submitted}/>
             <div>{userAnswer}</div>
-            <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
+            <hr style={{height: 5, backgroundColor: "#916448", marginBottom:60, color: "#916448"}}></hr>
         </div>
     );
 }
@@ -69,33 +69,47 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, setOv
     }
 
     return (
-        <div className="disableBlur">
+        <div className="disableBlur"style={{backgroundColor: "#F4E9E2"}}>
             {/* Header with information on how to take the quiz */}
             <div className={blurPage ? "enableBlur" : ""}>
-                <Row className="image" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
+                <Row className="image2" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
                     <Col style= {{marginLeft: 340}}>
                         <header className= "box">
-                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
+                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "#c9885f", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
                                 <div> <p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
                             </div>
                         </header>
                     </Col>
                     <Col style= {{marginRight: 340}}>
                         <header className= "box " >
-                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                <div  > <p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
+                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "#c9885f", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
+                                <div  > <p></p><p> Or Don't</p> <p>afterall</p> <p>We cant stop you !</p><p></p> </div>
                             </div>
                         </header>
                         
                     </Col>
                 </Row>
             </div>
+
+            {/* progress bar's own little box */}
+            <header className={blurPage ? "enableBlur" : ""}>
+                <div style={ {padding: '8px', backgroundColor: "white"} }>
+                    <p></p>
+                    <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={detailedAnswerArray.length}></ShowProgressBar>
+                    <p></p>
+                </div>
+            </header>
+
+            <div> 
+                <p>  </p>
+            </div>
+
+
             <div>
                 {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage} setCurrentPage={setCurrentPage}></ShowAlert>}
             </div>
-            <div className={blurPage ? "enableBlur" : ""}>
+            <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "#c9885f", backgroundColor: "white", justifyContent:"right"} }>
                 <div className= "Questions">
-                    <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={detailedAnswerArray.length}></ShowProgressBar>
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={detailedQuestionsArray[0]} answerPlacement={0} submitted={submitted}></Question>
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={detailedQuestionsArray[1]} answerPlacement={1} submitted={submitted}></Question>
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={detailedQuestionsArray[2]} answerPlacement={2} submitted={submitted}></Question>
