@@ -10,11 +10,13 @@ export function ResultsPage ({ overview, industries}: SwitchPages7) {
     const [questionsToUse, setQuestionsToUse] = useState<string>("basic");
     const [loading, setLoading] = useState<boolean>(false);
     const [canSubmit, setCanSubmit] = useState<boolean>(true);
+    const [processed, setProcessed] = useState<boolean>(false)
 
     async function submitToGPT () {
         setLoading(true);
         setCanSubmit(false);
-        setChatGPTReply(await GenerateText("user", questionsToUse, userInput, setLoading));
+        setChatGPTReply(await GenerateText("user", questionsToUse, userInput, setProcessed));
+        setLoading(false);
         setCanSubmit(true);
     }
 
@@ -49,10 +51,10 @@ export function ResultsPage ({ overview, industries}: SwitchPages7) {
                                         </Col>
                                     </Row>
                                     <Button onClick={submitToGPT}>
-                                        {loading && "Loading... " && <Spinner animation="border"></Spinner>}
-                                        {!loading && canSubmit && "Submit"}
-                                        {!loading && !canSubmit && "Response Processed ✔️"}
+                                        {loading && <span>Loading...</span> && <Spinner animation="border"></Spinner>}
+                                        {!loading && canSubmit && <span>Submit</span>}
                                     </Button>
+                                    {processed && <span>Response Processed ✔️</span>}
                                 </Form>
                             </div>
                             <br></br>
@@ -106,6 +108,5 @@ export function ResultsPage ({ overview, industries}: SwitchPages7) {
         </div>
     );
 }
-
 
 export default ResultsPage;

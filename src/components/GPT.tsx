@@ -23,10 +23,7 @@ function formatQuestionsAndAnswers (page: string) {
   }
 }
 
-async function callGPT (combinedQuestions: string, combinedAnswers: string, userPrompt: string, setLoading: (loading: boolean) => void, isUserInput: boolean) {
-  if (isUserInput) {
-    setLoading(false);
-  }
+async function callGPT (combinedQuestions: string, combinedAnswers: string, userPrompt: string, setProcessed: (processed: boolean) => void, isUserInput: boolean) {
   const openai = new OpenAI(
     {
       apiKey: keyData,
@@ -40,8 +37,10 @@ async function callGPT (combinedQuestions: string, combinedAnswers: string, user
     ],
       model: "gpt-4-turbo"
   });
-
   if (result.choices[0].message.content) {
+    if (isUserInput) {
+      setProcessed(true);
+    }
     return (
       result.choices[0].message.content
     );
@@ -51,20 +50,20 @@ async function callGPT (combinedQuestions: string, combinedAnswers: string, user
   );
 }
 
-export async function GenerateText (type: string, page: string, userInput: string, setLoading: (loading: boolean) => void) {
+export async function GenerateText (type: string, page: string, userInput: string, setProcessed: (processed: boolean) => void) {
   let result: string = "";
   if (type === "industry") {
     formatQuestionsAndAnswers(page);
-    result = await callGPT(combinedQuestions, combinedAnswers, "Give a list of specific industries that would fit me, add a few bullet points as to why.", setLoading, false)
+    result = await callGPT(combinedQuestions, combinedAnswers, "Give a list of specific industries that would fit me, add a few bullet points as to why.", setProcessed, false)
     
   }
   else if (type === "overview") {
     formatQuestionsAndAnswers(page);
-    result = await callGPT(combinedQuestions, combinedAnswers, "Please provide an overview of what my results mean.", setLoading, false)
+    result = await callGPT(combinedQuestions, combinedAnswers, "Please provide an overview of what my results mean.", setProcessed, false)
   }
   else {
     formatQuestionsAndAnswers(page);
-    result = await callGPT(combinedQuestions, combinedAnswers, userInput, setLoading, true)
+    result = await callGPT(combinedQuestions, combinedAnswers, userInput, setProcessed, true)
   }
   return (
     result
