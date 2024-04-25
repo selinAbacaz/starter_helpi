@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (59 ms)
+  ✕ renders learn react link (80 ms)
 
   ● renders learn react link
 
@@ -85,7 +85,7 @@ FAIL src/App.test.tsx
           [36m</nav>[39m
           [36m<div>[39m
             [36m<div[39m
-              [33mstyle[39m=[32m"border: 3px white; padding: 4px; color: rgb(68, 80, 106); justify-content: right;"[39m
+              [33mstyle[39m=[32m"border: 3px white; padding: 4px; color: rgb(68, 80, 106); background-color: rgb(244, 233, 226); justify-content: right;"[39m
             [36m>[39m
               [36m<div>[39m
                 [36m<div[39m
@@ -96,9 +96,7 @@ FAIL src/App.test.tsx
                   [36m>[39m
                     [36m<div[39m
                       [33mclass[39m=[32m" box2 col"[39m
-                    [36m>[39m
-                      [0mmeow12[0m
-                    [36m</div>[39m
+                    [36m/>[39m
                     [36m<div[39m
                       [33mclass[39m=[32m"col"[39m
                     [36m>[39m
@@ -111,7 +109,8 @@ FAIL src/App.test.tsx
                           [33mstyle[39m=[32m"background-color: salmon;"[39m
                         [36m>[39m
                           [36m<button[39m
-                            [33mclass[39m=[32m"btn btn-primary"[39m
+                            [33mclass[39m=[32m"box btn btn-primary"[39m
+                            [33mstyle[39m=[32m"background-color: rgba(255, 255, 255, 0); border: 0px; font-size: 20px;"[39m
                             [33mtype[39m=[32m"button"[39m
                           [36m>[39m
                             [0mBasic Questions[0m
@@ -119,7 +118,7 @@ FAIL src/App.test.tsx
                         [36m</div>[39m
                         [36m<div[39m
                           [33mclass[39m=[32m"box col"[39m
-                          [33mstyle[39m=[32m"background-color: rgb(255, 99, 71);"[39m
+                          [33mstyle[39m=[32m"background-color: rgb(255, 99, 71); color: rgb(249, 224, 209);"[39m
                         [36m>[39m
                           [0mTake the basic career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The basic quiz consists of 10 shorter questions to provide a quick and easy experience to determine your results.[0m
                         [36m</div>[39m
@@ -133,7 +132,8 @@ FAIL src/App.test.tsx
                           [33mstyle[39m=[32m"background-color: rgb(254, 138, 46);"[39m
                         [36m>[39m
                           [36m<button[39m
-                            [33mclass[39m=[32m"btn btn-primary"[39m
+                            [33mclass[39m=[32m"box btn btn-primary"[39m
+                            [33mstyle[39m=[32m"background-color: rgba(255, 255, 255, 0); border: 0px; font-size: 20px;"[39m
                             [33mtype[39m=[32m"button"[39m
                           [36m>[39m
                             [0mDetailed Questions[0m
@@ -141,6 +141,7 @@ FAIL src/App.test.tsx
                         [36m</div>[39m
                         [36m<div[39m
                           [33mclass[39m=[32m"orange box col"[39m
+                          [33mstyle[39m=[32m"color: rgb(145, 100, 72);"[39m
                         [36m>[39m
                           [0mTake the detailed career assessment to discover a career path personally picked for you! The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. The detailed quiz consists of 10 longer and more detailed questions to provide the more accurate results.[0m
                         [36m</div>[39m
@@ -231,5 +232,5 @@ All files               |   17.18 |     11.9 |   11.76 |   17.74 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.375 s
+Time:        3.27 s
 Ran all test suites.
