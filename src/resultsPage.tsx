@@ -1,20 +1,59 @@
 import './resultsPage.css';
-import {Col, Row} from 'react-bootstrap';
+import {Button, Col, Form, Row} from 'react-bootstrap';
 import { SwitchPages7 } from './interfaces/SwitchPages';
+import { useState } from 'react';
+import { GenerateText } from './components/GPT';
 
-export function ResultsPage ({setOverview, overview, setIndustries, industries}: SwitchPages7) {
+export function ResultsPage ({ overview, industries}: SwitchPages7) {
+    const [userInput, setUserInput] = useState<string>("");
+    const [chatGPTReply, setChatGPTReply] = useState<string>("");
+    const [questionsToUse, setQuestionsToUse] = useState<string>("basic");
+
+    async function submitToGPT () {
+        setChatGPTReply(await GenerateText("user", questionsToUse, userInput));
+    }
+
+    function changeUserInput (event: React.ChangeEvent<HTMLInputElement>) {
+        setUserInput(event.target.value);
+    }
+
+    function changeQuestionsToUse (event: React.ChangeEvent<HTMLSelectElement>) {
+        setQuestionsToUse(event.target.value);
+        console.log(event.target.value)
+    }
+
     return(
         <div>
             <div>
-                <body style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
+                <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
                     <div>
                         <Col className = "textBox">
+                            <div style={{border: "3px solid #F4E9E2", padding: '40px'}}>
+                                <h1>Ask chatGPT anything about your results:</h1>
+                                <br></br>
+                                <Form>
+                                    <Row>
+                                        <Col>
+                                            <Form.Control type="input" placeholder="Ask chatGPT" onChange={changeUserInput}></Form.Control>
+                                        </Col>
+                                        <Col>
+                                            <Form.Select onChange={changeQuestionsToUse}>
+                                                <option value="basic">Basic Questions</option>
+                                                <option value="detailed">Detailed Questions</option>
+                                            </Form.Select>
+                                        </Col>
+                                    </Row>
+                                    <Button onClick={submitToGPT} style={{justifyContent: "center", alignItems: "center" }}>Submit</Button>
+                                </Form>
+                            </div>
+                            <br></br>
+                            <br></br>
                             <p> Congratulations! You've just finished a complete assessment of your interests and personality and you're well on your way to discovering your ideal career path.</p>
                             <p>In this free basic report, you'll see a summary of your scores in each of the six career interest areas. You'll learn more about what these scores mean, and how your top interest area can show which careers you are suited for.</p>
                             <p>Then, we'll show you how key personality traits can point you toward a career that takes advantage of your natural strengths.</p>
                             <p>Finally, we'll show you how to unlock your full report to get an in-depth profile of your interests and personality, along with personalized career planning advice and a complete listing of careers that match your individual interest profile.</p>
                             <p>So, let's get started!</p>
-                            <h1> Overview </h1>
+                            <h1> Overview: </h1>
                             <div>
                                 {overview}
                             </div>
@@ -30,7 +69,7 @@ export function ResultsPage ({setOverview, overview, setIndustries, industries}:
                                     </Row>
                                 </Col>
                                 <Col className = "name2">
-                                    <img src="/pieChart.jpg" alt="Pie Chart" />
+                                    <img src={require("./assets/images/pieChart.jpg")} alt="Pie Chart" />
                                 </Col>
                                 <Col>
                                     <Row className = "name3">
@@ -43,13 +82,17 @@ export function ResultsPage ({setOverview, overview, setIndustries, industries}:
                                     </Row>
                                 </Col>
                             </Row>
-                            <h1> Potential Industries </h1>
+                            <h1> Potential Industries: </h1>
                             <div>
                                 {industries}
                             </div>
+                            <h1>Replies:</h1>
+                            <div>
+                                {chatGPTReply}
+                            </div>
                         </Col>
                     </div>
-                </body>
+                </div>
             </div>
         </div>
     );

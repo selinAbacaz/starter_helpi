@@ -50,13 +50,16 @@ async function callGPT (combinedQuestions: string, combinedAnswers: string, user
   );
 }
 
-export async function GenerateText (type: string, page: string) {
+export async function GenerateText (type: string, page: string, userInput: string) {
   let result = "";
   if (type === "industry") {
     result = await formatQuestionsAndAnswers("Give a list of specific industries that would fit me, add a few bullet points as to why.", page);
   }
-  else {
+  else if (type === "detailed") {
     result = await formatQuestionsAndAnswers("Please provide an overview of what my results mean.", page);
+  }
+  else {
+    result = await formatQuestionsAndAnswers(userInput, page);
   }
   return (
     result
