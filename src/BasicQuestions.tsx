@@ -77,7 +77,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
                         disabled={submitted}>
                     </Form.Check>
                 ))}
-                <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
+                <hr style={{height: 5, backgroundColor: "salmon", marginBottom:60, color: "salmon"}}></hr>
             </div>
         );
     }
@@ -109,7 +109,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
                         </div>
                     </Form.Text>
                 </Form>
-                <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
+                <hr style={{height: 5, backgroundColor: "salmon", marginBottom:60, color: "salmon"}}></hr>
             </div>
         );
     }
@@ -126,7 +126,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
                     placeholder="Enter Answer Here...">
                 </Form.Control>
             </Form>
-            <hr style={{height: 5, backgroundColor: "white", marginBottom:60, color: "white"}}></hr>
+            <hr style={{height: 5, backgroundColor: "salmon", marginBottom:60, color: "salmon"}}></hr>
         </div>
     );
 }
@@ -180,11 +180,16 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverv
                     <p></p>
                 </div>
             </header>
+
+            <div> 
+                <p>  </p>
+            </div>
+
             {/* Body with all questions */}
             <div>
                 {submitted && <ShowAlert setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} blurPage={blurPage}></ShowAlert>}
             </div>
-            <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "white", backgroundColor: "salmon", justifyContent:"right"} }>
+            <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "salmon", backgroundColor: "white", justifyContent:"right"} }>
                 <div className= "Questions">
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[0]} answerPlacement={0} submitted={submitted}></Question>
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[1]} answerPlacement={1} submitted={submitted}></Question>
