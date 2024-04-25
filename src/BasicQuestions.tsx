@@ -150,21 +150,21 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverv
     }
 
     return (
-        <div className="disableBlur">
+        <div className="disableBlur" style={{backgroundColor: "#F4E9E2"}}>
             {/* Header with information on how to take the quiz */}
             <div className={blurPage ? "enableBlur" : ""}>
                 <Row className="image" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
                     <Col style= {{marginLeft: 340}}>
                         <header className= "box">
                             <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                <div> <p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
+                                <div> <p></p><p> Answer Truthfully</p> <p>and</p> <p>Have Fun !</p><p></p> </div>
                             </div>
                         </header>
                     </Col>
                     <Col style= {{marginRight: 340}}>
                         <header className= "box " >
                             <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                <div><p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
+                                <div><p></p><p> Answer Truthfully</p> <p>and</p> <p>Have a Snack !</p><p></p> </div>
                             </div>
                         </header>
                         
@@ -184,7 +184,7 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverv
             <div>
                 {submitted && <ShowAlert setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} blurPage={blurPage}></ShowAlert>}
             </div>
-            <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "white", backgroundColor: "salmon", justifyContent:"right", borderRadius: 20} }>
+            <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "white", backgroundColor: "salmon", justifyContent:"right"} }>
                 <div className= "Questions">
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[0]} answerPlacement={0} submitted={submitted}></Question>
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={questionsArray[1]} answerPlacement={1} submitted={submitted}></Question>
