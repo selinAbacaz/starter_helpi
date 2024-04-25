@@ -4,7 +4,7 @@ import { SwitchPages7 } from './interfaces/SwitchPages';
 import { useState } from 'react';
 import { GenerateText } from './components/GPT';
 
-export function ResultsPage ({setOverview, overview, setIndustries, industries}: SwitchPages7) {
+export function ResultsPage ({ overview, industries}: SwitchPages7) {
     const [userInput, setUserInput] = useState<string>("");
     const [chatGPTReply, setChatGPTReply] = useState<string>("");
     const [questionsToUse, setQuestionsToUse] = useState<string>("basic");
@@ -28,7 +28,7 @@ export function ResultsPage ({setOverview, overview, setIndustries, industries}:
                 <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
                     <div>
                         <Col className = "textBox">
-                            <div style={{border: "5px black", padding: '4px'}}>
+                            <div style={{border: "3px solid #F4E9E2", padding: '40px'}}>
                                 <h1>Ask chatGPT anything about your results:</h1>
                                 <br></br>
                                 <Form>
@@ -69,7 +69,7 @@ export function ResultsPage ({setOverview, overview, setIndustries, industries}:
                                     </Row>
                                 </Col>
                                 <Col className = "name2">
-                                    <img src="/pieChart.jpg" alt="Pie Chart" />
+                                    <img src={require("./assets/images/pieChart.jpg")} alt="Pie Chart" />
                                 </Col>
                                 <Col>
                                     <Row className = "name3">
