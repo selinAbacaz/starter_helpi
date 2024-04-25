@@ -1,15 +1,25 @@
-import { questionsArray } from "../BasicQuestions";
-import { answerArray } from "../BasicQuestions";
+import { basicQuestionsArray, basicAnswerArray  } from "../BasicQuestions";
+import { detailedAnswerArray, detailedQuestionsArray } from "../DetailedQuestions";
 import { keyData } from "../App";
 import OpenAI from "openai";
 
-async function formatQuestionsAndAnswers (userPrompt: string) {
-  const combinedQuestions: string = questionsArray.join(",");
-
-  const combinedAnswers: string = (answerArray.map((answer: string): string => 
+async function formatQuestionsAndAnswers (userPrompt: string, page: string) {
+  let combinedQuestions: string = "";
+  let combinedAnswers: string = "";
+  if (page === "basic") {
+    combinedQuestions = basicQuestionsArray.join(",");
+    combinedAnswers = (basicAnswerArray.map((answer: string): string => 
     "Question " + 
-    `${answerArray.indexOf(answer) + 1}` + 
+    `${basicAnswerArray.indexOf(answer) + 1}` + 
     " Answer: " + answer)).join(",");
+  }
+  else {
+    combinedQuestions = detailedQuestionsArray.join(",");
+    combinedAnswers = (detailedAnswerArray.map((answer: string): string => 
+    "Question " + 
+    `${detailedAnswerArray.indexOf(answer) + 1}` + 
+    " Answer: " + answer)).join(",");
+  }
 
   const result: string = await callGPT(combinedQuestions, combinedAnswers, userPrompt)
   return result;
@@ -40,13 +50,13 @@ async function callGPT (combinedQuestions: string, combinedAnswers: string, user
   );
 }
 
-export async function GenerateText (type: string) {
+export async function GenerateText (type: string, page: string) {
   let result = "";
   if (type === "industry") {
-    result = await formatQuestionsAndAnswers("Give a list of specific industries that would fit me, add a few bullet points as to why.");
+    result = await formatQuestionsAndAnswers("Give a list of specific industries that would fit me, add a few bullet points as to why.", page);
   }
   else {
-    result = await formatQuestionsAndAnswers("Please provide an overview of what my results mean.");
+    result = await formatQuestionsAndAnswers("Please provide an overview of what my results mean.", page);
   }
   return (
     result
