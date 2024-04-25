@@ -1,5 +1,5 @@
 import './resultsPage.css';
-import {Button, Col, Form, Row} from 'react-bootstrap';
+import {Button, Col, Form, Row, Spinner} from 'react-bootstrap';
 import { SwitchPages7 } from './interfaces/SwitchPages';
 import { useState } from 'react';
 import { GenerateText } from './components/GPT';
@@ -8,9 +8,14 @@ export function ResultsPage ({ overview, industries}: SwitchPages7) {
     const [userInput, setUserInput] = useState<string>("");
     const [chatGPTReply, setChatGPTReply] = useState<string>("");
     const [questionsToUse, setQuestionsToUse] = useState<string>("basic");
+    const [loading, setLoading] = useState<boolean>(false);
+    const [canSubmit, setCanSubmit] = useState<boolean>(true);
 
     async function submitToGPT () {
-        setChatGPTReply(await GenerateText("user", questionsToUse, userInput));
+        setLoading(true);
+        setCanSubmit(false);
+        setChatGPTReply(await GenerateText("user", questionsToUse, userInput, setLoading));
+        setCanSubmit(true);
     }
 
     function changeUserInput (event: React.ChangeEvent<HTMLInputElement>) {
@@ -43,7 +48,11 @@ export function ResultsPage ({ overview, industries}: SwitchPages7) {
                                             </Form.Select>
                                         </Col>
                                     </Row>
-                                    <Button onClick={submitToGPT} style={{justifyContent: "center", alignItems: "center" }}>Submit</Button>
+                                    <Button onClick={submitToGPT}>
+                                        {loading && "Loading... " && <Spinner animation="border"></Spinner>}
+                                        {!loading && canSubmit && "Submit"}
+                                        {!loading && !canSubmit && "Response Processed ✔️"}
+                                    </Button>
                                 </Form>
                             </div>
                             <br></br>

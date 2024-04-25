@@ -3,9 +3,10 @@ import { detailedAnswerArray, detailedQuestionsArray } from "../DetailedQuestion
 import { keyData } from "../App";
 import OpenAI from "openai";
 
-async function formatQuestionsAndAnswers (userPrompt: string, page: string) {
-  let combinedQuestions: string = "";
-  let combinedAnswers: string = "";
+let combinedQuestions: string = "";
+let combinedAnswers: string = "";
+
+function formatQuestionsAndAnswers (page: string) {
   if (page === "basic") {
     combinedQuestions = basicQuestionsArray.join(",");
     combinedAnswers = (basicAnswerArray.map((answer: string): string => 
@@ -20,12 +21,12 @@ async function formatQuestionsAndAnswers (userPrompt: string, page: string) {
     `${detailedAnswerArray.indexOf(answer) + 1}` + 
     " Answer: " + answer)).join(",");
   }
-
-  const result: string = await callGPT(combinedQuestions, combinedAnswers, userPrompt)
-  return result;
 }
 
-async function callGPT (combinedQuestions: string, combinedAnswers: string, userPrompt: string) {
+async function callGPT (combinedQuestions: string, combinedAnswers: string, userPrompt: string, setLoading: (loading: boolean) => void, isUserInput: boolean) {
+  if (isUserInput) {
+    setLoading(false);
+  }
   const openai = new OpenAI(
     {
       apiKey: keyData,
@@ -50,16 +51,20 @@ async function callGPT (combinedQuestions: string, combinedAnswers: string, user
   );
 }
 
-export async function GenerateText (type: string, page: string, userInput: string) {
-  let result = "";
+export async function GenerateText (type: string, page: string, userInput: string, setLoading: (loading: boolean) => void) {
+  let result: string = "";
   if (type === "industry") {
-    result = await formatQuestionsAndAnswers("Give a list of specific industries that would fit me, add a few bullet points as to why.", page);
+    formatQuestionsAndAnswers(page);
+    result = await callGPT(combinedQuestions, combinedAnswers, "Give a list of specific industries that would fit me, add a few bullet points as to why.", setLoading, false)
+    
   }
-  else if (type === "detailed") {
-    result = await formatQuestionsAndAnswers("Please provide an overview of what my results mean.", page);
+  else if (type === "overview") {
+    formatQuestionsAndAnswers(page);
+    result = await callGPT(combinedQuestions, combinedAnswers, "Please provide an overview of what my results mean.", setLoading, false)
   }
   else {
-    result = await formatQuestionsAndAnswers(userInput, page);
+    formatQuestionsAndAnswers(page);
+    result = await callGPT(combinedQuestions, combinedAnswers, userInput, setLoading, true)
   }
   return (
     result

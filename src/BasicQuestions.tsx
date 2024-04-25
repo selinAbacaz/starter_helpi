@@ -141,8 +141,8 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverv
         if (submitButtonText === "Submit Answers") {
             setSubmittButtonText("Change Answers");
             setBlurPage(true);
-            setOverview(await GenerateText("overview", "basic", ""));
-            setIndustries(await GenerateText("industry", "basic", ""));
+            setOverview(await GenerateText("overview", "basic", "", () => false));
+            setIndustries(await GenerateText("industry", "basic", "", () => false));
         }
         else {
             setSubmittButtonText("Submit Answers");
