@@ -37,9 +37,9 @@ async function callGPT (type: string, userPrompt: string) {
       {
         messages: 
         [
-          { role: "user", content: "Give a list of specific industries that would fit me. Please give me a few reasons as to why."},
+          { role: "user", content: "Give a list of specific industries that would fit me. Please give me a few reasons as to why." },
           { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers + 
-          ". Output your respones in JSON."}
+          ". Output your respones in JSON." }
         ],
           model: "gpt-4-turbo",
           response_format: { type: "json_object" } 
@@ -52,9 +52,8 @@ async function callGPT (type: string, userPrompt: string) {
       {
         messages: 
         [
-          { role: "user", content: "Please provide an overview of what my results mean."},
-          { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers + 
-          ". Do not mention the orginal questions and answers in your response. If the user asks for specific industries, give a list of specific indsutries that would suit them. Output your respones in JSON."}
+          { role: "user", content: "Please provide an overview of what my results mean." },
+          { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers }
         ],
           model: "gpt-4-turbo",
       }
@@ -66,9 +65,8 @@ async function callGPT (type: string, userPrompt: string) {
       {
         messages: 
         [
-          { role: "user", content: userPrompt},
-          { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers + 
-          ". Do not mention the orginal questions and answers in your response. If the user asks for specific industries, give a list of specific indsutries that would suit them. Output your respones in JSON."}
+          { role: "user", content: userPrompt },
+          { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers }
         ],
           model: "gpt-4-turbo",
       }
@@ -86,7 +84,7 @@ async function callGPT (type: string, userPrompt: string) {
     ""
   );
 }
-
+ 
 export async function GenerateText (type: string, page: string, userInput: string) {
   formatQuestionsAndAnswers(page);
   return (
