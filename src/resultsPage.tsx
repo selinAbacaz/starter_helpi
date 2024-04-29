@@ -1,4 +1,4 @@
-import './resultsPage.css';
+import './ResultsPage.css';
 import {Button, Col, Form, Row} from 'react-bootstrap';
 import { SwitchPages7 } from './interfaces/SwitchPages';
 import { useState } from 'react';
