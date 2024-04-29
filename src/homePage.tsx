@@ -1,4 +1,4 @@
-import './HomePage.css';
+import './homePage.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import { SwitchPages5 } from './interfaces/SwitchPages';
 import { SwitchPage } from './components/SwitchPage';
