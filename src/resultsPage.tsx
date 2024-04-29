@@ -1,4 +1,4 @@
-import './ResultsPage.css';
+import './resultsPage.css';
 import {Button, Col, Form, Row} from 'react-bootstrap';
 import { SwitchPages7 } from './interfaces/SwitchPages';
 import { useState } from 'react';
@@ -97,6 +97,3 @@ export function ResultsPage ({ overview, industries}: SwitchPages7) {
         </div>
     );
 }
-
-
-export default ResultsPage;
