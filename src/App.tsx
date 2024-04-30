@@ -18,10 +18,10 @@ if (prevKey !== null) {
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
-  const [currentPage, setCurrentPage] = useState<number>(0);
-  const [blurPage, setBlurPage] = useState<boolean>(false);
-  const [overview, setOverview] = useState<string>("");
-  const [industries, setIndustries] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState<number>(0); // Determines the current page of the webstie, represented as a number
+  const [blurPage, setBlurPage] = useState<boolean>(false); // Determines whether or not the page will be blurred
+  const [overview, setOverview] = useState<string>(""); // Sets the overview text in the results page
+  const [industries, setIndustries] = useState<string>(""); // Sets the industries text in the results page
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {

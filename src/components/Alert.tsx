@@ -30,10 +30,10 @@ export function ShowAlert ({ setBlurPage, setCurrentPage, blurPage }: SwitchPage
             <ToastContainer style={{ position: "fixed", top: toastPosition, left: "50%", transform: "translate(-50%, 200%)"}}>
                 <Toast show={showMessage} onClose={dismissMessage} style={{width: "500px"}}>
                     <Toast.Header style={{fontSize: "28px"}}>
-                        <strong className="me-auto">Quiz Completed!</strong>
+                        <strong className="me-auto">Quiz Completed!</strong> 
                     </Toast.Header>
                     <Toast.Body style={{fontSize: "25px"}}>
-                        Congratulations! You have completed all of the questions! Go see your results!
+                        Congratulations! You have completed all of the questions! Go see your results! 
                         <SwitchPage setCurrentPage={setCurrentPage} currentPage={3} variant={"primary"} type={"results"} blurPage={blurPage} setBlurPage={setBlurPage}></SwitchPage>
                     </Toast.Body>
                 </Toast>
