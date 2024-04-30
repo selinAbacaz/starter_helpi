@@ -1,11 +1,11 @@
 import { Button, Nav } from "react-bootstrap";
 import { SwitchPages4 } from "../interfaces/SwitchPages";
 
-export function SwitchPage ({ setCurrentPage, pageNumber, varaint, type, blurPage, setBlurPage }: SwitchPages4) {
+export function SwitchPage ({ setCurrentPage, currentPage, varaint, type, blurPage, setBlurPage }: SwitchPages4) {
     const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions", "Results"];
 
     function changePage () {
-        setCurrentPage(pageNumber);
+        setCurrentPage(currentPage);
         if (type === "results") {
             setBlurPage(false);
         }
@@ -13,7 +13,7 @@ export function SwitchPage ({ setCurrentPage, pageNumber, varaint, type, blurPag
 
     if (type === "button") {
         return (
-            <Button variant={varaint} onClick={changePage} disabled={blurPage} className= "box" style= {{backgroundColor: "#ffffff00", border: 0, fontSize: 20}}>{buttonNames[pageNumber]}</Button>
+            <Button variant={varaint} onClick={changePage} disabled={blurPage} className= "box" style= {{backgroundColor: "#ffffff00", border: 0, fontSize: 20}}>{buttonNames[currentPage]}</Button>
         );
     }
     else if (type === "results") {
@@ -23,6 +23,6 @@ export function SwitchPage ({ setCurrentPage, pageNumber, varaint, type, blurPag
         
     }
     return (
-        <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={pageNumber} disabled={blurPage}><b>{buttonNames[pageNumber]}</b></Nav.Link>
+        <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={currentPage} disabled={blurPage}><b>{buttonNames[currentPage]}</b></Nav.Link>
     );
 }

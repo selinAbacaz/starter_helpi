@@ -17,7 +17,7 @@ export function HomePage ({setCurrentPage, blurPage, setBlurPage}: SwitchPages5)
                             <Col>
                                 <Row style={{display:"flex", justifyContent:"right"}}>
                                     <Col className= "box" style= {{backgroundColor: "salmon"}}>
-                                        <SwitchPage setCurrentPage={setCurrentPage} pageNumber={1} varaint={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Basic Question Button*/></SwitchPage>
+                                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={1} varaint={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Basic Question Button*/></SwitchPage>
                                     </Col>
                                     <Col className= "box" style= {{backgroundColor: "#ff6347",color:"#f9e0d1"}}>
                                         Take the basic career assessment to discover a career path personally picked for you! 
@@ -27,7 +27,7 @@ export function HomePage ({setCurrentPage, blurPage, setBlurPage}: SwitchPages5)
                                 </Row>
                                 <Row style={{display:"flex", justifyContent:"right"}}>
                                     <Col className= "box" style= {{backgroundColor: "#FE8A2E"}}>
-                                        <SwitchPage setCurrentPage={setCurrentPage} pageNumber={2} varaint={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Detailed Question Button*/></SwitchPage>
+                                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={2} varaint={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Detailed Question Button*/></SwitchPage>
                                     </Col>
                                     <Col className= "orange box" style={{color:"#916448"}}>
                                         Take the detailed career assessment to discover a career path personally picked for you! 

@@ -13,7 +13,7 @@ export function ShowAlert ({ setBlurPage, setCurrentPage, blurPage }: SwitchPage
         setBlurPage(false);
     }
     
-    useEffect(() => {
+    useEffect(() => { // Adjusts the position of Alert Message when the user scrolls
         const handleScroll = () => {
             setToastPosition(window.scrollY);
         };
@@ -34,7 +34,7 @@ export function ShowAlert ({ setBlurPage, setCurrentPage, blurPage }: SwitchPage
                     </Toast.Header>
                     <Toast.Body style={{fontSize: "25px"}}>
                         Congratulations! You have completed all of the questions! Go see your results!
-                        <SwitchPage setCurrentPage={setCurrentPage} pageNumber={3} varaint={"primary"} type={"results"} blurPage={blurPage} setBlurPage={setBlurPage}></SwitchPage>
+                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={3} varaint={"primary"} type={"results"} blurPage={blurPage} setBlurPage={setBlurPage}></SwitchPage>
                     </Toast.Body>
                 </Toast>
             </ToastContainer>

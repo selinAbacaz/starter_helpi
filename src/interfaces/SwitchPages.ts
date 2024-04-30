@@ -1,4 +1,6 @@
 /*
+    * Variables Descriptions: 
+    *  - 
     * 0 - Home Page
     * 1 - Basic Questions Page
     * 2 - Detailed Questions Page
@@ -7,7 +9,7 @@
 
 export interface SwitchPages {
     setCurrentPage: (newPage: number) => void; // Function to change to a new Page
-    pageNumber: number // Determines the page
+    currentPage: number // Determines the page
     varaint: string // Determines varaint of button
     type: string
 }
@@ -18,7 +20,7 @@ export interface SwitchPages2 {
 
 export interface SwitchPages3{
     setCurrentPage: (newPage: number) => void; // Function to change to a new Page
-    pageNumber: number // Determines the page
+    currentPage: number // Determines the page
     blurPage: boolean // Determines whether or not the page is blurred
     setBlurPage: (blur: boolean) => void
 
@@ -26,7 +28,7 @@ export interface SwitchPages3{
 
 export interface SwitchPages4 {
     setCurrentPage: (newPage: number) => void; // Function to change to a new Page
-    pageNumber: number // Determines the page
+    currentPage: number // Determines the page
     varaint: string // Determines varaint of button
     type: string
     blurPage: boolean
