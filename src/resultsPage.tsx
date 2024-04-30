@@ -1,13 +1,15 @@
 import './resultsPage.css';
 import {Button, Col, Form, Row} from 'react-bootstrap';
-import { SwitchPages7 } from './interfaces/SwitchPages';
 import { useState } from 'react';
 import { GenerateText } from './components/GPT';
+import { SwitchPages7 } from './interfaces/SwitchPages';
 
-export function ResultsPage ({ overview, industries}: SwitchPages7) {
+export function ResultsPage ({ setOverview, overview, setIndustries, industries }: SwitchPages7) {
     const [userInput, setUserInput] = useState<string>("");
     const [chatGPTReply, setChatGPTReply] = useState<string>("");
     const [questionsToUse, setQuestionsToUse] = useState<string>("basic");
+    const [idnustryTitles, setIndustryTitles] = useState<string[]>([]);
+    const [reasoning, setReasoning] = useState<string[][]>([]);
 
     async function submitToGPT () {
         setChatGPTReply(await GenerateText("user", questionsToUse, userInput));
@@ -21,7 +23,7 @@ export function ResultsPage ({ overview, industries}: SwitchPages7) {
         setQuestionsToUse(event.target.value);
         console.log(event.target.value)
     }
-
+    
     return(
         <div>
             <div>

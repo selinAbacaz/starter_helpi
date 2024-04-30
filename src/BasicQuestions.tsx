@@ -131,7 +131,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
     );
 }
 
-export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverview, setIndustries }: SwitchPages6): JSX.Element {
+export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverview, setIndustries, industries }: SwitchPages6): JSX.Element {
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(basicAnswerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false);
     const [submitButtonText, setSubmittButtonText] = useState<string>("Submit Answers");

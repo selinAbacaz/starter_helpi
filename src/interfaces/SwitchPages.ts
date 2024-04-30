@@ -45,6 +45,7 @@ export interface SwitchPages6 {
     setOverview: (newOverview: string) => void;
     setIndustries: (newIndustry: string) => void;
     blurPage: boolean;
+    industries: string;
 }
 
 export interface SwitchPages7 {
