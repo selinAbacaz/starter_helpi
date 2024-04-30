@@ -1,16 +1,14 @@
 /*
     * Variables Descriptions: 
-    *  - 
-    * 0 - Home Page
-    * 1 - Basic Questions Page
-    * 2 - Detailed Questions Page
-    * 3 - Results Page
+    * 
+    * currentPage: The current page, represented as a number, the website is on. (0 - Home, 1 - Basic, 2 - Detailed, 3 - Ressults)
+    * varaint
 */
 
 export interface SwitchPages {
     setCurrentPage: (newPage: number) => void; // Function to change to a new Page
     currentPage: number // Determines the page
-    varaint: string // Determines varaint of button
+    variant: string // Determines varaint of button
     type: string
 }
 
@@ -29,7 +27,7 @@ export interface SwitchPages3{
 export interface SwitchPages4 {
     setCurrentPage: (newPage: number) => void; // Function to change to a new Page
     currentPage: number // Determines the page
-    varaint: string // Determines varaint of button
+    variant: string // Determines varaint of button
     type: string
     blurPage: boolean
     setBlurPage: (blur: boolean) => void
