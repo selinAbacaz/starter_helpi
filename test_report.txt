@@ -213,8 +213,8 @@ File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lin
 All files               |   16.05 |    11.36 |   10.81 |   16.54 |                   
  src                    |   18.82 |    10.29 |    8.69 |   19.75 |                   
   App.tsx               |   71.42 |    58.33 |   33.33 |   71.42 | 16,28-34          
-  BasicQuestions.tsx    |    9.67 |        0 |       0 |   10.34 | 47-152            
-  DetailedQuestions.tsx |      10 |        0 |       0 |   11.11 | 35-71             
+  BasicQuestions.tsx    |    9.67 |        0 |       0 |   10.34 | 47-153            
+  DetailedQuestions.tsx |      10 |        0 |       0 |   11.11 | 35-72             
   homePage.tsx          |     100 |      100 |     100 |     100 |                   
   index.tsx             |       0 |      100 |     100 |       0 | 8-20              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
@@ -226,11 +226,10 @@ All files               |   16.05 |    11.36 |   10.81 |   16.54 |
   ProgressBar.tsx       |       0 |        0 |       0 |       0 | 9-21              
   SwitchPage.tsx        |   55.55 |       50 |      50 |   55.55 | 8-10,20           
  src/interfaces         |       0 |        0 |       0 |       0 |                   
-  BlurPage.ts           |       0 |        0 |       0 |       0 |                   
   SwitchPages.ts        |       0 |        0 |       0 |       0 |                   
 ------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.426 s
+Time:        3.329 s
 Ran all test suites.
