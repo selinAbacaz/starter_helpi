@@ -21,7 +21,8 @@ function App() {
   const [currentPage, setCurrentPage] = useState<number>(0); // Determines the current page of the webstie, represented as a number
   const [blurPage, setBlurPage] = useState<boolean>(false); // Determines whether or not the page will be blurred
   const [overview, setOverview] = useState<string>(""); // Sets the overview text in the results page
-  const [industries, setIndustries] = useState<string>(""); // Sets the industries text in the results page
+  const [industryTitles, setIndustryTitles] = useState<string[]>([]);
+  const [industryReasons, setIndustryReasons] = useState<string[][]>([]);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -38,9 +39,9 @@ function App() {
       <div className={blurPage ? "App enableBlur" : "App"}>
         <NavBar setCurrentPage={setCurrentPage} currentPage={currentPage} blurPage={blurPage} setBlurPage={setBlurPage}></NavBar>
         {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} blurPage={blurPage} setBlurPage={setBlurPage}></HomePage>}
-        {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} setOverview={setOverview} setIndustries={setIndustries} industries={industries}></BasicQuestions>}
-        {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} setOverview={setOverview} setIndustries={setIndustries} industries={industries}></DetailedQuestions>}
-        {currentPage === 3 && <ResultsPage setOverview={setOverview} overview={overview} setIndustries={setIndustries} industries={industries}></ResultsPage>}
+        {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} setOverview={setOverview} setIndustryTitles={setIndustryTitles} setIndustryReasons={setIndustryReasons}></BasicQuestions>}
+        {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} setOverview={setOverview} setIndustryTitles={setIndustryTitles} setIndustryReasons={setIndustryReasons}></DetailedQuestions>}
+        {currentPage === 3 && <ResultsPage overview={overview} industryTitles={industryTitles} industryReasons={industryReasons}></ResultsPage>}
         <Form>
           <Form.Label>API Key:</Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage}></Form.Control>

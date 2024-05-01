@@ -49,16 +49,15 @@ export interface SwitchPages6 {
     setCurrentPage: (newPage: number) => void;
     setBlurPage: (blur: boolean) => void;
     setOverview: (newOverview: string) => void;
-    setIndustries: (newIndustry: string) => void;
+    setIndustryTitles: (newTitles: string[]) => void;
+    setIndustryReasons: (newReasons: string[][]) => void;
     blurPage: boolean;
-    industries: string;
 }
 
 export interface SwitchPages7 {
-    setOverview: (newOverview: string) => void;
     overview: string;
-    setIndustries: (newIndustry: string) => void;
-    industries: string;
+    industryTitles: string[];
+    industryReasons: string[][];
 }
 
 export interface SwitchPages8 {

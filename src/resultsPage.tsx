@@ -4,12 +4,10 @@ import { useState } from 'react';
 import { GenerateText } from './components/GPT';
 import { SwitchPages7 } from './interfaces/SwitchPages';
 
-export function ResultsPage ({ setOverview, overview, setIndustries, industries }: SwitchPages7) {
+export function ResultsPage ({ overview, industryTitles, industryReasons }: SwitchPages7) {
     const [userInput, setUserInput] = useState<string>(""); // Contains the users input for GPT communication
     const [chatGPTReply, setChatGPTReply] = useState<string>(""); // Contains chatGPTs reply to the users input
     const [questionsToUse, setQuestionsToUse] = useState<string>("basic"); // Determines what questions and answers chatGPT should use
-    const [idnustryTitles, setIndustryTitles] = useState<string[]>([]);
-    const [reasoning, setReasoning] = useState<string[][]>([]);
 
     async function submitToGPT () {
         setChatGPTReply(await GenerateText("user", questionsToUse, userInput));
@@ -86,7 +84,7 @@ export function ResultsPage ({ setOverview, overview, setIndustries, industries 
                             </Row>
                             <h1> Potential Industries: </h1>
                             <div>
-                                {industries}
+                                {}
                             </div>
                             <h1>Replies:</h1>
                             <div>

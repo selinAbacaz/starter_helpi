@@ -131,7 +131,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
     );
 }
 
-export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverview, setIndustries, industries }: SwitchPages6): JSX.Element {
+export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverview, setIndustryTitles, setIndustryReasons }: SwitchPages6): JSX.Element {
     // Contains the number of questions that have been anwered
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(basicAnswerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false); // Determines whether or not the results have been submitted
@@ -142,8 +142,6 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverv
         if (submitButtonText === "Submit Answers") {
             setSubmittButtonText("Change Answers");
             setBlurPage(true);
-            setOverview(await GenerateText("overview", "basic", ""));
-            setIndustries(await GenerateText("industry", "basic", ""));
         }
         else {
             setSubmittButtonText("Submit Answers");
