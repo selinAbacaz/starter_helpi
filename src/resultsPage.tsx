@@ -5,9 +5,9 @@ import { GenerateText } from './components/GPT';
 import { SwitchPages7 } from './interfaces/SwitchPages';
 
 export function ResultsPage ({ setOverview, overview, setIndustries, industries }: SwitchPages7) {
-    const [userInput, setUserInput] = useState<string>("");
-    const [chatGPTReply, setChatGPTReply] = useState<string>("");
-    const [questionsToUse, setQuestionsToUse] = useState<string>("basic");
+    const [userInput, setUserInput] = useState<string>(""); // Contains the users input for GPT communication
+    const [chatGPTReply, setChatGPTReply] = useState<string>(""); // Contains chatGPTs reply to the users input
+    const [questionsToUse, setQuestionsToUse] = useState<string>("basic"); // Determines what questions and answers chatGPT should use
     const [idnustryTitles, setIndustryTitles] = useState<string[]>([]);
     const [reasoning, setReasoning] = useState<string[][]>([]);
 

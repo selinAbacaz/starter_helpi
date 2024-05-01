@@ -18,10 +18,10 @@ if (prevKey !== null) {
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
-  const [currentPage, setCurrentPage] = useState<number>(0);
-  const [blurPage, setBlurPage] = useState<boolean>(false);
-  const [overview, setOverview] = useState<string>("");
-  const [industries, setIndustries] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState<number>(0); // Determines the current page of the webstie, represented as a number
+  const [blurPage, setBlurPage] = useState<boolean>(false); // Determines whether or not the page will be blurred
+  const [overview, setOverview] = useState<string>(""); // Sets the overview text in the results page
+  const [industries, setIndustries] = useState<string>(""); // Sets the industries text in the results page
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -36,7 +36,7 @@ function App() {
 
   return (
       <div className={blurPage ? "App enableBlur" : "App"}>
-        <NavBar setCurrentPage={setCurrentPage} pageNumber={currentPage} blurPage={blurPage} setBlurPage={setBlurPage}></NavBar>
+        <NavBar setCurrentPage={setCurrentPage} currentPage={currentPage} blurPage={blurPage} setBlurPage={setBlurPage}></NavBar>
         {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} blurPage={blurPage} setBlurPage={setBlurPage}></HomePage>}
         {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} setOverview={setOverview} setIndustries={setIndustries} industries={industries}></BasicQuestions>}
         {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} setOverview={setOverview} setIndustries={setIndustries} industries={industries}></DetailedQuestions>}
