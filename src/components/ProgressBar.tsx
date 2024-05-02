@@ -6,7 +6,7 @@ interface ShowProgressBarProps {
 }
 
 export function ShowProgressBar ({numQuestionsAnswered, totalQuestions}: ShowProgressBarProps) {
-    let barStyle: string = "danger";
+    let barStyle: string = "danger"; // Sets the style of the progress bar
     const progress: number = (numQuestionsAnswered * 100) / totalQuestions;
 
     if (progress <= 40) {
