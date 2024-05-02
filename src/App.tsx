@@ -20,7 +20,8 @@ function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [currentPage, setCurrentPage] = useState<number>(0); // Determines the current page of the webstie, represented as a number
   const [blurPage, setBlurPage] = useState<boolean>(false); // Determines whether or not the page will be blurred
-  const [submitFlag, setSubmitFlag] = useState<boolean>(false);
+  const [submitFlagBasic, setSubmitFlagBasic] = useState<boolean>(false);
+  const [submitFlagDetailed, setSubmitFlagDetailed] = useState<boolean>(false);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -37,9 +38,9 @@ function App() {
       <div className={blurPage ? "App enableBlur" : "App"}>
         <NavBar setCurrentPage={setCurrentPage} currentPage={currentPage} blurPage={blurPage} setBlurPage={setBlurPage}></NavBar>
         {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} blurPage={blurPage} setBlurPage={setBlurPage}></HomePage>}
-        {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} submitFlag={submitFlag} setSubmitFlag={setSubmitFlag}></BasicQuestions>}
-        {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} submitFlag={submitFlag} setSubmitFlag={setSubmitFlag}></DetailedQuestions>}
-        {currentPage === 3 && <ResultsPage submitFlag={submitFlag} setSubmitFlag={setSubmitFlag}></ResultsPage>}
+        {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} submitFlagBasic={submitFlagBasic} setSubmitFlagBasic={setSubmitFlagBasic}></BasicQuestions>}
+        {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} submitFlagDetailed={submitFlagDetailed} setSubmitFlagDetailed={setSubmitFlagDetailed}></DetailedQuestions>}
+        {currentPage === 3 && <ResultsPage submitFlagBasic={submitFlagBasic} setSubmitFlagBasic={setSubmitFlagBasic} submitFlagDetailed={submitFlagDetailed} setSubmitFlagDetailed={setSubmitFlagDetailed}></ResultsPage>}
         <Form>
           <Form.Label>API Key:</Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage}></Form.Control>

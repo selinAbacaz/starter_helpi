@@ -49,17 +49,27 @@ export interface SwitchPages6 {
     setCurrentPage: (newPage: number) => void;
     setBlurPage: (blur: boolean) => void;
     blurPage: boolean;
-    setSubmitFlag: (newFlag: boolean) => void;
-    submitFlag: boolean;
+    setSubmitFlagBasic: (newFlag: boolean) => void;
+    submitFlagBasic: boolean;
 }
 
 export interface SwitchPages7 {
-    submitFlag: boolean;
-    setSubmitFlag: (newFlag: boolean) => void;
+    submitFlagBasic: boolean;
+    setSubmitFlagBasic: (newFlag: boolean) => void;
+    submitFlagDetailed: boolean;
+    setSubmitFlagDetailed: (newFlag: boolean) => void;
 }
 
 export interface SwitchPages8 {
     setCurrentPage: (newPage: number) => void;
     setBlurPage: (blur: boolean) => void;
     blurPage: boolean;
+}
+
+export interface SwitchPages9 {
+    setCurrentPage: (newPage: number) => void;
+    setBlurPage: (blur: boolean) => void;
+    blurPage: boolean;
+    setSubmitFlagDetailed: (newFlag: boolean) => void;
+    submitFlagDetailed: boolean;
 }
