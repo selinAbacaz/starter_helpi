@@ -1,15 +1,10 @@
 import './resultsPage.css';
 import { Col, Form} from 'react-bootstrap';
 import { useEffect, useState } from 'react';
-import { GenerateText } from './components/GPT';
+import { GenerateText, saveIndustriesBasic, saveIndustriesDetailed, saveOverviewBasic, saveOverviewDetailed } from './components/GPT';
 import { SwitchPages7 } from './interfaces/SwitchPages';
 import ResultsPageBasic from './components/ResultsBasic';
 import ResultsPageDetailed from './components/ResultsDetailed';
-
-export let saveOverviewBasic: string = "";
-export let saveIndustriesBasic: string = "";
-export let saveOverviewDetailed: string = "";
-export let saveIndustriesDetailed: string = "";
 
 export async function submitToGPT () {
     // setChatGPTReply(await GenerateText("user", questionsToUse, userInput));
