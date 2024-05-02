@@ -1,5 +1,4 @@
-import { Button, Col, Form, Row } from "react-bootstrap";
-import { changeUserInput, submitToGPT } from "../resultsPage";
+import { Col, Row } from "react-bootstrap";
 
 interface ResultsPageDetailedProps {
     industriesDetailed: string;
@@ -10,20 +9,6 @@ interface ResultsPageDetailedProps {
 function ResultsPageDetailed ({industriesDetailed, overviewDetailed, chatGPTReply}: ResultsPageDetailedProps) {
     return (
         <div>
-            <div style={{border: "3px solid #F4E9E2", padding: '40px'}}>
-                <h1>Ask chatGPT anything about your results:</h1>
-                <br></br>
-                <Form>
-                    <Row>
-                        <Col>
-                            <Form.Control type="input" placeholder="Ask chatGPT" onChange={changeUserInput}></Form.Control>
-                        </Col>
-                        <Col>
-                            <Button onClick={submitToGPT}>Submit</Button>
-                        </Col>
-                    </Row>
-                </Form>
-            </div>
             <br></br>
             <br></br>
             <p> Congratulations! You've just finished a complete assessment of your interests and personality and you're well on your way to discovering your ideal career path.</p>
