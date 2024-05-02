@@ -30,7 +30,6 @@ export function ResultsPage ({submitFlag, setSubmitFlag}: SwitchPages7) {
 
     function changeQuestionsToUse (event: React.ChangeEvent<HTMLSelectElement>) {
         setQuestionsToUse(event.target.value);
-        console.log(event.target.value)
     }
     
     return(
@@ -39,6 +38,10 @@ export function ResultsPage ({submitFlag, setSubmitFlag}: SwitchPages7) {
                 <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
                     <div>
                         <Col className = "textBox">
+                            <Form.Select onChange={changeQuestionsToUse} style={{width: "19%", justifyContent: "flex-end", display: "flex"}}>
+                                <option value="basic">Basic Questions</option>
+                                <option value="detailed">Detailed Questions</option>
+                            </Form.Select>
                             <div style={{border: "3px solid #F4E9E2", padding: '40px'}}>
                                 <h1>Ask chatGPT anything about your results:</h1>
                                 <br></br>
@@ -48,13 +51,9 @@ export function ResultsPage ({submitFlag, setSubmitFlag}: SwitchPages7) {
                                             <Form.Control type="input" placeholder="Ask chatGPT" onChange={changeUserInput}></Form.Control>
                                         </Col>
                                         <Col>
-                                            <Form.Select onChange={changeQuestionsToUse}>
-                                                <option value="basic">Basic Questions</option>
-                                                <option value="detailed">Detailed Questions</option>
-                                            </Form.Select>
+                                            <Button onClick={submitToGPT}>Submit</Button>
                                         </Col>
                                     </Row>
-                                    <Button onClick={submitToGPT} style={{justifyContent: "center", alignItems: "center" }}>Submit</Button>
                                 </Form>
                             </div>
                             <br></br>
