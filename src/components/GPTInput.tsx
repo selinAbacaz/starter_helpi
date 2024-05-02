@@ -4,20 +4,14 @@ import { GenerateText } from "./GPT";
 
 interface GPTInputProps {
     questionsToUse: string;
-    setChatGPTReplyBasic: (newBasicReply: string) => void;
-    setChatGPTReplyDetailed: (newDetailedReply: string) => void;
+    setChatGPTReply: (newReply: string) => void;
 }
 
-function GPTInput ({questionsToUse, setChatGPTReplyBasic, setChatGPTReplyDetailed}: GPTInputProps) {
+function GPTInput ({questionsToUse, setChatGPTReply}: GPTInputProps) {
     const [userInput, setUserInput] = useState<string>(""); // Contains the users input for GPT communication
 
     async function submitToGPT () {
-        if (questionsToUse === "basic") {
-            await GenerateText("user", questionsToUse, userInput, setChatGPTReplyBasic);
-        }
-        else {
-            await GenerateText("user", questionsToUse, userInput, setChatGPTReplyDetailed);
-        }
+        await GenerateText("user", questionsToUse, userInput, setChatGPTReply);
     }
     
     function changeUserInput (event: React.ChangeEvent<HTMLInputElement>) {
@@ -42,4 +36,4 @@ function GPTInput ({questionsToUse, setChatGPTReplyBasic, setChatGPTReplyDetaile
     )
 }
 
-export default GPTInput;
+export default GPTInput

@@ -1,14 +1,18 @@
 import { Col, Row } from "react-bootstrap";
+import GPTInput from "./GPTInput";
 
 interface ResultsPageBasicProps {
     industriesBasic: string;
     overviewBasic: string;
     chatGPTReply: string;
+    questionsToUse: string;
+    setGPTReplyBasic: (newBasicReply: string) => void;
 }
 
-function ResultsPageBasic ({industriesBasic, overviewBasic, chatGPTReply}: ResultsPageBasicProps) {
+function ResultsPageBasic ({industriesBasic, overviewBasic, chatGPTReply, questionsToUse, setGPTReplyBasic}: ResultsPageBasicProps) {
     return (
         <div>
+            <GPTInput questionsToUse={questionsToUse} setChatGPTReply={setGPTReplyBasic}></GPTInput>
             <br></br>
             <br></br>
             <p> Congratulations! You've just finished a complete assessment of your interests and personality and you're well on your way to discovering your ideal career path.</p>

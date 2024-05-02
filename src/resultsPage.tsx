@@ -5,7 +5,6 @@ import { GenerateText, saveIndustriesBasic, saveIndustriesDetailed, saveOverview
 import { SwitchPages7 } from './interfaces/SwitchPages';
 import ResultsPageBasic from './components/ResultsBasic';
 import ResultsPageDetailed from './components/ResultsDetailed';
-import GPTInput from './components/GPTInput';
 
 export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDetailed, setSubmitFlagDetailed}: SwitchPages7) {
     const [questionsToUse, setQuestionsToUse] = useState<string>("basic"); // Determines what questions and answers chatGPT should use
@@ -46,9 +45,8 @@ export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDet
                                 <option value="basic">Basic Questions</option>
                                 <option value="detailed">Detailed Questions</option>
                             </Form.Select>
-                            {((questionsToUse === "basic" && industriesBasic && overviewBasic) || (questionsToUse === "detailed" && industriesDetailed && overviewDetailed)) && <GPTInput questionsToUse={questionsToUse} setChatGPTReplyBasic={setChatGPTReplyBasic} setChatGPTReplyDetailed={setChatGPTReplyDetailed}></GPTInput>}
-                            {questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsPageBasic industriesBasic={industriesBasic} overviewBasic={overviewBasic} chatGPTReply={chatGPTReplyBasic}></ResultsPageBasic>}
-                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsPageDetailed industriesDetailed={industriesDetailed} overviewDetailed={overviewDetailed} chatGPTReply={chatGPTReplyDetailed}></ResultsPageDetailed>}
+                            {questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsPageBasic industriesBasic={industriesBasic} overviewBasic={overviewBasic} chatGPTReply={chatGPTReplyBasic} questionsToUse={questionsToUse} setGPTReplyBasic={setChatGPTReplyBasic}></ResultsPageBasic>}
+                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsPageDetailed industriesDetailed={industriesDetailed} overviewDetailed={overviewDetailed} chatGPTReply={chatGPTReplyDetailed} questionsToUse={questionsToUse} setGPTReplyDetailed={setChatGPTReplyDetailed}></ResultsPageDetailed>}
                         </Col>
                     </div>
                 </div>
