@@ -48,16 +48,14 @@ export interface SwitchPages5 {
 export interface SwitchPages6 {
     setCurrentPage: (newPage: number) => void;
     setBlurPage: (blur: boolean) => void;
-    setOverview: (newOverview: string) => void;
-    setIndustryTitles: (newTitles: string[]) => void;
-    setIndustryReasons: (newReasons: string[][]) => void;
     blurPage: boolean;
+    setSubmitFlag: (newFlag: boolean) => void;
+    submitFlag: boolean;
 }
 
 export interface SwitchPages7 {
-    overview: string;
-    industryTitles: string[];
-    industryReasons: string[][];
+    submitFlag: boolean;
+    setSubmitFlag: (newFlag: boolean) => void;
 }
 
 export interface SwitchPages8 {

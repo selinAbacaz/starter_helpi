@@ -1,16 +1,27 @@
 import './resultsPage.css';
 import {Button, Col, Form, Row} from 'react-bootstrap';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GenerateText } from './components/GPT';
 import { SwitchPages7 } from './interfaces/SwitchPages';
 
-export function ResultsPage ({ overview, industryTitles, industryReasons }: SwitchPages7) {
+export function ResultsPage ({submitFlag, setSubmitFlag}: SwitchPages7) {
     const [userInput, setUserInput] = useState<string>(""); // Contains the users input for GPT communication
     const [chatGPTReply, setChatGPTReply] = useState<string>(""); // Contains chatGPTs reply to the users input
     const [questionsToUse, setQuestionsToUse] = useState<string>("basic"); // Determines what questions and answers chatGPT should use
+    const [overview, setOverview] = useState<string>("");
+    const [industries, setIndustries] = useState<string>("");
+
+    useEffect(() => {
+        if (submitFlag) {
+            GenerateText("industry", "basic", "", setIndustries);
+            GenerateText("overview", "basic", "", setOverview);
+            console.log("Test");
+            setSubmitFlag(false);
+        }
+    }, [submitFlag, setSubmitFlag]);
 
     async function submitToGPT () {
-        setChatGPTReply(await GenerateText("user", questionsToUse, userInput));
+        // setChatGPTReply(await GenerateText("user", questionsToUse, userInput));
     }
 
     function changeUserInput (event: React.ChangeEvent<HTMLInputElement>) {
@@ -54,7 +65,7 @@ export function ResultsPage ({ overview, industryTitles, industryReasons }: Swit
                             <p>Finally, we'll show you how to unlock your full report to get an in-depth profile of your interests and personality, along with personalized career planning advice and a complete listing of careers that match your individual interest profile.</p>
                             <p>So, let's get started!</p>
                             <h1> Overview: </h1>
-                            <div>
+                            <div style={{whiteSpace: "pre-line"}}>
                                 {overview}
                             </div>
                             <Row>
@@ -83,11 +94,11 @@ export function ResultsPage ({ overview, industryTitles, industryReasons }: Swit
                                 </Col>
                             </Row>
                             <h1> Potential Industries: </h1>
-                            <div>
-                                {}
+                            <div style={{whiteSpace: "pre-line"}}>
+                                {industries}
                             </div>
                             <h1>Replies:</h1>
-                            <div>
+                            <div style={{whiteSpace: "pre-line"}}>
                                 {chatGPTReply}
                             </div>
                         </Col>
