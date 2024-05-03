@@ -10,9 +10,25 @@ interface ResultsPageBasicProps {
 }
 
 function ResultsPageBasic ({industriesBasic, overviewBasic, chatGPTReply, questionsToUse, setGPTReplyBasic}: ResultsPageBasicProps) {
+
+    function PromptStuff () {
+        const industriesArray = industriesBasic.split("**");
+        console.log(industriesArray)
+        return (
+            <div>  
+                {industriesArray.map((part:string) => part[0] !== "@" ? (
+                    <p style={{whiteSpace: "pre-line"}}>{part.replace("\n", "")}</p>
+                ) : (
+                    <b><p style={{fontSize: "25px"}}>{part.replaceAll("@", "")}</p></b>
+                ))}
+            </div>
+        )
+    }
+
     return (
         <div>
             <GPTInput questionsToUse={questionsToUse} setChatGPTReply={setGPTReplyBasic}></GPTInput>
+            { industriesBasic && <PromptStuff></PromptStuff>}
             <br></br>
             <br></br>
             <p> Congratulations! You've just finished a complete assessment of your interests and personality and you're well on your way to discovering your ideal career path.</p>
