@@ -43,7 +43,10 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
         messages: 
         [
           { role: "user", content: "Give a list of specific industries that would fit me. Please give me a few reasons as to why." },
-          { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers }
+          { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers + 
+            ". List the reasons as bullet points underneath the industry name. Each bullet point should be on it's own line." +
+            "Do not bold anything else other than the industry titles."
+          }
         ],
           model: "gpt-4-turbo",
       }
@@ -79,6 +82,7 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
   }
 
   if (result.choices[0].message.content) { // Checks to see if there is a generated message, if not, result is returned as an empty string
+      
       console.log(result);
     return (
       

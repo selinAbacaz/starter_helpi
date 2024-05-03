@@ -6,6 +6,7 @@ import { SwitchPages7 } from './interfaces/SwitchPages';
 import ResultsPageBasic from './components/ResultsBasic';
 import ResultsPageDetailed from './components/ResultsDetailed';
 
+
 export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDetailed, setSubmitFlagDetailed}: SwitchPages7) {
     const [questionsToUse, setQuestionsToUse] = useState<string>("basic"); // Determines what questions and answers chatGPT should use
     const [overviewBasic, setOverviewBasic] = useState<string>(saveOverviewBasic);
@@ -14,7 +15,6 @@ export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDet
     const [industriesDetailed, setIndustriesDetailed] = useState<string>(saveIndustriesDetailed);
     const [chatGPTReplyBasic, setChatGPTReplyBasic] = useState<string>(""); // Contains chatGPTs reply to the users input
     const [chatGPTReplyDetailed, setChatGPTReplyDetailed] = useState<string>(""); // Contains chatGPTs reply to the users input
-
 
     useEffect(() => {
         if (submitFlagBasic) {
@@ -34,7 +34,7 @@ export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDet
     function changeQuestionsToUse (event: React.ChangeEvent<HTMLSelectElement>) {
         setQuestionsToUse(event.target.value);
     }
-    
+
     return(
         <div>
             <div>
