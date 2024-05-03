@@ -21,8 +21,7 @@ export function HomePage ({setCurrentPage, blurPage, setBlurPage}: SwitchPages5)
                                     </Col>
                                     <Col className= "box" style= {{backgroundColor: "#ff6347",color:"#f9e0d1"}}>
                                         Take the basic career assessment to discover a career path personally picked for you! 
-                                        The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. 
-                                        The basic quiz consists of 10 shorter questions to provide a quick and easy experience to determine your results.
+                                        
                                     </Col>
                                 </Row>
                                 <Row style={{display:"flex", justifyContent:"right"}}>
@@ -31,14 +30,46 @@ export function HomePage ({setCurrentPage, blurPage, setBlurPage}: SwitchPages5)
                                     </Col>
                                     <Col className= "orange box" style={{color:"#916448"}}>
                                         Take the detailed career assessment to discover a career path personally picked for you! 
-                                        The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. 
-                                        The detailed quiz consists of 10 longer and more detailed questions to provide the more accurate results.
+                                        
                                     </Col>
                                 </Row>
                             </Col>
+                            
                         </Row>
+
+                        {/* underneath part of home page with more information */}
+                        <Row className= "HP-lower">
+                                <Col >
+                                    <header className= "box" style= {{marginTop: 100, marginBottom: 100}}>
+                                        <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "#916448", backgroundColor: "#c9885f",  fontFamily: "Helvetica", fontWeight: "bold"} }>
+                                            <div> <p></p><p> More Information on Basic Questions</p> </div>
+                                            <hr style={{height: 5, backgroundColor: "#f8f8f8c7", marginBottom:60, color: "#f8f8f8c7"}}></hr>
+                                             <p style={{fontSize: 20, color: "#f9e0d1"}}> The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. 
+                                        The basic quiz consists of 10 shorter questions with a variety of multiple choice, slider, and short answer to provide a quick and easy experience to determine your results.</p>
+                                        <p style= {{color: "#ae3b3bca"}}> Warning: Might not be as accurate as detailed questions !</p>
+                                            
+                                            
+                                            
+                                        </div>
+                                    </header>
+                                </Col>
+                                <Col >
+                                    <header className= "box " style= {{marginTop: 100, marginBottom: 100}}>
+                                        <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "#916448", backgroundColor: "#c9885f",  fontFamily: "Helvetica", fontWeight: "bold"} }>
+                                            <div  > <p></p><p> More Information on Detailed Questions </p>
+                                            <hr style={{height: 5, backgroundColor: "#f8f8f8c7", marginBottom:60, color: "#f8f8f8c7"}}></hr>
+                                             <p style={{fontSize: 20, color: "#f9e0d1"}}> The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. 
+                                        The detailed quiz consists of 10 longer and more detailed open-ended questions that will then be analyzed by AI to provide the more accurate results.</p> </div>
+                                        </div>
+                                    </header>
+                                    
+                                </Col>
+                            </Row>
+
                     </Container>
+                
                 </div>
+                
             </div>
         </div>
     );
