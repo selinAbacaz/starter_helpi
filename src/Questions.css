@@ -10,6 +10,18 @@
 
 }
 
+.slidingDiv {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-left: 180px; /* for left margin */
+  margin-right: 180px; /* for right margin */
+  background-color: rgba(238, 113, 113, 0.725);
+  transition: top 0.3s ease;
+  z-index: 999;
+}
+
 .Questions {
 
   margin: 80px auto; /* Center the box horizontally */
