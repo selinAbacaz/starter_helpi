@@ -2,6 +2,7 @@ import './homePage.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import { SwitchPages5 } from './interfaces/SwitchPages';
 import { SwitchPage } from './components/SwitchPage';
+import { relative } from 'path';
 
 export function HomePage ({setCurrentPage, blurPage, setBlurPage}: SwitchPages5) {
 
@@ -40,7 +41,7 @@ export function HomePage ({setCurrentPage, blurPage, setBlurPage}: SwitchPages5)
                         {/* underneath part of home page with more information */}
                         <Row className= "HP-lower">
                                 <Col >
-                                    <header className= "box" style= {{marginTop: 100, marginBottom: 100}}>
+                                    <header className= "box" style= {{marginTop: 200, marginBottom: 200, height: "400"}}>
                                         <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "#916448", backgroundColor: "#c9885f",  fontFamily: "Helvetica", fontWeight: "bold"} }>
                                             <div> <p></p><p> More Information on Basic Questions</p> </div>
                                             <hr style={{height: 5, backgroundColor: "#f8f8f8c7", marginBottom:60, color: "#f8f8f8c7"}}></hr>
@@ -54,7 +55,7 @@ export function HomePage ({setCurrentPage, blurPage, setBlurPage}: SwitchPages5)
                                     </header>
                                 </Col>
                                 <Col >
-                                    <header className= "box " style= {{marginTop: 100, marginBottom: 100}}>
+                                    <header className= "box " style= {{marginTop: 200, marginBottom: 200, height: 400}}>
                                         <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "#916448", backgroundColor: "#c9885f",  fontFamily: "Helvetica", fontWeight: "bold"} }>
                                             <div  > <p></p><p> More Information on Detailed Questions </p>
                                             <hr style={{height: 5, backgroundColor: "#f8f8f8c7", marginBottom:60, color: "#f8f8f8c7"}}></hr>
