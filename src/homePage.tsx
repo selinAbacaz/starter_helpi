@@ -11,10 +11,12 @@ export function HomePage ({setCurrentPage, blurPage, setBlurPage}: SwitchPages5)
             <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
                 <div>
                     <Container>
+                        
                         <Row>
-                            <Col className=" box2">
-                            
+                            {/* this row contains top part of homepage with the image, buttons, and short descriptions */}
+                            <Col className="HPImageBox">
                             </Col>
+
                             <Col>
                                 <Row style={{display:"flex", justifyContent:"right"}}>
                                     <Col className= "box" style= {{backgroundColor: "salmon"}}>
@@ -38,34 +40,36 @@ export function HomePage ({setCurrentPage, blurPage, setBlurPage}: SwitchPages5)
                             
                         </Row>
 
-                        {/* underneath part of home page with more information */}
+                        
                         <Row className= "HP-lower">
-                                <Col >
-                                    <header className= "box" style= {{marginTop: 200, marginBottom: 200, height: "400"}}>
-                                        <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "#916448", backgroundColor: "#c9885f",  fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                            <div> <p></p><p> More Information on Basic Questions</p> </div>
-                                            <hr style={{height: 5, backgroundColor: "#f8f8f8c7", marginBottom:60, color: "#f8f8f8c7"}}></hr>
-                                             <p style={{fontSize: 20, color: "#f9e0d1"}}> The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. 
+                            {/* this row contains underneath part of home page with more information on basic and detailed questions- WIP */}
+                            <Col >
+                            {/* basic questions info col */}
+                                <header className= "box" style= {{marginTop: 200, marginBottom: 200}}>
+                                    <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "#916448", backgroundColor: "#c9885f",  fontFamily: "Helvetica", fontWeight: "bold"} }>
+                                        <div> <p></p><p> More Information on Basic Questions</p> </div>
+                                        <hr style={{height: 5, backgroundColor: "#f8f8f8c7", marginBottom:60, color: "#f8f8f8c7"}}></hr>
+                                         <p style={{fontSize: 20, color: "#f9e0d1"}}> The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. 
                                         The basic quiz consists of 10 shorter questions with a variety of multiple choice, slider, and short answer to provide a quick and easy experience to determine your results.</p>
-                                        <p style= {{color: "#ae3b3bca"}}> Warning: Might not be as accurate as detailed questions !</p>
-                                            
-                                            
-                                            
-                                        </div>
-                                    </header>
-                                </Col>
-                                <Col >
-                                    <header className= "box " style= {{marginTop: 200, marginBottom: 200, height: 400}}>
-                                        <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "#916448", backgroundColor: "#c9885f",  fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                            <div  > <p></p><p> More Information on Detailed Questions </p>
-                                            <hr style={{height: 5, backgroundColor: "#f8f8f8c7", marginBottom:60, color: "#f8f8f8c7"}}></hr>
-                                             <p style={{fontSize: 20, color: "#f9e0d1"}}> The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. 
+                                        <p style= {{color: "#ae3b3bca"}}> Warning: Might not be as accurate as detailed questions !</p> 
+
+                                    </div>
+                                </header>
+                            </Col>
+
+                            <Col >
+                            {/* details questions info col */}
+                                <header className= "box " style= {{marginTop: 200, marginBottom: 200}}>
+                                    <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "#916448", backgroundColor: "#c9885f",  fontFamily: "Helvetica", fontWeight: "bold"} }>
+                                        <div  > <p></p><p> More Information on Detailed Questions </p>
+                                        <hr style={{height: 5, backgroundColor: "#f8f8f8c7", marginBottom:60, color: "#f8f8f8c7"}}></hr>
+                                        <p style={{fontSize: 20, color: "#f9e0d1"}}> The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. 
                                         The detailed quiz consists of 10 longer and more detailed open-ended questions that will then be analyzed by AI to provide the more accurate results.</p> </div>
-                                        </div>
-                                    </header>
+                                    </div>
+                                </header>
                                     
-                                </Col>
-                            </Row>
+                            </Col>
+                        </Row>
 
                     </Container>
                 
