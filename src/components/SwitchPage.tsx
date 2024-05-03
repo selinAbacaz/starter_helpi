@@ -13,7 +13,7 @@ export function SwitchPage ({ setCurrentPage, pageNumber, varaint, type, blurPag
 
     if (type === "button") {
         return (
-            <Button variant={varaint} onClick={changePage} disabled={blurPage} className= "box" style= {{backgroundColor: "#ffffff00", border: 0, fontSize: 20}}>{buttonNames[pageNumber]}</Button>
+            <Button variant={varaint} onClick={changePage} disabled={blurPage} className= "box" style= {{backgroundColor: "#ffffff00", border: 0, fontSize: 25}}>{buttonNames[pageNumber]}</Button>
         );
     }
     else if (type === "results") {
