@@ -172,13 +172,13 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFl
             </div>
             
             {/* progress bar's own little box */}
-            <header className={blurPage ? "enableBlur" : ""}>
-                <div style={ {padding: '8px', backgroundColor: "white"} }>
+            <div style= {{top:window.screenTop, position: "sticky"}}>
+            <header className={blurPage ? "enableBlur" : ""} style= {{ padding: '8px', backgroundColor: "white"}}>
                     <p></p>
                     <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={basicAnswerArray.length}></ShowProgressBar>
                     <p></p>
-                </div>
             </header>
+            </div>
 
             <div> 
                 <p>  </p>

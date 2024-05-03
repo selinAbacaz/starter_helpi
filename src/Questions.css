@@ -10,6 +10,18 @@
 
 }
 
+.slidingDiv {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-left: 180px; /* for left margin */
+  margin-right: 180px; /* for right margin */
+  background-color: #ae3b3b;
+  transition: top 0.3s ease;
+  z-index: 999;
+}
+
 .Questions {
 
   margin: 80px auto; /* Center the box horizontally */
@@ -40,5 +52,14 @@
   background: #bbdb86 url("././assets/images/BasicBG3.png") center center no-repeat; /* Solid color background with background image */
   background-size: cover; /* Cover the entire container */
   height: 50vh; /* Adjust height as needed */
+
+}
+
+.HP-lower {
+
+  background: #b56f53; /* Solid color background with background image */
+  background-size: cover; /* Cover the entire container */
+  
+  /*color: #ae3b3bca"*/
 
 }
