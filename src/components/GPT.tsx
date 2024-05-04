@@ -45,7 +45,7 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
           { role: "user", content: "Give a list of specific industries that would fit me. Please give me a few reasons as to why." },
           { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers + 
             ". List the reasons as bullet points underneath the industry name. Each bullet point should be on it's own line." +
-            "Do not bold anything else other than the industry titles. Put an '@' inside the double stars when something is bolded"
+            "Use a ## symbol to signify a header. The only words that should be headers or bolded are the industry titles."
           }
         ],
           model: "gpt-4-turbo",
