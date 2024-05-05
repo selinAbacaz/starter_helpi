@@ -1,7 +1,7 @@
 import './resultsPage.css';
 import { Col, Form} from 'react-bootstrap';
 import { useEffect, useState } from 'react';
-import { GenerateText, saveIndustriesBasic, saveIndustriesDetailed, saveOverviewBasic, saveOverviewDetailed } from './components/GPT';
+import { GenerateText, saveGPTReplyBaic, saveGPTReplyDetailed, saveIndustriesBasic, saveIndustriesDetailed, saveOverviewBasic, saveOverviewDetailed } from './components/GPT';
 import { SwitchPages7 } from './interfaces/SwitchPages';
 import ResultsPageBasic from './components/ResultsBasic';
 import ResultsPageDetailed from './components/ResultsDetailed';
@@ -13,8 +13,8 @@ export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDet
     const [industriesBasic, setIndustriesBasic] = useState<string>(saveIndustriesBasic);
     const [overviewDetailed, setOverviewDetailed] = useState<string>(saveOverviewDetailed);
     const [industriesDetailed, setIndustriesDetailed] = useState<string>(saveIndustriesDetailed);
-    const [chatGPTReplyBasic, setChatGPTReplyBasic] = useState<string>(""); // Contains chatGPTs reply to the users input
-    const [chatGPTReplyDetailed, setChatGPTReplyDetailed] = useState<string>(""); // Contains chatGPTs reply to the users input
+    const [chatGPTReplyBasic, setChatGPTReplyBasic] = useState<string>(saveGPTReplyBaic); // Contains chatGPTs reply to the users input
+    const [chatGPTReplyDetailed, setChatGPTReplyDetailed] = useState<string>(saveGPTReplyDetailed); // Contains chatGPTs reply to the users input
 
     useEffect(() => {
         if (submitFlagBasic) {
