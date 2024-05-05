@@ -5,7 +5,7 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, bl
     const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions", "Results"]; // Array of names for the buttons and navs related to page switching
 
     function changePage () {
-        if (setCurrentPage && currentPage) {
+        if ((setCurrentPage && currentPage) ||  (setCurrentPage && currentPage === 0)) {
             setCurrentPage(currentPage);
         }
         if (type === "results" && setBlurPage && setQuestionsToUse && questionsToUse) {
@@ -26,6 +26,6 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, bl
         
     }
     return (
-        <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={currentPage} disabled={blurPage}><b>{currentPage && buttonNames[currentPage]}</b></Nav.Link>
+        <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={currentPage} disabled={blurPage}><b>{(currentPage && buttonNames[currentPage] ) || (currentPage === 0 && buttonNames[currentPage])}</b></Nav.Link>
     );
 }
