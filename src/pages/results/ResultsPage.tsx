@@ -1,4 +1,4 @@
-import './resultsPage.css';
+import './ResultsPage.css';
 import { Col, Form} from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import { GenerateText, saveGPTReplyBaic, saveGPTReplyDetailed, saveIndustriesBasic, saveIndustriesDetailed, saveOverviewBasic, saveOverviewDetailed } from '../../components/GPT';
