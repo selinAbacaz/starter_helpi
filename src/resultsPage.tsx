@@ -8,12 +8,12 @@ import ResultsPageDetailed from './components/ResultsDetailed';
 
 
 export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDetailed, setSubmitFlagDetailed, questionsToUse, setQuestionsToUse}: SwitchPages7) {
-    const [overviewBasic, setOverviewBasic] = useState<string>(saveOverviewBasic);
-    const [industriesBasic, setIndustriesBasic] = useState<string>(saveIndustriesBasic);
-    const [overviewDetailed, setOverviewDetailed] = useState<string>(saveOverviewDetailed);
-    const [industriesDetailed, setIndustriesDetailed] = useState<string>(saveIndustriesDetailed);
-    const [chatGPTReplyBasic, setChatGPTReplyBasic] = useState<string>(saveGPTReplyBaic); // Contains chatGPTs reply to the users input
-    const [chatGPTReplyDetailed, setChatGPTReplyDetailed] = useState<string>(saveGPTReplyDetailed); // Contains chatGPTs reply to the users input
+    const [overviewBasic, setOverviewBasic] = useState<string>(saveOverviewBasic); // Contains the general overview chatGPT returns for the basic questions
+    const [industriesBasic, setIndustriesBasic] = useState<string>(saveIndustriesBasic); // Contains the list of industries chatGPT returns for the basic questions
+    const [overviewDetailed, setOverviewDetailed] = useState<string>(saveOverviewDetailed); // Contains the general overview chatGPT returns for the detailed questions
+    const [industriesDetailed, setIndustriesDetailed] = useState<string>(saveIndustriesDetailed); // Contains the list of industries chatGPT returns for the detailed questions
+    const [chatGPTReplyBasic, setChatGPTReplyBasic] = useState<string>(saveGPTReplyBaic); // Contains chatGPTs reply to the users input for basic questions
+    const [chatGPTReplyDetailed, setChatGPTReplyDetailed] = useState<string>(saveGPTReplyDetailed); // Contains chatGPTs reply to the users input for detailed questions
 
     useEffect(() => {
         if (submitFlagBasic) {

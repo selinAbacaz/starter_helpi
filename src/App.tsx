@@ -20,8 +20,8 @@ function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [currentPage, setCurrentPage] = useState<number>(0); // Determines the current page of the webstie, represented as a number
   const [blurPage, setBlurPage] = useState<boolean>(false); // Determines whether or not the page will be blurred
-  const [submitFlagBasic, setSubmitFlagBasic] = useState<boolean>(false);
-  const [submitFlagDetailed, setSubmitFlagDetailed] = useState<boolean>(false);
+  const [submitFlagBasic, setSubmitFlagBasic] = useState<boolean>(false); // Determines whether or not the basic questions have been submitted
+  const [submitFlagDetailed, setSubmitFlagDetailed] = useState<boolean>(false); // Determines whether or not the detailed questions have been submitted
   const [questionsToUse, setQuestionsToUse] = useState<string>("basic"); // Determines what questions and answers chatGPT should use
   
   //sets the local storage item to the api key the user inputed
