@@ -18,14 +18,7 @@ export interface SwitchPagesProps {
     variant?: string;
 }
 
-export interface SwitchPages7 {
-    submitFlagBasic: boolean;
-    setSubmitFlagBasic: (newFlag: boolean) => void;
-    submitFlagDetailed: boolean;
-    setSubmitFlagDetailed: (newFlag: boolean) => void;
-    questionsToUse: string;
-    setQuestionsToUse: (newQuestionsToUse: string) => void;
-}
+
 
 export interface SwitchPages8 {
     questionsToUse: string;
