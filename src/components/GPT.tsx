@@ -1,5 +1,5 @@
-import { basicQuestionsArray, basicAnswerArray  } from "../BasicQuestions";
-import { detailedAnswerArray, detailedQuestionsArray } from "../DetailedQuestions";
+import { basicQuestionsArray, basicAnswerArray  } from "../pages/basic-questions/BasicQuestions";
+import { detailedAnswerArray, detailedQuestionsArray } from "../pages/detailed-questions/DetailedQuestions";
 import { keyData } from "../App";
 import OpenAI from "openai";
 

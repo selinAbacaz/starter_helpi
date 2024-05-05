@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { ShowProgressBar } from "./components/ProgressBar";
-import { ShowAlert } from "./components/Alert";
+import { ShowProgressBar } from "../../components/ProgressBar";
+import { ShowAlert } from "../../components/Alert";
 import { Button, Col, Row } from 'react-bootstrap';
-import './Questions.css';
-import './App.css'
-import { SwitchPages9 } from "./interfaces/SwitchPages";
-import { SwitchPage } from "./components/SwitchPage";
+import '../Questions.css';
+import '../../App.css'
+import { SwitchPages9 } from "../../interfaces/SwitchPages";
+import { SwitchPage } from "../../components/SwitchPage";
 
 interface DetailedQuestionsProps {
     setNumQuestionAnswered: (newAnswered: number) => void;
