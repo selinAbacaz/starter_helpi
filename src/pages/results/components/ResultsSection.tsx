@@ -1,19 +1,12 @@
 import { Col, Row } from "react-bootstrap";
 import GPTInput from "./GPTInput";
 import ReactMarkdown from "react-markdown";
+import { ResultsSectionProps } from "../../../interfaces/ResultsSection";
 
-interface ResultsPageBasicProps {
-    industriesBasic: string;
-    overviewBasic: string;
-    chatGPTReply: string;
-    questionsToUse: string;
-    setGPTReplyBasic: (newBasicReply: string) => void;
-}
-
-function ResultsPageBasic ({industriesBasic, overviewBasic, chatGPTReply, questionsToUse, setGPTReplyBasic}: ResultsPageBasicProps) {
+function ResultsSection ({ setGPTReply, chatGPTReply, industries, overview, questionsToUse }: ResultsSectionProps) {
     return (
         <div>
-            <GPTInput questionsToUse={questionsToUse} setChatGPTReply={setGPTReplyBasic}></GPTInput>
+            <GPTInput questionsToUse={questionsToUse} setChatGPTReply={setGPTReply}></GPTInput>
             <br></br>
             <br></br>
             <p> Congratulations! You've just finished a complete assessment of your interests and personality and you're well on your way to discovering your ideal career path.</p>
@@ -22,7 +15,8 @@ function ResultsPageBasic ({industriesBasic, overviewBasic, chatGPTReply, questi
             <p>Finally, we'll show you how to unlock your full report to get an in-depth profile of your interests and personality, along with personalized career planning advice and a complete listing of careers that match your individual interest profile.</p>
             <p>So, let's get started!</p>
             <h1> Overview: </h1>
-            <ReactMarkdown children={overviewBasic}></ReactMarkdown>
+            <ReactMarkdown children={overview}></ReactMarkdown>
+            <br></br>
             <Row>
                 <Col>
                     <Row className = "name1">
@@ -50,7 +44,7 @@ function ResultsPageBasic ({industriesBasic, overviewBasic, chatGPTReply, questi
             </Row>
             <h1> Potential Industries: </h1>
             <br></br>
-            <ReactMarkdown children={industriesBasic}></ReactMarkdown>
+            <ReactMarkdown children={industries}></ReactMarkdown>
             <br></br>
             <h1>Replies:</h1>
             <ReactMarkdown children={chatGPTReply}></ReactMarkdown>
@@ -58,4 +52,4 @@ function ResultsPageBasic ({industriesBasic, overviewBasic, chatGPTReply, questi
     );
 }
 
-export default ResultsPageBasic;
+export default ResultsSection

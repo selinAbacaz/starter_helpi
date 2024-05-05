@@ -3,8 +3,7 @@ import { Col, Form} from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import { GenerateText, saveGPTReplyBaic, saveGPTReplyDetailed, saveIndustriesBasic, saveIndustriesDetailed, saveOverviewBasic, saveOverviewDetailed } from './GPT';
 import { SwitchPages7 } from '../../interfaces/SwitchPages';
-import ResultsPageBasic from './components/ResultsBasic';
-import ResultsPageDetailed from './components/ResultsDetailed';
+import ResultsSection from './components/ResultsSection';
 
 
 export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDetailed, setSubmitFlagDetailed, questionsToUse, setQuestionsToUse}: SwitchPages7) {
@@ -44,8 +43,8 @@ export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDet
                                 <option value="basic">Basic Questions</option>
                                 <option value="detailed">Detailed Questions</option>
                             </Form.Select>
-                            {questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsPageBasic industriesBasic={industriesBasic} overviewBasic={overviewBasic} chatGPTReply={chatGPTReplyBasic} questionsToUse={questionsToUse} setGPTReplyBasic={setChatGPTReplyBasic}></ResultsPageBasic>}
-                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsPageDetailed industriesDetailed={industriesDetailed} overviewDetailed={overviewDetailed} chatGPTReply={chatGPTReplyDetailed} questionsToUse={questionsToUse} setGPTReplyDetailed={setChatGPTReplyDetailed}></ResultsPageDetailed>}
+                            {questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsSection setGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} questionsToUse={questionsToUse}></ResultsSection>}
+                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsSection setGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} questionsToUse={questionsToUse}></ResultsSection>}
                         </Col>
                     </div>
                 </div>
