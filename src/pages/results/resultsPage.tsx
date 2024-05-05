@@ -1,10 +1,10 @@
 import './resultsPage.css';
 import { Col, Form} from 'react-bootstrap';
 import { useEffect, useState } from 'react';
-import { GenerateText, saveGPTReplyBaic, saveGPTReplyDetailed, saveIndustriesBasic, saveIndustriesDetailed, saveOverviewBasic, saveOverviewDetailed } from './components/GPT';
-import { SwitchPages7 } from './interfaces/SwitchPages';
-import ResultsPageBasic from './components/ResultsBasic';
-import ResultsPageDetailed from './components/ResultsDetailed';
+import { GenerateText, saveGPTReplyBaic, saveGPTReplyDetailed, saveIndustriesBasic, saveIndustriesDetailed, saveOverviewBasic, saveOverviewDetailed } from '../../components/GPT';
+import { SwitchPages7 } from '../../interfaces/SwitchPages';
+import ResultsPageBasic from '../../components/ResultsBasic';
+import ResultsPageDetailed from '../../components/ResultsDetailed';
 
 
 export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDetailed, setSubmitFlagDetailed, questionsToUse, setQuestionsToUse}: SwitchPages7) {

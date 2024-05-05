@@ -5,7 +5,7 @@ import { HomePage } from './pages/home/homePage';
 import { BasicQuestions } from './pages/basic-questions/BasicQuestions';
 import { DetailedQuestions } from './pages/detailed-questions/DetailedQuestions';
 import { NavBar } from './components/NavBar';
-import { ResultsPage } from './resultsPage';
+import { ResultsPage } from './pages/results/resultsPage';
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
