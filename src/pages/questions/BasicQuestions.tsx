@@ -5,14 +5,8 @@ import { Button, Col, Row, Form } from 'react-bootstrap';
 import './Questions.css';
 import '../../App.css'
 import { SwitchPage } from "../../components/SwitchPage";
-import { SwitchPages6 } from "../../interfaces/SwitchPages";
-
-interface BasicQuestionsProps {
-    setNumQuestionAnswered: (newAnswered: number) => void;
-    question: string;
-    answerPlacement: number;
-    submitted: boolean
-}
+import { QuestionsProps } from "../../interfaces/Questions";
+import { BasicQuestionsProps } from "../../interfaces/BasicQuestions";
 
 export const basicAnswerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
 export const basicQuestionsArray: string[] = 
@@ -42,7 +36,7 @@ const optionsArrays: string[][] =
     [""]
 ]
 
-function Question ({setNumQuestionAnswered, question, answerPlacement, submitted}: BasicQuestionsProps) {
+function Question ({setNumQuestionAnswered, question, answerPlacement, submitted}: QuestionsProps) {
     const [userAnswer, setUserAnswer] = useState<string>(basicAnswerArray[answerPlacement]);
     
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
@@ -130,7 +124,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
     );
 }
 
-export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFlagBasic, setSubmitFlagBasic, setQuestionsToUse}: SwitchPages6): JSX.Element {
+export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFlagBasic, setSubmitFlagBasic, setQuestionsToUse}: BasicQuestionsProps): JSX.Element {
     // Contains the number of questions that have been anwered
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(basicAnswerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false); // Determines whether or not the results have been submitted
@@ -203,7 +197,7 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFl
                     <br></br>
                     <span>
                         <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10 || blurPage}>{submitButtonText}</Button>
-                        {submitted && <SwitchPage setCurrentPage={setCurrentPage} currentPage={3} variant={"primary"} type={"results"} blurPage={blurPage} setBlurPage={setBlurPage} questionsToUse={""} setQuestionsToUse={() => ""}></SwitchPage>}
+                        {submitted && <SwitchPage setCurrentPage={setCurrentPage} currentPage={3} variant={"primary"} type={"results"} blurPage={blurPage} setBlurPage={setBlurPage}></SwitchPage>}
                     </span>
                     
                 </div>

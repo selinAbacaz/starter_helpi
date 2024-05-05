@@ -4,15 +4,9 @@ import { ShowAlert } from "./components/Alert";
 import { Button, Col, Row } from 'react-bootstrap';
 import './Questions.css';
 import '../../App.css'
-import { SwitchPages9 } from "../../interfaces/SwitchPages";
 import { SwitchPage } from "../../components/SwitchPage";
-
-interface DetailedQuestionsProps {
-    setNumQuestionAnswered: (newAnswered: number) => void;
-    question: string;
-    answerPlacement: number;
-    submitted: boolean
-}
+import { QuestionsProps } from "../../interfaces/Questions";
+import { DetailedQuestionsProps } from "../../interfaces/DetailedQuestions";
 
 export const detailedAnswerArray: string[] = ["", "", "", "", "", "", "", "", "", ""]
 export const detailedQuestionsArray: string[] = 
@@ -29,7 +23,7 @@ export const detailedQuestionsArray: string[] =
     "Question 10: Reflect on a time where you were forced to do a lot of social interactions in a day. Did you enjoy having a lot of conversations and what made you like/dislike this experience?"
 ];
 
-function Question ({setNumQuestionAnswered, question, answerPlacement, submitted}: DetailedQuestionsProps) {
+function Question ({setNumQuestionAnswered, answerPlacement, question, submitted}: QuestionsProps) {
     const [userAnswer, setUserAnswer] = useState<string>(detailedAnswerArray[answerPlacement]);
     
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
@@ -48,7 +42,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
     );
 }
 
-export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submitFlagDetailed, setSubmitFlagDetailed, setQuestionsToUse }: SwitchPages9): JSX.Element {
+export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submitFlagDetailed, setSubmitFlagDetailed, setQuestionsToUse }: DetailedQuestionsProps): JSX.Element {
     // Contains the combined questions from either baisc/detailed questions
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(detailedAnswerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false); // Determines whether or not the results have been submitted
