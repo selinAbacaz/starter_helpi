@@ -35,7 +35,7 @@ function ResultsPageBasic ({industriesBasic, overviewBasic, chatGPTReply, questi
                     </Row>
                 </Col>
                 <Col className = "name2">
-                    <img src={require("../assets/images/pieChart.jpg")} alt="Pie Chart" />
+                    <img src={require("../../../assets/images/pieChart.jpg")} alt="Pie Chart" />
                 </Col>
                 <Col>
                     <Row className = "name3">

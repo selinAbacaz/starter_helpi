@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Toast, ToastContainer } from "react-bootstrap";
-import "../App.css"
+import "../../../App.css"
 import { SwitchPages8 } from "../../../interfaces/SwitchPages";
 import { SwitchPage } from "../../../components/SwitchPage";
 

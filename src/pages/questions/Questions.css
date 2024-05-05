@@ -41,7 +41,7 @@
 
 .image {
 
-    background: #ffba6f url("../assets/images/BasicBG2.png") center center no-repeat; /* Solid color background with background image */
+    background: #ffba6f url("../../assets/images/BasicBG2.png") center center no-repeat; /* Solid color background with background image */
     background-size: cover; /* Cover the entire container */
     height: 50vh; /* Adjust height as needed */
 
@@ -49,7 +49,7 @@
 
 .image2 {
 
-  background: #bbdb86 url("../assets/images/BasicBG3.png") center center no-repeat; /* Solid color background with background image */
+  background: #bbdb86 url("../../assets/images/BasicBG3.png") center center no-repeat; /* Solid color background with background image */
   background-size: cover; /* Cover the entire container */
   height: 50vh; /* Adjust height as needed */
 
