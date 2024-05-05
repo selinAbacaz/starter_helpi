@@ -17,13 +17,3 @@ export interface SwitchPagesProps {
     type?: string;
     variant?: string;
 }
-
-
-
-export interface SwitchPages8 {
-    questionsToUse: string;
-    setCurrentPage: (newPage: number) => void;
-    setBlurPage: (blur: boolean) => void;
-    blurPage: boolean;
-    setQuestionsToUse: (newQuestionsToUse: string) => void;
-}

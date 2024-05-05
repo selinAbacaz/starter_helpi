@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Toast, ToastContainer } from "react-bootstrap";
 import "../../../App.css"
-import { SwitchPages8 } from "../../../interfaces/SwitchPages";
 import { SwitchPage } from "../../../components/SwitchPage";
+import { AlertMessageProps } from "../../../interfaces/Alert";
 
-export function ShowAlert ({ setBlurPage, setCurrentPage, blurPage, setQuestionsToUse, questionsToUse }: SwitchPages8) {
+export function ShowAlert ({ setBlurPage, setCurrentPage, setQuestionsToUse, blurPage, questionsToUse }: AlertMessageProps) {
     const [showMessage, setShowMessage] = useState<boolean>(true);
     const [toastPosition, setToastPosition] = useState<number>(window.scrollY)
     
