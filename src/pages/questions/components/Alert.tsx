@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Toast, ToastContainer } from "react-bootstrap";
 import "../App.css"
-import { SwitchPages8 } from "../interfaces/SwitchPages";
-import { SwitchPage } from "./SwitchPage";
+import { SwitchPages8 } from "../../../interfaces/SwitchPages";
+import { SwitchPage } from "../../../components/SwitchPage";
 
 export function ShowAlert ({ setBlurPage, setCurrentPage, blurPage, setQuestionsToUse, questionsToUse }: SwitchPages8) {
     const [showMessage, setShowMessage] = useState<boolean>(true);

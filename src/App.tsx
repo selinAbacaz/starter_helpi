@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import { HomePage } from './pages/home/HomePage';
-import { BasicQuestions } from './pages/basic-questions/BasicQuestions';
-import { DetailedQuestions } from './pages/detailed-questions/DetailedQuestions';
+import { BasicQuestions } from './pages/questions/BasicQuestions';
+import { DetailedQuestions } from './pages/questions/DetailedQuestions';
 import { NavBar } from './components/NavBar';
 import { ResultsPage } from './pages/results/ResultsPage';
 

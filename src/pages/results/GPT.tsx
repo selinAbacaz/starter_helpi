@@ -1,6 +1,6 @@
-import { basicQuestionsArray, basicAnswerArray  } from "../pages/basic-questions/BasicQuestions";
-import { detailedAnswerArray, detailedQuestionsArray } from "../pages/detailed-questions/DetailedQuestions";
-import { keyData } from "../App";
+import { basicQuestionsArray, basicAnswerArray  } from "../questions/BasicQuestions";
+import { detailedAnswerArray, detailedQuestionsArray } from "../questions/DetailedQuestions";
+import { keyData } from "../../App";
 import OpenAI from "openai";
 
 export let saveOverviewBasic: string = "";
