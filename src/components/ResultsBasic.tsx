@@ -22,9 +22,7 @@ function ResultsPageBasic ({industriesBasic, overviewBasic, chatGPTReply, questi
             <p>Finally, we'll show you how to unlock your full report to get an in-depth profile of your interests and personality, along with personalized career planning advice and a complete listing of careers that match your individual interest profile.</p>
             <p>So, let's get started!</p>
             <h1> Overview: </h1>
-            <div style={{whiteSpace: "pre-line"}}>
-                {overviewBasic}
-            </div>
+            <ReactMarkdown children={overviewBasic}></ReactMarkdown>
             <Row>
                 <Col>
                     <Row className = "name1">
@@ -51,7 +49,9 @@ function ResultsPageBasic ({industriesBasic, overviewBasic, chatGPTReply, questi
                 </Col>
             </Row>
             <h1> Potential Industries: </h1>
+            <br></br>
             <ReactMarkdown children={industriesBasic}></ReactMarkdown>
+            <br></br>
             <h1>Replies:</h1>
             <ReactMarkdown children={chatGPTReply}></ReactMarkdown>
         </div>

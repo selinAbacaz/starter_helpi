@@ -1,5 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 import GPTInput from "./GPTInput";
+import ReactMarkdown from "react-markdown";
 
 interface ResultsPageDetailedProps {
     industriesDetailed: string;
@@ -21,9 +22,8 @@ function ResultsPageDetailed ({industriesDetailed, overviewDetailed, chatGPTRepl
             <p>Finally, we'll show you how to unlock your full report to get an in-depth profile of your interests and personality, along with personalized career planning advice and a complete listing of careers that match your individual interest profile.</p>
             <p>So, let's get started!</p>
             <h1> Overview: </h1>
-            <div style={{whiteSpace: "pre-line"}}>
-                {overviewDetailed}
-            </div>
+            <ReactMarkdown children={overviewDetailed}></ReactMarkdown>
+            <br></br>
             <Row>
                 <Col>
                     <Row className = "name1">
@@ -50,13 +50,11 @@ function ResultsPageDetailed ({industriesDetailed, overviewDetailed, chatGPTRepl
                 </Col>
             </Row>
             <h1> Potential Industries: </h1>
-            <div style={{whiteSpace: "pre-line"}}>
-                {industriesDetailed}
-            </div>
+            <br></br>
+            <ReactMarkdown children={industriesDetailed}></ReactMarkdown>
+            <br></br>
             <h1>Replies:</h1>
-            <div style={{whiteSpace: "pre-line"}}>
-                {chatGPTReply}
-            </div>
+            <ReactMarkdown children={chatGPTReply}></ReactMarkdown>
         </div>
     );
 }
