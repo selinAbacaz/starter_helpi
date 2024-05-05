@@ -31,12 +31,14 @@ export interface SwitchPages3{
 }
 
 export interface SwitchPages4 {
+    questionsToUse: string;
     setCurrentPage: (newPage: number) => void;
     currentPage: number;
     variant: string;
     type: string;
     blurPage: boolean;
     setBlurPage: (blur: boolean) => void;
+    setQuestionsToUse: (newQuestionsToUse: string) => void;
 }
 
 export interface SwitchPages5 {
@@ -51,6 +53,7 @@ export interface SwitchPages6 {
     blurPage: boolean;
     setSubmitFlagBasic: (newFlag: boolean) => void;
     submitFlagBasic: boolean;
+    setQuestionsToUse: (newQuestionsToUse: string) => void;
 }
 
 export interface SwitchPages7 {
@@ -58,12 +61,16 @@ export interface SwitchPages7 {
     setSubmitFlagBasic: (newFlag: boolean) => void;
     submitFlagDetailed: boolean;
     setSubmitFlagDetailed: (newFlag: boolean) => void;
+    questionsToUse: string;
+    setQuestionsToUse: (newQuestionsToUse: string) => void;
 }
 
 export interface SwitchPages8 {
+    questionsToUse: string;
     setCurrentPage: (newPage: number) => void;
     setBlurPage: (blur: boolean) => void;
     blurPage: boolean;
+    setQuestionsToUse: (newQuestionsToUse: string) => void;
 }
 
 export interface SwitchPages9 {
@@ -72,4 +79,5 @@ export interface SwitchPages9 {
     blurPage: boolean;
     setSubmitFlagDetailed: (newFlag: boolean) => void;
     submitFlagDetailed: boolean;
+    setQuestionsToUse: (newQuestionsToUse: string) => void;
 }

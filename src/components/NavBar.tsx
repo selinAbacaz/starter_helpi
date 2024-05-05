@@ -9,10 +9,10 @@ export function NavBar ({setCurrentPage, currentPage, blurPage, setBlurPage}: Sw
         <Navbar.Brand style={{fontSize: "25px"}}>Career Helpi</Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav variant="tabs" defaultActiveKey={currentPage} activeKey={currentPage}>
-                <SwitchPage setCurrentPage={setCurrentPage} currentPage={0} variant={""} type={"nav"} blurPage={blurPage} setBlurPage={setBlurPage}></SwitchPage>
-                <SwitchPage setCurrentPage={setCurrentPage} currentPage={1} variant={""} type={"nav"} blurPage={blurPage} setBlurPage={setBlurPage}></SwitchPage>
-                <SwitchPage setCurrentPage={setCurrentPage} currentPage={2} variant={""} type={"nav"} blurPage={blurPage} setBlurPage={setBlurPage}></SwitchPage>
-                <SwitchPage setCurrentPage={setCurrentPage} currentPage={3} variant={""} type={"nav"} blurPage={blurPage} setBlurPage={setBlurPage}></SwitchPage>
+                <SwitchPage setCurrentPage={setCurrentPage} currentPage={0} variant={""} type={"nav"} blurPage={blurPage} setBlurPage={setBlurPage} questionsToUse={""} setQuestionsToUse={() => ""}></SwitchPage>
+                <SwitchPage setCurrentPage={setCurrentPage} currentPage={1} variant={""} type={"nav"} blurPage={blurPage} setBlurPage={setBlurPage} questionsToUse={""} setQuestionsToUse={() => ""}></SwitchPage>
+                <SwitchPage setCurrentPage={setCurrentPage} currentPage={2} variant={""} type={"nav"} blurPage={blurPage} setBlurPage={setBlurPage} questionsToUse={""} setQuestionsToUse={() => ""}></SwitchPage>
+                <SwitchPage setCurrentPage={setCurrentPage} currentPage={3} variant={""} type={"nav"} blurPage={blurPage} setBlurPage={setBlurPage} questionsToUse={""} setQuestionsToUse={() => ""}></SwitchPage>
             </Nav>
         </Navbar.Collapse>
        

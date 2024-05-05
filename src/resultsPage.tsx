@@ -7,8 +7,7 @@ import ResultsPageBasic from './components/ResultsBasic';
 import ResultsPageDetailed from './components/ResultsDetailed';
 
 
-export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDetailed, setSubmitFlagDetailed}: SwitchPages7) {
-    const [questionsToUse, setQuestionsToUse] = useState<string>("basic"); // Determines what questions and answers chatGPT should use
+export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDetailed, setSubmitFlagDetailed, questionsToUse, setQuestionsToUse}: SwitchPages7) {
     const [overviewBasic, setOverviewBasic] = useState<string>(saveOverviewBasic);
     const [industriesBasic, setIndustriesBasic] = useState<string>(saveIndustriesBasic);
     const [overviewDetailed, setOverviewDetailed] = useState<string>(saveOverviewDetailed);
@@ -41,7 +40,7 @@ export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDet
                 <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
                     <div>
                         <Col className = "textBox">
-                            <Form.Select onChange={changeQuestionsToUse} style={{width: "19%", justifyContent: "flex-end", display: "flex"}}>
+                            <Form.Select onChange={changeQuestionsToUse} style={{width: "19%", justifyContent: "flex-end", display: "flex"}} defaultValue={questionsToUse}>
                                 <option value="basic">Basic Questions</option>
                                 <option value="detailed">Detailed Questions</option>
                             </Form.Select>
