@@ -5,7 +5,7 @@ import { ResultsSectionProps } from "../../../interfaces/ResultsSection";
 import ShowPieChart from "./PieChart";
 import '../ResultsPage.css'
 
-function ResultsSection ({ setGPTReply, chatGPTReply, industries, overview, questionsToUse }: ResultsSectionProps) {
+function ResultsSection ({ setGPTReply, chatGPTReply, industries, overview, pieChartValues, questionsToUse }: ResultsSectionProps) {
     return (
         <div>
             <GPTInput questionsToUse={questionsToUse} setChatGPTReply={setGPTReply}></GPTInput>
@@ -32,7 +32,7 @@ function ResultsSection ({ setGPTReply, chatGPTReply, industries, overview, ques
                 </Col>
                 <Col>
                     <div style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100%"}}>
-                        <ShowPieChart></ShowPieChart>
+                        <ShowPieChart pieChartValues={pieChartValues}></ShowPieChart>
                     </div>
                 </Col>
                 <Col>

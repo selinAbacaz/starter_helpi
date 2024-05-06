@@ -3,5 +3,6 @@ export interface ResultsSectionProps {
     chatGPTReply: string;
     industries: string;
     overview: string;
+    pieChartValues: string;
     questionsToUse: string;
 }
