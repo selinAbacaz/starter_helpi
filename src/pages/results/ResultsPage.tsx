@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { GenerateText, saveGPTReplyBaic, saveGPTReplyDetailed, saveIndustriesBasic, saveIndustriesDetailed, saveOverviewBasic, saveOverviewDetailed } from './GPT';
 import ResultsSection from './components/ResultsSection';
 import { ResultsPageProps } from '../../interfaces/ResultsPage';
+import ShowPieChart from './components/PieChart';
 
 
 export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitFlagDetailed, questionsToUse, submitFlagBasic, submitFlagDetailed}: ResultsPageProps) {
@@ -39,6 +40,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                 <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
                     <div>
                         <Col className = "textBox">
+                            <ShowPieChart></ShowPieChart>
                             <Form.Select onChange={changeQuestionsToUse} style={{width: "19%", justifyContent: "flex-end", display: "flex"}} defaultValue={questionsToUse}>
                                 <option value="basic">Basic Questions</option>
                                 <option value="detailed">Detailed Questions</option>
