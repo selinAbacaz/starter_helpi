@@ -1,13 +1,12 @@
-import './resultsPage.css';
+import './ResultsPage.css';
 import { Col, Form} from 'react-bootstrap';
 import { useEffect, useState } from 'react';
-import { GenerateText, saveGPTReplyBaic, saveGPTReplyDetailed, saveIndustriesBasic, saveIndustriesDetailed, saveOverviewBasic, saveOverviewDetailed } from './components/GPT';
-import { SwitchPages7 } from './interfaces/SwitchPages';
-import ResultsPageBasic from './components/ResultsBasic';
-import ResultsPageDetailed from './components/ResultsDetailed';
+import { GenerateText, saveGPTReplyBaic, saveGPTReplyDetailed, saveIndustriesBasic, saveIndustriesDetailed, saveOverviewBasic, saveOverviewDetailed } from './GPT';
+import ResultsSection from './components/ResultsSection';
+import { ResultsPageProps } from '../../interfaces/ResultsPage';
 
 
-export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDetailed, setSubmitFlagDetailed, questionsToUse, setQuestionsToUse}: SwitchPages7) {
+export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitFlagDetailed, questionsToUse, submitFlagBasic, submitFlagDetailed}: ResultsPageProps) {
     const [overviewBasic, setOverviewBasic] = useState<string>(saveOverviewBasic); // Contains the general overview chatGPT returns for the basic questions
     const [industriesBasic, setIndustriesBasic] = useState<string>(saveIndustriesBasic); // Contains the list of industries chatGPT returns for the basic questions
     const [overviewDetailed, setOverviewDetailed] = useState<string>(saveOverviewDetailed); // Contains the general overview chatGPT returns for the detailed questions
@@ -44,8 +43,8 @@ export function ResultsPage ({submitFlagBasic, setSubmitFlagBasic, submitFlagDet
                                 <option value="basic">Basic Questions</option>
                                 <option value="detailed">Detailed Questions</option>
                             </Form.Select>
-                            {questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsPageBasic industriesBasic={industriesBasic} overviewBasic={overviewBasic} chatGPTReply={chatGPTReplyBasic} questionsToUse={questionsToUse} setGPTReplyBasic={setChatGPTReplyBasic}></ResultsPageBasic>}
-                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsPageDetailed industriesDetailed={industriesDetailed} overviewDetailed={overviewDetailed} chatGPTReply={chatGPTReplyDetailed} questionsToUse={questionsToUse} setGPTReplyDetailed={setChatGPTReplyDetailed}></ResultsPageDetailed>}
+                            {questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsSection setGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} questionsToUse={questionsToUse}></ResultsSection>}
+                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsSection setGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} questionsToUse={questionsToUse}></ResultsSection>}
                         </Col>
                     </div>
                 </div>

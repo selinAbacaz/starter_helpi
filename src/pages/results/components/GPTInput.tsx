@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
-import { GenerateText } from "./GPT";
+import { GenerateText } from "../GPT";
 
 interface GPTInputProps {
     questionsToUse: string;

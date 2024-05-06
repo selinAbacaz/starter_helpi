@@ -1,10 +1,9 @@
-import './homePage.css';
+import './HomePage.css';
 import { Col, Container, Row } from 'react-bootstrap';
-import { SwitchPages5 } from './interfaces/SwitchPages';
-import { SwitchPage } from './components/SwitchPage';
-//import { relative } from 'path'; 
+import { SwitchPage } from '../../components/SwitchPage';
+import { HomePageProps } from '../../interfaces/HomePage';
 
-export function HomePage ({setCurrentPage, blurPage, setBlurPage}: SwitchPages5) {
+export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps) {
 
     return(
         <div>
@@ -20,7 +19,7 @@ export function HomePage ({setCurrentPage, blurPage, setBlurPage}: SwitchPages5)
                             <Col>
                                 <Row style={{display:"flex", justifyContent:"right"}}>
                                     <Col className= "box" style= {{backgroundColor: "salmon"}}>
-                                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={1} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage} questionsToUse={""} setQuestionsToUse={() => ""}/*Basic Question Button*/></SwitchPage>
+                                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={1} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Basic Question Button*/></SwitchPage>
                                     </Col>
                                     <Col className= "box" style= {{backgroundColor: "#ff6347",color:"#f9e0d1"}}>
                                         Take the basic career assessment to discover a career path personally picked for you! 
@@ -29,7 +28,7 @@ export function HomePage ({setCurrentPage, blurPage, setBlurPage}: SwitchPages5)
                                 </Row>
                                 <Row style={{display:"flex", justifyContent:"right"}}>
                                     <Col className= "box" style= {{backgroundColor: "#FE8A2E"}}>
-                                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={2} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage} questionsToUse={""} setQuestionsToUse={() => ""}/*Detailed Question Button*/></SwitchPage>
+                                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={2} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Detailed Question Button*/></SwitchPage>
                                     </Col>
                                     <Col className= "orange box" style={{color:"#916448"}}>
                                         Take the detailed career assessment to discover a career path personally picked for you! 

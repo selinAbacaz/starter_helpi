@@ -1,19 +1,12 @@
 import { Col, Row } from "react-bootstrap";
 import GPTInput from "./GPTInput";
 import ReactMarkdown from "react-markdown";
+import { ResultsSectionProps } from "../../../interfaces/ResultsSection";
 
-interface ResultsPageDetailedProps {
-    industriesDetailed: string;
-    overviewDetailed: string;
-    chatGPTReply: string;
-    questionsToUse: string;
-    setGPTReplyDetailed: (newDetailedReply: string) => void;
-}
-
-function ResultsPageDetailed ({industriesDetailed, overviewDetailed, chatGPTReply, questionsToUse, setGPTReplyDetailed}: ResultsPageDetailedProps) {
+function ResultsSection ({ setGPTReply, chatGPTReply, industries, overview, questionsToUse }: ResultsSectionProps) {
     return (
         <div>
-            <GPTInput questionsToUse={questionsToUse} setChatGPTReply={setGPTReplyDetailed}></GPTInput>
+            <GPTInput questionsToUse={questionsToUse} setChatGPTReply={setGPTReply}></GPTInput>
             <br></br>
             <br></br>
             <p> Congratulations! You've just finished a complete assessment of your interests and personality and you're well on your way to discovering your ideal career path.</p>
@@ -22,7 +15,7 @@ function ResultsPageDetailed ({industriesDetailed, overviewDetailed, chatGPTRepl
             <p>Finally, we'll show you how to unlock your full report to get an in-depth profile of your interests and personality, along with personalized career planning advice and a complete listing of careers that match your individual interest profile.</p>
             <p>So, let's get started!</p>
             <h1> Overview: </h1>
-            <ReactMarkdown children={overviewDetailed}></ReactMarkdown>
+            <ReactMarkdown children={overview}></ReactMarkdown>
             <br></br>
             <Row>
                 <Col>
@@ -36,7 +29,7 @@ function ResultsPageDetailed ({industriesDetailed, overviewDetailed, chatGPTRepl
                     </Row>
                 </Col>
                 <Col className = "name2">
-                    <img src={require("../assets/images/pieChart.jpg")} alt="Pie Chart" />
+                    <img src={require("../../../assets/images/pieChart.jpg")} alt="Pie Chart" />
                 </Col>
                 <Col>
                     <Row className = "name3">
@@ -51,7 +44,7 @@ function ResultsPageDetailed ({industriesDetailed, overviewDetailed, chatGPTRepl
             </Row>
             <h1> Potential Industries: </h1>
             <br></br>
-            <ReactMarkdown children={industriesDetailed}></ReactMarkdown>
+            <ReactMarkdown children={industries}></ReactMarkdown>
             <br></br>
             <h1>Replies:</h1>
             <ReactMarkdown children={chatGPTReply}></ReactMarkdown>
@@ -59,4 +52,4 @@ function ResultsPageDetailed ({industriesDetailed, overviewDetailed, chatGPTRepl
     );
 }
 
-export default ResultsPageDetailed
+export default ResultsSection
