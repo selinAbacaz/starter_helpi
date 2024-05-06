@@ -70,7 +70,7 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
     );
   }
 
-  else {
+  else if (type === "user") {
     result = await openai.chat.completions.create(
       {
         messages: 
@@ -79,6 +79,30 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
           { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers }
         ],
           model: "gpt-4-turbo",
+      }
+    );
+  }
+  else {
+    const json_format =
+    `
+      {
+        humanatarian: <humanatarian value>,
+        caretaker: <caretaker value>,
+        innovator: <innovator value>,
+        pragmatist: <pragmatist value>
+      }
+    `;
+    result = await openai.chat.completions.create(
+      {
+        messages: 
+        [
+          { role: "user", content: "What are my humanatarian, caretaker, innovator, pragmatist values based on my answers?" },
+          { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers +
+            "Please output your response following this JSON format: " + json_format + ". All of the values should add up to 100."
+          }
+        ],
+          model: "gpt-4-turbo",
+          response_format: { type: "json_object" }
       }
     );
   }

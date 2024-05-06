@@ -12,11 +12,13 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     const [industriesDetailed, setIndustriesDetailed] = useState<string>(saveIndustriesDetailed); // Contains the list of industries chatGPT returns for the detailed questions
     const [chatGPTReplyBasic, setChatGPTReplyBasic] = useState<string>(saveGPTReplyBaic); // Contains chatGPTs reply to the users input for basic questions
     const [chatGPTReplyDetailed, setChatGPTReplyDetailed] = useState<string>(saveGPTReplyDetailed); // Contains chatGPTs reply to the users input for detailed questions
+    const [pieChartValues, setPieChartValues] = useState<string>("");
 
     useEffect(() => {
         if (submitFlagBasic) {
             GenerateText("overview", "basic", "", setOverviewBasic);
             GenerateText("industry", "basic", "", setIndustriesBasic);
+            GenerateText("pie", "basic", "", setPieChartValues);
             console.log("basic");
             setSubmitFlagBasic(false);
         }
