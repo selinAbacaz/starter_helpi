@@ -3,9 +3,10 @@ import { PieChart } from "@mui/x-charts";
 function ShowPieChart () {
 
     const data = [
-        { id: 0, value: 10, label: 'series A' },
-        { id: 1, value: 15, label: 'series B' },
-        { id: 2, value: 20, label: 'series C' },
+        { id: 0, value: 10, label: 'Humanitarian', color: "#fcb849" },
+        { id: 1, value: 15, label: 'Caretaker', color: "#ab49fc" },
+        { id: 2, value: 20, label: 'Innovator', color: "#499cfc" },
+        { id: 3, value: 30, label: 'Pragmatist', color: "#9cfa70"}
       ];
       
     return (
@@ -14,7 +15,7 @@ function ShowPieChart () {
                data,
                highlightScope: { faded: 'global', highlighted: 'item' },
                faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' }
-            }]} width={500} height={200}></PieChart>
+            }]} width={500} height={300}></PieChart>
     );
 }
 

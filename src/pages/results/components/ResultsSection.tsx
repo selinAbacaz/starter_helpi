@@ -2,6 +2,8 @@ import { Col, Row } from "react-bootstrap";
 import GPTInput from "./GPTInput";
 import ReactMarkdown from "react-markdown";
 import { ResultsSectionProps } from "../../../interfaces/ResultsSection";
+import ShowPieChart from "./PieChart";
+import '../ResultsPage.css'
 
 function ResultsSection ({ setGPTReply, chatGPTReply, industries, overview, questionsToUse }: ResultsSectionProps) {
     return (
@@ -28,8 +30,10 @@ function ResultsSection ({ setGPTReply, chatGPTReply, industries, overview, ques
                         <p> Wants to be of service to others. Prefers to work within established institutions to find ways to maintain stability and security. </p>
                     </Row>
                 </Col>
-                <Col className = "name2">
-                    <img src={require("../../../assets/images/pieChart.jpg")} alt="Pie Chart" />
+                <Col>
+                    <div style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100%"}}>
+                        <ShowPieChart></ShowPieChart>
+                    </div>
                 </Col>
                 <Col>
                     <Row className = "name3">
