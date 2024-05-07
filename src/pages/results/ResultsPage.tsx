@@ -15,36 +15,29 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     const [chatGPTReplyDetailed, setChatGPTReplyDetailed] = useState<string>(saveGPTReplyDetailed); // Contains chatGPTs reply to the users input for detailed questions
     const [pieChartValuesBasic, setPieChartValuesBasic] = useState<string>(savePieChartValuesBasic);
     const [pieChartValuesDetailed, setPieChartValuesDetailed] = useState<string>(savePieChartValuesDetailed);
-    const [loadingBasic, setLoadingBasic] = useState<boolean>(false);
-    const [loadingDetailed, setLoadingDetailed] = useState<boolean>(false);
-
     useEffect(() => {
         if (submitFlagBasic) {
-            setLoadingBasic(true);
             GenerateText("overview", "basic", "", setOverviewBasic);
             GenerateText("industry", "basic", "", setIndustriesBasic);
             GenerateText("pie", "basic", "", setPieChartValuesBasic);
             console.log("basic");
-            setSubmitFlagBasic(false);
         }
         if (submitFlagDetailed) {
-            setLoadingDetailed(true);
             GenerateText("overview", "detailed", "", setOverviewDetailed);
             GenerateText("industry", "detailed", "", setIndustriesDetailed);
             GenerateText("pie", "detailed", "", setPieChartValuesDetailed);
             console.log("detailed");
-            setSubmitFlagDetailed(false);
         }
     }, [submitFlagBasic, setSubmitFlagBasic, submitFlagDetailed, setSubmitFlagDetailed]);
 
     useEffect (() => {
         if (industriesBasic && overviewBasic) {
-            setLoadingBasic(false);
+            setSubmitFlagBasic(false);
         }
         if (industriesDetailed && overviewDetailed) {
-            setLoadingDetailed(false);
+            setSubmitFlagDetailed(false);
         }
-    }, [industriesBasic, industriesDetailed, overviewBasic, overviewDetailed])
+    }, [industriesBasic, industriesDetailed, overviewBasic, overviewDetailed, setSubmitFlagBasic, setSubmitFlagDetailed])
 
     function changeQuestionsToUse (event: React.ChangeEvent<HTMLSelectElement>) {
         setQuestionsToUse(event.target.value);
@@ -56,14 +49,14 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                 <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
                     <div>
                         <Col className = "textBox">
-                            <Form.Select onChange={changeQuestionsToUse} style={{width: "19%", justifyContent: "flex-end", display: "flex"}} defaultValue={questionsToUse}>
+                            <Form.Select onChange={changeQuestionsToUse} style={{width: "19%", justifyContent: "flex-end", display: "flex"}} defaultValue={questionsToUse} disabled={submitFlagBasic || submitFlagDetailed}>
                                 <option value="basic">Basic Questions</option>
                                 <option value="detailed">Detailed Questions</option>
                             </Form.Select>
-                            {questionsToUse === "basic" && industriesBasic && overviewBasic && !loadingBasic && <ResultsSection setGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
-                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && !loadingDetailed && <ResultsSection setGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
-                            {loadingBasic && questionsToUse === "basic" && <LoadingScreen></LoadingScreen>}
-                            {loadingDetailed && questionsToUse === "detailed" && <LoadingScreen></LoadingScreen>}
+                            {questionsToUse === "basic" && industriesBasic && overviewBasic && !submitFlagBasic && <ResultsSection setGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
+                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && !submitFlagDetailed &&<ResultsSection setGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
+                            {submitFlagBasic && questionsToUse === "basic" && submitFlagBasic && <LoadingScreen></LoadingScreen>}
+                            {submitFlagDetailed && questionsToUse === "detailed" && <LoadingScreen></LoadingScreen>}
                         </Col>
                     </div>
                 </div>
