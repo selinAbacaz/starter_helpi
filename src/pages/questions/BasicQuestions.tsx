@@ -3,17 +3,10 @@ import { ShowProgressBar } from "./components/ProgressBar";
 import { ShowAlert } from "./components/Alert";
 import { Button, Col, Row, Form } from 'react-bootstrap';
 import './Questions.css';
-import './App.css'
-import { SwitchPage } from "./components/SwitchPage";
-import { SwitchPages6 } from "./interfaces/SwitchPages";
-import { GenerateText } from "./components/GPT";
-
-interface BasicQuestionsProps {
-    setNumQuestionAnswered: (newAnswered: number) => void;
-    question: string;
-    answerPlacement: number;
-    submitted: boolean
-}
+import '../../App.css'
+import { SwitchPage } from "../../components/SwitchPage";
+import { QuestionsProps } from "../../interfaces/Questions";
+import { BasicQuestionsProps } from "../../interfaces/BasicQuestions";
 
 export const basicAnswerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
 export const basicQuestionsArray: string[] = 
@@ -43,7 +36,7 @@ const optionsArrays: string[][] =
     [""]
 ]
 
-function Question ({setNumQuestionAnswered, question, answerPlacement, submitted}: BasicQuestionsProps) {
+function Question ({setNumQuestionAnswered, question, answerPlacement, submitted}: QuestionsProps) {
     const [userAnswer, setUserAnswer] = useState<string>(basicAnswerArray[answerPlacement]);
     
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
@@ -131,19 +124,18 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
     );
 }
 
-export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverview, setIndustries }: SwitchPages6): JSX.Element {
+export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFlagBasic, setSubmitFlagBasic, setQuestionsToUse}: BasicQuestionsProps): JSX.Element {
     // Contains the number of questions that have been anwered
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(basicAnswerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false); // Determines whether or not the results have been submitted
     const [submitButtonText, setSubmittButtonText] = useState<string>("Submit Answers"); // Sets the text of the submitt button based on submitt status
 
-    async function changeSubmitState () {
+    function changeSubmitState () {
         setSubmittedAnswers(!submitted)
+        setSubmitFlagBasic(!submitFlagBasic);
         if (submitButtonText === "Submit Answers") {
             setSubmittButtonText("Change Answers");
             setBlurPage(true);
-            setOverview(await GenerateText("overview", "basic", ""));
-            setIndustries(await GenerateText("industry", "basic", ""));
         }
         else {
             setSubmittButtonText("Submit Answers");
@@ -174,13 +166,13 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverv
             </div>
             
             {/* progress bar's own little box */}
-            <header className={blurPage ? "enableBlur" : ""}>
-                <div style={ {padding: '8px', backgroundColor: "white"} }>
+            <div style= {{top:window.screenTop, position: "sticky"}}>
+            <header className={blurPage ? "enableBlur" : ""} style= {{ padding: '8px', backgroundColor: "white"}}>
                     <p></p>
                     <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={basicAnswerArray.length}></ShowProgressBar>
                     <p></p>
-                </div>
             </header>
+            </div>
 
             <div> 
                 <p>  </p>
@@ -188,7 +180,7 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverv
 
             {/* Body with all questions */}
             <div>
-                {submitted && <ShowAlert setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} blurPage={blurPage}></ShowAlert>}
+                {submitted && <ShowAlert setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} blurPage={blurPage} setQuestionsToUse={setQuestionsToUse} questionsToUse={"basic"}></ShowAlert>}
             </div>
             <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "salmon", backgroundColor: "white", justifyContent:"right"} }>
                 <div className= "Questions">

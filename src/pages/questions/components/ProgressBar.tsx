@@ -1,9 +1,5 @@
 import { ProgressBar } from "react-bootstrap";
-
-interface ShowProgressBarProps {
-    numQuestionsAnswered: number
-    totalQuestions: number
-}
+import { ShowProgressBarProps } from "../../../interfaces/ProgressBar";
 
 export function ShowProgressBar ({numQuestionsAnswered, totalQuestions}: ShowProgressBarProps) {
     let barStyle: string = "danger"; // Sets the style of the progress bar
