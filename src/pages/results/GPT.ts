@@ -12,8 +12,8 @@ export let saveGPTReplyDetailed: string = "";
 export let savePieChartValuesBasic: string = "";
 export let savePieChartValuesDetailed: string = "";
 
-let combinedQuestions: string = "";  // Contains the combined questions from either baisc/detailed questions
-let combinedAnswers: string = ""; // Contains the combined user answers from either baisc/detailed questions
+let combinedQuestions: string = "";  // Contains the combined questions from either basic/detailed questions
+let combinedAnswers: string = ""; // Contains the combined user answers from either basic/detailed questions
 
 function formatQuestionsAndAnswers (page: string) { // Function to format the questions and user answers from either the basic/detailed questions
   if (page === "basic") {
