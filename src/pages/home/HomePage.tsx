@@ -1,11 +1,16 @@
-import './homePage.css';
+import './HomePage.css';
 import { Col, Container, Row } from 'react-bootstrap';
+<<<<<<< HEAD:src/homePage.tsx
 import { SwitchPages5 } from './interfaces/SwitchPages';
 import { SwitchPage } from './components/SwitchPage';
 
 //import { relative } from 'path'; 
+=======
+import { SwitchPage } from '../../components/SwitchPage';
+import { HomePageProps } from '../../interfaces/HomePage';
+>>>>>>> origin:src/pages/home/HomePage.tsx
 
-export function HomePage ({setCurrentPage, blurPage, setBlurPage}: SwitchPages5) {
+export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps) {
 
     return(
         <div>
