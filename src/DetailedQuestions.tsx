@@ -32,6 +32,8 @@ export const detailedQuestionsArray: string[] =
 ];
 
 function Question ({setNumQuestionAnswered, question, answerPlacement, submitted}: DetailedQuestionsProps) {
+    //function for the array detailedQuestionsArray that is essentially an efficient way to show questions on detailed page
+
     const [userAnswer, setUserAnswer] = useState<string>(detailedAnswerArray[answerPlacement]);
     
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
@@ -51,7 +53,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
 }
 
 export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, setOverview, setIndustries }: SwitchPages6): JSX.Element {
-    // Contains the combined questions from either baisc/detailed questions
+    // Contains the combined questions from either basic/detailed questions
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(detailedAnswerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false); // Determines whether or not the results have been submitted
     const [submitButtonText, setSubmittButtonText] = useState<string>("Submit Answers"); // Sets the text of the submitt button based on submitt status
@@ -84,7 +86,7 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, setOv
                     <Col style= {{marginRight: 340}}>
                         <header className= "box " >
                             <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "#c9885f", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                <div  > <p></p><p> Or Don't</p> <p>afterall</p> <p>We cant stop you !</p><p></p> </div>
+                                <div> <p></p><p> Or Don't</p> <p>afterall</p> <p>We cant stop you !</p><p></p> </div>
                             </div>
                         </header>
                         
@@ -92,23 +94,24 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, setOv
                 </Row>
             </div>
 
-            {/* progress bar's own little box */}
+            {/* progress bar's own little box and makes it so it sticks to top of screen*/}
             <div style= {{top:window.screenTop, position: "sticky"}}>
-            <header className={blurPage ? "enableBlur" : ""} style= {{ padding: '8px', backgroundColor: "white"}}>
+                <header className={blurPage ? "enableBlur" : ""} style= {{ padding: '8px', backgroundColor: "white"}}>
                     <p></p>
                     <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={detailedAnswerArray.length}></ShowProgressBar>
                     <p></p>
-            </header>
+                </header>
             </div>
 
             <div> 
                 <p>  </p>
             </div>
 
-
             <div>
                 {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage} setCurrentPage={setCurrentPage}></ShowAlert>}
             </div>
+
+            {/* bottom div is in charge of the button being enabled/disabled and blurring screen if so*/}
             <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "#c9885f", backgroundColor: "white", justifyContent:"right"} }>
                 <div className= "Questions">
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={detailedQuestionsArray[0]} answerPlacement={0} submitted={submitted}></Question>

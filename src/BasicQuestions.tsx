@@ -44,6 +44,8 @@ const optionsArrays: string[][] =
 ]
 
 function Question ({setNumQuestionAnswered, question, answerPlacement, submitted}: BasicQuestionsProps) {
+    //function for basic questions arrays that is essentially an efficient way to show questions on basic page
+
     const [userAnswer, setUserAnswer] = useState<string>(basicAnswerArray[answerPlacement]);
     
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
@@ -152,6 +154,7 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverv
 
     return (
         <div className="disableBlur" style={{backgroundColor: "#F4E9E2"}}>
+
             {/* Header with information on how to take the quiz */}
             <div className={blurPage ? "enableBlur" : ""}>
                 <Row className="image" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
@@ -173,20 +176,20 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, setOverv
                 </Row>
             </div>
             
-            {/* progress bar's own little box */}
+            {/* progress bar's own little box , stays on top of page when scrolling*/}
             <div style= {{top:window.screenTop, position: "sticky"}}>
-            <header className={blurPage ? "enableBlur" : ""} style= {{ padding: '8px', backgroundColor: "white"}}>
+                <header className={blurPage ? "enableBlur" : ""} style= {{ padding: '8px', backgroundColor: "white"}}>
                     <p></p>
                     <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={basicAnswerArray.length}></ShowProgressBar>
                     <p></p>
-            </header>
+                </header>
             </div>
 
             <div> 
                 <p>  </p>
             </div>
 
-            {/* Body with all questions */}
+            {/* Body with all questions and button that enable/disables when questions are answered*/}
             <div>
                 {submitted && <ShowAlert setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} blurPage={blurPage}></ShowAlert>}
             </div>

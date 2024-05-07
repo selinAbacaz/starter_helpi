@@ -6,6 +6,7 @@ import { BasicQuestions } from './BasicQuestions';
 import { DetailedQuestions } from './DetailedQuestions';
 import { NavBar } from './components/NavBar';
 import { ResultsPage } from './resultsPage';
+import {FooterEx} from'./components/Foooter';
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -41,12 +42,9 @@ function App() {
         {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} setOverview={setOverview} setIndustries={setIndustries}></BasicQuestions>}
         {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} setOverview={setOverview} setIndustries={setIndustries}></DetailedQuestions>}
         {currentPage === 3 && <ResultsPage setOverview={setOverview} overview={overview} setIndustries={setIndustries} industries={industries}></ResultsPage>}
-        <Form>
-          <Form.Label>API Key:</Form.Label>
-          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage}></Form.Control>
-          <br></br>
-          <Button className="Submit-Button" onClick={handleSubmit} disabled={blurPage}>Submit</Button>
-        </Form>
+        
+        <FooterEx></FooterEx>
+        
       </div>
   );
 }
