@@ -15,6 +15,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     const [chatGPTReplyDetailed, setChatGPTReplyDetailed] = useState<string>(saveGPTReplyDetailed); // Contains chatGPTs reply to the users input for detailed questions
     const [pieChartValuesBasic, setPieChartValuesBasic] = useState<string>(savePieChartValuesBasic);
     const [pieChartValuesDetailed, setPieChartValuesDetailed] = useState<string>(savePieChartValuesDetailed);
+    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
         if (submitFlagBasic) {
@@ -41,7 +42,6 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
         <div>
             <div>
                 <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
-                    <LoadingScreen></LoadingScreen>
                     <div>
                         <Col className = "textBox">
                             <Form.Select onChange={changeQuestionsToUse} style={{width: "19%", justifyContent: "flex-end", display: "flex"}} defaultValue={questionsToUse}>
@@ -50,6 +50,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                             </Form.Select>
                             {questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsSection setGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
                             {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsSection setGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
+                            {loading && <LoadingScreen></LoadingScreen>}
                         </Col>
                     </div>
                 </div>
