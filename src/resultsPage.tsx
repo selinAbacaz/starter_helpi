@@ -3,32 +3,62 @@ import {Button, Col, Form, Row} from 'react-bootstrap';
 import { SwitchPages7 } from './interfaces/SwitchPages';
 import { useState } from 'react';
 import { GenerateText } from './components/GPT';
+import React, { useRef } from 'react';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
-export function ResultsPage ({ overview, industries}: SwitchPages7) {
-    const [userInput, setUserInput] = useState<string>(""); // Contains the users input for GPT communication
-    const [chatGPTReply, setChatGPTReply] = useState<string>(""); // Contains chatGPTs reply to the users input
+
+
+
+
+export function ResultsPage({ overview, industries }: SwitchPages7) {
+    const [userInput, setUserInput] = useState<string>(""); // Contains the user's input for GPT communication
+    const [chatGPTReply, setChatGPTReply] = useState<string>(""); // Contains chatGPT's reply to the user's input
     const [questionsToUse, setQuestionsToUse] = useState<string>("basic"); // Determines what questions and answers chatGPT should use
 
-    async function submitToGPT () {
+    // Reference to the content element
+    const contentRef = useRef<HTMLDivElement>(null);
+    const pdf = useRef<HTMLDivElement>(null);
+
+    async function submitToGPT() {
         setChatGPTReply(await GenerateText("user", questionsToUse, userInput));
     }
 
-    function changeUserInput (event: React.ChangeEvent<HTMLInputElement>) {
+    function changeUserInput(event: React.ChangeEvent<HTMLInputElement>) {
         setUserInput(event.target.value);
     }
 
-    function changeQuestionsToUse (event: React.ChangeEvent<HTMLSelectElement>) {
+    function changeQuestionsToUse(event: React.ChangeEvent<HTMLSelectElement>) {
         setQuestionsToUse(event.target.value);
-        console.log(event.target.value)
     }
+    const downloadPDF = () => {
+        const input = pdf.current;
+        if (!input) return;
+    
+        html2canvas(input)
+          .then((canvas) => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const imgWidth = pdfWidth;
+            const imgHeight = (canvas.height * pdfWidth) / canvas.width;
+            const imgX = 0;
+            const imgY = 0;
+            pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth, imgHeight);
+            pdf.save('downloaded_page.pdf');
+          })
+          .catch((error) => {
+            console.error('Error generating PDF:', error);
+          });
+    };
 
-    return(
-        <div>
+    return (
+        <div >
             <div>
-                <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
-                    <div>
-                        <Col className = "textBox">
-                            <div style={{border: "3px solid #F4E9E2", padding: '40px'}}>
+                <div>
+                    <div ref = {pdf}>
+                        <Col className="textBox">
+                            <div ref={contentRef} style={{ border: "3px solid #F4E9E2", padding: '40px' }}>
                                 <h1>Ask chatGPT anything about your results:</h1>
                                 <br></br>
                                 <Form>
@@ -43,7 +73,7 @@ export function ResultsPage ({ overview, industries}: SwitchPages7) {
                                             </Form.Select>
                                         </Col>
                                     </Row>
-                                    <Button onClick={submitToGPT} style={{justifyContent: "center", alignItems: "center" }}>Submit</Button>
+                                    <Button onClick={submitToGPT} style={{ justifyContent: "center", alignItems: "center" }}>Submit</Button>
                                 </Form>
                             </div>
                             <br></br>
@@ -59,25 +89,25 @@ export function ResultsPage ({ overview, industries}: SwitchPages7) {
                             </div>
                             <Row>
                                 <Col>
-                                    <Row className = "name1">
-                                        <h2 className = "title1"> Humanitarian </h2>
+                                    <Row className="name1">
+                                        <h2 className="title1"> Humanitarian </h2>
                                         <p> Driven to make the world a better place. Creative and imaginative in coming up with insightful solutions to meaningful problems.</p>
                                     </Row>
-                                    <Row className = "name4">
-                                        <h2 className = "title2"> Caretaker </h2>
+                                    <Row className="name4">
+                                        <h2 className="title2"> Caretaker </h2>
                                         <p> Wants to be of service to others. Prefers to work within established institutions to find ways to maintain stability and security. </p>
                                     </Row>
                                 </Col>
-                                <Col className = "name2">
+                                <Col className="name2">
                                     <img src={require("./assets/images/pieChart.jpg")} alt="Pie Chart" />
                                 </Col>
                                 <Col>
-                                    <Row className = "name3">
-                                        <h2 className = "title3"> Innovator </h2>
+                                    <Row className="name3">
+                                        <h2 className="title3"> Innovator </h2>
                                         <p> Likes to solve complex, rational problems. Uses analytical skills to come up with innovative ways to improve logical systems. </p>
                                     </Row>
-                                    <Row className = "name5">
-                                        <h2 className = "title4"> Pragmatist </h2>
+                                    <Row className="name5">
+                                        <h2 className="title4"> Pragmatist </h2>
                                         <p> Wants to ensure accuracy and efficiency. Enjoys working within established, logical systems to accomplish practical, real-world goals.  </p>
                                     </Row>
                                 </Col>
@@ -90,13 +120,14 @@ export function ResultsPage ({ overview, industries}: SwitchPages7) {
                             <div>
                                 {chatGPTReply}
                             </div>
+                            
                         </Col>
                     </div>
+                    <div>
+                            <Button onClick={downloadPDF}>Download PDF</Button>
+                            </div>
                 </div>
             </div>
         </div>
     );
 }
-
-
-export default ResultsPage;
