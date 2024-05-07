@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { GenerateText, saveGPTReplyBaic, saveGPTReplyDetailed, saveIndustriesBasic, saveIndustriesDetailed, saveOverviewBasic, saveOverviewDetailed, savePieChartValuesBasic, savePieChartValuesDetailed } from './GPT';
 import ResultsSection from './components/ResultsSection';
 import { ResultsPageProps } from '../../interfaces/ResultsPage';
+import LoadingScreen from './components/LoadingScreen';
 
 export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitFlagDetailed, questionsToUse, submitFlagBasic, submitFlagDetailed}: ResultsPageProps) {
     const [overviewBasic, setOverviewBasic] = useState<string>(saveOverviewBasic); // Contains the general overview chatGPT returns for the basic questions
@@ -40,6 +41,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
         <div>
             <div>
                 <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
+                    <LoadingScreen></LoadingScreen>
                     <div>
                         <Col className = "textBox">
                             <Form.Select onChange={changeQuestionsToUse} style={{width: "19%", justifyContent: "flex-end", display: "flex"}} defaultValue={questionsToUse}>
