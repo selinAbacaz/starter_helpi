@@ -1,6 +1,11 @@
 import { Button, Form } from "react-bootstrap";
 import React, { useState } from 'react';
 
+
+interface FooterProps {
+  blurPage: boolean;
+}
+
 export let keyData = "";
 const saveKeyData = "MYKEY";
 const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
@@ -8,7 +13,7 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
-export function FooterEx(){
+export function FooterEx({ blurPage }: FooterProps){
 
   const [key, setKey] = useState<string>(keyData); //for api key input  
 
@@ -113,9 +118,9 @@ return(
 </div>
     <Form>
               <Form.Label>API Key:</Form.Label>
-              <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} ></Form.Control>
+              <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage}></Form.Control>
               <br></br>
-              <Button className="Submit-Button" onClick={handleSubmit} >Submit</Button>
+              <Button className="Submit-Button" onClick={handleSubmit} disabled={blurPage}>Submit</Button>
   </Form>
 
     

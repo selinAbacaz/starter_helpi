@@ -42,8 +42,7 @@ function App() {
         {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} setOverview={setOverview} setIndustries={setIndustries}></BasicQuestions>}
         {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} setOverview={setOverview} setIndustries={setIndustries}></DetailedQuestions>}
         {currentPage === 3 && <ResultsPage setOverview={setOverview} overview={overview} setIndustries={setIndustries} industries={industries}></ResultsPage>}
-        
-        <FooterEx></FooterEx>
+        <FooterEx blurPage={blurPage}></FooterEx>
         
       </div>
   );
