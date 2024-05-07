@@ -19,6 +19,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
 
     useEffect(() => {
         if (submitFlagBasic) {
+            setLoading(true);
             GenerateText("overview", "basic", "", setOverviewBasic);
             GenerateText("industry", "basic", "", setIndustriesBasic);
             GenerateText("pie", "basic", "", setPieChartValuesBasic);
@@ -34,6 +35,12 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
         }
     }, [submitFlagBasic, setSubmitFlagBasic, submitFlagDetailed, setSubmitFlagDetailed]);
 
+    useEffect (() => {
+        if (industriesBasic && overviewBasic) {
+            setLoading(false);
+        }
+    }, [industriesBasic, overviewBasic])
+
     function changeQuestionsToUse (event: React.ChangeEvent<HTMLSelectElement>) {
         setQuestionsToUse(event.target.value);
     }
@@ -48,8 +55,8 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                                 <option value="basic">Basic Questions</option>
                                 <option value="detailed">Detailed Questions</option>
                             </Form.Select>
-                            {questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsSection setGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
-                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsSection setGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
+                            {questionsToUse === "basic" && industriesBasic && overviewBasic && !loading && <ResultsSection setGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
+                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && !loading && <ResultsSection setGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
                             {loading && <LoadingScreen></LoadingScreen>}
                         </Col>
                     </div>
