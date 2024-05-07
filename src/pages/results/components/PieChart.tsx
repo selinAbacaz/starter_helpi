@@ -5,13 +5,16 @@ interface ShowPieChartProps {
 }
 
 function ShowPieChart ({ pieChartValues }: ShowPieChartProps) {
-    const valuesJSON = JSON.parse(pieChartValues)
-    const humanitarian: number = valuesJSON.humanitarian;
-    const caretaker:  number = valuesJSON.caretaker;
-    const innovator: number = valuesJSON.innovator;
-    const pragmatist: number = valuesJSON.pragmatist
+    if (!pieChartValues) {
+        return null;
+    }
+    let valuesJSON = JSON.parse(pieChartValues)
+    let humanitarian: number = valuesJSON.humanitarian;
+    let caretaker:  number = valuesJSON.caretaker;
+    let innovator: number = valuesJSON.innovator;
+    let pragmatist: number = valuesJSON.pragmatist;
 
-    const data = [
+    let data = [
         { id: 0, value: humanitarian, label: 'Humanitarian', color: "#fcb849" },
         { id: 1, value: caretaker, label: 'Caretaker', color: "#ab49fc" },
         { id: 2, value: innovator, label: 'Innovator', color: "#499cfc" },
