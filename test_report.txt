@@ -38,8 +38,8 @@ FAIL src/App.test.tsx
     > 3 | import ReactMarkdown from "react-markdown";
         | ^
       4 | import { ResultsSectionProps } from "../../../interfaces/ResultsSection";
-      5 |
-      6 | function ResultsSection ({ setGPTReply, chatGPTReply, industries, overview, questionsToUse }: ResultsSectionProps) {
+      5 | import ShowPieChart from "./PieChart";
+      6 | import '../ResultsPage.css'
 
       at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1728:14)
       at Object.<anonymous> (src/pages/results/components/ResultsSection.tsx:3:1)
@@ -94,14 +94,15 @@ All files                       |       0 |        0 |       0 |       0 |
   Alert.tsx                     |       0 |      100 |       0 |       0 | 8-28              
   ProgressBar.tsx               |       0 |        0 |       0 |       0 | 5-17              
  src/pages/results              |       0 |        0 |       0 |       0 |                   
-  GPT.ts                        |       0 |        0 |       0 |       0 | 6-125             
-  ResultsPage.tsx               |       0 |        0 |       0 |       0 | 10-36             
- src/pages/results/components   |       0 |      100 |       0 |       0 |                   
+  GPT.ts                        |       0 |        0 |       0 |       0 | 6-157             
+  ResultsPage.tsx               |       0 |        0 |       0 |       0 | 9-39              
+ src/pages/results/components   |       0 |        0 |       0 |       0 |                   
   GPTInput.tsx                  |       0 |      100 |       0 |       0 | 11-21             
-  ResultsSection.tsx            |       0 |      100 |       0 |       0 | 7                 
+  PieChart.tsx                  |       0 |        0 |       0 |       0 | 8-24              
+  ResultsSection.tsx            |       0 |      100 |       0 |       0 | 9                 
 --------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.209 s
+Time:        4.285 s
 Ran all test suites.
