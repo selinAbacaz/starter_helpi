@@ -15,11 +15,12 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     const [chatGPTReplyDetailed, setChatGPTReplyDetailed] = useState<string>(saveGPTReplyDetailed); // Contains chatGPTs reply to the users input for detailed questions
     const [pieChartValuesBasic, setPieChartValuesBasic] = useState<string>(savePieChartValuesBasic);
     const [pieChartValuesDetailed, setPieChartValuesDetailed] = useState<string>(savePieChartValuesDetailed);
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loadingBasic, setLoadingBasic] = useState<boolean>(false);
+    const [loadingDetailed, setLoadingDetailed] = useState<boolean>(false);
 
     useEffect(() => {
         if (submitFlagBasic) {
-            setLoading(true);
+            setLoadingBasic(true);
             GenerateText("overview", "basic", "", setOverviewBasic);
             GenerateText("industry", "basic", "", setIndustriesBasic);
             GenerateText("pie", "basic", "", setPieChartValuesBasic);
@@ -27,6 +28,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
             setSubmitFlagBasic(false);
         }
         if (submitFlagDetailed) {
+            setLoadingDetailed(true);
             GenerateText("overview", "detailed", "", setOverviewDetailed);
             GenerateText("industry", "detailed", "", setIndustriesDetailed);
             GenerateText("pie", "detailed", "", setPieChartValuesDetailed);
@@ -37,9 +39,12 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
 
     useEffect (() => {
         if (industriesBasic && overviewBasic) {
-            setLoading(false);
+            setLoadingBasic(false);
         }
-    }, [industriesBasic, overviewBasic])
+        if (industriesDetailed && overviewDetailed) {
+            setLoadingDetailed(false);
+        }
+    }, [industriesBasic, industriesDetailed, overviewBasic, overviewDetailed])
 
     function changeQuestionsToUse (event: React.ChangeEvent<HTMLSelectElement>) {
         setQuestionsToUse(event.target.value);
@@ -55,9 +60,10 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                                 <option value="basic">Basic Questions</option>
                                 <option value="detailed">Detailed Questions</option>
                             </Form.Select>
-                            {questionsToUse === "basic" && industriesBasic && overviewBasic && !loading && <ResultsSection setGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
-                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && !loading && <ResultsSection setGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
-                            {loading && <LoadingScreen></LoadingScreen>}
+                            {questionsToUse === "basic" && industriesBasic && overviewBasic && !loadingBasic && <ResultsSection setGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
+                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && !loadingDetailed && <ResultsSection setGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
+                            {loadingBasic && questionsToUse === "basic" && <LoadingScreen></LoadingScreen>}
+                            {loadingDetailed && questionsToUse === "detailed" && <LoadingScreen></LoadingScreen>}
                         </Col>
                     </div>
                 </div>
