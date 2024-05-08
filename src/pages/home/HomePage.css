@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   background: salmon;
-  transition: background-color 2s ease-out 5ms;
+  transition: background-color 1s ease-out 2ms;
 
 }
 
@@ -39,7 +39,7 @@
   align-items: center;
   justify-content: center;
   background: #FE8A2E;
-  transition: background-color 2s ease-out 5ms;
+  transition: background-color 1s ease-out 2ms;
 
 }
 

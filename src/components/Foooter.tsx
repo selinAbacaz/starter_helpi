@@ -70,7 +70,7 @@ return(
       
       <Form style= {{backgroundColor: "salmon"}}>
         <Form.Label style={{marginLeft: 15}}>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage}></Form.Control>
+        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage} style= {{width: "50%", marginLeft: "25%"}}></Form.Control>
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit} disabled={blurPage} style= {{backgroundColor:"#916448", borderColor:"#916448"}}>
           Submit</Button>
