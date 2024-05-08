@@ -3,6 +3,17 @@ import { detailedAnswerArray, detailedQuestionsArray } from "../questions/Detail
 import { keyData } from "../../App";
 import OpenAI from "openai";
 
+export let saveResponses = 
+{
+  saveOverviewBasic: "",
+  saveIndustriesBasic: "",
+  saveOverviewDetailed: "",
+  saveGPTReplyBaic: "",
+  saveGPTReplyDetailed: "",
+  savePieChartValuesBasic: "",
+  savePieChartValuesDetailed: ""
+}
+
 export let saveOverviewBasic: string = "";
 export let saveIndustriesBasic: string = "";
 export let saveOverviewDetailed: string = "";
