@@ -31,36 +31,45 @@ export function FooterEx({ blurPage }: FooterProps){
 
 return(
 <div>
-<div className="container my-5">
+<div className="container my-5" >
 
     <footer className="text-white text-center text-lg-start bg-primary">
-    <div className="container p-4">
+
+    <section className="d-flex justify-content-between p-4" style={{backgroundColor: "blue"}}>
+      <div className="me-5">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      
+      <div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        <a href="https://www.youtube.com/watch?v=a56T2llZf_k&ab_channel=Udont_know_mee" className="text-white me-4" style={{fontSize: 24}}>
+          <i className="fa fa-youtube-play"></i>
+        </a>
+        <a href="https://www.google.com/search?q=shrimp+fried+rice+meme&sca_esv=a0ffaebd0ed0b666&sca_upv=1&rlz=1C1VDKB_enUS981US981&ei=L_s6ZsGIMKLj5NoP352BmAg&ved=0ahUKEwiB3Lfal_2FAxWiMVkFHd9OAIMQ4dUDCBA&uact=5&oq=shrimp+fried+rice+meme&gs_lp=Egxnd3Mtd2l6LXNlcnAiFnNocmltcCBmcmllZCByaWNlIG1lbWUyCxAAGIAEGJECGIoFMgUQABiABDIFEAAYgAQyBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHkjOC1CEBFiqCnABeAGQAQCYAVigAf4CqgEBNbgBA8gBAPgBAZgCBqACmgPCAgoQABiwAxjWBBhHwgINEAAYgAQYsAMYQxiKBcICBRAuGIAEwgIHEAAYgAQYCsICCxAAGIAEGIYDGIoFmAMAiAYBkAYKkgcBNqAHvSA&sclient=gws-wiz-serp" className="text-white me-4" style={{fontSize: 24}}>
+          <i className="fa fa-google"></i>
+        </a>
+        <a href="https://github.com/selinAbacaz/starter_helpi" className="text-white me-4" style={{fontSize: 24}}>
+          <i className="fa fa-github"></i>
+        </a>
+      </div>
+    </section>
+
+    <div className="container p-4" style= {{backgroundColor: "salmon"}}>
       <div className="row mt-4">
         
         <div className="col-lg-4 col-md-12 mb-4 mb-md-0">
           <h5 className="text-uppercase mb-4">About company</h5>
   
           <p>
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-            voluptatum deleniti atque corrupti.
+            Website made by Selin Bacaz, Brandon Nauta, and Nathan Rowell 
+            For Cisc 275
           </p>
   
           <p>
-            Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
-            molestias.
+            Career Quiz Website using ChatGPT to generate results answers..
+            Helloooo everyone !!
           </p>
   
-          <div className="mt-4">
-            
-            <a type="button" className="btn btn-floating btn-primary btn-lg"><i className="fab fa-facebook-f"></i></a>
-            
-            <a type="button" className="btn btn-floating btn-primary btn-lg"><i className="fab fa-dribbble"></i></a>
-            
-            <a type="button" className="btn btn-floating btn-primary btn-lg"><i className="fab fa-twitter"></i></a>
-            
-            <a type="button" className="btn btn-floating btn-primary btn-lg"><i className="fab fa-google-plus-g"></i></a>
-            
-          </div>
         </div>
         
         <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
@@ -115,8 +124,8 @@ return(
 
 <div>
   
-</div>
-    <Form>
+</div >
+    <Form style= {{backgroundColor: "salmon"}}>
               <Form.Label>API Key:</Form.Label>
               <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage}></Form.Control>
               <br></br>
