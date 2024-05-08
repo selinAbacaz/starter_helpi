@@ -51,6 +51,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                         </Col>
                     </div>
                 </div>
+                <br></br>
             </div>
         </div>
     );
