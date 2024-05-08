@@ -1,7 +1,19 @@
+import ReactMarkdown from "react-markdown";
+
 function LoadingScreen () {
     return (
-        <div style={{justifyContent: "center", display: "flex", alignItems: "center"}}>
-            <img src={require("../../../assets/images/CatGif.gif")} alt="CatGif"></img>
+        <div>
+            <ReactMarkdown>{"***"}</ReactMarkdown>
+            <div style={{justifyContent: "center", display: "flex", alignItems: "center"}}>
+                <ReactMarkdown>{"## Please wait while we bake your results!"}</ReactMarkdown>
+            </div>
+            <div style={{justifyContent: "center", display: "flex", alignItems: "center"}}>
+                <img src={require("../../../assets/images/CatGif.gif")} alt="CatGif"></img>
+                <br></br>
+            </div>
+            <div style={{justifyContent: "center", alignItems: "center"}}>
+                <ReactMarkdown>{"***"}</ReactMarkdown>
+            </div>
         </div>
     )
 }
