@@ -35,6 +35,15 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
         setQuestionsToUse(event.target.value);
     }
 
+    useEffect(() => {
+       if (industriesBasic && overviewBasic) {
+            setSubmitFlagBasic(false);
+       }
+       if (industriesDetailed && overviewDetailed) {
+            setSubmitFlagDetailed(false);
+       }
+    });
+
     return(
         <div>
             <div>
