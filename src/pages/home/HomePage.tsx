@@ -73,6 +73,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                     </Container>
                 
                 </div>
+                <br></br>
                 
             </div>
             
