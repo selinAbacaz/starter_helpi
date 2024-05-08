@@ -50,7 +50,6 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                 <div style={{border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"}}>
                     <div>
                         <Col className = "textBox">
-                            <LoadingScreen></LoadingScreen>
                             <Form.Select onChange={changeQuestionsToUse} style={{width: "19%", justifyContent: "flex-end", display: "flex"}} defaultValue={questionsToUse} disabled={submitFlagBasic || submitFlagDetailed}>
                                 <option value="basic">Basic Questions</option>
                                 <option value="detailed">Detailed Questions</option>
