@@ -42,7 +42,7 @@ function Question ({setNumQuestionAnswered, answerPlacement, question, submitted
     );
 }
 
-export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submitFlagDetailed, setSubmitFlagDetailed, setQuestionsToUse }: DetailedQuestionsProps): JSX.Element {
+export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submitFlagDetailed, setSubmitFlagDetailed, setQuestionsToUse, setSubmitted }: DetailedQuestionsProps): JSX.Element {
     // Contains the combined questions from either baisc/detailed questions
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(detailedAnswerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false); // Determines whether or not the results have been submitted
@@ -98,7 +98,7 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submi
 
 
             <div>
-                {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage} setCurrentPage={setCurrentPage} setQuestionsToUse={setQuestionsToUse} questionsToUse={"detailed"}></ShowAlert>}
+                {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage} setCurrentPage={setCurrentPage} setQuestionsToUse={setQuestionsToUse} questionsToUse={"detailed"} setSubmitted={setSubmitted}></ShowAlert>}
             </div>
             <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "#c9885f", backgroundColor: "white", justifyContent:"right"} }>
                 <div className= "Questions">

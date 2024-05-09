@@ -4,7 +4,7 @@ import "../../../App.css"
 import { SwitchPage } from "../../../components/SwitchPage";
 import { AlertMessageProps } from "../../../interfaces/Alert";
 
-export function ShowAlert ({ setBlurPage, setCurrentPage, setQuestionsToUse, blurPage, questionsToUse }: AlertMessageProps) {
+export function ShowAlert ({ setBlurPage, setCurrentPage, setQuestionsToUse, blurPage, questionsToUse, setSubmitted }: AlertMessageProps) {
     const [showMessage, setShowMessage] = useState<boolean>(true);
     const [toastPosition, setToastPosition] = useState<number>(window.scrollY)
     
@@ -34,7 +34,7 @@ export function ShowAlert ({ setBlurPage, setCurrentPage, setQuestionsToUse, blu
                     </Toast.Header>
                     <Toast.Body style={{fontSize: "25px"}}>
                         Congratulations! You have completed all of the questions! Go see your results! 
-                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={3} variant={"primary"} type={"results"} blurPage={blurPage} setBlurPage={setBlurPage} questionsToUse={questionsToUse} setQuestionsToUse={setQuestionsToUse}></SwitchPage>
+                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={3} variant={"primary"} type={"results"} blurPage={blurPage} setBlurPage={setBlurPage} questionsToUse={questionsToUse} setQuestionsToUse={setQuestionsToUse} setSubmitted={setSubmitted}></SwitchPage>
                     </Toast.Body>
                 </Toast>
             </ToastContainer>
