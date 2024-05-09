@@ -10,7 +10,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
         <div>
             <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
                 <div>
-                    <Container>
+                    <Container style= {{minWidth: "90%", marginLeft: "5%", marginRight:"5%"}}>
                         
                         <Row>
                             {/* this row contains top part of homepage with the image, buttons, and short descriptions */}
