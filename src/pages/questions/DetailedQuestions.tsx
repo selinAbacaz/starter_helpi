@@ -61,7 +61,7 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submi
     }
 
     return (
-        <div className="disableBlur"style={{backgroundColor: "#F4E9E2"}}>
+        <div className="disableBlur backgrColor">
             {/* Header with information on how to take the quiz */}
             <div className={blurPage ? "enableBlur" : ""}>
                 <Row className="image2" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
