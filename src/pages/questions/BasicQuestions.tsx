@@ -67,6 +67,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
                         label={option}
                         value={option}
                         onChange={updateAnswer}
+                        checked={userAnswer === option}
                         disabled={submitted}>
                     </Form.Check>
                 ))}
@@ -83,7 +84,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
                         min={1}
                         max={10} 
                         step={1} 
-                        defaultValue={1} 
+                        defaultValue={userAnswer === "" ? 1 : userAnswer} 
                         onChange={updateAnswer}
                         disabled={submitted}>
                     </Form.Range>
