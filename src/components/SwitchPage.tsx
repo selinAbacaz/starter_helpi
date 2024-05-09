@@ -26,7 +26,7 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
             saveResponses.saveIndustriesBasic = "";
             saveResponses.saveOverviewBasic = "";
         }
-        else {
+        else if (questionsToUse === "detailed"){
             saveResponses.saveIndustriesDetailed = "";
             saveResponses.saveOverviewDetailed = "";
         }
