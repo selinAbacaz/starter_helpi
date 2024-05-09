@@ -33,7 +33,7 @@ FAIL src/App.test.tsx
 
     SyntaxError: Unexpected token 'export'
 
-    > 1 | import { PieChart } from "@mui/x-charts";
+    > 1 | import { PieChart, pieArcLabelClasses } from "@mui/x-charts";
         | ^
       2 |
       3 | interface ShowPieChartProps {
@@ -98,7 +98,7 @@ All files                       |       0 |        0 |       0 |       0 |
  src/pages/results/components   |       0 |        0 |       0 |       0 |                   
   GPTInput.tsx                  |       0 |        0 |       0 |       0 | 11-25             
   LoadingScreen.tsx             |       0 |      100 |       0 |       0 | 4                 
-  PieChart.tsx                  |       0 |        0 |       0 |       0 | 8-24              
+  PieChart.tsx                  |       0 |        0 |       0 |       0 | 8-28              
   Replies.tsx                   |       0 |        0 |       0 |       0 | 12-31             
   ResultsSection.tsx            |       0 |      100 |       0 |       0 | 9                 
   ResultsSectionText.tsx        |       0 |      100 |       0 |       0 | 4                 
@@ -106,5 +106,5 @@ All files                       |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.514 s
+Time:        4.604 s
 Ran all test suites.
