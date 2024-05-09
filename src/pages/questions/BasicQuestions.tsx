@@ -203,6 +203,7 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFl
                     
                 </div>
             </div>
+            <br></br>
         </div>
     )
 } 

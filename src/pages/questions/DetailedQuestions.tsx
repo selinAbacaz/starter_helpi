@@ -125,6 +125,7 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submi
                     </span>
                 </div>
             </div>
+            <br></br>
         </div>
     )
 } 

@@ -1,6 +1,6 @@
 import { basicQuestionsArray, basicAnswerArray  } from "../questions/BasicQuestions";
 import { detailedAnswerArray, detailedQuestionsArray } from "../questions/DetailedQuestions";
-import { keyData } from "../../App";
+import { keyData } from "../../components/Foooter";
 import OpenAI from "openai";
 
 export let saveResponses = 
@@ -17,8 +17,8 @@ export let saveResponses =
   savePieChartValuesDetailed: ""
 }
 
-let combinedQuestions: string = "";  // Contains the combined questions from either baisc/detailed questions
-let combinedAnswers: string = ""; // Contains the combined user answers from either baisc/detailed questions
+let combinedQuestions: string = "";  // Contains the combined questions from either basic/detailed questions
+let combinedAnswers: string = ""; // Contains the combined user answers from either basic/detailed questions
 
 function formatQuestionsAndAnswers (page: string) { // Function to format the questions and user answers from either the basic/detailed questions
   if (page === "basic") {

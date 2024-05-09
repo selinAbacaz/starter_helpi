@@ -10,6 +10,52 @@
 
 
 }
+
+.buttonBox1 {
+  width: 100%;
+  height: 100%;
+  border: white 3px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: salmon;
+  transition: background-color 1s ease-out 2ms;
+
+}
+
+.buttonBox1:hover {
+  background-color: rgb(255, 98, 80);
+}
+
+.buttonBox2 {
+  width: 100%;
+  height: 100%;
+  border: white 3px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #FE8A2E;
+  transition: background-color 1s ease-out 2ms;
+
+}
+
+.buttonBox2:hover {
+  background-color: #d56203;
+}
+
+.HP-lower {
+
+  background: #b56f53; /* Solid color background with background image */
+  background-size: cover; /* Cover the entire container */
+  
+  /*color: #ae3b3bca"*/
+
+}
+
 .HPImageBox{
   border: white 3px;
   color: #ffffff00;

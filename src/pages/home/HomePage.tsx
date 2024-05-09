@@ -2,6 +2,7 @@ import './HomePage.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import { SwitchPage } from '../../components/SwitchPage';
 import { HomePageProps } from '../../interfaces/HomePage';
+import { hover } from '@testing-library/user-event/dist/hover';
 
 export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps) {
 
@@ -9,7 +10,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
         <div>
             <div className= "backgrColor" style={ {border: '3px white', padding: '4px', justifyContent:"right"} }>
                 <div>
-                    <Container>
+                    <Container style= {{minWidth: "90%", marginLeft: "5%", marginRight:"5%"}}>
                         
                         <Row>
                             {/* this row contains top part of homepage with the image, buttons, and short descriptions */}
@@ -18,7 +19,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
 
                             <Col>
                                 <Row style={{display:"flex", justifyContent:"right"}}>
-                                    <Col className= "box" style= {{backgroundColor: "salmon"}}>
+                                    <Col className= "buttonBox1">
                                         <SwitchPage setCurrentPage={setCurrentPage} currentPage={1} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Basic Question Button*/></SwitchPage>
                                     </Col>
                                     <Col className= "box" style= {{backgroundColor: "#ff6347",color:"#f9e0d1"}}>
@@ -29,7 +30,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                                     </Col>
                                 </Row>
                                 <Row style={{display:"flex", justifyContent:"right"}}>
-                                    <Col className= "box" style= {{backgroundColor: "#FE8A2E"}}>
+                                    <Col className= "buttonBox2" >
                                         <SwitchPage setCurrentPage={setCurrentPage} currentPage={2} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Detailed Question Button*/></SwitchPage>
                                     </Col>
                                     <Col className= "orange box" style={{color:"#916448"}}>
@@ -81,8 +82,10 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                     </Container>
                 
                 </div>
+                <br></br>
                 
             </div>
+            
         </div>
     );
 }
