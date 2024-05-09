@@ -21,7 +21,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                                     <Col className= "buttonBox1">
                                         <SwitchPage setCurrentPage={setCurrentPage} currentPage={1} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Basic Question Button*/></SwitchPage>
                                     </Col>
-                                    <Col className= "box" style= {{backgroundColor: "#ff6347",color:"#f9e0d1"}}>
+                                    <Col className= "box" style= {{backgroundColor: "#ff6347",color:"#f9e0d1", opacity: "75%"}}>
                                         <h1>10</h1>
                                         <h2>Basic Questions</h2>
                                         <h3><i className="arrow left"></i><i className="arrow left"></i></h3>
@@ -32,7 +32,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                                     <Col className= "buttonBox2" >
                                         <SwitchPage setCurrentPage={setCurrentPage} currentPage={2} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Detailed Question Button*/></SwitchPage>
                                     </Col>
-                                    <Col className= "orange box" style={{color:"#916448"}}>
+                                    <Col className= "orange box" style={{color:"#916448", opacity: "75%",}}>
                                         <h1>10</h1>
                                         <h2>Detailed Questions</h2>
                                         <h3><i className="arrow2 left" ></i><i className="arrow2 left"></i></h3>                                        
@@ -46,7 +46,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                                 <h1 style={{color:"white", opacity: "80%", fontFamily: "Helvetica", marginTop: "5%"}}> Results made reliable with AI</h1>
                                 <hr style={{height: 4, width: "60%", backgroundColor: "white", marginLeft: "20%", borderRadius:80, color: "white", marginBottom: "5%"}}></hr>
                         </Row>
-                        <Row className= "HP-lower" style={{minHeight: "100%"}}>
+                        <Row className= "HP-lower" style={{minHeight: "100%", backgroundColor: "#b56f53b2"}}>
                             
                             {/* this row contains underneath part of home page with more information on basic and detailed questions- WIP */}
                             <Col style= {{marginTop: "5%", marginBottom: "10%", minHeight: "100%"}}>
