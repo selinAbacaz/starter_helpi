@@ -88,7 +88,6 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                                 <option value="basic">Basic Questions</option>
                                 <option value="detailed">Detailed Questions</option>
                             </Form.Select>}
-                            
                             {questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsSectionText setGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSectionText>}
                             {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsSectionText setGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSectionText>}
                             <div ref = {pdf}> 
