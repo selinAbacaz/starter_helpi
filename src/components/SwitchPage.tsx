@@ -1,28 +1,42 @@
 import { Button, Nav } from "react-bootstrap";
-import { SwitchPages4 } from "../interfaces/SwitchPages";
+import { SwitchPagesProps } from "../interfaces/SwitchPages";
+import { saveResponses } from "../pages/results/GPT";
 
-export function SwitchPage ({ setCurrentPage, pageNumber, varaint, type, blurPage, setBlurPage }: SwitchPages4) {
-    const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions", "Results"];
+export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, setSubmitted, blurPage, currentPage, questionsSubmitted, questionsToUse, variant, type }: SwitchPagesProps) {
+    const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions", "Results"]; // Array of names for the buttons and navs related to page switching
 
     function changePage () {
-        setCurrentPage(pageNumber);
-        if (type === "results") {
+        if ((setCurrentPage && currentPage) ||  (setCurrentPage && currentPage === 0)) {
+            setCurrentPage(currentPage);
+        }
+        if (type === "results" && setBlurPage && setQuestionsToUse && setSubmitted && questionsToUse) {
+            setSubmitted(true);
             setBlurPage(false);
+            setQuestionsToUse(questionsToUse);
         }
     }
 
     if (type === "button") {
         return (
-            <Button variant={varaint} onClick={changePage} disabled={blurPage} className= "box" style= {{backgroundColor: "#ffffff00", border: 0, fontSize: 20}}>{buttonNames[pageNumber]}</Button>
+            <Button variant={variant} onClick={changePage} disabled={blurPage} className= "box" style= {{backgroundColor: "#ffffff00", border: 0, fontSize: 25}}>{currentPage && buttonNames[currentPage]}</Button>
         );
     }
     else if (type === "results") {
+        if (questionsToUse === "basic") {
+            saveResponses.saveIndustriesBasic = "";
+            saveResponses.saveOverviewBasic = "";
+        }
+        else {
+            saveResponses.saveIndustriesDetailed = "";
+            saveResponses.saveOverviewDetailed = "";
+        }
+        
         return (
-            <Button variant={varaint} onClick={changePage}>Get Results!</Button>
+            <Button variant={variant} onClick={changePage}>Get Results!</Button>
         );
         
     }
     return (
-        <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={pageNumber} disabled={blurPage}><b>{buttonNames[pageNumber]}</b></Nav.Link>
+        <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={currentPage} disabled={blurPage || questionsSubmitted}><b>{(currentPage && buttonNames[currentPage] ) || (currentPage === 0 && buttonNames[currentPage])}</b></Nav.Link>
     );
 }
