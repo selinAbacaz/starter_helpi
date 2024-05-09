@@ -92,7 +92,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                                     </Form.Select>}
                                 </Col>
                                 <Col style={{justifyContent: "flex-end", display: "flex", alignContent: "flex-end"}}>
-                                    {((industriesBasic && overviewBasic) || (industriesDetailed && overviewDetailed)) &&
+                                    {((industriesBasic && overviewBasic) || (industriesDetailed && overviewDetailed)) && !submitFlagBasic && !submitFlagDetailed &&
                                     <Button onClick={downloadPDF} variant={"outline-light"} >
                                         <img src={require('../../assets/images/downloadIcon.png')} alt="Download Button"></img>
                                     </Button>}
