@@ -1,9 +1,12 @@
 import './ResultsPage.css';
-import { Col, Form} from 'react-bootstrap';
-import { useEffect, useState } from 'react';
+import { Col, Form, Button} from 'react-bootstrap';
+import { useEffect, useRef, useState } from 'react';
 import { GenerateText, saveGPTReplyBaic, saveGPTReplyDetailed, saveIndustriesBasic, saveIndustriesDetailed, saveOverviewBasic, saveOverviewDetailed, savePieChartValuesBasic, savePieChartValuesDetailed } from './GPT';
 import ResultsSection from './components/ResultsSection';
+import ResultsSectionText from './components/ResultsSectionText';
 import { ResultsPageProps } from '../../interfaces/ResultsPage';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitFlagDetailed, questionsToUse, submitFlagBasic, submitFlagDetailed}: ResultsPageProps) {
     const [overviewBasic, setOverviewBasic] = useState<string>(saveOverviewBasic); // Contains the general overview chatGPT returns for the basic questions
@@ -35,6 +38,35 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     function changeQuestionsToUse (event: React.ChangeEvent<HTMLSelectElement>) {
         setQuestionsToUse(event.target.value);
     }
+    const pdf = useRef<HTMLDivElement>(null);
+    const downloadPDF = () => {
+        const input = pdf.current;
+        if (!input) return;
+    
+        html2canvas(input)
+            .then((canvas) => {
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+    
+                const aspectRatio = canvas.width / canvas.height;
+                let imgWidth = pdfWidth;
+                let imgHeight = imgWidth / aspectRatio;
+    
+                if (imgHeight > pdfHeight) {
+                    imgHeight = pdfHeight;
+                    imgWidth = imgHeight * aspectRatio;
+                }
+    
+                pdf.addImage(canvas, 'JPEG', 0, 0, imgWidth, imgHeight);
+                pdf.save('downloaded_page.pdf');
+            })
+            .catch((error) => {
+                console.error('Error generating PDF:', error);
+            });
+    };
+
+
 
     return(
         <div>
@@ -46,12 +78,21 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                                 <option value="basic">Basic Questions</option>
                                 <option value="detailed">Detailed Questions</option>
                             </Form.Select>
+                            
+                            {questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsSectionText setGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSectionText>}
+                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsSectionText setGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSectionText>}
+                            <div ref = {pdf}> 
                             {questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsSection setGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
                             {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsSection setGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
-                        </Col>
+                            </div>
+                        </Col>   
                     </div>
                 </div>
             </div>
+            <div>
+                <Button onClick={downloadPDF}>Download Results as PDF</Button>
+            </div>
+
         </div>
     );
 }
