@@ -105,7 +105,7 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
         [
           { role: "user", content: "What are my humanatarian, caretaker, innovator, pragmatist values based on my answers? Please a give a value for each category." },
           { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers +
-            "Please output your response following this JSON format: " + json_format + ". All of the values should add up to 100."
+            "Please output your response following this JSON format: " + json_format + ". All of the values should add up to 100. Every category needs a value."
           }
         ],
           model: "gpt-4-turbo",
