@@ -1,4 +1,4 @@
-import { PieChart } from "@mui/x-charts";
+import { PieChart, pieArcLabelClasses } from "@mui/x-charts";
 
 interface ShowPieChartProps {
     pieChartValues: string;
@@ -25,9 +25,10 @@ function ShowPieChart ({ pieChartValues }: ShowPieChartProps) {
         <PieChart series={[
             {
                data,
+               arcLabel: (item) => `${item.value}%`,
                highlightScope: { faded: 'global', highlighted: 'item' },
                faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' }
-            }]} width={500} height={300}></PieChart>
+            }]} width={500} height={300} sx={{[`& .${pieArcLabelClasses.root}`]: { fill: 'black', fontWeight: 'bold' },}}></PieChart>
     );
 }
 
