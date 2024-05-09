@@ -80,7 +80,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     return(
         <div>
             <div>
-                <div style={{border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"}}>
+                <div className= "backgrColor "style={{border: '3px white', padding: '4px', color: "#44506a",justifyContent:"right"}}>
                     <div>
                         <Col className = "textBox">
                             {industriesDetailed && industriesDetailed && overviewBasic && overviewDetailed && 

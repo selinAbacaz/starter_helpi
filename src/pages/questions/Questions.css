@@ -63,3 +63,8 @@
   /*color: #ae3b3bca"*/
 
 }
+
+.backgrColor{
+  background: url("../../assets/images/backg.png"); /* Solid color background with background image */
+  background-size: cover;
+}
