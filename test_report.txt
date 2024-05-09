@@ -67,12 +67,12 @@ File                            | % Stmts | % Branch | % Funcs | % Lines | Uncov
 --------------------------------|---------|----------|---------|---------|-------------------
 All files                       |       0 |        0 |       0 |       0 |                   
  src                            |       0 |        0 |       0 |       0 |                   
-  App.tsx                       |       0 |        0 |       0 |       0 | 13-39             
+  App.tsx                       |       0 |        0 |       0 |       0 | 13-40             
   index.tsx                     |       0 |      100 |     100 |       0 | 8-20              
   reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
  src/components                 |       0 |        0 |       0 |       0 |                   
-  NavBar.tsx                    |       0 |      100 |       0 |       0 | 7                 
-  SwitchPage.tsx                |       0 |        0 |       0 |       0 | 5-28              
+  NavBar.tsx                    |       0 |        0 |       0 |       0 | 7                 
+  SwitchPage.tsx                |       0 |        0 |       0 |       0 | 6-39              
  src/interfaces                 |       0 |        0 |       0 |       0 |                   
   Alert.ts                      |       0 |        0 |       0 |       0 |                   
   BasicQuestions.ts             |       0 |        0 |       0 |       0 |                   
@@ -93,10 +93,11 @@ All files                       |       0 |        0 |       0 |       0 |
   Alert.tsx                     |       0 |      100 |       0 |       0 | 8-28              
   ProgressBar.tsx               |       0 |        0 |       0 |       0 | 5-17              
  src/pages/results              |       0 |        0 |       0 |       0 |                   
-  GPT.ts                        |       0 |        0 |       0 |       0 | 6-157             
-  ResultsPage.tsx               |       0 |        0 |       0 |       0 | 12-71             
+  GPT.ts                        |       0 |        0 |       0 |       0 | 7-160             
+  ResultsPage.tsx               |       0 |        0 |       0 |       0 | 13-80             
  src/pages/results/components   |       0 |        0 |       0 |       0 |                   
   GPTInput.tsx                  |       0 |      100 |       0 |       0 | 11-21             
+  LoadingScreen.tsx             |       0 |      100 |       0 |       0 | 4                 
   PieChart.tsx                  |       0 |        0 |       0 |       0 | 8-24              
   ResultsSection.tsx            |       0 |      100 |       0 |       0 | 8                 
   ResultsSectionText.tsx        |       0 |      100 |       0 |       0 | 7                 
@@ -104,5 +105,5 @@ All files                       |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.236 s
+Time:        4.409 s
 Ran all test suites.
