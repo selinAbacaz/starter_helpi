@@ -93,17 +93,18 @@ All files                       |       0 |        0 |       0 |       0 |
   Alert.tsx                     |       0 |      100 |       0 |       0 | 8-28              
   ProgressBar.tsx               |       0 |        0 |       0 |       0 | 5-17              
  src/pages/results              |       0 |        0 |       0 |       0 |                   
-  GPT.ts                        |       0 |        0 |       0 |       0 | 7-160             
+  GPT.ts                        |       0 |        0 |       0 |       0 | 7-184             
   ResultsPage.tsx               |       0 |        0 |       0 |       0 | 13-80             
  src/pages/results/components   |       0 |        0 |       0 |       0 |                   
-  GPTInput.tsx                  |       0 |      100 |       0 |       0 | 11-21             
+  GPTInput.tsx                  |       0 |      100 |       0 |       0 | 11-22             
   LoadingScreen.tsx             |       0 |      100 |       0 |       0 | 4                 
   PieChart.tsx                  |       0 |        0 |       0 |       0 | 8-24              
-  ResultsSection.tsx            |       0 |      100 |       0 |       0 | 8                 
-  ResultsSectionText.tsx        |       0 |      100 |       0 |       0 | 7                 
+  Replies.tsx                   |       0 |        0 |       0 |       0 | 12-31             
+  ResultsSection.tsx            |       0 |      100 |       0 |       0 | 9                 
+  ResultsSectionText.tsx        |       0 |      100 |       0 |       0 | 4                 
 --------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.409 s
+Time:        4.568 s
 Ran all test suites.
