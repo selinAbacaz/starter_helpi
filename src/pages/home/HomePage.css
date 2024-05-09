@@ -24,6 +24,11 @@
 
 }
 
+.backgrColor{
+  background: url("../../assets/images/backg.jpg"); /* Solid color background with background image */
+  background-size: cover;
+}
+
 .red {
     background-color: #ff6347;
 }

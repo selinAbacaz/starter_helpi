@@ -7,7 +7,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
 
     return(
         <div>
-            <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
+            <div className= "backgrColor" style={ {border: '3px white', padding: '4px', justifyContent:"right"} }>
                 <div>
                     <Container>
                         

@@ -12,6 +12,11 @@
     marg
 }
 
+.backgrColor{
+    background: url("../../assets/images/backg.jpg"); /* Solid color background with background image */
+    background-size: cover;
+  }
+
 .home-header {
     width: 100%;
     background-color: #282c34;
