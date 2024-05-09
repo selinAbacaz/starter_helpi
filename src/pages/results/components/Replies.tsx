@@ -2,7 +2,7 @@ import ReactMarkdown from "react-markdown";
 import GPTInput from "./GPTInput";
 
 interface RepliesProps {
-    setChatGPTReply: (newReply: string) => void;
+    setChatGPTReply: (newReply: string[]) => void;
     chatGPTReply: string[];
     questionsToUse: string;
 }
@@ -14,7 +14,7 @@ function Replies ({setChatGPTReply, chatGPTReply, questionsToUse}: RepliesProps)
             <GPTInput setChatGPTReply={setChatGPTReply} questionsToUse={questionsToUse}></GPTInput>
         )
     }
-    
+
     return (
         <div>
             {chatGPTReply.map((reply: string) => (

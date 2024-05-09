@@ -4,14 +4,14 @@ import { GenerateText } from "../GPT";
 
 interface GPTInputProps {
     questionsToUse: string;
-    setChatGPTReply: (newReply: string) => void;
+    setChatGPTReply: (newReply: string[]) => void;
 }
 
 function GPTInput ({questionsToUse, setChatGPTReply}: GPTInputProps) {
     const [userInput, setUserInput] = useState<string>(""); // Contains the users input for GPT communication
 
     async function submitToGPT () {
-        await GenerateText("user", questionsToUse, userInput, setChatGPTReply);
+        await GenerateText("user", questionsToUse, userInput, undefined, setChatGPTReply);
     }
     
     function changeUserInput (event: React.ChangeEvent<HTMLInputElement>) {
