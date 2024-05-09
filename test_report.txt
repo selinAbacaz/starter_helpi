@@ -96,7 +96,7 @@ All files                       |       0 |        0 |       0 |       0 |
   GPT.ts                        |       0 |        0 |       0 |       0 | 7-184             
   ResultsPage.tsx               |       0 |        0 |       0 |       0 | 13-80             
  src/pages/results/components   |       0 |        0 |       0 |       0 |                   
-  GPTInput.tsx                  |       0 |      100 |       0 |       0 | 11-22             
+  GPTInput.tsx                  |       0 |        0 |       0 |       0 | 11-25             
   LoadingScreen.tsx             |       0 |      100 |       0 |       0 | 4                 
   PieChart.tsx                  |       0 |        0 |       0 |       0 | 8-24              
   Replies.tsx                   |       0 |        0 |       0 |       0 | 12-31             
@@ -106,5 +106,5 @@ All files                       |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.593 s
+Time:        4.314 s
 Ran all test suites.
