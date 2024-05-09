@@ -1,5 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import GPTInput from "./GPTInput";
+import { useEffect, useRef } from "react";
 
 interface RepliesProps {
     setChatGPTReply: (newReply: string[]) => void;
@@ -8,6 +9,11 @@ interface RepliesProps {
 }
 
 function Replies ({setChatGPTReply, chatGPTReply, questionsToUse}: RepliesProps) {
+    const endReplies = useRef<HTMLDivElement>(null)
+
+    useEffect (() => {
+        endReplies.current?.scrollIntoView({behavior: "smooth"})
+    }, [chatGPTReply])
 
     if (!chatGPTReply.length) {
         return (
@@ -17,9 +23,23 @@ function Replies ({setChatGPTReply, chatGPTReply, questionsToUse}: RepliesProps)
 
     return (
         <div>
-            {chatGPTReply.map((reply: string) => (
-                <ReactMarkdown></ReactMarkdown>
-            ))}
+            {chatGPTReply.map((reply: string) => chatGPTReply.indexOf(reply) === chatGPTReply.length - 1 ?
+                (   
+                    <div key={reply}>
+                        <ReactMarkdown>{"***"}</ReactMarkdown>
+                        <ReactMarkdown children={reply}></ReactMarkdown>
+                        <br></br>
+                        <GPTInput setChatGPTReply={setChatGPTReply} questionsToUse={questionsToUse}></GPTInput>
+                        <div ref={endReplies}/>
+                    </div>
+                    
+                ) : 
+                (
+                    <div key={reply}>
+                        <ReactMarkdown>{"***"}</ReactMarkdown>
+                        <ReactMarkdown children={reply}></ReactMarkdown>
+                    </div>
+                ))}
         </div>
     )
 }

@@ -93,8 +93,8 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                             {questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsSectionText></ResultsSectionText>}
                             {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsSectionText></ResultsSectionText>}
                             <div ref = {pdf}> 
-                            {questionsToUse === "basic" && industriesBasic && overviewBasic && !submitFlagBasic && <ResultsSection setGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
-                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && !submitFlagDetailed &&<ResultsSection setGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
+                            {questionsToUse === "basic" && industriesBasic && overviewBasic && !submitFlagBasic && <ResultsSection setChatGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
+                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && !submitFlagDetailed &&<ResultsSection setChatGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
                             </div>
                             {submitFlagBasic && questionsToUse === "basic" && <LoadingScreen></LoadingScreen>}
                             {submitFlagDetailed && questionsToUse === "detailed" && <LoadingScreen></LoadingScreen>}
