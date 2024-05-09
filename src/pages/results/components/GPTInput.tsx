@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Form, Row, Spinner } from "react-bootstrap";
 import { GenerateText } from "../GPT";
 
 interface GPTInputProps {
@@ -9,9 +9,12 @@ interface GPTInputProps {
 
 function GPTInput ({questionsToUse, setChatGPTReply}: GPTInputProps) {
     const [userInput, setUserInput] = useState<string>(""); // Contains the users input for GPT communication
+    const [loading, setLoading] = useState<boolean>(false);
 
     async function submitToGPT () {
+        setLoading(true);
         await GenerateText("user", questionsToUse, userInput, undefined, setChatGPTReply);
+        setLoading(false);
         
     }
     
@@ -24,10 +27,11 @@ function GPTInput ({questionsToUse, setChatGPTReply}: GPTInputProps) {
             <Form>
                 <Row>
                     <Col>
-                        <Form.Control type="input" placeholder="Ask chatGPT" onChange={changeUserInput}></Form.Control>
+                        <Form.Control type="input" placeholder="Ask chatGPT" onChange={changeUserInput} disabled={loading}></Form.Control>
                     </Col>
                     <Col>
-                        <Button onClick={submitToGPT}>Submit</Button>
+                        {!loading && <Button onClick={submitToGPT}>Submit</Button>}
+                        {loading && <Spinner></Spinner>}
                     </Col>
                 </Row>
             </Form>
