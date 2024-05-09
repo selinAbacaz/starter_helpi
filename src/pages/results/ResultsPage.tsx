@@ -83,7 +83,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                 <div className= "backgrColor "style={{border: '3px white', padding: '4px', color: "#44506a",justifyContent:"right"}}>
                     <div>
                         <Col className = "textBox">
-                            {industriesDetailed && industriesDetailed && overviewBasic && overviewDetailed && 
+                            {industriesBasic && industriesDetailed && overviewBasic && overviewDetailed && 
                             <Form.Select onChange={changeQuestionsToUse} style={{width: "19%", justifyContent: "flex-end", display: "flex"}} defaultValue={questionsToUse} disabled={submitFlagBasic || submitFlagDetailed}>
                                 <option value="basic">Basic Questions</option>
                                 <option value="detailed">Detailed Questions</option>
