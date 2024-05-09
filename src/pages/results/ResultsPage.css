@@ -13,7 +13,7 @@
 }
 
 .backgrColor{
-    background: url("../../assets/images/backg.png"); /* Solid color background with background image */
+    background: url("../../assets/images/backg.jpg"); /* Solid color background with background image */
     background-size: cover;
   }
 
