@@ -71,3 +71,31 @@
     font-size: calc(10px + 2vmin);
     color:#c9885f;
 }
+
+.HP-lower {
+
+  background: #b56f53; /* Solid color background with background image */
+  background-size: cover; /* Cover the entire container */
+  
+  /*color: #ae3b3bca"*/
+
+}
+
+.arrow {
+  border: solid rgb(255, 255, 255);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.arrow2 {
+  border: solid #916448;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
