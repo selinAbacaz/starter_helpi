@@ -140,8 +140,15 @@ export async function GenerateText (type: string, page: string, userInput: strin
       saveResponses.saveOverviewBasic = result;
     }
     else if (type === "user") {
-      newResults = [ ...saveResponses.saveGPTReplyBaic, result ]
-      saveResponses.saveGPTReplyBaic = newResults;
+      if (saveResponses.saveGPTReplyBaic[0] === "") {
+        newResults = [ ...saveResponses.saveGPTReplyBaic ]
+        newResults[0] = result;
+        saveResponses.saveGPTReplyBaic = [...newResults];
+      }
+      else {
+        newResults = [ ...saveResponses.saveGPTReplyBaic, result ]
+        saveResponses.saveGPTReplyBaic =  [...newResults];
+      }
     }
     else {
       saveResponses.savePieChartValuesBasic = result;
@@ -155,8 +162,16 @@ export async function GenerateText (type: string, page: string, userInput: strin
       saveResponses.saveOverviewDetailed = result;
     }
     else if (type === "user") {
-      newResults = [ ...saveResponses.saveGPTReplyDetailed, result ]
-      saveResponses.saveGPTReplyDetailed = newResults;
+      if (saveResponses.saveGPTReplyDetailed[0] === "") {
+        newResults = [ ...saveResponses.saveGPTReplyDetailed ]
+        newResults[0] = result;
+        saveResponses.saveGPTReplyDetailed = newResults;
+      }
+      else {
+        newResults = [ ...saveResponses.saveGPTReplyDetailed, result ]
+        saveResponses.saveGPTReplyDetailed = newResults;
+      }
+      
     }
     else {
       saveResponses.savePieChartValuesDetailed = result;

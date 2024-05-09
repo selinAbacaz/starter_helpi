@@ -16,8 +16,6 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     const [industriesDetailed, setIndustriesDetailed] = useState<string>(saveResponses.saveIndustriesDetailed); // Contains the list of industries chatGPT returns for the detailed questions
     const [chatGPTReplyBasic, setChatGPTReplyBasic] = useState<string[]>(saveResponses.saveGPTReplyBaic); // Contains chatGPTs reply to the users input for basic questions
     const [chatGPTReplyDetailed, setChatGPTReplyDetailed] = useState<string[]>(saveResponses.saveGPTReplyDetailed); // Contains chatGPTs reply to the users input for detailed questions
-    const [numberOfRepliesBasic, setNumberOfRepliesBasic] = useState<number>(saveResponses.saveNumberOfRepliesBasic);
-    const [numberOfRepliesDetailed, setNumberOfRepliesDetailed] = useState<number>(saveResponses.saveNumberOfRepliesDetailed);
     const [pieChartValuesBasic, setPieChartValuesBasic] = useState<string>(saveResponses.savePieChartValuesBasic);
     const [pieChartValuesDetailed, setPieChartValuesDetailed] = useState<string>(saveResponses.savePieChartValuesDetailed);
     

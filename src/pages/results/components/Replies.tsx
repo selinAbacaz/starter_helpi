@@ -15,30 +15,27 @@ function Replies ({setChatGPTReply, chatGPTReply, questionsToUse}: RepliesProps)
         endReplies.current?.scrollIntoView({behavior: "smooth"})
     }, [chatGPTReply])
 
-    if (!chatGPTReply.length) {
+    if (chatGPTReply[0] === "") {
         return (
-            <GPTInput setChatGPTReply={setChatGPTReply} questionsToUse={questionsToUse}></GPTInput>
+            <div>
+                <br></br>
+                <GPTInput setChatGPTReply={setChatGPTReply} questionsToUse={questionsToUse}></GPTInput>
+            </div>
         )
     }
 
     return (
         <div>
-            {chatGPTReply.map((reply: string) => chatGPTReply.indexOf(reply) === chatGPTReply.length - 1 ?
+            {chatGPTReply.map((reply: string, index: number) =>
                 (   
-                    <div key={reply}>
+                    <div key={index}>
                         <ReactMarkdown>{"***"}</ReactMarkdown>
                         <ReactMarkdown children={reply}></ReactMarkdown>
                         <br></br>
-                        <GPTInput setChatGPTReply={setChatGPTReply} questionsToUse={questionsToUse}></GPTInput>
+                        {(index === chatGPTReply.length - 1) && <GPTInput setChatGPTReply={setChatGPTReply} questionsToUse={questionsToUse}></GPTInput>}
                         <div ref={endReplies}/>
                     </div>
                     
-                ) : 
-                (
-                    <div key={reply}>
-                        <ReactMarkdown>{"***"}</ReactMarkdown>
-                        <ReactMarkdown children={reply}></ReactMarkdown>
-                    </div>
                 ))}
         </div>
     )
