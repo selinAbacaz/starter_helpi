@@ -2,7 +2,6 @@ import './HomePage.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import { SwitchPage } from '../../components/SwitchPage';
 import { HomePageProps } from '../../interfaces/HomePage';
-import { hover } from '@testing-library/user-event/dist/hover';
 
 export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps) {
 
