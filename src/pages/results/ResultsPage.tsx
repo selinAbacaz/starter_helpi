@@ -1,5 +1,5 @@
 import './ResultsPage.css';
-import { Col, Form, Button} from 'react-bootstrap';
+import { Col, Form, Button, Row} from 'react-bootstrap';
 import { useEffect, useRef, useState } from 'react';
 import { GenerateText, saveResponses } from './GPT';
 import ResultsSection from './components/ResultsSection';
@@ -83,11 +83,22 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                 <div className= "backgrColor "style={{border: '3px white', padding: '4px', color: "#44506a",justifyContent:"right"}}>
                     <div>
                         <Col className = "textBox">
-                            {industriesBasic && industriesDetailed && overviewBasic && overviewDetailed && 
-                            <Form.Select onChange={changeQuestionsToUse} style={{width: "19%", justifyContent: "flex-end", display: "flex"}} defaultValue={questionsToUse} disabled={submitFlagBasic || submitFlagDetailed}>
-                                <option value="basic">Basic Questions</option>
-                                <option value="detailed">Detailed Questions</option>
-                            </Form.Select>}
+                            <Row>
+                                <Col>
+                                    {industriesBasic && industriesDetailed && overviewBasic && overviewDetailed &&
+                                    <Form.Select onChange={changeQuestionsToUse} style={{width: "41%", justifyContent: "flex-end", display: "flex"}} defaultValue={questionsToUse} disabled={submitFlagBasic || submitFlagDetailed}>
+                                        <option value="basic">Basic Questions</option>
+                                        <option value="detailed">Detailed Questions</option>
+                                    </Form.Select>}
+                                </Col>
+                                <Col style={{justifyContent: "flex-end", display: "flex", alignContent: "flex-end"}}>
+                                    {((industriesBasic && overviewBasic) || (industriesDetailed && overviewDetailed)) && !submitFlagBasic && !submitFlagDetailed &&
+                                    <Button onClick={downloadPDF} variant={"outline-light"} >
+                                        <img src={require('../../assets/images/downloadIcon.png')} alt="Download Button"></img>
+                                    </Button>}
+                                </Col>
+                            </Row>
+                           
                             {questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsSectionText></ResultsSectionText>}
                             {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsSectionText></ResultsSectionText>}
                             <div ref = {pdf}> 
@@ -101,7 +112,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                 </div>
             </div>
             <div>
-                <Button onClick={downloadPDF}>Download Results as PDF</Button>
+                
             </div>
 
         </div>
