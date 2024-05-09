@@ -2,14 +2,15 @@ import { Button, Nav } from "react-bootstrap";
 import { SwitchPagesProps } from "../interfaces/SwitchPages";
 import { saveResponses } from "../pages/results/GPT";
 
-export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, blurPage, currentPage, questionsSubmitted, questionsToUse, variant, type }: SwitchPagesProps) {
+export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, setSubmitted, blurPage, currentPage, questionsSubmitted, questionsToUse, variant, type }: SwitchPagesProps) {
     const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions", "Results"]; // Array of names for the buttons and navs related to page switching
 
     function changePage () {
         if ((setCurrentPage && currentPage) ||  (setCurrentPage && currentPage === 0)) {
             setCurrentPage(currentPage);
         }
-        if (type === "results" && setBlurPage && setQuestionsToUse && questionsToUse) {
+        if (type === "results" && setBlurPage && setQuestionsToUse && setSubmitted && questionsToUse) {
+            setSubmitted(true);
             setBlurPage(false);
             setQuestionsToUse(questionsToUse);
         }

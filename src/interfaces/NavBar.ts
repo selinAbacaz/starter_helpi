@@ -4,4 +4,5 @@ export interface NavBarProps {
     currentPage: number;
     blurPage: boolean;
     questionsSubmitted: boolean;
+    submitted: boolean;
 }
