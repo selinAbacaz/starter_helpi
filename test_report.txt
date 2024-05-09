@@ -87,8 +87,8 @@ All files                       |       0 |        0 |       0 |       0 |
  src/pages/home                 |       0 |      100 |       0 |       0 |                   
   HomePage.tsx                  |       0 |      100 |       0 |       0 | 8                 
  src/pages/questions            |       0 |        0 |       0 |       0 |                   
-  BasicQuestions.tsx            |       0 |        0 |       0 |       0 | 11-145            
-  DetailedQuestions.tsx         |       0 |        0 |       0 |       0 | 11-117            
+  BasicQuestions.tsx            |       0 |        0 |       0 |       0 | 11-146            
+  DetailedQuestions.tsx         |       0 |        0 |       0 |       0 | 11-124            
  src/pages/questions/components |       0 |        0 |       0 |       0 |                   
   Alert.tsx                     |       0 |      100 |       0 |       0 | 8-28              
   ProgressBar.tsx               |       0 |        0 |       0 |       0 | 5-17              
@@ -106,5 +106,5 @@ All files                       |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.604 s
+Time:        4.782 s
 Ran all test suites.
