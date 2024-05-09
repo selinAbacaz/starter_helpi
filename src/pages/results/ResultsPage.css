@@ -4,12 +4,18 @@
     padding-left: 100px;
     padding-right: 100px;
     padding-top: 50px;
+    padding-bottom: 50px;
     width: 1200px;
     background-color: white;
     align-items: center;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
     marg
 }
+
+.backgrColor{
+    background: url("../../assets/images/backg.jpg"); /* Solid color background with background image */
+    background-size: cover;
+  }
 
 .home-header {
     width: 100%;

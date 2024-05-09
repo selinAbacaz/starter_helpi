@@ -42,7 +42,7 @@ function Question ({setNumQuestionAnswered, answerPlacement, question, submitted
     );
 }
 
-export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submitFlagDetailed, setSubmitFlagDetailed, setQuestionsToUse }: DetailedQuestionsProps): JSX.Element {
+export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submitFlagDetailed, setSubmitFlagDetailed, setQuestionsToUse, setSubmitted }: DetailedQuestionsProps): JSX.Element {
     // Contains the combined questions from either baisc/detailed questions
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(detailedAnswerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false); // Determines whether or not the results have been submitted
@@ -61,7 +61,7 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submi
     }
 
     return (
-        <div className="disableBlur"style={{backgroundColor: "#F4E9E2"}}>
+        <div className="disableBlur backgrColor">
             {/* Header with information on how to take the quiz */}
             <div className={blurPage ? "enableBlur" : ""}>
                 <Row className="image2" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
@@ -98,7 +98,7 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submi
 
 
             <div>
-                {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage} setCurrentPage={setCurrentPage} setQuestionsToUse={setQuestionsToUse} questionsToUse={"detailed"}></ShowAlert>}
+                {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage} setCurrentPage={setCurrentPage} setQuestionsToUse={setQuestionsToUse} questionsToUse={"detailed"} setSubmitted={setSubmitted}></ShowAlert>}
             </div>
             <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "#c9885f", backgroundColor: "white", justifyContent:"right"} }>
                 <div className= "Questions">

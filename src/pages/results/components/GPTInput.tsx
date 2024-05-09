@@ -1,17 +1,21 @@
 import { useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Form, Row, Spinner } from "react-bootstrap";
 import { GenerateText } from "../GPT";
 
 interface GPTInputProps {
     questionsToUse: string;
-    setChatGPTReply: (newReply: string) => void;
+    setChatGPTReply: (newReply: string[]) => void;
 }
 
 function GPTInput ({questionsToUse, setChatGPTReply}: GPTInputProps) {
     const [userInput, setUserInput] = useState<string>(""); // Contains the users input for GPT communication
+    const [loading, setLoading] = useState<boolean>(false);
 
     async function submitToGPT () {
-        await GenerateText("user", questionsToUse, userInput, setChatGPTReply);
+        setLoading(true);
+        await GenerateText("user", questionsToUse, userInput, undefined, setChatGPTReply);
+        setLoading(false);
+        
     }
     
     function changeUserInput (event: React.ChangeEvent<HTMLInputElement>) {
@@ -19,16 +23,15 @@ function GPTInput ({questionsToUse, setChatGPTReply}: GPTInputProps) {
     }
 
     return (
-        <div style={{border: "3px solid #F4E9E2", padding: '40px'}}>
-            <h1>Ask chatGPT anything about your results:</h1>
-            <br></br>
+        <div>
             <Form>
                 <Row>
                     <Col>
-                        <Form.Control type="input" placeholder="Ask chatGPT" onChange={changeUserInput}></Form.Control>
+                        <Form.Control type="input" placeholder="Ask chatGPT" onChange={changeUserInput} disabled={loading}></Form.Control>
                     </Col>
                     <Col>
-                        <Button onClick={submitToGPT}>Submit</Button>
+                        {!loading && <Button onClick={submitToGPT}>Submit</Button>}
+                        {loading && <Spinner></Spinner>}
                     </Col>
                 </Row>
             </Form>

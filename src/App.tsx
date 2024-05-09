@@ -13,13 +13,14 @@ function App() {
   const [submitFlagBasic, setSubmitFlagBasic] = useState<boolean>(false); // Determines whether or not the basic questions have been submitted
   const [submitFlagDetailed, setSubmitFlagDetailed] = useState<boolean>(false); // Determines whether or not the detailed questions have been submitted
   const [questionsToUse, setQuestionsToUse] = useState<string>("basic"); // Determines what questions and answers chatGPT should use
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
   return (
       <div className={blurPage ? "App enableBlur" : "App"}>
-        <NavBar setCurrentPage={setCurrentPage} currentPage={currentPage} blurPage={blurPage} setBlurPage={setBlurPage}></NavBar>
+        <NavBar setCurrentPage={setCurrentPage} currentPage={currentPage} blurPage={blurPage} setBlurPage={setBlurPage} questionsSubmitted={submitFlagBasic || submitFlagDetailed} submitted={submitted}></NavBar>
         {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} blurPage={blurPage} setBlurPage={setBlurPage}></HomePage>}
-        {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} submitFlagBasic={submitFlagBasic} setSubmitFlagBasic={setSubmitFlagBasic} setQuestionsToUse={setQuestionsToUse}></BasicQuestions>}
-        {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} submitFlagDetailed={submitFlagDetailed} setSubmitFlagDetailed={setSubmitFlagDetailed} setQuestionsToUse={setQuestionsToUse}></DetailedQuestions>}
+        {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} submitFlagBasic={submitFlagBasic} setSubmitFlagBasic={setSubmitFlagBasic} setQuestionsToUse={setQuestionsToUse} setSubmitted={setSubmitted}></BasicQuestions>}
+        {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} submitFlagDetailed={submitFlagDetailed} setSubmitFlagDetailed={setSubmitFlagDetailed} setQuestionsToUse={setQuestionsToUse} setSubmitted={setSubmitted}></DetailedQuestions>}
         {currentPage === 3 && <ResultsPage submitFlagBasic={submitFlagBasic} setSubmitFlagBasic={setSubmitFlagBasic} submitFlagDetailed={submitFlagDetailed} setSubmitFlagDetailed={setSubmitFlagDetailed} questionsToUse={questionsToUse} setQuestionsToUse={setQuestionsToUse}></ResultsPage>}
         <FooterEx blurPage={blurPage}></FooterEx>
       </div>

@@ -11,8 +11,10 @@ export interface SwitchPagesProps {
     setBlurPage?: (blur: boolean) => void;
     setCurrentPage?: (newPage: number) => void;
     setQuestionsToUse?: (newQuestionsToUse: string) => void;
+    setSubmitted?: (submitted: boolean) => void;
     blurPage?: boolean;
     currentPage?: number;
+    questionsSubmitted?: boolean;
     questionsToUse?: string;
     type?: string;
     variant?: string;

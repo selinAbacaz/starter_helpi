@@ -3,14 +3,19 @@ import { detailedAnswerArray, detailedQuestionsArray } from "../questions/Detail
 import { keyData } from "../../components/Foooter";
 import OpenAI from "openai";
 
-export let saveOverviewBasic: string = "";
-export let saveIndustriesBasic: string = "";
-export let saveOverviewDetailed: string = "";
-export let saveIndustriesDetailed: string = "";
-export let saveGPTReplyBaic: string = "";
-export let saveGPTReplyDetailed: string = "";
-export let savePieChartValuesBasic: string = "";
-export let savePieChartValuesDetailed: string = "";
+export let saveResponses = 
+{
+  saveIndustriesBasic: "",
+  saveIndustriesDetailed: "",
+  saveOverviewBasic: "",
+  saveOverviewDetailed: "",
+  saveGPTReplyBaic: [""],
+  saveGPTReplyDetailed: [""],
+  saveNumberOfRepliesBasic: 0,
+  saveNumberOfRepliesDetailed: 0,
+  savePieChartValuesBasic: "",
+  savePieChartValuesDetailed: ""
+}
 
 let combinedQuestions: string = "";  // Contains the combined questions from either basic/detailed questions
 let combinedAnswers: string = ""; // Contains the combined user answers from either basic/detailed questions
@@ -49,7 +54,7 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
           { role: "user", content: "Give a list of specific industries that would fit me. Please give me a few reasons as to why." },
           { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers + 
             ". List the reasons as bullet points underneath the industry name. Each bullet point should be on it's own line." +
-            "Use a ## symbol to signify a header. The only words that should be headers or bolded are the industry titles. Please give 5 reasons for each industry. Do not bold anything."
+            "Use a ## symbol to signify a header. Please give 5 reasons for each industry. Do not bold anything."
           }
         ],
           model: "gpt-4-turbo",
@@ -98,7 +103,7 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
       {
         messages: 
         [
-          { role: "user", content: "What are my humanatarian, caretaker, innovator, pragmatist values based on my answers?" },
+          { role: "user", content: "What are my humanatarian, caretaker, innovator, pragmatist values based on my answers? Please a give a value for each category." },
           { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers +
             "Please output your response following this JSON format: " + json_format + ". All of the values should add up to 100."
           }
@@ -122,37 +127,61 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
   );
 }
  
-export async function GenerateText (type: string, page: string, userInput: string, setResult: (result: string) => void) {
+export async function GenerateText (type: string, page: string, userInput: string, setResult?: (result: string) => void, setUserResult?: (userResult: string[]) => void) {
   let result = "";
+  let newResults: string[] = [];
   formatQuestionsAndAnswers(page);
   result = await callGPT(type, userInput);
   if (page === "basic") {
     if (type === "industry") {
-      saveIndustriesBasic = result;
+      saveResponses.saveIndustriesBasic = result;
     }
     else if (type === "overview") {
-      saveOverviewBasic = result;
+      saveResponses.saveOverviewBasic = result;
     }
     else if (type === "user") {
-      saveGPTReplyBaic = result;
+      if (saveResponses.saveGPTReplyBaic[0] === "") {
+        newResults = [ ...saveResponses.saveGPTReplyBaic ]
+        newResults[0] = result;
+        saveResponses.saveGPTReplyBaic = [...newResults];
+      }
+      else {
+        newResults = [ ...saveResponses.saveGPTReplyBaic, result ]
+        saveResponses.saveGPTReplyBaic =  [...newResults];
+      }
     }
     else {
-      savePieChartValuesBasic = result;
+      saveResponses.savePieChartValuesBasic = result;
     }
   }
   else {
     if (type === "industry") {
-      saveIndustriesDetailed = result;
+      saveResponses.saveIndustriesDetailed = result;
     }
     else if (type === "overview") {
-      saveOverviewDetailed = result;
+      saveResponses.saveOverviewDetailed = result;
     }
     else if (type === "user") {
-      saveGPTReplyDetailed = result;
+      if (saveResponses.saveGPTReplyDetailed[0] === "") {
+        newResults = [ ...saveResponses.saveGPTReplyDetailed ]
+        newResults[0] = result;
+        saveResponses.saveGPTReplyDetailed = newResults;
+      }
+      else {
+        newResults = [ ...saveResponses.saveGPTReplyDetailed, result ]
+        saveResponses.saveGPTReplyDetailed = newResults;
+      }
+      
     }
     else {
-      savePieChartValuesDetailed = result;
+      saveResponses.savePieChartValuesDetailed = result;
     }
   }
-  setResult(result); // Contains the returned message content generated by chatGPT
+  if (type === "user" && setUserResult) {
+    setUserResult(newResults); // Contains the returned message content generated by chatGPT
+  }
+  else if (setResult) {
+    setResult(result); // Contains the returned message content generated by chatGPT
+  }
+  
 }
