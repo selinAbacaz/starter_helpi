@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
 import { ShowAlert } from "./components/Alert";
-import { Button, Col, Row } from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import './Questions.css';
 import '../../App.css'
 import { SwitchPage } from "../../components/SwitchPage";
@@ -35,8 +35,15 @@ function Question ({setNumQuestionAnswered, answerPlacement, question, submitted
     return (
         <div>
             <h3 style={{marginBottom:20}}>{question}</h3>
-            <input type="text" value={userAnswer} onChange={updateAnswer} disabled={submitted}/>
-            <div>{userAnswer}</div>
+            <Form style={{width: "50%"}}>
+                <Form.Control 
+                    type="input" 
+                    value={userAnswer} 
+                    onChange={updateAnswer} 
+                    disabled={submitted} 
+                    placeholder="Enter Answer Here...">
+                </Form.Control>
+            </Form>
             <hr style={{height: 5, backgroundColor: "#916448", marginBottom:60, color: "#916448"}}></hr>
         </div>
     );
