@@ -1,12 +1,8 @@
-import GPTInput from "./GPTInput";
-import { ResultsSectionProps } from "../../../interfaces/ResultsSection";
 import '../ResultsPage.css'
 
-
-function ResultsSectionText ({ setGPTReply, chatGPTReply, industries, overview, pieChartValues, questionsToUse }: ResultsSectionProps) {
+function ResultsSectionText () {
     return (
         <div>
-            <GPTInput questionsToUse={questionsToUse} setChatGPTReply={setGPTReply}></GPTInput>
             <br></br>
             <br></br>
             <p> Congratulations! You've just finished a complete assessment of your interests and personality and you're well on your way to discovering your ideal career path.</p>

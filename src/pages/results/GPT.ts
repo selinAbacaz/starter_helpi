@@ -9,8 +9,10 @@ export let saveResponses =
   saveIndustriesDetailed: "",
   saveOverviewBasic: "",
   saveOverviewDetailed: "",
-  saveGPTReplyBaic: "",
-  saveGPTReplyDetailed: "",
+  saveGPTReplyBaic: [""],
+  saveGPTReplyDetailed: [""],
+  saveNumberOfRepliesBasic: 0,
+  saveNumberOfRepliesDetailed: 0,
   savePieChartValuesBasic: "",
   savePieChartValuesDetailed: ""
 }
