@@ -95,7 +95,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                             {questionsToUse === "basic" && industriesBasic && overviewBasic && !submitFlagBasic && <ResultsSection setGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
                             {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && !submitFlagDetailed &&<ResultsSection setGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
                             </div>
-                            {submitFlagBasic && questionsToUse === "basic" && submitFlagBasic && <LoadingScreen></LoadingScreen>}
+                            { <LoadingScreen></LoadingScreen>}
                             {submitFlagDetailed && questionsToUse === "detailed" && <LoadingScreen></LoadingScreen>}
                         </Col>   
                     </div>

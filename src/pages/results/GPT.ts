@@ -126,7 +126,6 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
 }
  
 export async function GenerateText (type: string, page: string, userInput: string, setResult: (result: string) => void) {
-  setResult("");
   let result = "";
   formatQuestionsAndAnswers(page);
   result = await callGPT(type, userInput);
