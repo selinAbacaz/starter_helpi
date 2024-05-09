@@ -93,7 +93,7 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
     const json_format =
     `
       {
-        humanatarian: <humanatarian value>,
+        humanitarian: <humanitarian value>,
         caretaker: <caretaker value>,
         innovator: <innovator value>,
         pragmatist: <pragmatist value>
@@ -103,7 +103,7 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
       {
         messages: 
         [
-          { role: "user", content: "What are my humanatarian, caretaker, innovator, pragmatist values based on my answers, you must give each category MUST have a minimum value of 5." },
+          { role: "user", content: "What are my humanitarian, caretaker, innovator, pragmatist values based on my answers, you must give each category MUST have a minimum value of 5." },
           { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers +
             "Please output your response following this JSON format: " + json_format + ". All of the values should add up to 100. Every category needs a value."
           }
