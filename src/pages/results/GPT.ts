@@ -22,6 +22,16 @@ let combinedAnswers: string = ""; // Contains the combined user answers from eit
 
 let combined: string = "";
 
+let formatTest: string = 
+`
+  ## <Industry>
+  - <Reason 1>
+  - <Reason 2>
+  - <Reason 3>
+  - <Reason 4>
+  - <Reason 5>
+`
+
 function formatQuestionsAndAnswers (page: string) { // Function to format the questions and user answers from either the basic/detailed questions
   if (page === "basic") {
     combined = basicQuestionsArray.map((question: string, index: number) => "Q:" + question + " - A:" + basicAnswerArray[index]).join(",")
@@ -37,6 +47,7 @@ function formatQuestionsAndAnswers (page: string) { // Function to format the qu
 
 async function callGPT (type: string, userPrompt: string) { // Calls the GPT api and prodcues text based on a user input
   let result: OpenAI.Chat.Completions.ChatCompletion;
+  let test: OpenAI.Chat.Completions.ChatCompletion[]
   const openai = new OpenAI(
     {
       apiKey: keyData,
@@ -45,17 +56,17 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
   );
 
   if (type === "industry") {
-    result = await openai.chat.completions.create(
-      {
-        messages: 
-        [
-          { role: "user", content: combined + " Based on my answers, give a list of specific industries that would fit me. Please give me a few reasons as to why." },
-          { role: "system", content: "Your job is to list 5 industries you think the user will fit into. Format the industries as headers."
-          }
+    const industryPromises = basicQuestionsArray.map(async (question: string) => {
+      return openai.chat.completions.create({
+        messages: [
+          { role: "user", content: "Q:" + question + " " + userPrompt },
+          { role: "system", content: "Your job is to list 5 industries you think the user will fit into with 5 reasons each." }
         ],
-          model: "gpt-4-turbo",
-      }
-    );
+        model: "gpt-4-turbo"
+      });
+    });
+
+    result = await Promise.all(industryPromises);
   }
   
   else if (type === "overview") {
@@ -64,7 +75,7 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
         messages: 
         [
           { role: "user", content: combined + " Based on my answers, please provide an overview of what my results mean." },
-          { role: "system", content: "Your job is to provide a brief overview describing career areas the user might fit into."
+          { role: "system", content: "Your job is to provide a brief 1 paragraph overview of what their answers mean."
           }
         ],
           model: "gpt-4-turbo",
