@@ -20,13 +20,11 @@ export let saveResponses =
 let combinedQuestions: string = "";  // Contains the combined questions from either basic/detailed questions
 let combinedAnswers: string = ""; // Contains the combined user answers from either basic/detailed questions
 
+let combined: string = "";
+
 function formatQuestionsAndAnswers (page: string) { // Function to format the questions and user answers from either the basic/detailed questions
   if (page === "basic") {
-    combinedQuestions = basicQuestionsArray.join(",");
-    combinedAnswers = (basicAnswerArray.map((answer: string): string => 
-    "Question " + 
-    `${basicAnswerArray.indexOf(answer) + 1}` + 
-    " Answer: " + answer)).join(",");
+    combined = basicQuestionsArray.map((question: string, index: number) => "Q:" + question + " - A:" + basicAnswerArray[index]).join(",")
   }
   else {
     combinedQuestions = detailedQuestionsArray.join(",");
@@ -51,9 +49,8 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
       {
         messages: 
         [
-          { role: "user", content: "Give a list of specific industries that would fit me. Please give me a few reasons as to why." },
-          { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers + 
-            ". List the reasons as bullet points underneath the industry name. Each bullet point should be on it's own line." +
+          { role: "user", content: combined + "Based on my answers, give a list of specific industries that would fit me. Please give me a few reasons as to why." },
+          { role: "system", content: "List the reasons as bullet points underneath the industry name. Each bullet point should be on it's own line." +
             "Use a ## symbol to signify a header. Please give 5 reasons for each industry. Do not bold anything."
           }
         ],

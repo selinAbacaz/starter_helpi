@@ -11,16 +11,16 @@ import { BasicQuestionsProps } from "../../interfaces/BasicQuestions";
 export const basicAnswerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
 export const basicQuestionsArray: string[] = 
 [
-    "Question 1: What is most important to you in a job between: Salary, Work Life Balance, Growth, Helping Others, Making a Difference",
-    "Question 2: Do you prefer working solo or with others?",
-    "Question 3: What is your favorite subject in school?",
-    "Question 4: What type of workplace suits you best between: Fast-Paced, Collaborative, Structured, Flexible?",
-    "Question 5: On a scale of 1-10, how much do you like working with technology?",
-    "Question 6: On a scale of 1-10, how much do you enjoy doing art?",
-    "Question 7: Do you prefer working indoors or outdoors?",
-    "Question 8: Do you enjoy coming up with new ideas and solutions?",
-    "Question 9: Do you like tasks that vary each day, or stay the same?",
-    "Question 10: How much education do you plan to pursue? (High School Diploma, Bachelors, Masters, Doctorate)"
+    "What is most important to you in a job between: Salary, Work Life Balance, Growth, Helping Others, Making a Difference?",
+    "Do you prefer working solo or with others?",
+    "What is your favorite subject in school?",
+    "What type of workplace suits you best between: Fast-Paced, Collaborative, Structured, Flexible?",
+    "On a scale of 1-10, how much do you like working with technology?",
+    "On a scale of 1-10, how much do you enjoy doing art?",
+    "Do you prefer working indoors or outdoors?",
+    "Do you enjoy coming up with new ideas and solutions?",
+    "Do you like tasks that vary each day, or stay the same?",
+    "How much education do you plan to pursue? (High School Diploma, Bachelors, Masters, Doctorate)"
 ];
 const optionsArrays: string[][] = 
 [
@@ -38,6 +38,7 @@ const optionsArrays: string[][] =
 
 function Question ({setNumQuestionAnswered, question, answerPlacement, submitted}: QuestionsProps) {
     const [userAnswer, setUserAnswer] = useState<string>(basicAnswerArray[answerPlacement]);
+    question = "Question " + (answerPlacement + 1 ) + ": " + question;
     
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
         if (answerPlacement === 6) {
