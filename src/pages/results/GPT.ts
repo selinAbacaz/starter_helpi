@@ -49,9 +49,8 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
       {
         messages: 
         [
-          { role: "user", content: combined + "Based on my answers, give a list of specific industries that would fit me. Please give me a few reasons as to why." },
-          { role: "system", content: "List the reasons as bullet points underneath the industry name. Each bullet point should be on it's own line." +
-            "Use a ## symbol to signify a header. Please give 5 reasons for each industry. Do not bold anything."
+          { role: "user", content: combined + " Based on my answers, give a list of specific industries that would fit me. Please give me a few reasons as to why." },
+          { role: "system", content: "Your job is to list 5 industries you think the user will fit into. Format the industries as headers."
           }
         ],
           model: "gpt-4-turbo",
@@ -64,9 +63,8 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
       {
         messages: 
         [
-          { role: "user", content: "Please provide an overview of what my results mean." },
-          { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers + 
-            "Do not mention the original questions and answers in your response."
+          { role: "user", content: combined + " Based on my answers, please provide an overview of what my results mean." },
+          { role: "system", content: "Your job is to provide a brief overview describing career areas the user might fit into."
           }
         ],
           model: "gpt-4-turbo",
@@ -100,9 +98,9 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
       {
         messages: 
         [
-          { role: "user", content: "What are my humanitarian, caretaker, innovator, pragmatist values based on my answers, you must give each category MUST have a minimum value of 5." },
+          { role: "user", content: combined + " Based on my answers, what are my humanitarian, caretaker, innovator, pragmatist values based on my answers." },
           { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers +
-            "Please output your response following this JSON format: " + json_format + ". All of the values should add up to 100. Every category needs a value."
+            "Please output your response following this JSON format: " + json_format + ". All of the values should add up to 100."
           }
         ],
           model: "gpt-4-turbo",
