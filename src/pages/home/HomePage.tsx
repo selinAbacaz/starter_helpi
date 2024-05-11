@@ -11,6 +11,7 @@ import { HomePageProps } from '../../interfaces/HomePage';
 export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps) {
 
     return(
+        
         <div className= "backgrColor">
             <div>
                 <div>
