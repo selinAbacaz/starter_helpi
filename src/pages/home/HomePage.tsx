@@ -23,10 +23,10 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
 
                             <Col>
                                 <Row style={{display:"flex", justifyContent:"right"}}>
-                                    <Col className= "buttonBox1" style={{marginBottom: "1%", marginRight: "1%"}}>
+                                    <Col className= "buttonBox1 LouisGeorgeNormal" style={{marginBottom: "1%", marginRight: "1%"}}>
                                         <SwitchPage setCurrentPage={setCurrentPage} currentPage={1} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Basic Question Button*/></SwitchPage>
                                     </Col>
-                                    <Col className= "box milchella" style= {{backgroundColor: "#ff6347",color:"#f9e0d1", opacity: "75%", marginBottom: "1%"}}>
+                                    <Col className= "box magilio" style= {{backgroundColor: "#ff6347",color:"#f9e0d1", opacity: "75%", marginBottom: "1%"}}>
                                         <h1>10</h1>
                                         <h2>Basic Questions</h2>
                                         <h3><i className="arrow left"></i><i className="arrow left"></i></h3>
@@ -34,10 +34,10 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                                     </Col>
                                 </Row>
                                 <Row style={{display:"flex", justifyContent:"right"}}>
-                                    <Col className= "buttonBox2" style={{marginRight: "1%"}}>
+                                    <Col className= "buttonBox2 LouisGeorgeNormal" style={{marginRight: "1%"}}>
                                         <SwitchPage setCurrentPage={setCurrentPage} currentPage={2} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Detailed Question Button*/></SwitchPage>
                                     </Col>
-                                    <Col className= "orange box" style={{color:"#916448", opacity: "75%",}}>
+                                    <Col className= "orange box magilio" style={{color:"#916448", opacity: "75%",}}>
                                         <h1>10</h1>
                                         <h2>Detailed Questions</h2>
                                         <h3><i className="arrow2 left" ></i><i className="arrow2 left"></i></h3>                                        
