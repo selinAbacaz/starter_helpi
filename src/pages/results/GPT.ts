@@ -22,19 +22,9 @@ let combinedAnswers: string = ""; // Contains the combined user answers from eit
 
 let combined: string = "";
 
-let formatTest: string = 
-`
-  ## <Industry>
-  - <Reason 1>
-  - <Reason 2>
-  - <Reason 3>
-  - <Reason 4>
-  - <Reason 5>
-`
-
 function formatQuestionsAndAnswers (page: string) { // Function to format the questions and user answers from either the basic/detailed questions
   if (page === "basic") {
-    combined = basicQuestionsArray.map((question: string, index: number) => "Q:" + question + " - A:" + basicAnswerArray[index]).join(",")
+    combined = basicQuestionsArray.map((question: string, index: number) => question + basicAnswerArray[index]).join(".")
   }
   else {
     combinedQuestions = detailedQuestionsArray.join(",");
@@ -47,7 +37,6 @@ function formatQuestionsAndAnswers (page: string) { // Function to format the qu
 
 async function callGPT (type: string, userPrompt: string) { // Calls the GPT api and prodcues text based on a user input
   let result: OpenAI.Chat.Completions.ChatCompletion;
-  let test: OpenAI.Chat.Completions.ChatCompletion[]
   const openai = new OpenAI(
     {
       apiKey: keyData,
@@ -56,17 +45,16 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
   );
 
   if (type === "industry") {
-    const industryPromises = basicQuestionsArray.map(async (question: string) => {
-      return openai.chat.completions.create({
-        messages: [
-          { role: "user", content: "Q:" + question + " " + userPrompt },
-          { role: "system", content: "Your job is to list 5 industries you think the user will fit into with 5 reasons each." }
+    result = await openai.chat.completions.create(
+      {
+        messages: 
+        [
+          { role: "user", content: combined + "Please provide 5 industries I should work in based off of my answers. Give 5 reasons for each industry." },
+          { role: "system", content: "Your job is to list job industries you think the user will fit into. Industries should start with  ## . Reasons should be bullet points. Nothing should be bolded."}
         ],
-        model: "gpt-4-turbo"
-      });
-    });
-
-    result = await Promise.all(industryPromises);
+          model: "gpt-4-turbo",
+      }
+    );
   }
   
   else if (type === "overview") {
