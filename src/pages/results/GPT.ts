@@ -17,9 +17,6 @@ export let saveResponses =
   savePieChartValuesDetailed: ""
 }
 
-let combinedQuestions: string = "";  // Contains the combined questions from either basic/detailed questions
-let combinedAnswers: string = ""; // Contains the combined user answers from either basic/detailed questions
-
 let combined: string = "";
 
 function formatQuestionsAndAnswers (page: string) { // Function to format the questions and user answers from either the basic/detailed questions
@@ -72,8 +69,8 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
       {
         messages: 
         [
-          { role: "user", content: userPrompt },
-          { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers }
+          { role: "user", content: combined + userPrompt },
+          { role: "system", content: "You are a helpful assistant designed to help people answer career related questions." }
         ],
           model: "gpt-4-turbo",
       }
