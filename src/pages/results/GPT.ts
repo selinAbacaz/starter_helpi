@@ -24,14 +24,10 @@ let combined: string = "";
 
 function formatQuestionsAndAnswers (page: string) { // Function to format the questions and user answers from either the basic/detailed questions
   if (page === "basic") {
-    combined = basicQuestionsArray.map((question: string, index: number) => question + basicAnswerArray[index]).join(".")
+    combined = basicQuestionsArray.map((question: string, index: number) => question + basicAnswerArray[index]).join(".");
   }
   else {
-    combinedQuestions = detailedQuestionsArray.join(",");
-    combinedAnswers = (detailedAnswerArray.map((answer: string): string => 
-    "Question " + 
-    `${detailedAnswerArray.indexOf(answer) + 1}` + 
-    " Answer: " + answer)).join(",");
+    combined = detailedQuestionsArray.map((question: string, index: number) => question + detailedAnswerArray[index]).join(".")
   }
 }
 
@@ -98,9 +94,7 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
         messages: 
         [
           { role: "user", content: combined + " Based on my answers, what are my humanitarian, caretaker, innovator, pragmatist values based on my answers." },
-          { role: "system", content: "Use these questions as context: " + combinedQuestions + ". Use these answeres as context: " + combinedAnswers +
-            "Please output your response following this JSON format: " + json_format + ". All of the values should add up to 100."
-          }
+          { role: "system", content: "Please output your response following this JSON format: " + json_format + ". All of the values should add up to 100." }
         ],
           model: "gpt-4-turbo",
           response_format: { type: "json_object" }
