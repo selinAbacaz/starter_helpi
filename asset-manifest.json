@@ -1,24 +1,40 @@
 {
   "files": {
-    "main.css": "/starter_helpi/static/css/main.75654aea.css",
-    "main.js": "/starter_helpi/static/js/main.cb7626d6.js",
+    "main.css": "/starter_helpi/static/css/main.42350f1a.css",
+    "main.js": "/starter_helpi/static/js/main.8c1a7bbc.js",
     "static/js/213.103f6a0f.chunk.js": "/starter_helpi/static/js/213.103f6a0f.chunk.js",
     "static/js/732.17aa9ed3.chunk.js": "/starter_helpi/static/js/732.17aa9ed3.chunk.js",
     "static/js/453.dda23872.chunk.js": "/starter_helpi/static/js/453.dda23872.chunk.js",
-    "static/media/backg.jpg": "/starter_helpi/static/media/backg.37a7382f8de3dbbd203d.jpg",
+    "static/media/backg.jpg": "/starter_helpi/static/media/backg.1c7f7043c8568a3bb95c.jpg",
     "static/media/homepagePic.png": "/starter_helpi/static/media/homepagePic.6f04db6d0787a8a1862e.png",
     "static/media/BasicBG3.png": "/starter_helpi/static/media/BasicBG3.8cb9071a014ec6b1dce4.png",
     "static/media/BasicBG2.png": "/starter_helpi/static/media/BasicBG2.b1beec823eddd4956e66.png",
     "static/media/CatGif.gif": "/starter_helpi/static/media/CatGif.cd17c95b11111633cef2.gif",
+    "static/media/milchella-regular-webfont.woff": "/starter_helpi/static/media/milchella-regular-webfont.7f297e7701777cf2af67.woff",
+    "static/media/milchella-regular-webfont.woff2": "/starter_helpi/static/media/milchella-regular-webfont.711b7c42e2f04394791e.woff2",
+    "static/media/louis_george_cafe_bold_italic-webfont.woff": "/starter_helpi/static/media/louis_george_cafe_bold_italic-webfont.11867fadeb45b0d03da3.woff",
+    "static/media/louis_george_cafe_italic-webfont.woff": "/starter_helpi/static/media/louis_george_cafe_italic-webfont.ad1c97f0df4af5dedfd2.woff",
+    "static/media/louis_george_cafe_light_italic-webfont.woff": "/starter_helpi/static/media/louis_george_cafe_light_italic-webfont.ba6dcf599c8916597367.woff",
+    "static/media/louis_george_cafe_bold-webfont.woff": "/starter_helpi/static/media/louis_george_cafe_bold-webfont.c6e7ceb419c8ba1d482f.woff",
+    "static/media/louis_george_cafe-webfont.woff": "/starter_helpi/static/media/louis_george_cafe-webfont.0366fd0e07467b39e420.woff",
+    "static/media/louis_george_cafe_light-webfont.woff": "/starter_helpi/static/media/louis_george_cafe_light-webfont.2210dadce3484e13dc4f.woff",
+    "static/media/louis_george_cafe_bold_italic-webfont.woff2": "/starter_helpi/static/media/louis_george_cafe_bold_italic-webfont.853d7ab6a21bf6b788f3.woff2",
+    "static/media/louis_george_cafe_italic-webfont.woff2": "/starter_helpi/static/media/louis_george_cafe_italic-webfont.8a1b88c3169cbf151bb3.woff2",
+    "static/media/louis_george_cafe_light_italic-webfont.woff2": "/starter_helpi/static/media/louis_george_cafe_light_italic-webfont.e0893d69d48f7a33f970.woff2",
+    "static/media/louis_george_cafe_bold-webfont.woff2": "/starter_helpi/static/media/louis_george_cafe_bold-webfont.570e6a7f88848fa4ed9b.woff2",
+    "static/media/louis_george_cafe-webfont.woff2": "/starter_helpi/static/media/louis_george_cafe-webfont.0e4bdd28adaa4d3651de.woff2",
+    "static/media/louis_george_cafe_light-webfont.woff2": "/starter_helpi/static/media/louis_george_cafe_light-webfont.fad852bb3da92a77ab4e.woff2",
+    "static/media/magilioregular-webfont.woff": "/starter_helpi/static/media/magilioregular-webfont.e94afca17695bb6f7f6e.woff",
+    "static/media/magilioregular-webfont.woff2": "/starter_helpi/static/media/magilioregular-webfont.3bad8cabf0d3014eecf3.woff2",
     "index.html": "/starter_helpi/index.html",
-    "main.75654aea.css.map": "/starter_helpi/static/css/main.75654aea.css.map",
-    "main.cb7626d6.js.map": "/starter_helpi/static/js/main.cb7626d6.js.map",
+    "main.42350f1a.css.map": "/starter_helpi/static/css/main.42350f1a.css.map",
+    "main.8c1a7bbc.js.map": "/starter_helpi/static/js/main.8c1a7bbc.js.map",
     "213.103f6a0f.chunk.js.map": "/starter_helpi/static/js/213.103f6a0f.chunk.js.map",
     "732.17aa9ed3.chunk.js.map": "/starter_helpi/static/js/732.17aa9ed3.chunk.js.map",
     "453.dda23872.chunk.js.map": "/starter_helpi/static/js/453.dda23872.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.75654aea.css",
-    "static/js/main.cb7626d6.js"
+    "static/css/main.42350f1a.css",
+    "static/js/main.8c1a7bbc.js"
   ]
 }
