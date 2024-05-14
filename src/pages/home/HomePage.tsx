@@ -1,7 +1,7 @@
 import './HomePage.css';
-import '../../assets/milchellaFont/stylesheet.css'
-import '../../assets/magilioFont/stylesheet.css'
-import '../../assets/LouisGeorgeCafe/stylesheet.css'
+import '../../assets/milchellaFont/stylesheet.css';
+import '../../assets/magilioFont/stylesheet.css';
+import '../../assets/LouisGeorgeCafe/stylesheet.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import { SwitchPage } from '../../components/SwitchPage';
 import { HomePageProps } from '../../interfaces/HomePage';
@@ -24,25 +24,23 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                             </Col>
 
                             <Col>
-                                <Row style={{display:"flex", justifyContent:"right",marginBottom: "1%", height: "55%"}}>
-                                    <Col className= "buttonBox1 LouisGeorgeNormal" style={{ marginRight: "1%"}}>
+                                <Row style={{display:"flex", justifyContent:"right", height: "55%"}}>
+                                    <Col className= "buttonBox1 LouisGeorgeNormal" style={{ marginRight: "1%" }}>
                                         <SwitchPage setCurrentPage={setCurrentPage} currentPage={1} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Basic Question Button*/></SwitchPage>
                                     </Col>
-                                    <Col className= "box magilio" style= {{backgroundColor: "#ff6347",color:"#f9e0d1", opacity: "75%", marginBottom: "1%"}}>
+                                    
+                                    <Col className= "box magilio" style= {{backgroundColor: "#ff6347",color:"#f9e0d1", opacity: "75%", height: "101%"}}>
                                         <h1>10</h1>
                                         <h2>Basic Questions</h2>
                                         <h3><i className="arrow left"></i><i className="arrow left"></i></h3>
                                          
                                     </Col>
                                 </Row>
-                                <Row style={{display:"flex", justifyContent:"right",marginBottom: "1%", height: "55%"}}>
-                                    <Col className= "buttonBox2 LouisGeorgeNormal" style={{marginRight: "1%"}}>
+                                <Row style={{display:"flex", justifyContent:"right", height: "55%"}}>
+                                    <Col className= "buttonBox2 LouisGeorgeNormal" style={{marginRight: "1%", marginTop: "1%"}}>
                                         <SwitchPage setCurrentPage={setCurrentPage} currentPage={2} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Detailed Question Button*/></SwitchPage>
                                     </Col>
-                                    <Col className= "orange box magilio" style={{color:"#916448", opacity: "75%",}}>
-                                        <h1>10</h1>
-                                        <h2>Detailed Questions</h2>
-                                        <h3><i className="arrow2 left" ></i><i className="arrow2 left"></i></h3>                                        
+                                    <Col className= "orange2 box magilio" style={{color:"#916448", marginTop: ".5%", height: "101%"}}>                    
                                     </Col>
                                 </Row>
                             </Col>
