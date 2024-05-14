@@ -29,7 +29,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                                         <SwitchPage setCurrentPage={setCurrentPage} currentPage={1} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Basic Question Button*/></SwitchPage>
                                     </Col>
                                     
-                                    <Col className= "box magilio" style= {{backgroundColor: "#ff6347",color:"#f9e0d1", opacity: "75%", height: "101%"}}>
+                                    <Col className= "box magilio" style= {{backgroundColor: "#ffa74ab3",color:"#f9e0d1", height: "101%"}}>
                                         <h1>10</h1>
                                         <h2>Basic Questions</h2>
                                         <h3><i className="arrow left"></i><i className="arrow left"></i></h3>
