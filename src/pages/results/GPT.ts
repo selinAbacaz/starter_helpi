@@ -42,8 +42,8 @@ async function callGPT (type: string, userPrompt: string) { // Calls the GPT api
       {
         messages: 
         [
-          { role: "user", content: combined + "Please provide 3 industries I should work in based off of my answers. Give 5 reasons for each industry." },
-          { role: "system", content: "Your job is to list job industries you think the user will fit into. Industries should start with  ## . Reasons should be bullet points. Nothing should be bolded or numbered."}
+          { role: "user", content: combined + "Please provide 5 industries I should work in based off of my answers. Proivide a concise description of the job. Give 1 paragraph as for why. Give an average salary." },
+          { role: "system", content: "Your job is to list 5 job industries you think the user will fit into. Industries should start with  ## . Put the description in a bullet point labeled Description. Put the reasons paragraph in a single bullet point labled Reasons. The paragraph should be at least 3 long sentences. The average salary should also be a bulelt point."}
         ],
           model: "gpt-4-turbo",
       }
