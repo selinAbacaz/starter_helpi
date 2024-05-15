@@ -1,11 +1,12 @@
 import ApiKeyInput from "./ApiKeyInput";
 
 interface FooterProps {
+  setSubmittedNewKey: (isNew: boolean) => void;
   setValidKey: (valid: boolean) => void;
   blurPage: boolean;
 }
 
-export function FooterEx({ setValidKey, blurPage }: FooterProps) {
+export function FooterEx({ setSubmittedNewKey, setValidKey, blurPage }: FooterProps) {
 
   return(
     <div>
@@ -39,7 +40,7 @@ export function FooterEx({ setValidKey, blurPage }: FooterProps) {
               </div>
           </section>
           <hr style={{height: 4, backgroundColor: "white", marginLeft: "15%", marginRight: "15%", borderRadius:80, color: "white"}}></hr>
-          <ApiKeyInput setValidKey={setValidKey} blurPage={blurPage} type={"footer"}></ApiKeyInput>
+          <ApiKeyInput setSubmittedNewKey={setSubmittedNewKey} setValidKey={setValidKey} blurPage={blurPage} type={"footer"}></ApiKeyInput>
         </footer>
       </div>
     </div>

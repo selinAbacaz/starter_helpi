@@ -2,7 +2,7 @@ import { Col, Row } from "react-bootstrap";
 import ApiKeyInput from "../../components/ApiKeyInput";
 import { WelcomePageProps } from "../../interfaces/WelcomePage";
 
-function WelcomePage ({ setValidKey }: WelcomePageProps) {
+function WelcomePage ({ setSubmittedNewKey, setValidKey }: WelcomePageProps) {
     return (
         <div style={{minHeight: "100vh", marginLeft: "10px", marginRight: "10px"}}>
             <Row style={{height: "100vh", display: "flex"}}>
@@ -24,7 +24,7 @@ function WelcomePage ({ setValidKey }: WelcomePageProps) {
                                 Please provide an OpenAI API key before moving forward.
                             </p>
                         </div>
-                        <ApiKeyInput setValidKey={setValidKey} blurPage={false} type={"welcome"}></ApiKeyInput>
+                        <ApiKeyInput setSubmittedNewKey={setSubmittedNewKey} setValidKey={setValidKey} blurPage={false} type={"welcome"}></ApiKeyInput>
                     </div>      
                 </Col>
                 <Col>
