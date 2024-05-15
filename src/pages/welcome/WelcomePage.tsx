@@ -1,6 +1,10 @@
 function WelcomePage () {
     return (
-        <div></div>
+        <div style={{fontSize: "75px"}}>
+            Welcome to the WEBSITE_NAME
+            <br></br>
+            (Powered by chatGPT)
+        </div>
     )
 }
 
