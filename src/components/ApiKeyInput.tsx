@@ -1,6 +1,6 @@
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { ApiKeyInputProps } from "../interfaces/ApiKeyInput";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import OpenAI from "openai";
 
 export let keyData = "";

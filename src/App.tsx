@@ -28,7 +28,7 @@ function App() {
         {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} submitFlagBasic={submitFlagBasic} setSubmitFlagBasic={setSubmitFlagBasic} setQuestionsToUse={setQuestionsToUse} setSubmitted={setSubmitted}></BasicQuestions>}
         {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} submitFlagDetailed={submitFlagDetailed} setSubmitFlagDetailed={setSubmitFlagDetailed} setQuestionsToUse={setQuestionsToUse} setSubmitted={setSubmitted}></DetailedQuestions>}
         {currentPage === 3 && <ResultsPage submitFlagBasic={submitFlagBasic} setSubmitFlagBasic={setSubmitFlagBasic} submitFlagDetailed={submitFlagDetailed} setSubmitFlagDetailed={setSubmitFlagDetailed} questionsToUse={questionsToUse} setQuestionsToUse={setQuestionsToUse}></ResultsPage>}
-        {currentPage === 4 && <WelcomePage setSubmittedNewKey={setSubmittedNewKey} setValidKey={setValidKey}></WelcomePage>}
+        {currentPage === 4 && <WelcomePage setCurrentPage={setCurrentPage} setSubmittedNewKey={setSubmittedNewKey} setValidKey={setValidKey}></WelcomePage>}
         {currentPage !== 4 && <FooterEx setSubmittedNewKey={setSubmittedNewKey} setValidKey={setValidKey} blurPage={blurPage}></FooterEx>}
       </div>
   );

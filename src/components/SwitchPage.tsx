@@ -1,6 +1,7 @@
 import { Button, Nav } from "react-bootstrap";
 import { SwitchPagesProps } from "../interfaces/SwitchPages";
 import { saveResponses } from "../pages/results/GPT";
+import { Button as MuiButton} from "@mui/material";
 
 export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, setSubmitted, blurPage, currentPage, questionsSubmitted, questionsToUse, variant, type }: SwitchPagesProps) {
     const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions", "Results"]; // Array of names for the buttons and navs related to page switching
@@ -36,7 +37,15 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
         );
         
     }
-    return (
-        <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={currentPage} disabled={blurPage || questionsSubmitted}><b>{(currentPage && buttonNames[currentPage] ) || (currentPage === 0 && buttonNames[currentPage])}</b></Nav.Link>
-    );
+    else if (type === "welcome") {
+        return (
+            <MuiButton variant={"contained"} onClick={changePage}>Get Started!</MuiButton>
+        )
+        
+    }
+    else {
+        return (
+            <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={currentPage} disabled={blurPage || questionsSubmitted}><b>{(currentPage && buttonNames[currentPage] ) || (currentPage === 0 && buttonNames[currentPage])}</b></Nav.Link>
+        );
+    }
 }
