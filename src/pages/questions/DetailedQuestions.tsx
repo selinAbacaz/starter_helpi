@@ -89,25 +89,18 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submi
                     </Col>
                 </Row>
             </div>
-
-            {/* progress bar's own little box */}
-            <div style= {{top:window.screenTop, position: "sticky"}}>
-            <header className={blurPage ? "enableBlur" : ""} style= {{ padding: '8px', backgroundColor: "white"}}>
-                    <p></p>
-                    <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={detailedAnswerArray.length}></ShowProgressBar>
-                    <p></p>
-            </header>
-            </div>
-
-            <div> 
-                <p>  </p>
-            </div>
-
-
+            <br></br>
+            <br></br>
             <div>
                 {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage} setCurrentPage={setCurrentPage} setQuestionsToUse={setQuestionsToUse} questionsToUse={"detailed"} setSubmitted={setSubmitted}></ShowAlert>}
             </div>
             <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "#c9885f", backgroundColor: "white", justifyContent:"right"} }>
+                {/* progress bar's own little box */}
+                <div style= {{top:window.screenTop, position: "sticky"}}>
+                    <div className={blurPage ? "enableBlur" : ""} style= {{ padding: '10px' }}>
+                        <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={detailedAnswerArray.length}></ShowProgressBar>
+                    </div>
+                </div>
                 <div className= "Questions">
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={detailedQuestionsArray[0]} answerPlacement={0} submitted={submitted}></Question>
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={detailedQuestionsArray[1]} answerPlacement={1} submitted={submitted}></Question>

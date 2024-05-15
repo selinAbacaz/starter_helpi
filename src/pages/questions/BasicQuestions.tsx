@@ -166,25 +166,19 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFl
                     </Col>
                 </Row>
             </div>
-            
-            {/* progress bar's own little box */}
-            <div style= {{top:window.screenTop, position: "sticky"}}>
-            <header className={blurPage ? "enableBlur" : ""} style= {{ padding: '8px', backgroundColor: "white"}}>
-                    <p></p>
-                    <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={basicAnswerArray.length}></ShowProgressBar>
-                    <p></p>
-            </header>
-            </div>
-
-            <div> 
-                <p>  </p>
-            </div>
-
+            <br></br>
+            <br></br>
             {/* Body with all questions */}
             <div>
                 {submitted && <ShowAlert setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} blurPage={blurPage} setQuestionsToUse={setQuestionsToUse} questionsToUse={"basic"} setSubmitted={setSubmitted}></ShowAlert>}
             </div>
             <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "salmon", backgroundColor: "white", justifyContent:"right"} }>
+                {/* progress bar's own little box */}
+                <div style= {{top:window.screenTop, position: "sticky"}}>
+                    <div className={blurPage ? "enableBlur" : ""} style= {{ padding: '10px' }}>
+                        <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={basicAnswerArray.length}></ShowProgressBar>
+                    </div>
+                </div>
                 <div className= "Questions">
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[0]} answerPlacement={0} submitted={submitted}></Question>
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[1]} answerPlacement={1} submitted={submitted}></Question>
