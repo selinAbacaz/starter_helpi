@@ -15,8 +15,7 @@ function WelcomePage () {
                         <div style={{fontSize: "50px"}}>
                             (Powered by AI)  
                         </div>
-                    </div>
-                    
+                    </div>      
                 </Col>
                 <Col>
                     
