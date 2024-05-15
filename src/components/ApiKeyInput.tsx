@@ -21,10 +21,15 @@ function ApiKeyInput ({ blurPage, type }: ApiKeyInputProps) {
     function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
         setKey(event.target.value);
     }
-    
+
     if (type === "welcome") {
         return (
-            <div></div>
+            <Form>
+                <Form.Label>API Key:</Form.Label>
+                <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage} style= {{width: "50%", marginLeft: "25%"}}></Form.Control>
+                <br></br>
+                <Button className="Submit-Button" onClick={handleSubmit} disabled={blurPage}>Submit</Button>
+            </Form>
         )
     }
     else {

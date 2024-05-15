@@ -1,4 +1,5 @@
 import { Col, Row } from "react-bootstrap";
+import ApiKeyInput from "../../components/ApiKeyInput";
 
 function WelcomePage () {
     return (
@@ -15,6 +16,7 @@ function WelcomePage () {
                         <div style={{fontSize: "50px"}}>
                             (Powered by AI)  
                         </div>
+                        <ApiKeyInput blurPage={false} type={"welcome"}></ApiKeyInput>
                     </div>      
                 </Col>
                 <Col>
