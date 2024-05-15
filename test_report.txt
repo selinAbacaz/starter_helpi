@@ -88,13 +88,13 @@ All files                       |       0 |        0 |       0 |       0 |
  src/pages/home                 |       0 |      100 |       0 |       0 |                   
   HomePage.tsx                  |       0 |      100 |       0 |       0 | 13                
  src/pages/questions            |       0 |        0 |       0 |       0 |                   
-  BasicQuestions.tsx            |       0 |        0 |       0 |       0 | 11-146            
+  BasicQuestions.tsx            |       0 |        0 |       0 |       0 | 11-147            
   DetailedQuestions.tsx         |       0 |        0 |       0 |       0 | 11-124            
  src/pages/questions/components |       0 |        0 |       0 |       0 |                   
   Alert.tsx                     |       0 |      100 |       0 |       0 | 8-28              
   ProgressBar.tsx               |       0 |        0 |       0 |       0 | 5-17              
  src/pages/results              |       0 |        0 |       0 |       0 |                   
-  GPT.ts                        |       0 |        0 |       0 |       0 | 7-184             
+  GPT.ts                        |       0 |        0 |       0 |       0 | 7-169             
   ResultsPage.tsx               |       0 |        0 |       0 |       0 | 13-80             
  src/pages/results/components   |       0 |        0 |       0 |       0 |                   
   GPTInput.tsx                  |       0 |        0 |       0 |       0 | 11-25             
@@ -107,5 +107,5 @@ All files                       |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.948 s
+Time:        4.506 s
 Ran all test suites.
