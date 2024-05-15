@@ -16,7 +16,7 @@ function ApiKeyInput ({ setSubmittedNewKey, setValidKey, blurPage, type }: ApiKe
      async function checkValidAPIKey () {
         const openai = new OpenAI(
             {
-              apiKey: keyData,
+              apiKey: key,
               dangerouslyAllowBrowser: true
             }
         );
