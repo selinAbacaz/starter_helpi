@@ -2,14 +2,21 @@ import { Col, Row } from "react-bootstrap";
 
 function WelcomePage () {
     return (
-        <div style={{fontSize: "75px", minHeight: "100vh"}}>
+        <div style={{minHeight: "100vh", marginLeft: "10px", marginRight: "10px"}}>
             <Row style={{height: "100vh"}}>
                 <Col style={{justifyContent: "left", alignItems: "center", display: "flex"}}>
-                    Welcome to the 
-                    <br></br>
-                    WEBSITE_NAME
-                    <br></br>
-                    (Powerd by Ai)
+                    <div>
+                        <div style={{fontSize: "95px"}}>
+                            Welcome to the 
+                            <br></br>
+                            WEBSITE_NAME
+                        </div>
+                        <br></br>
+                        <div style={{fontSize: "50px"}}>
+                            (Powered by AI)  
+                        </div>
+                    </div>
+                    
                 </Col>
                 <Col>
                     
