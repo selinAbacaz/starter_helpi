@@ -1,6 +1,7 @@
-import { Button, Form } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { ApiKeyInputProps } from "../interfaces/ApiKeyInput";
 import { useState } from "react";
+import OpenAI from "openai";
 
 export let keyData = "";
 const saveKeyData = "MYKEY";
@@ -22,11 +23,36 @@ function ApiKeyInput ({ blurPage, type }: ApiKeyInputProps) {
         setKey(event.target.value);
     }
 
+    async function checkValidAPIKey () {
+        const openai = new OpenAI(
+            {
+              apiKey: keyData,
+              dangerouslyAllowBrowser: true
+            }
+        );
+
+        try {
+            console.log(openai.models.list());
+            return true;
+        } catch (error) {
+            return false;
+        }
+
+    }
+
     if (type === "welcome") {
         return (
             <Form>
-                <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage} style= {{width: "50%"}}></Form.Control>
-                <Button className="Submit-Button" onClick={handleSubmit} disabled={blurPage}>Submit</Button>
+                <Row>
+                    <Col>
+                        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage}></Form.Control>
+                    </Col>
+                    <Col>
+                        <Button className="Submit-Button" onClick={handleSubmit} disabled={blurPage}>Submit</Button>
+                    </Col>
+                </Row>
+                
+                
             </Form>
         )
     }
