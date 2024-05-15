@@ -8,6 +8,7 @@ import { ResultsPage } from './pages/results/ResultsPage';
 import { FooterEx } from './components/Foooter';
 import WelcomePage from './pages/welcome/WelcomePage';
 import { keyData } from './components/ApiKeyInput';
+import ApiError from './components/ApiError';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<number>(4); // Determines the current page of the webstie, represented as a number
@@ -21,7 +22,7 @@ function App() {
 
   return (
       <div className={blurPage ? "App enableBlur" : "App"}>
-        {}
+        {!validKey && submittedNewKey && <ApiError></ApiError>}
         {currentPage !== 4 && <NavBar setCurrentPage={setCurrentPage} currentPage={currentPage} blurPage={blurPage} setBlurPage={setBlurPage} questionsSubmitted={submitFlagBasic || submitFlagDetailed} submitted={submitted}></NavBar>}
         {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} blurPage={blurPage} setBlurPage={setBlurPage}></HomePage>}
         {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} submitFlagBasic={submitFlagBasic} setSubmitFlagBasic={setSubmitFlagBasic} setQuestionsToUse={setQuestionsToUse} setSubmitted={setSubmitted}></BasicQuestions>}
