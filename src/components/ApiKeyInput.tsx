@@ -25,9 +25,7 @@ function ApiKeyInput ({ blurPage, type }: ApiKeyInputProps) {
     if (type === "welcome") {
         return (
             <Form>
-                <Form.Label>API Key:</Form.Label>
-                <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage} style= {{width: "50%", marginLeft: "25%"}}></Form.Control>
-                <br></br>
+                <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage} style= {{width: "50%"}}></Form.Control>
                 <Button className="Submit-Button" onClick={handleSubmit} disabled={blurPage}>Submit</Button>
             </Form>
         )

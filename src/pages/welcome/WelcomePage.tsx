@@ -4,17 +4,24 @@ import ApiKeyInput from "../../components/ApiKeyInput";
 function WelcomePage () {
     return (
         <div style={{minHeight: "100vh", marginLeft: "10px", marginRight: "10px"}}>
-            <Row style={{height: "100vh"}}>
-                <Col style={{justifyContent: "left", alignItems: "center", display: "flex"}}>
+            <Row style={{height: "100vh", display: "flex"}}>
+                <Col style={{textAlign: "left", alignItems: "center", display: "flex"}}>
                     <div>
                         <div style={{fontSize: "95px"}}>
                             Welcome to the 
                             <br></br>
                             WEBSITE_NAME
                         </div>
-                        <br></br>
                         <div style={{fontSize: "50px"}}>
                             (Powered by AI)  
+                        </div>
+                        <br></br>
+                        <div style={{fontSize: "25px"}}>
+                            <p>
+                                The WEBSITE_NAME uses chatGPT to provide accurate results. 
+                                <br></br>
+                                Please provide an OpenAI API key before moving forward.
+                            </p>
                         </div>
                         <ApiKeyInput blurPage={false} type={"welcome"}></ApiKeyInput>
                     </div>      
