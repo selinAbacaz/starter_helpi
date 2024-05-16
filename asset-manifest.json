@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/starter_helpi/static/css/main.c797fa99.css",
-    "main.js": "/starter_helpi/static/js/main.da675005.js",
+    "main.js": "/starter_helpi/static/js/main.d542b4ac.js",
     "static/js/213.103f6a0f.chunk.js": "/starter_helpi/static/js/213.103f6a0f.chunk.js",
     "static/js/732.17aa9ed3.chunk.js": "/starter_helpi/static/js/732.17aa9ed3.chunk.js",
     "static/js/453.dda23872.chunk.js": "/starter_helpi/static/js/453.dda23872.chunk.js",
@@ -15,6 +15,7 @@
     "static/media/milchella-regular-webfont.woff": "/starter_helpi/static/media/milchella-regular-webfont.7f297e7701777cf2af67.woff",
     "static/media/careerWorm.png": "/starter_helpi/static/media/careerWorm.916715e3bb646fb01717.png",
     "static/media/milchella-regular-webfont.woff2": "/starter_helpi/static/media/milchella-regular-webfont.711b7c42e2f04394791e.woff2",
+    "static/media/strawberry.png": "/starter_helpi/static/media/strawberry.4979980fd96e5fbf9cb4.png",
     "static/media/louis_george_cafe_bold_italic-webfont.woff": "/starter_helpi/static/media/louis_george_cafe_bold_italic-webfont.11867fadeb45b0d03da3.woff",
     "static/media/louis_george_cafe_italic-webfont.woff": "/starter_helpi/static/media/louis_george_cafe_italic-webfont.ad1c97f0df4af5dedfd2.woff",
     "static/media/louis_george_cafe_light_italic-webfont.woff": "/starter_helpi/static/media/louis_george_cafe_light_italic-webfont.ba6dcf599c8916597367.woff",
@@ -32,13 +33,13 @@
     "static/media/magilioregular-webfont.woff2": "/starter_helpi/static/media/magilioregular-webfont.3bad8cabf0d3014eecf3.woff2",
     "index.html": "/starter_helpi/index.html",
     "main.c797fa99.css.map": "/starter_helpi/static/css/main.c797fa99.css.map",
-    "main.da675005.js.map": "/starter_helpi/static/js/main.da675005.js.map",
+    "main.d542b4ac.js.map": "/starter_helpi/static/js/main.d542b4ac.js.map",
     "213.103f6a0f.chunk.js.map": "/starter_helpi/static/js/213.103f6a0f.chunk.js.map",
     "732.17aa9ed3.chunk.js.map": "/starter_helpi/static/js/732.17aa9ed3.chunk.js.map",
     "453.dda23872.chunk.js.map": "/starter_helpi/static/js/453.dda23872.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c797fa99.css",
-    "static/js/main.da675005.js"
+    "static/js/main.d542b4ac.js"
   ]
 }
