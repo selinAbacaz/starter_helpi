@@ -47,7 +47,7 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
                     </div>      
                 </Col>
                 <Col className="cat-image">
-                    
+                    <img src={require("../../assets/images/Mia.png")} alt="Mia"></img>
                 </Col>
             </Row>
         </div>
