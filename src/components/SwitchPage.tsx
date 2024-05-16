@@ -19,7 +19,7 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
         if ((setCurrentPage && newCurrentPage) ||  (setCurrentPage && newCurrentPage === 0)) {
             setCurrentPage(newCurrentPage);
         }
-        if (type === "results" && setBlurPage && setQuestionsToUse && setSubmitted && questionsToUse) {
+        if ((type === "results" || type === "otherResults") && setBlurPage && setQuestionsToUse && setSubmitted && questionsToUse) {
             setSubmitted(true);
             setBlurPage(false);
             setQuestionsToUse(questionsToUse);
@@ -83,6 +83,24 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
         return (
             <Nav.Link className="magilio" style={{fontSize: "40px"}} onClick={changePage} eventKey={newCurrentPage} disabled={blurPage || questionsSubmitted}>Career Chef</Nav.Link>
         );   
+    }
+    else if (type === "otherResults") {
+        return (
+            <MuiButton
+                sx={{
+                    textTransform: 'none',
+                    color: '#5d3627',
+                    fontSize: '20px',
+                    fontFamily: 'louis_george_caferegular',
+                    transition: 'transform 0.5s',
+                    '&:hover': {
+                        backgroundColor: 'rgb(235, 235, 235)',
+                        transform: 'translateY(-5px)',
+                    }
+                }} 
+                variant="text"
+                onClick={changePage}>Get Results!</MuiButton>
+        )
     }
     else {
         return (
