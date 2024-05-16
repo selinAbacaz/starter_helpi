@@ -67,7 +67,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                     imgWidth = imgHeight * aspectRatio;
                 }
     
-                pdf.addImage(canvas, 'JPEG', 0, 0, imgWidth, imgHeight);
+                pdf.addImage(canvas, 'JPEG', 5, 5, imgWidth, imgHeight);
                 pdf.save('downloaded_page.pdf');
             })
             .catch((error) => {
