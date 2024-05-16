@@ -27,7 +27,7 @@ export function ShowAlert ({ setBlurPage, setCurrentPage, setQuestionsToUse, blu
 
     return (
         <div>
-            <ToastContainer style={{ position: "fixed", top: toastPosition, left: "50%", transform: "translate(-50%, 200%)"}}>
+            <ToastContainer style={{ position: "fixed", top: toastPosition, left: "50%", transform: "translate(-50%, 100%)", zIndex: "9999"}}>
                 <Toast show={showMessage} onClose={dismissMessage} style={{width: "500px"}}>
                     <Toast.Header style={{fontSize: "28px"}}>
                         <strong className="me-auto">Quiz Completed!</strong> 
