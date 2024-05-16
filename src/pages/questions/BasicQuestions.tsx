@@ -157,9 +157,7 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFl
             <br></br>
             <br></br>
             {/* Body with all questions */}
-            <div>
-                {submitted && <ShowAlert setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} blurPage={blurPage} setQuestionsToUse={setQuestionsToUse} questionsToUse={"basic"} setSubmitted={setSubmitted}></ShowAlert>}
-            </div>
+            {submitted && <ShowAlert setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} blurPage={blurPage} setQuestionsToUse={setQuestionsToUse} questionsToUse={"basic"} setSubmitted={setSubmitted}></ShowAlert>}
             <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "salmon", backgroundColor: "white", justifyContent:"right"} }>
                 {/* progress bar's own little box */}
                 <div style= {{top:window.screenTop, position: "sticky"}}>
