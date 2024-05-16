@@ -45,7 +45,19 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
         }
         
         return (
-            <Button variant={variant} onClick={changePage}>Get Results!</Button>
+            <MuiButton 
+                sx={{
+                    textTransform: 'none',
+                    borderRadius: '10px',
+                    backgroundColor: '#f9e0d1',
+                    color: '#5d3627',
+                    border: '2px solid #5d3627',
+                    '&:hover': {
+                        backgroundColor: '#fad8c3',
+                    }
+                }} 
+                variant={"contained"} 
+                onClick={changePage}>Get Results!</MuiButton>
         );
         
     }
