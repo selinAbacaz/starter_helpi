@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Button, Col, Form, Row, Spinner } from "react-bootstrap";
+import { Col, Form, Row, Spinner } from "react-bootstrap";
 import { GenerateText } from "../GPT";
+import { Button } from "@mui/material";
 
 interface GPTInputProps {
     questionsToUse: string;
@@ -30,7 +31,15 @@ function GPTInput ({questionsToUse, setChatGPTReply}: GPTInputProps) {
                         <Form.Control type="input" placeholder="Ask chatGPT" onChange={changeUserInput} disabled={loading}></Form.Control>
                     </Col>
                     <Col>
-                        {!loading && <Button onClick={submitToGPT}>Submit</Button>}
+                        {!loading && <Button onClick={submitToGPT} variant="contained" sx={{
+                            borderRadius: "10px",
+                            backgroundColor: "#f9e0d1",
+                            color: "#5d3627",
+                            '&:hover' : {
+                                backgroundColor: "#fad8c3",
+                                color: "#5d3627",
+                            }
+                        }}>Submit</Button>}
                         {loading && <Spinner></Spinner>}
                     </Col>
                 </Row>
