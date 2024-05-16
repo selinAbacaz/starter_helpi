@@ -2,7 +2,7 @@
     background-image: url("../../assets/images/backg.jpg");
 }
 
-.margins {
+.row-margins {
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -11,9 +11,22 @@
     min-height: 100vh;
 }
 
-.column {
+.text-column {
     text-align: left;
     align-items: center;
+}
+
+.text-background {
+    background-color: rgba(255, 255, 255, 0.74);
+    border-radius: 10px;
+    box-shadow: 5px 10px;
+}
+
+.text-margins {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    margin-top: 25px;
 }
 
 .title-text {
