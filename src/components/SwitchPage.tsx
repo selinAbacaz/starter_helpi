@@ -63,12 +63,29 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
                 }} 
                 variant={"contained"} 
                 onClick={changePage}>Get Started!</MuiButton>
-        )
+        );
         
+    }
+    else if (type === "navTitle") {
+        return (
+            <Nav.Link className="magilio" style={{fontSize: "40px"}} onClick={changePage} eventKey={currentPage} disabled={blurPage || questionsSubmitted}>Career Chef</Nav.Link>
+        );   
     }
     else {
         return (
-            <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={currentPage} disabled={blurPage || questionsSubmitted}><b>{(currentPage && buttonNames[currentPage] ) || (currentPage === 0 && buttonNames[currentPage])}</b></Nav.Link>
+            <MuiButton 
+                sx={{
+                    textTransform: 'none',
+                    borderRadius: '10px',
+                    backgroundColor: '#f9e0d1',
+                    color: '#5d3627',
+                    border: '2px solid #5d3627',
+                    '&:hover': {
+                        backgroundColor: '#fad8c3',
+                    }
+                }} 
+                variant={"contained"} 
+                onClick={changePage}>Get Started!</MuiButton>
         );
     }
 }

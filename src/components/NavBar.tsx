@@ -5,8 +5,8 @@ import { NavBarProps } from "../interfaces/NavBar";
 
 export function NavBar ({setBlurPage, setCurrentPage, currentPage, blurPage, questionsSubmitted, submitted}: NavBarProps) {
     return (
-    <Navbar style={{fontFamily: "Helvetica"}}>
-        <Navbar.Brand style={{fontSize: "25px"}}>Career Helpi</Navbar.Brand>
+    <Navbar style={{fontFamily: "Helvetica", padding: "10px", alignItems: "center"}}>
+        <Navbar.Brand><SwitchPage setCurrentPage={setCurrentPage} currentPage={0} type={"navTitle"} blurPage={blurPage} setBlurPage={setBlurPage} questionsSubmitted={questionsSubmitted}></SwitchPage></Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav variant="tabs" defaultActiveKey={currentPage} activeKey={currentPage}>
                 <SwitchPage setCurrentPage={setCurrentPage} currentPage={0} type={"nav"} blurPage={blurPage} setBlurPage={setBlurPage} questionsSubmitted={questionsSubmitted}></SwitchPage>
