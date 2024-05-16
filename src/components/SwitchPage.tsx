@@ -2,6 +2,7 @@ import { Button, Nav } from "react-bootstrap";
 import { SwitchPagesProps } from "../interfaces/SwitchPages";
 import { saveResponses } from "../pages/results/GPT";
 import { Button as MuiButton} from "@mui/material";
+import './SwitchPage.css'
 
 export let vistedWelcomePage = false;
 const savevistedWebPage = "VISITEDWELCOME";
@@ -50,7 +51,7 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
     }
     else if (type === "welcome") {
         return (
-            <MuiButton variant={"contained"} onClick={changePage} style={{textTransform: "none", borderRadius: "10px", backgroundColor: "#f9e0d1", color: "#5d3627", border: "2px solid #5d3627"}}>Get Started!</MuiButton>
+            <MuiButton variant={"contained"} onClick={changePage} className="mui-button">Get Started!</MuiButton>
         )
         
     }

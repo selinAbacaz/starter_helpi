@@ -1,0 +1,11 @@
+.mui-button {
+    text-transform: none;
+    border-radius: 10px;
+    background-color: #f9e0d1;
+    color: #5d3627;
+    border: 2px solid #5d3627;
+}
+
+.mui-button:hover {
+    background-color: #f7ccb2;
+}
