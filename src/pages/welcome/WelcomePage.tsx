@@ -16,7 +16,7 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
                             <div className="title-text magilio">
                                 Welcome to the 
                                 <br></br>
-                                Career Helpi
+                                Career Chef
                             </div>
                             <div className="ai-text">
                                 <TypewriterComponent onInit={(typewriter) => {
@@ -34,7 +34,7 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
                             </div>
                             <br></br>
                             <div className="api-text">
-                                <p>The Career Helpi uses chatGPT to provide accurate results.</p>
+                                <p>The Career Chef uses chatGPT to provide accurate results.</p>
                                 {!validKey && <p>Please provide an OpenAI API key before moving forward.</p>}
                                 {validKey && <p>You're all set! Enjoy the quiz!</p>}
                             </div>
