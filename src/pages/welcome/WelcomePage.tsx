@@ -10,7 +10,7 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
     return (
         <div className="full-height welcome">
             <Row className="full-height d-flex row-margins animations LouisGeorgeNormal">
-                <Col className="text-column d-flex" style={{minHeight: "60%"}}>
+                <Col className="text-column d-flex">
                     <div className="text-background">
                         <div className="text-margins">
                             <div className="title-text magilio">
