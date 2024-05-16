@@ -26,7 +26,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                             <Col>
                                 <Row style={{display:"flex", justifyContent:"right", height: "55%"}}>
                                     <Col className= "buttonBox1 LouisGeorgeNormal" style={{ marginRight: "1%" }}>
-                                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={1} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Basic Question Button*/></SwitchPage>
+                                        <SwitchPage setCurrentPage={setCurrentPage} newCurrentPage={1} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Basic Question Button*/></SwitchPage>
                                     </Col>
                                     
                                     <Col className= "orangeBun box magilio" style= {{color:"#f9e0d1", height: "101%"}}>
@@ -35,7 +35,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                                 </Row>
                                 <Row style={{display:"flex", justifyContent:"right", height: "55%"}}>
                                     <Col className= "buttonBox2 LouisGeorgeNormal" style={{marginRight: "1%", marginTop: "1%"}}>
-                                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={2} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Detailed Question Button*/></SwitchPage>
+                                        <SwitchPage setCurrentPage={setCurrentPage} newCurrentPage={2} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Detailed Question Button*/></SwitchPage>
                                     </Col>
                                     <Col className= "orange2 box magilio" style={{color:"#916448", marginTop: ".5%", height: "101%"}}>                    
                                     </Col>

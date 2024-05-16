@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
 import { ShowAlert } from "./components/Alert";
-import { Button, Col, Row, Form } from 'react-bootstrap';
+import { Col, Row, Form } from 'react-bootstrap';
 import './Questions.css';
 import '../../App.css'
-import { SwitchPage } from "../../components/SwitchPage";
 import { QuestionsProps } from "../../interfaces/Questions";
 import { BasicQuestionsProps } from "../../interfaces/BasicQuestions";
+import SubmitButtons from "./components/SubmitButtons";
 
 export const basicAnswerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
 export const basicQuestionsArray: string[] = 
@@ -130,19 +130,6 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFl
     // Contains the number of questions that have been anwered
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(basicAnswerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false); // Determines whether or not the results have been submitted
-    const [submitButtonText, setSubmittButtonText] = useState<string>("Submit Answers"); // Sets the text of the submitt button based on submitt status
-
-    function changeSubmitState () {
-        setSubmittedAnswers(!submitted)
-        setSubmitFlagBasic(!submitFlagBasic);
-        if (submitButtonText === "Submit Answers") {
-            setSubmittButtonText("Change Answers");
-            setBlurPage(true);
-        }
-        else {
-            setSubmittButtonText("Submit Answers");
-        }
-    }
 
     return (
         <div className="disableBlur backgrColor">
@@ -192,11 +179,18 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFl
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[8]} answerPlacement={8} submitted={submitted}></Question>
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[9]} answerPlacement={9} submitted={submitted}></Question>
                     <br></br>
-                    <span>
-                        <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10 || blurPage}>{submitButtonText}</Button>
-                        {submitted && <SwitchPage setCurrentPage={setCurrentPage} currentPage={3} variant={"primary"} type={"results"} blurPage={blurPage} setBlurPage={setBlurPage}></SwitchPage>}
-                    </span>
-                    
+                    <SubmitButtons 
+                        setBlurPage={setBlurPage} 
+                        setCurrentPage={setCurrentPage} 
+                        setQuestionsToUse={setQuestionsToUse}
+                        setSubmitted={setSubmitted}
+                        setSubmitFlag={setSubmitFlagBasic} 
+                        setSubmittedAnswers={setSubmittedAnswers} 
+                        blurPage={blurPage} 
+                        questionsToUse={"basic"}
+                        numQuestionsAnswered={numQuestionsAnswered} 
+                        submitted={submitted} 
+                        submitFlag={submitFlagBasic}></SubmitButtons>
                 </div>
             </div>
             <br></br>

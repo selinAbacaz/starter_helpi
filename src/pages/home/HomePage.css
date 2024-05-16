@@ -21,12 +21,16 @@
   align-items: center;
   justify-content: center;
   background: #fa8072;
+  box-shadow: #e36c6c 5px 5px;
+  border-radius: 10px;
   transition: background-color 1s ease-out 2ms;
+  transition: 0.5s;
 
 }
 
 .buttonBox1:hover {
   background-color: rgb(255, 98, 80);
+  transform: translateY(-5px);
 }
 
 .buttonBox2 {
@@ -38,12 +42,16 @@
   align-items: center;
   justify-content: center;
   background: #FE8A2E;
+  box-shadow: #d56203 5px 5px;
+  border-radius: 10px;
   transition: background-color 1s ease-out 2ms;
+  transition: 0.5s;
 
 }
 
 .buttonBox2:hover {
-  background-color: #d56203;
+  background-color: #f76f00;
+  transform: translateY(-5px);
 }
 
 .HP-lower {
