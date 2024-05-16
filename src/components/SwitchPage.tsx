@@ -12,12 +12,12 @@ if (prevKey !== null) {
 }
 
 
-export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, setSubmitted, blurPage, currentPage, questionsSubmitted, questionsToUse, variant, type }: SwitchPagesProps) {
+export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, setSubmitted, blurPage, newCurrentPage, questionsSubmitted, questionsToUse, variant, type }: SwitchPagesProps) {
     const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions", "Results"]; // Array of names for the buttons and navs related to page switching
 
     function changePage () {
-        if ((setCurrentPage && currentPage) ||  (setCurrentPage && currentPage === 0)) {
-            setCurrentPage(currentPage);
+        if ((setCurrentPage && newCurrentPage) ||  (setCurrentPage && newCurrentPage === 0)) {
+            setCurrentPage(newCurrentPage);
         }
         if (type === "results" && setBlurPage && setQuestionsToUse && setSubmitted && questionsToUse) {
             setSubmitted(true);
@@ -31,7 +31,7 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
 
     if (type === "button") {
         return (
-            <Button variant={variant} onClick={changePage} disabled={blurPage} className= "box" style= {{backgroundColor: "#ffffff00", border: 0, fontSize: 25}}>{currentPage && buttonNames[currentPage]}</Button>
+            <Button variant={variant} onClick={changePage} disabled={blurPage} className= "box" style= {{backgroundColor: "#ffffff00", border: 0, fontSize: 25}}>{newCurrentPage && buttonNames[newCurrentPage]}</Button>
         );
     }
     else if (type === "results") {
@@ -69,7 +69,7 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
     }
     else if (type === "navTitle") {
         return (
-            <Nav.Link className="magilio" style={{fontSize: "40px"}} onClick={changePage} eventKey={currentPage} disabled={blurPage || questionsSubmitted}>Career Chef</Nav.Link>
+            <Nav.Link className="magilio" style={{fontSize: "40px"}} onClick={changePage} eventKey={newCurrentPage} disabled={blurPage || questionsSubmitted}>Career Chef</Nav.Link>
         );   
     }
     else {
@@ -85,7 +85,7 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
                     }
                 }} 
                 variant="text"
-                onClick={changePage}>{(currentPage && buttonNames[currentPage]) || (currentPage === 0 && buttonNames[currentPage])}</MuiButton>
+                onClick={changePage}>{(newCurrentPage && buttonNames[newCurrentPage]) || (newCurrentPage === 0 && buttonNames[newCurrentPage])}</MuiButton>
         );
     }
 }
