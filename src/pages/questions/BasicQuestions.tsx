@@ -135,6 +135,9 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFl
         <div className="disableBlur backgrColor">
             {/* Header with information on how to take the quiz */}
             <div className={blurPage ? "enableBlur" : ""}>
+                <img src= {require("../../assets/images/strawberry.png")} alt="strawberry" style={{zIndex:100, right: 2, position: "fixed" }}/>
+                <img src= {require("../../assets/images/strawberry.png")} alt="strawberry" style={{zIndex:100, transform:"scaleX(-1)", left: 2, position: "fixed" }}/>
+
                 <Row className="image" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
                     <Col style= {{marginLeft: 340}}>
 
