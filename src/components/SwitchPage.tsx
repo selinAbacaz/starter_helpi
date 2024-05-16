@@ -51,7 +51,7 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
     }
     else if (type === "welcome") {
         return (
-            <MuiButton variant={"contained"} onClick={changePage} className="mui-button">Get Started!</MuiButton>
+            <MuiButton className="mui-button" variant={"contained"} onClick={changePage}>Get Started!</MuiButton>
         )
         
     }
