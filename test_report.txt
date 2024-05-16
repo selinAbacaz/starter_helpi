@@ -74,8 +74,8 @@ All files                       |       0 |        0 |       0 |       0 |
   ApiError.tsx                  |       0 |      100 |       0 |       0 | 4                 
   ApiKeyInput.tsx               |       0 |        0 |       0 |       0 | 7-70              
   Foooter.tsx                   |       0 |      100 |       0 |       0 | 11                
-  NavBar.tsx                    |       0 |        0 |       0 |       0 | 7                 
-  SwitchPage.tsx                |       0 |        0 |       0 |       0 | 6-70              
+  NavBar.tsx                    |       0 |        0 |       0 |       0 | 8                 
+  SwitchPage.tsx                |       0 |        0 |       0 |       0 | 7-76              
  src/interfaces                 |       0 |        0 |       0 |       0 |                   
   Alert.ts                      |       0 |        0 |       0 |       0 |                   
   ApiKeyInput.ts                |       0 |        0 |       0 |       0 |                   
@@ -113,5 +113,5 @@ All files                       |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        5.927 s
+Time:        5.947 s
 Ran all test suites.
