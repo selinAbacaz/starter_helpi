@@ -2,6 +2,7 @@ import { Button, Nav } from "react-bootstrap";
 import { SwitchPagesProps } from "../interfaces/SwitchPages";
 import { saveResponses } from "../pages/results/GPT";
 import { Button as MuiButton} from "@mui/material";
+import '../assets/LouisGeorgeCafe/stylesheet.css'
 
 export let vistedWelcomePage = false;
 const savevistedWebPage = "VISITEDWELCOME";
@@ -73,16 +74,17 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
     }
     else {
         return (
-            <MuiButton 
+            <MuiButton
                 sx={{
                     textTransform: 'none',
-                    backgroundColor: '#f9e0d1',
                     color: '#5d3627',
+                    fontSize: '20px',
+                    fontFamily: 'louis_george_caferegular',
                     '&:hover': {
-                        backgroundColor: '#fad8c3',
+                        backgroundColor: 'rgb(235, 235, 235)',
                     }
                 }} 
-                variant={"text"} 
+                variant="text"
                 onClick={changePage}>{(currentPage && buttonNames[currentPage]) || (currentPage === 0 && buttonNames[currentPage])}</MuiButton>
         );
     }
