@@ -12,7 +12,7 @@ if (prevKey !== null) {
 }
 
 
-export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, setSubmitted, blurPage, newCurrentPage, questionsSubmitted, questionsToUse, variant, type }: SwitchPagesProps) {
+export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, setSubmitted, blurPage, currentPage, newCurrentPage, questionsSubmitted, questionsToUse, variant, type }: SwitchPagesProps) {
     const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions", "Results"]; // Array of names for the buttons and navs related to page switching
 
     function changePage () {
@@ -80,6 +80,7 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
                     color: '#5d3627',
                     fontSize: '20px',
                     fontFamily: 'louis_george_caferegular',
+                    backgroundColor: currentPage === newCurrentPage ? "rgb(235, 235, 235)" : "",
                     '&:hover': {
                         backgroundColor: 'rgb(235, 235, 235)',
                     }
