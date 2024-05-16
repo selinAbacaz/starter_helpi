@@ -2,7 +2,7 @@ import { Button, ButtonGroup } from "@mui/material";
 import { SwitchPage } from "../../../components/SwitchPage";
 import { SubmitButtonsProps } from "../../../interfaces/SubmitButtons";
 
-function SubmitButtons ({ setBlurPage, setCurrentPage, setSubmitFlag, setSubmittedAnswers, blurPage, numQuestionsAnswered, submitted, submitFlag }: SubmitButtonsProps) {
+function SubmitButtons ({ setBlurPage, setCurrentPage, setSubmitFlag, setQuestionsToUse, setSubmitted, setSubmittedAnswers, blurPage, numQuestionsAnswered, questionsToUse, submitted, submitFlag }: SubmitButtonsProps) {
 
     function changeSubmitState () {
         const newSubmit = !submitted
@@ -27,7 +27,7 @@ function SubmitButtons ({ setBlurPage, setCurrentPage, setSubmitFlag, setSubmitt
                 }
             }}
             variant="text">{submitted ? "Change Answers" : "Submit"}</Button>
-            {submitted && <SwitchPage setCurrentPage={setCurrentPage} newCurrentPage={3} type={"otherResults"} blurPage={blurPage} setBlurPage={setBlurPage}></SwitchPage>}
+            {submitted && <SwitchPage setCurrentPage={setCurrentPage} newCurrentPage={3} type={"otherResults"} blurPage={blurPage} setBlurPage={setBlurPage} setQuestionsToUse={setQuestionsToUse} questionsToUse={questionsToUse} setSubmitted={setSubmitted}></SwitchPage>}
         </ButtonGroup>
     )
 }

@@ -178,7 +178,18 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFl
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[8]} answerPlacement={8} submitted={submitted}></Question>
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[9]} answerPlacement={9} submitted={submitted}></Question>
                     <br></br>
-                    <SubmitButtons setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} setSubmitFlag={setSubmitFlagBasic} setSubmittedAnswers={setSubmittedAnswers} blurPage={blurPage} numQuestionsAnswered={numQuestionsAnswered} submitted={submitted} submitFlag={submitFlagBasic}></SubmitButtons>
+                    <SubmitButtons 
+                        setBlurPage={setBlurPage} 
+                        setCurrentPage={setCurrentPage} 
+                        setQuestionsToUse={setQuestionsToUse}
+                        setSubmitted={setSubmitted}
+                        setSubmitFlag={setSubmitFlagBasic} 
+                        setSubmittedAnswers={setSubmittedAnswers} 
+                        blurPage={blurPage} 
+                        questionsToUse={"basic"}
+                        numQuestionsAnswered={numQuestionsAnswered} 
+                        submitted={submitted} 
+                        submitFlag={submitFlagBasic}></SubmitButtons>
                 </div>
             </div>
             <br></br>

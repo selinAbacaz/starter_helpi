@@ -20,6 +20,7 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
             setCurrentPage(newCurrentPage);
         }
         if ((type === "results" || type === "otherResults") && setBlurPage && setQuestionsToUse && setSubmitted && questionsToUse) {
+            console.log("test")
             setSubmitted(true);
             setBlurPage(false);
             setQuestionsToUse(questionsToUse);
