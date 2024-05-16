@@ -45,6 +45,11 @@
     animation: transitionIn 1s;
 }
 
+.cat-image {
+    background-image: url("../../assets/images/Mia.png");
+    background-size: cover;
+}
+
 @keyframes transitionIn {
     from {
         opacity: 0;

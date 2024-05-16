@@ -15,14 +15,14 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
                             <div className="title-text">
                                 Welcome to the 
                                 <br></br>
-                                WEBSITE_NAME
+                                Career Helpi
                             </div>
                             <div className="ai-text">
                                 (Powered by AI)  
                             </div>
                             <br></br>
                             <div className="api-text">
-                                <p>The WEBSITE_NAME uses chatGPT to provide accurate results.</p>
+                                <p>The Career Helpi uses chatGPT to provide accurate results.</p>
                                 {!validKey && <p>Please provide an OpenAI API key before moving forward.</p>}
                                 {validKey && <p>You're all set! Enjoy the quiz!</p>}
                             </div>
@@ -34,7 +34,7 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
                         
                     </div>      
                 </Col>
-                <Col>
+                <Col className="cat-image">
                     
                 </Col>
             </Row>
