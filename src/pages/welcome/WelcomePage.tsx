@@ -4,6 +4,7 @@ import { WelcomePageProps } from "../../interfaces/WelcomePage";
 import { SwitchPage } from "../../components/SwitchPage";
 import "./WelcomePage.css"
 import '../../assets/LouisGeorgeCafe/stylesheet.css'
+import TypewriterComponent from "typewriter-effect";
 
 function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKey }: WelcomePageProps) {
     return (
@@ -18,7 +19,7 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
                                 Career Helpi
                             </div>
                             <div className="ai-text">
-                                (Powered by AI)  
+                                <TypewriterComponent onInit={(typewriter) => {typewriter.pauseFor(500).typeString("(Powered by AI)").start()}}></TypewriterComponent>
                             </div>
                             <br></br>
                             <div className="api-text">
