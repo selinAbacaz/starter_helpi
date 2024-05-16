@@ -33,9 +33,9 @@ export function FooterEx({ setSubmittedNewKey, setValidKey, blurPage }: FooterPr
               <div className="row d-flex justify-content-center">
                   <p>
                     <br></br>
-                    Career Quiz made by Selin Bacaz, Brandon Nauta, Nathan Rowell
+                    Career Helpi authored by Selin Bacaz, Nathan Rowell, Brandon Nauta.
                     <br></br>
-                    For Cisc 275, Introduction to Software Engineering based in UDEL
+                    All art assets produced by Selin Bacaz.
                   </p>
               </div>
           </section>
