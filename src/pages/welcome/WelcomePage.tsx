@@ -10,16 +10,16 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
             <Row className="full-height d-flex margins">
                 <Col className="column d-flex">
                     <div>
-                        <div style={{fontSize: "95px"}}>
+                        <div className="title-text">
                             Welcome to the 
                             <br></br>
                             WEBSITE_NAME
                         </div>
-                        <div style={{fontSize: "50px"}}>
+                        <div className="ai-text">
                             (Powered by AI)  
                         </div>
                         <br></br>
-                        <div style={{fontSize: "25px"}}>
+                        <div className="api-text">
                             <p>The WEBSITE_NAME uses chatGPT to provide accurate results.</p>
                             {!validKey && <p>Please provide an OpenAI API key before moving forward.</p>}
                             {validKey && <p>You're all set! Enjoy the quiz!</p>}

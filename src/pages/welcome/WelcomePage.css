@@ -15,3 +15,15 @@
     text-align: left;
     align-items: center;
 }
+
+.title-text {
+    font-size: 95px;
+}
+
+.ai-text {
+    font-size: 50px;
+}
+
+.api-text {
+    font-size: 25px;
+}
