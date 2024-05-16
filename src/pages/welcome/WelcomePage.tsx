@@ -3,7 +3,7 @@ import ApiKeyInput from "../../components/ApiKeyInput";
 import { WelcomePageProps } from "../../interfaces/WelcomePage";
 import { SwitchPage } from "../../components/SwitchPage";
 
-function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey }: WelcomePageProps) {
+function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKey }: WelcomePageProps) {
     return (
         <div style={{minHeight: "100vh", marginLeft: "10px", marginRight: "10px"}}>
             <Row style={{height: "100vh", display: "flex"}}>
@@ -25,8 +25,8 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey }: Welco
                                 Please provide an OpenAI API key before moving forward.
                             </p>
                         </div>
-                        <ApiKeyInput setSubmittedNewKey={setSubmittedNewKey} setValidKey={setValidKey} blurPage={false} type={"welcome"}></ApiKeyInput>
-                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={0} type={"welcome"}></SwitchPage>
+                        {!validKey && <ApiKeyInput setSubmittedNewKey={setSubmittedNewKey} setValidKey={setValidKey} blurPage={false} type={"welcome"}></ApiKeyInput>}
+                        {validKey && <SwitchPage setCurrentPage={setCurrentPage} currentPage={0} type={"welcome"}></SwitchPage>}
                     </div>      
                 </Col>
                 <Col>

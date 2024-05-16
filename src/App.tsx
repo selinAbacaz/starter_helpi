@@ -9,9 +9,10 @@ import { FooterEx } from './components/Foooter';
 import WelcomePage from './pages/welcome/WelcomePage';
 import { keyData } from './components/ApiKeyInput';
 import ApiError from './components/ApiError';
+import { vistedWelcomePage } from './components/SwitchPage';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<number>(4); // Determines the current page of the webstie, represented as a number
+  const [currentPage, setCurrentPage] = useState<number>(vistedWelcomePage === true ? 0 : 4 ); // Determines the current page of the webstie, represented as a number
   const [blurPage, setBlurPage] = useState<boolean>(false); // Determines whether or not the page will be blurred
   const [submitFlagBasic, setSubmitFlagBasic] = useState<boolean>(false); // Determines whether or not the basic questions have been submitted
   const [submitFlagDetailed, setSubmitFlagDetailed] = useState<boolean>(false); // Determines whether or not the detailed questions have been submitted
@@ -28,7 +29,7 @@ function App() {
         {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} submitFlagBasic={submitFlagBasic} setSubmitFlagBasic={setSubmitFlagBasic} setQuestionsToUse={setQuestionsToUse} setSubmitted={setSubmitted}></BasicQuestions>}
         {currentPage === 2 && <DetailedQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} submitFlagDetailed={submitFlagDetailed} setSubmitFlagDetailed={setSubmitFlagDetailed} setQuestionsToUse={setQuestionsToUse} setSubmitted={setSubmitted}></DetailedQuestions>}
         {currentPage === 3 && <ResultsPage submitFlagBasic={submitFlagBasic} setSubmitFlagBasic={setSubmitFlagBasic} submitFlagDetailed={submitFlagDetailed} setSubmitFlagDetailed={setSubmitFlagDetailed} questionsToUse={questionsToUse} setQuestionsToUse={setQuestionsToUse}></ResultsPage>}
-        {currentPage === 4 && <WelcomePage setCurrentPage={setCurrentPage} setSubmittedNewKey={setSubmittedNewKey} setValidKey={setValidKey}></WelcomePage>}
+        {currentPage === 4 && <WelcomePage setCurrentPage={setCurrentPage} setSubmittedNewKey={setSubmittedNewKey} setValidKey={setValidKey} validKey={validKey}></WelcomePage>}
         {currentPage !== 4 && <FooterEx setSubmittedNewKey={setSubmittedNewKey} setValidKey={setValidKey} blurPage={blurPage}></FooterEx>}
       </div>
   );
