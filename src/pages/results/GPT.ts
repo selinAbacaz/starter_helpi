@@ -1,6 +1,6 @@
 import { basicQuestionsArray, basicAnswerArray  } from "../questions/BasicQuestions";
 import { detailedAnswerArray, detailedQuestionsArray } from "../questions/DetailedQuestions";
-import { keyData } from "../../components/Foooter";
+import { keyData } from "../../components/ApiKeyInput";
 import OpenAI from "openai";
 
 export let saveResponses = 
