@@ -72,10 +72,10 @@ All files                       |       0 |        0 |       0 |       0 |
   reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
  src/components                 |       0 |        0 |       0 |       0 |                   
   ApiError.tsx                  |       0 |      100 |       0 |       0 | 4                 
-  ApiKeyInput.tsx               |       0 |        0 |       0 |       0 | 7-70              
+  ApiKeyInput.tsx               |       0 |        0 |       0 |       0 | 8-71              
   Foooter.tsx                   |       0 |      100 |       0 |       0 | 11                
   NavBar.tsx                    |       0 |        0 |       0 |       0 | 8                 
-  SwitchPage.tsx                |       0 |        0 |       0 |       0 | 7-76              
+  SwitchPage.tsx                |       0 |        0 |       0 |       0 | 7-106             
  src/interfaces                 |       0 |        0 |       0 |       0 |                   
   Alert.ts                      |       0 |        0 |       0 |       0 |                   
   ApiKeyInput.ts                |       0 |        0 |       0 |       0 |                   
@@ -87,21 +87,23 @@ All files                       |       0 |        0 |       0 |       0 |
   Questions.ts                  |       0 |        0 |       0 |       0 |                   
   ResultsPage.ts                |       0 |        0 |       0 |       0 |                   
   ResultsSection.ts             |       0 |        0 |       0 |       0 |                   
+  SubmitButtons.ts              |       0 |        0 |       0 |       0 |                   
   SwitchPages.ts                |       0 |        0 |       0 |       0 |                   
   WelcomePage.ts                |       0 |        0 |       0 |       0 |                   
  src/pages/home                 |       0 |      100 |       0 |       0 |                   
   HomePage.tsx                  |       0 |      100 |       0 |       0 | 13                
  src/pages/questions            |       0 |        0 |       0 |       0 |                   
-  BasicQuestions.tsx            |       0 |        0 |       0 |       0 | 11-147            
-  DetailedQuestions.tsx         |       0 |        0 |       0 |       0 | 11-117            
+  BasicQuestions.tsx            |       0 |        0 |       0 |       0 | 11-134            
+  DetailedQuestions.tsx         |       0 |        0 |       0 |       0 | 11-57             
  src/pages/questions/components |       0 |        0 |       0 |       0 |                   
   Alert.tsx                     |       0 |      100 |       0 |       0 | 8-28              
   ProgressBar.tsx               |       0 |        0 |       0 |       0 | 5-11              
+  SubmitButtons.tsx             |       0 |        0 |       0 |       0 | 8-16              
  src/pages/results              |       0 |        0 |       0 |       0 |                   
   GPT.ts                        |       0 |        0 |       0 |       0 | 7-169             
   ResultsPage.tsx               |       0 |        0 |       0 |       0 | 13-80             
  src/pages/results/components   |       0 |        0 |       0 |       0 |                   
-  GPTInput.tsx                  |       0 |        0 |       0 |       0 | 11-25             
+  GPTInput.tsx                  |       0 |        0 |       0 |       0 | 12-26             
   LoadingScreen.tsx             |       0 |      100 |       0 |       0 | 4                 
   PieChart.tsx                  |       0 |        0 |       0 |       0 | 8-28              
   Replies.tsx                   |       0 |        0 |       0 |       0 | 12-31             
@@ -113,5 +115,5 @@ All files                       |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        5.947 s
+Time:        5.866 s
 Ran all test suites.
