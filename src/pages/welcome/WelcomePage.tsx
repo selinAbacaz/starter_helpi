@@ -19,7 +19,18 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
                                 Career Helpi
                             </div>
                             <div className="ai-text">
-                                <TypewriterComponent onInit={(typewriter) => {typewriter.pauseFor(500).changeDelay(75).typeString("(Powered by AI)").start()}}></TypewriterComponent>
+                                <TypewriterComponent onInit={(typewriter) => {
+                                    typewriter
+                                    .pauseFor(500)
+                                    .changeDelay(75)
+                                    .typeString("(Powered by AI)")
+                                    .start()
+                                    .callFunction(() => {
+                                        const cursor = document.querySelector(".Typewriter__cursor");
+                                        if (cursor) {
+                                            cursor.setAttribute('style', 'visibility: hidden');
+                                        }
+                                    })}} ></TypewriterComponent>
                             </div>
                             <br></br>
                             <div className="api-text">
