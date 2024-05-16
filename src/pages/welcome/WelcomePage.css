@@ -1,0 +1,17 @@
+.welcome {
+    background-image: url("../../assets/images/backg.jpg");
+}
+
+.margins {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.full-height {
+    min-height: 100vh;
+}
+
+.column {
+    text-align: left;
+    align-items: center;
+}

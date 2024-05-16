@@ -2,12 +2,13 @@ import { Col, Row } from "react-bootstrap";
 import ApiKeyInput from "../../components/ApiKeyInput";
 import { WelcomePageProps } from "../../interfaces/WelcomePage";
 import { SwitchPage } from "../../components/SwitchPage";
+import "./WelcomePage.css"
 
 function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKey }: WelcomePageProps) {
     return (
-        <div style={{minHeight: "100vh", marginLeft: "10px", marginRight: "10px"}}>
-            <Row style={{height: "100vh", display: "flex"}}>
-                <Col style={{textAlign: "left", alignItems: "center", display: "flex"}}>
+        <div className="full-height welcome">
+            <Row className="full-height d-flex margins">
+                <Col className="column d-flex">
                     <div>
                         <div style={{fontSize: "95px"}}>
                             Welcome to the 
