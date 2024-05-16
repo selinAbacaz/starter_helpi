@@ -14,6 +14,7 @@ export interface SwitchPagesProps {
     setSubmitted?: (submitted: boolean) => void;
     blurPage?: boolean;
     currentPage?: number;
+    newCurrentPage?: number;
     questionsSubmitted?: boolean;
     questionsToUse?: string;
     type?: string;

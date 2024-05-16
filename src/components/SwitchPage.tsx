@@ -2,6 +2,7 @@ import { Button, Nav } from "react-bootstrap";
 import { SwitchPagesProps } from "../interfaces/SwitchPages";
 import { saveResponses } from "../pages/results/GPT";
 import { Button as MuiButton} from "@mui/material";
+import '../assets/LouisGeorgeCafe/stylesheet.css'
 
 export let vistedWelcomePage = false;
 const savevistedWebPage = "VISITEDWELCOME";
@@ -11,12 +12,12 @@ if (prevKey !== null) {
 }
 
 
-export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, setSubmitted, blurPage, currentPage, questionsSubmitted, questionsToUse, variant, type }: SwitchPagesProps) {
+export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, setSubmitted, blurPage, currentPage, newCurrentPage, questionsSubmitted, questionsToUse, variant, type }: SwitchPagesProps) {
     const buttonNames: string[] = ["Home", "Basic Questions", "Detailed Questions", "Results"]; // Array of names for the buttons and navs related to page switching
 
     function changePage () {
-        if ((setCurrentPage && currentPage) ||  (setCurrentPage && currentPage === 0)) {
-            setCurrentPage(currentPage);
+        if ((setCurrentPage && newCurrentPage) ||  (setCurrentPage && newCurrentPage === 0)) {
+            setCurrentPage(newCurrentPage);
         }
         if (type === "results" && setBlurPage && setQuestionsToUse && setSubmitted && questionsToUse) {
             setSubmitted(true);
@@ -30,7 +31,7 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
 
     if (type === "button") {
         return (
-            <Button variant={variant} onClick={changePage} disabled={blurPage} className= "box" style= {{backgroundColor: "#ffffff00", border: 0, fontSize: 25}}>{currentPage && buttonNames[currentPage]}</Button>
+            <Button variant={variant} onClick={changePage} disabled={blurPage} className= "box" style= {{backgroundColor: "#ffffff00", border: 0, fontSize: 25}}>{newCurrentPage && buttonNames[newCurrentPage]}</Button>
         );
     }
     else if (type === "results") {
@@ -63,12 +64,29 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
                 }} 
                 variant={"contained"} 
                 onClick={changePage}>Get Started!</MuiButton>
-        )
+        );
         
+    }
+    else if (type === "navTitle") {
+        return (
+            <Nav.Link className="magilio" style={{fontSize: "40px"}} onClick={changePage} eventKey={newCurrentPage} disabled={blurPage || questionsSubmitted}>Career Chef</Nav.Link>
+        );   
     }
     else {
         return (
-            <Nav.Link style={{color: "#ff6347"}} onClick={changePage} eventKey={currentPage} disabled={blurPage || questionsSubmitted}><b>{(currentPage && buttonNames[currentPage] ) || (currentPage === 0 && buttonNames[currentPage])}</b></Nav.Link>
+            <MuiButton
+                sx={{
+                    textTransform: 'none',
+                    color: '#5d3627',
+                    fontSize: '20px',
+                    fontFamily: 'louis_george_caferegular',
+                    backgroundColor: currentPage === newCurrentPage ? "rgb(235, 235, 235)" : "",
+                    '&:hover': {
+                        backgroundColor: 'rgb(235, 235, 235)',
+                    }
+                }} 
+                variant="text"
+                onClick={changePage}>{(newCurrentPage && buttonNames[newCurrentPage]) || (newCurrentPage === 0 && buttonNames[newCurrentPage])}</MuiButton>
         );
     }
 }

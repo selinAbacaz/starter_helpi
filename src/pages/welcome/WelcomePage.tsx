@@ -40,7 +40,7 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
                             </div>
                             <div>
                                 {!validKey && <ApiKeyInput setSubmittedNewKey={setSubmittedNewKey} setValidKey={setValidKey} blurPage={false} type={"welcome"}></ApiKeyInput>}
-                                {validKey && <SwitchPage setCurrentPage={setCurrentPage} currentPage={0} type={"welcome"}></SwitchPage>}
+                                {validKey && <SwitchPage setCurrentPage={setCurrentPage} newCurrentPage={0} type={"welcome"}></SwitchPage>}
                             </div>
                         </div>
                         
