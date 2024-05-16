@@ -67,15 +67,18 @@ File                            | % Stmts | % Branch | % Funcs | % Lines | Uncov
 --------------------------------|---------|----------|---------|---------|-------------------
 All files                       |       0 |        0 |       0 |       0 |                   
  src                            |       0 |        0 |       0 |       0 |                   
-  App.tsx                       |       0 |        0 |       0 |       0 | 11-18             
+  App.tsx                       |       0 |        0 |       0 |       0 | 15-24             
   index.tsx                     |       0 |      100 |     100 |       0 | 8-20              
   reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
  src/components                 |       0 |        0 |       0 |       0 |                   
-  Foooter.tsx                   |       0 |        0 |       0 |       0 | 9-32              
+  ApiError.tsx                  |       0 |      100 |       0 |       0 | 4                 
+  ApiKeyInput.tsx               |       0 |        0 |       0 |       0 | 7-70              
+  Foooter.tsx                   |       0 |      100 |       0 |       0 | 11                
   NavBar.tsx                    |       0 |        0 |       0 |       0 | 7                 
-  SwitchPage.tsx                |       0 |        0 |       0 |       0 | 6-39              
+  SwitchPage.tsx                |       0 |        0 |       0 |       0 | 6-70              
  src/interfaces                 |       0 |        0 |       0 |       0 |                   
   Alert.ts                      |       0 |        0 |       0 |       0 |                   
+  ApiKeyInput.ts                |       0 |        0 |       0 |       0 |                   
   BasicQuestions.ts             |       0 |        0 |       0 |       0 |                   
   DetailedQuestions.ts          |       0 |        0 |       0 |       0 |                   
   HomePage.ts                   |       0 |        0 |       0 |       0 |                   
@@ -85,6 +88,7 @@ All files                       |       0 |        0 |       0 |       0 |
   ResultsPage.ts                |       0 |        0 |       0 |       0 |                   
   ResultsSection.ts             |       0 |        0 |       0 |       0 |                   
   SwitchPages.ts                |       0 |        0 |       0 |       0 |                   
+  WelcomePage.ts                |       0 |        0 |       0 |       0 |                   
  src/pages/home                 |       0 |      100 |       0 |       0 |                   
   HomePage.tsx                  |       0 |      100 |       0 |       0 | 13                
  src/pages/questions            |       0 |        0 |       0 |       0 |                   
@@ -103,9 +107,11 @@ All files                       |       0 |        0 |       0 |       0 |
   Replies.tsx                   |       0 |        0 |       0 |       0 | 12-31             
   ResultsSection.tsx            |       0 |      100 |       0 |       0 | 9                 
   ResultsSectionText.tsx        |       0 |      100 |       0 |       0 | 4                 
+ src/pages/welcome              |       0 |        0 |       0 |       0 |                   
+  WelcomePage.tsx               |       0 |        0 |       0 |       0 | 10-31             
 --------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.711 s
+Time:        5.927 s
 Ran all test suites.
