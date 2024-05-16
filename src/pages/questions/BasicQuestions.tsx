@@ -137,16 +137,17 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFl
             <div className={blurPage ? "enableBlur" : ""}>
                 <Row className="image" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
                     <Col style= {{marginLeft: 340}}>
+
                         <header className= "box">
-                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                <div> <p></p><p> Answer Truthfully</p> <p>and</p> <p>Have Fun !</p><p></p> </div>
+                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white",position: "relative", backgroundColor: "#fa8072b9",minHeight:"80%", fontFamily: "magilio", wordSpacing:2, letterSpacing:2 } }>
+                                <div> <br></br><p> Answer Truthfully</p> <p>and</p> <p>Have Fun !</p><br></br> </div>
                             </div>
                         </header>
                     </Col>
                     <Col style= {{marginRight: 340}}>
                         <header className= "box " >
-                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                <div><p></p><p> Answer Truthfully</p> <p>and</p> <p>Have a Snack !</p><p></p> </div>
+                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white",position: "relative", minHeight:"80%",marginTop:"", backgroundColor: "#fa8072b9", fontFamily: "magilio", wordSpacing:2, letterSpacing:2} }>
+                                <div><br></br><p> Answer Truthfully</p> <p>and</p> <p>Have a Snack !</p><br></br> </div>
                             </div>
                         </header>
                         

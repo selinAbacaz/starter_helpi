@@ -30,13 +30,14 @@ export function FooterEx({ setSubmittedNewKey, setValidKey, blurPage }: FooterPr
             </div>
           </section>
           <section  style= {{backgroundColor: "salmon", fontSize: 18}}>
-              <div className="row d-flex justify-content-center">
-                  <p>
+              <div style={{alignContent:"center", justifyContent:"center", display:"flex"}}>
+                  <p style={{float:"left", marginLeft:"10%"}}>
                     <br></br>
                     Career Helpi authored by Selin Bacaz, Nathan Rowell, Brandon Nauta.
                     <br></br>
                     All art assets produced by Selin Bacaz.
                   </p>
+                  <img src= {require("../assets/images/tinyWorm.png")} alt= "tiny worm" style={{height:"10%", width:"10%", float:"right"}}></img>
               </div>
           </section>
           <hr style={{height: 4, backgroundColor: "white", marginLeft: "15%", marginRight: "15%", borderRadius:80, color: "white"}}></hr>

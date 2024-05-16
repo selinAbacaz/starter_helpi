@@ -29,7 +29,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                                         <SwitchPage setCurrentPage={setCurrentPage} newCurrentPage={1} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Basic Question Button*/></SwitchPage>
                                     </Col>
                                     
-                                    <Col className= "orangeBun box magilio" style= {{backgroundColor: "#ffa13dba",color:"#f9e0d1", height: "101%"}}>
+                                    <Col className= "orangeBun box magilio" style= {{color:"#f9e0d1", height: "101%"}}>
                                          
                                     </Col>
                                 </Row>

@@ -122,13 +122,14 @@
     background-color: #ffb74a;
   }
   .orange2 {
-    background-color: #ffa13dba;
+    background-color:#ff9747b9;
+    ;
     background-image: url("../../assets/images/careerWorm.png");
     background-size: cover;
   }
 
   .orangeBun {
-    background-color: #ffa13dba;
+    background-color: #ff9747b9;
     background-image: url("../../assets/images/careerBun.png");
     background-size: cover;
   }

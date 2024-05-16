@@ -61,15 +61,15 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submi
                 <Row className="image2" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
                     <Col style= {{marginLeft: 340}}>
                         <header className= "box">
-                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "#c9885f", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                <div> <p></p><p> Answer Truthfully</p> <p>and</p> <p>fully Check for Typos !</p><p></p> </div>
+                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "#c9885fda", minHeight:"80%",marginTop:"", fontFamily: "magilio", wordSpacing:2, letterSpacing:2} }>
+                                <div> <br></br><p> Answer Truthfully</p> <p>and</p> <p>Check for Typos !</p><br></br> </div>
                             </div>
                         </header>
                     </Col>
                     <Col style= {{marginRight: 340}}>
                         <header className= "box " >
-                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "#c9885f", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                <div  > <p></p><p> Or Don't</p> <p>afterall</p> <p>We cant stop you !</p><p></p> </div>
+                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "#c9885fda", minHeight:"80%",marginTop:"", fontFamily: "magilio", wordSpacing:2, letterSpacing:2} }>
+                                <div> <br></br><p> Or Don't</p> <p>afterall</p> <p>We cant stop you !</p><br></br> </div>
                             </div>
                         </header>
                         
@@ -81,7 +81,7 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submi
             <div>
                 {submitted && <ShowAlert setBlurPage={setBlurPage} blurPage={blurPage} setCurrentPage={setCurrentPage} setQuestionsToUse={setQuestionsToUse} questionsToUse={"detailed"} setSubmitted={setSubmitted}></ShowAlert>}
             </div>
-            <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "#c9885f", backgroundColor: "white", justifyContent:"right"} }>
+            <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "#c9885f", backgroundColor: "white", letterSpacing:1, wordSpacing: 1} }>
                 {/* progress bar's own little box */}
                 <div style= {{top:window.screenTop, position: "sticky"}}>
                     <div className={blurPage ? "enableBlur" : ""} style= {{ padding: '10px' }}>
