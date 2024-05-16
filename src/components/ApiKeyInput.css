@@ -10,3 +10,16 @@
     border: 2px solid #5d3627;
     color: #5d3627;
 }
+
+.submit-button2 {
+    border-radius: 10px;
+    border-color: #916448;
+    background-color: #916448;
+    color: #f9e0d1;
+}
+
+.submit-button2:hover {
+    background-color: #724930;
+    border-color: #724930;
+    color: #f9e0d1;
+}

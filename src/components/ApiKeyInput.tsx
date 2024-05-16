@@ -1,4 +1,5 @@
 import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button as MuiButton } from "@mui/material";
 import { ApiKeyInputProps } from "../interfaces/ApiKeyInput";
 import { useState } from "react";
 import OpenAI from "openai";
@@ -72,8 +73,16 @@ function ApiKeyInput ({ setSubmittedNewKey, setValidKey, blurPage, type }: ApiKe
                 <Form.Label style={{marginLeft: 15}}>API Key:</Form.Label>
                 <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} onKeyDown={handleEnterSubmit} disabled={blurPage} style= {{width: "50%", marginLeft: "25%"}}></Form.Control>
                 <br></br>
-                <Button className="Submit-Button" onClick={handleSubmit} disabled={blurPage} style= {{backgroundColor:"#916448", borderColor:"#916448"}}>
-                Submit</Button>
+                <MuiButton onClick={handleSubmit} disabled={blurPage} variant="contained" sx={{
+                    textTransform: "none",
+                    borderRadius: "10px",
+                    backgroundColor:" #916448",
+                    color: "#f9e0d1",
+                    '&:hover': {
+                        backgroundColor: "#724930",
+                        color: "#f9e0d1",
+                    }
+                }}>Submit</MuiButton>
             </Form>
         )
     }
