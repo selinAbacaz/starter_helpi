@@ -22,12 +22,32 @@
   z-index: 999;
 }
 
+.LouisGeorgeNormal {
+  font-family: 'louis_george_caferegular', Arial, sans-serif;
+  font-weight:normal;
+  font-style:normal;
+}
+
+.magilio {
+  font-family: "magilioregular", Arial, sans-serif;
+  font-weight:normal;
+  font-style:normal;
+}
+
+
+.milchella{
+  font-family: 'milchellaregular', Arial, sans-serif;
+  font-weight: normal;
+  font-style:normal;
+
+}
+
 .Questions {
 
   margin: 80px auto; /* Center the box horizontally */
   text-align: left;
   margin-left: 30px; /* for left margin */
-  margin-right: 350px; /* for right margin */
+  margin-right: 320px; /* for right margin */
   justify-content: column;
 
 }
@@ -41,7 +61,7 @@
 
 .image {
 
-    background: #ffba6f url("../../assets/images/BasicBG2.png") center center no-repeat; /* Solid color background with background image */
+    background: #ffb180 url("../../assets/images/BasicBG2.png") center center no-repeat; /* Solid color background with background image */
     background-size: cover; /* Cover the entire container */
     height: 50vh; /* Adjust height as needed */
 
@@ -49,6 +69,7 @@
 
 
 .image2 {
+  color:#c9885fda;
 
   background: #bbdb86 url("../../assets/images/BasicBG3.png") center center no-repeat; /* Solid color background with background image */
   background-size: cover; /* Cover the entire container */
@@ -66,6 +87,7 @@
 }
 
 .backgrColor{
+  color: #fa8072b9;
   background: url("../../assets/images/backg.jpg"); /* Solid color background with background image */
   background-size: cover;
 }
