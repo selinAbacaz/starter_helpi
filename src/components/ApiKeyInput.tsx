@@ -57,7 +57,7 @@ function ApiKeyInput ({ setSubmittedNewKey, setValidKey, blurPage, type }: ApiKe
                         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage} onKeyDown={handleEnterSubmit}></Form.Control>
                     </Col>
                     <Col>
-                        <Button className="Submit-Button" onClick={handleSubmit} disabled={blurPage}>Submit</Button>
+                        <Button className="Submit-Button" variant={"outline-secondary"} onClick={handleSubmit} disabled={blurPage}>Submit</Button>
                     </Col>
                 </Row>
                 
