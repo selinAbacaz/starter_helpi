@@ -14,7 +14,7 @@ function SubmitButtons ({ setBlurPage, setCurrentPage, setSubmitFlag, setQuestio
     }
 
     return (
-        <ButtonGroup variant="text">
+        <ButtonGroup variant="text" sx={{ "& .MuiButtonGroup-grouped": { borderColor: "black" } }}>
             <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10 || blurPage} sx={{
                 textTransform: 'none',
                 color: '#5d3627',
