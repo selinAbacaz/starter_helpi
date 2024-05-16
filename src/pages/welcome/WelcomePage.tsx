@@ -19,11 +19,9 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
                         </div>
                         <br></br>
                         <div style={{fontSize: "25px"}}>
-                            <p>
-                                The WEBSITE_NAME uses chatGPT to provide accurate results. 
-                                <br></br>
-                                Please provide an OpenAI API key before moving forward.
-                            </p>
+                            <p>The WEBSITE_NAME uses chatGPT to provide accurate results.</p>
+                            {!validKey && <p>Please provide an OpenAI API key before moving forward.</p>}
+                            {validKey && <p>You're all set! Enjoy the quiz!</p>}
                         </div>
                         {!validKey && <ApiKeyInput setSubmittedNewKey={setSubmittedNewKey} setValidKey={setValidKey} blurPage={false} type={"welcome"}></ApiKeyInput>}
                         {validKey && <SwitchPage setCurrentPage={setCurrentPage} currentPage={0} type={"welcome"}></SwitchPage>}

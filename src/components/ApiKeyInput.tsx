@@ -37,6 +37,13 @@ function ApiKeyInput ({ setSubmittedNewKey, setValidKey, blurPage, type }: ApiKe
         setSubmittedNewKey(true);
     }
 
+    async function handleEnterSubmit(event: React.KeyboardEvent<HTMLInputElement>) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            await handleSubmit();
+        } 
+    }
+
     //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
     function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
         setKey(event.target.value);
@@ -47,7 +54,7 @@ function ApiKeyInput ({ setSubmittedNewKey, setValidKey, blurPage, type }: ApiKe
             <Form>
                 <Row>
                     <Col>
-                        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage}></Form.Control>
+                        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage} onKeyDown={handleEnterSubmit}></Form.Control>
                     </Col>
                     <Col>
                         <Button className="Submit-Button" onClick={handleSubmit} disabled={blurPage}>Submit</Button>
@@ -62,7 +69,7 @@ function ApiKeyInput ({ setSubmittedNewKey, setValidKey, blurPage, type }: ApiKe
         return (
             <Form style= {{backgroundColor: "salmon"}}>
                 <Form.Label style={{marginLeft: 15}}>API Key:</Form.Label>
-                <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} disabled={blurPage} style= {{width: "50%", marginLeft: "25%"}}></Form.Control>
+                <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey} onKeyDown={handleEnterSubmit} disabled={blurPage} style= {{width: "50%", marginLeft: "25%"}}></Form.Control>
                 <br></br>
                 <Button className="Submit-Button" onClick={handleSubmit} disabled={blurPage} style= {{backgroundColor:"#916448", borderColor:"#916448"}}>
                 Submit</Button>
