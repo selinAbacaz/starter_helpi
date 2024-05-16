@@ -114,11 +114,12 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
                     transition: 'transform 0.5s',
                     '&:hover': {
                         backgroundColor: 'rgb(235, 235, 235)',
-                        transform: 'translateY(-10px)',
+                        transform: 'translateY(-5px)',
                     }
                 }} 
                 variant="text"
-                onClick={changePage}>{(newCurrentPage && buttonNames[newCurrentPage]) || (newCurrentPage === 0 && buttonNames[newCurrentPage])}</MuiButton>
+                onClick={changePage}
+                disabled={blurPage || questionsSubmitted}>{(newCurrentPage && buttonNames[newCurrentPage]) || (newCurrentPage === 0 && buttonNames[newCurrentPage])}</MuiButton>
         );
     }
 }
