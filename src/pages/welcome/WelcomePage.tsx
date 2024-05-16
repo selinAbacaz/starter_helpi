@@ -3,11 +3,12 @@ import ApiKeyInput from "../../components/ApiKeyInput";
 import { WelcomePageProps } from "../../interfaces/WelcomePage";
 import { SwitchPage } from "../../components/SwitchPage";
 import "./WelcomePage.css"
+import '../../assets/LouisGeorgeCafe/stylesheet.css'
 
 function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKey }: WelcomePageProps) {
     return (
         <div className="full-height welcome">
-            <Row className="full-height d-flex margins">
+            <Row className="full-height d-flex margins animations LouisGeorgeNormal">
                 <Col className="column d-flex">
                     <div>
                         <div className="title-text">
