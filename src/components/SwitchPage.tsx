@@ -50,7 +50,19 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
     }
     else if (type === "welcome") {
         return (
-            <MuiButton variant={"contained"} onClick={changePage} style={{textTransform: "none", borderRadius: "10px", backgroundColor: "#f9e0d1", color: "#5d3627", border: "2px solid #5d3627"}}>Get Started!</MuiButton>
+            <MuiButton 
+                sx={{
+                    textTransform: 'none',
+                    borderRadius: '10px',
+                    backgroundColor: '#f9e0d1',
+                    color: '#5d3627',
+                    border: '2px solid #5d3627',
+                    '&:hover': {
+                        backgroundColor: '#fad8c3',
+                    }
+                }} 
+                variant={"contained"} 
+                onClick={changePage}>Get Started!</MuiButton>
         )
         
     }

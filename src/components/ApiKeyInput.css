@@ -6,5 +6,7 @@
 }
 
 .submit-button:hover {
-    background-color: #f7ccb2;
+    background-color: #fad8c3;
+    border: 2px solid #5d3627;
+    color: #5d3627;
 }
