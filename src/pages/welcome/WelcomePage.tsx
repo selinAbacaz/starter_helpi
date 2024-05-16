@@ -10,7 +10,7 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
     return (
         <div className="full-height welcome">
             <Row className="full-height d-flex row-margins animations LouisGeorgeNormal">
-                <Col className="text-column d-flex">
+                <Col xs={12} md={6} className="text-column d-flex">
                     <div className="text-background">
                         <div className="text-margins">
                             <div className="title-text magilio">
@@ -46,7 +46,7 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
                         
                     </div>      
                 </Col>
-                <Col className="cat-image">
+                <Col xs={12} md={6} className="cat-image">
                     <img src={require("../../assets/images/Mia.png")} alt="Mia"></img>
                 </Col>
             </Row>
