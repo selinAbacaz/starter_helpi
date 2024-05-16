@@ -31,7 +31,7 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
 
     if (type === "button") {
         return (
-            <Button variant={variant} onClick={changePage} disabled={blurPage} className= "box" style= {{backgroundColor: "#ffffff00", border: 0, fontSize: 25}}>{newCurrentPage && buttonNames[newCurrentPage]}</Button>
+            <Button variant={variant} onClick={changePage} disabled={blurPage} className= "box" style= {{backgroundColor: "#ffffff00", border: 0, fontSize: "40px"}}>{newCurrentPage && buttonNames[newCurrentPage]}</Button>
         );
     }
     else if (type === "results") {
@@ -81,8 +81,10 @@ export function SwitchPage ({ setBlurPage, setCurrentPage, setQuestionsToUse, se
                     fontSize: '20px',
                     fontFamily: 'louis_george_caferegular',
                     backgroundColor: currentPage === newCurrentPage ? "rgb(235, 235, 235)" : "",
+                    transition: 'transform 0.5s',
                     '&:hover': {
                         backgroundColor: 'rgb(235, 235, 235)',
+                        transform: 'translateY(-10px)',
                     }
                 }} 
                 variant="text"
