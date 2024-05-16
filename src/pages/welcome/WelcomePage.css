@@ -47,8 +47,9 @@
 }
 
 .cat-image {
-    background-image: url("../../assets/images/Mia.png");
-    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes transitionIn {
