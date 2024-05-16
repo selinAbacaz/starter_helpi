@@ -13,7 +13,7 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
                 <Col className="text-column d-flex">
                     <div className="text-background">
                         <div className="text-margins">
-                            <div className="title-text">
+                            <div className="title-text magilio">
                                 Welcome to the 
                                 <br></br>
                                 Career Helpi
