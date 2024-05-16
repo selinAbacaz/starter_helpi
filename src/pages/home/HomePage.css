@@ -20,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: salmon;
+  background: #fa8072;
   transition: background-color 1s ease-out 2ms;
 
 }
@@ -112,6 +112,17 @@
   }
   .orange {
     background-color: #ffb74a;
+  }
+  .orange2 {
+    background-color: #ffa13dba;
+    background-image: url("../../assets/images/careerWorm.png");
+    background-size: cover;
+  }
+
+  .orangeBun {
+    background-color: #ffa13dba;
+    background-image: url("../../assets/images/careerBun.png");
+    background-size: cover;
   }
 
 

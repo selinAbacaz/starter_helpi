@@ -10,7 +10,7 @@ export function FooterEx({ setSubmittedNewKey, setValidKey, blurPage }: FooterPr
 
   return(
     <div>
-      <div className="container my-3">
+      <div>
         <footer className="text-white text-center" style= {{backgroundColor:"salmon"}}>
           <section className="d-flex justify-content-between p-4" style={{backgroundColor: "#916448"}}>
             <div >
