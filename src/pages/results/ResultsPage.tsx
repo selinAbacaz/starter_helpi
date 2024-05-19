@@ -55,6 +55,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     const downloadPDF = () => {
         //essentially takes a screenshot of the results page and turns it into a downloadable pdf file
         //at the click of a button
+        //function adjusted by Chat GPT to be properly implemented.
         
         const input = pdf.current;
         if (!input) return;
