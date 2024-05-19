@@ -117,9 +117,7 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submi
                         questionsToUse={"detailed"}
                         numQuestionsAnswered={numQuestionsAnswered} 
                         submitted={submitted} 
-                        submitFlag={submitFlagDetailed}>
-
-                    </SubmitButtons>
+                        submitFlag={submitFlagDetailed}></SubmitButtons>
                 </div>
             </div>
             <br></br>

@@ -5,9 +5,9 @@ function ApiError () {
     const [showError, setShowError] = useState<boolean>(true);
 
     useEffect (() => {
-        setTimeout(() => setShowError(false), 5000)
-    })
-    
+        setTimeout(() => setShowError(false), 5000);
+    });
+
     return (
         <div style={{position: "fixed", left: "50%", transform: "translate(-50%)"}}>
             {showError && <Alert severity="error" variant="filled">Invalid API Key! You must submit a valid API key!</Alert>}
@@ -15,4 +15,4 @@ function ApiError () {
     )
 }
 
-export default ApiError;
+export default ApiError; 
