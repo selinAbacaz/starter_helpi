@@ -11,6 +11,14 @@ import { keyData } from './components/ApiKeyInput';
 import ApiError from './components/ApiError';
 import { vistedWelcomePage } from './components/SwitchPage';
 
+let userSubmmittedNewKey: boolean = false;
+export function userHasSubmittedKey(saveSubmittedNewKey: string) {
+  const prevKey = sessionStorage.getItem(saveSubmittedNewKey);
+  if (prevKey !== null) {
+      userSubmmittedNewKey = JSON.parse(prevKey);
+  }
+}
+
 function App() {
   const [currentPage, setCurrentPage] = useState<number>(vistedWelcomePage === true ? 0 : 4 ); // Determines the current page of the webstie, represented as a number
   const [blurPage, setBlurPage] = useState<boolean>(false); // Determines whether or not the page will be blurred
@@ -19,7 +27,7 @@ function App() {
   const [questionsToUse, setQuestionsToUse] = useState<string>("basic"); // Determines what questions and answers chatGPT should use
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [validKey, setValidKey] = useState<boolean>(keyData !== "");
-  const [submittedNewKey, setSubmittedNewKey] = useState<boolean>(false);
+  const [submittedNewKey, setSubmittedNewKey] = useState<boolean>(userSubmmittedNewKey);
 
   return (
       <div className={blurPage ? "App enableBlur" : "App"}>
