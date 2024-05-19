@@ -17,8 +17,8 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     const [industriesDetailed, setIndustriesDetailed] = useState<string>(saveResponses.saveIndustriesDetailed); // Contains the list of industries chatGPT returns for the detailed questions
     const [chatGPTReplyBasic, setChatGPTReplyBasic] = useState<string[]>(saveResponses.saveGPTReplyBaic); // Contains chatGPTs reply to the users input for basic questions
     const [chatGPTReplyDetailed, setChatGPTReplyDetailed] = useState<string[]>(saveResponses.saveGPTReplyDetailed); // Contains chatGPTs reply to the users input for detailed questions
-    const [pieChartValuesBasic, setPieChartValuesBasic] = useState<string>(saveResponses.savePieChartValuesBasic);
-    const [pieChartValuesDetailed, setPieChartValuesDetailed] = useState<string>(saveResponses.savePieChartValuesDetailed);
+    const [pieChartValuesBasic, setPieChartValuesBasic] = useState<string>(saveResponses.savePieChartValuesBasic); // Contains the JSON outputed by chatGPT containing the users personality values for the basic questions
+    const [pieChartValuesDetailed, setPieChartValuesDetailed] = useState<string>(saveResponses.savePieChartValuesDetailed); // Contains the JSON outputed by chatGPT containing the users personality values for the detailed questions
     const [error, setError] = useState<string>(""); // Determiens whether or not there was an error while proccessing GPT responses.
     
     useEffect(() => {
@@ -120,6 +120,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                                 {!error && questionsToUse === "basic" && industriesBasic && overviewBasic && !submitFlagBasic && <ResultsSection setChatGPTReply={setChatGPTReplyBasic} setError={setError} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
                                 {!error && questionsToUse === "detailed" && industriesDetailed && overviewDetailed && !submitFlagDetailed &&<ResultsSection setChatGPTReply={setChatGPTReplyDetailed} setError={setError} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
                             </div>
+                            {/*Checks to see if it should render a loading screen or an error message*/}
                             {!error && submitFlagBasic && questionsToUse === "basic" && <LoadingScreen></LoadingScreen>}
                             {!error &&submitFlagDetailed && questionsToUse === "detailed" && <LoadingScreen></LoadingScreen>}
                             {error && <ErrorMessage error={error}></ErrorMessage>}

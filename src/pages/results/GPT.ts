@@ -139,7 +139,7 @@ async function callGPT (type: string, userPrompt: string, setError: (error: stri
       return result.choices[0].message.content;
     }
     return "";
-  } catch (error) {
+  } catch (error) { // If there is an error, sets an error message an returns an empty string
     setError("Please try submititng your results again and make sure your API key is correct.");
     return "";
   }
