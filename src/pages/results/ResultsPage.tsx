@@ -26,13 +26,11 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
             GenerateText("overview", "basic", "", setError, setOverviewBasic);
             GenerateText("industry", "basic", "", setError, setIndustriesBasic);
             GenerateText("pie", "basic", "", setError, setPieChartValuesBasic);
-            console.log("basic");
         }
         if (submitFlagDetailed) {
             GenerateText("overview", "detailed", "", setError, setOverviewDetailed);
             GenerateText("industry", "detailed", "", setError, setIndustriesDetailed);
             GenerateText("pie", "detailed", "", setError, setPieChartValuesDetailed);
-            console.log("detailed");
         }
     }, [submitFlagBasic, setSubmitFlagBasic, submitFlagDetailed, setSubmitFlagDetailed]);
 
