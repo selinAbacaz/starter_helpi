@@ -135,8 +135,7 @@ async function callGPT (type: string, userPrompt: string, setError: (error: stri
     }
 
     if (result.choices[0].message.content) { // Checks to see if there is a generated message, if not, result is returned as an empty string
-        console.log(result);
-       setError("");
+      setError("");
       return result.choices[0].message.content;
     }
     return "";
