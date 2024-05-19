@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/starter_helpi/static/css/main.d7045380.css",
+    "main.css": "/starter_helpi/static/css/main.77db196f.css",
     "main.js": "/starter_helpi/static/js/main.0e8c5ffb.js",
     "static/js/213.103f6a0f.chunk.js": "/starter_helpi/static/js/213.103f6a0f.chunk.js",
     "static/js/732.17aa9ed3.chunk.js": "/starter_helpi/static/js/732.17aa9ed3.chunk.js",
@@ -10,7 +10,7 @@
     "static/media/Mia.png": "/starter_helpi/static/media/Mia.6053580d46ad85278639.png",
     "static/media/BasicBG3.png": "/starter_helpi/static/media/BasicBG3.2db1c7c16ff487a45cc0.png",
     "static/media/BasicBG2.png": "/starter_helpi/static/media/BasicBG2.c8a3562a41773d175aff.png",
-    "static/media/careerBun.png": "/starter_helpi/static/media/careerBun.4d18793c3a8f9bb56f8b.png",
+    "static/media/careerBun.png": "/starter_helpi/static/media/careerBun.796cfdcc57dbaf92d982.png",
     "static/media/CatGif.gif": "/starter_helpi/static/media/CatGif.cd17c95b11111633cef2.gif",
     "static/media/milchella-regular-webfont.woff": "/starter_helpi/static/media/milchella-regular-webfont.7f297e7701777cf2af67.woff",
     "static/media/careerWorm.png": "/starter_helpi/static/media/careerWorm.916715e3bb646fb01717.png",
@@ -32,14 +32,14 @@
     "static/media/magilioregular-webfont.woff": "/starter_helpi/static/media/magilioregular-webfont.e94afca17695bb6f7f6e.woff",
     "static/media/magilioregular-webfont.woff2": "/starter_helpi/static/media/magilioregular-webfont.3bad8cabf0d3014eecf3.woff2",
     "index.html": "/starter_helpi/index.html",
-    "main.d7045380.css.map": "/starter_helpi/static/css/main.d7045380.css.map",
+    "main.77db196f.css.map": "/starter_helpi/static/css/main.77db196f.css.map",
     "main.0e8c5ffb.js.map": "/starter_helpi/static/js/main.0e8c5ffb.js.map",
     "213.103f6a0f.chunk.js.map": "/starter_helpi/static/js/213.103f6a0f.chunk.js.map",
     "732.17aa9ed3.chunk.js.map": "/starter_helpi/static/js/732.17aa9ed3.chunk.js.map",
     "453.dda23872.chunk.js.map": "/starter_helpi/static/js/453.dda23872.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7045380.css",
+    "static/css/main.77db196f.css",
     "static/js/main.0e8c5ffb.js"
   ]
 }
