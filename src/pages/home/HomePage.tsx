@@ -1,69 +1,90 @@
 import './HomePage.css';
+import '../../assets/milchellaFont/stylesheet.css';
+import '../../assets/magilioFont/stylesheet.css';
+import '../../assets/LouisGeorgeCafe/stylesheet.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import { SwitchPage } from '../../components/SwitchPage';
 import { HomePageProps } from '../../interfaces/HomePage';
 
+
+
 export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps) {
 
     return(
-        <div>
-            <div style={ {border: '3px white', padding: '4px', color: "#44506a", backgroundColor: "#F4E9E2", justifyContent:"right"} }>
+        
+        <div className= "backgrColor">
+            <div>
                 <div>
-                    <Container>
+                    <Container style= {{minWidth: "95%"}}>
                         
-                        <Row>
+                        <Row  style={{gridRow: "100%"}}>
                             {/* this row contains top part of homepage with the image, buttons, and short descriptions */}
-                            <Col className="HPImageBox">
+                            <Col>
+                                <Row className="HPImageBox" style={{marginRight: ".01%", height: "111%"}}></Row>
                             </Col>
 
                             <Col>
-                                <Row style={{display:"flex", justifyContent:"right"}}>
-                                    <Col className= "box" style= {{backgroundColor: "salmon"}}>
-                                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={1} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Basic Question Button*/></SwitchPage>
+                                <Row style={{display:"flex", justifyContent:"right", height: "55%"}}>
+                                    <Col className= "buttonBox1 LouisGeorgeNormal" style={{ marginRight: "1%" }}>
+                                        <SwitchPage setCurrentPage={setCurrentPage} newCurrentPage={1} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Basic Question Button*/></SwitchPage>
                                     </Col>
-                                    <Col className= "box" style= {{backgroundColor: "#ff6347",color:"#f9e0d1"}}>
-                                        Take the basic career assessment to discover a career path personally picked for you! 
-                                        
+                                    
+                                    <Col className= "orangeBun box magilio" style= {{color:"#f9e0d1", height: "101%"}}>
+                                         
                                     </Col>
                                 </Row>
-                                <Row style={{display:"flex", justifyContent:"right"}}>
-                                    <Col className= "box" style= {{backgroundColor: "#FE8A2E"}}>
-                                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={2} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Detailed Question Button*/></SwitchPage>
+                                <Row style={{display:"flex", justifyContent:"right", height: "55%"}}>
+                                    <Col className= "buttonBox2 LouisGeorgeNormal" style={{marginRight: "1%", marginTop: "1%"}}>
+                                        <SwitchPage setCurrentPage={setCurrentPage} newCurrentPage={2} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Detailed Question Button*/></SwitchPage>
                                     </Col>
-                                    <Col className= "orange box" style={{color:"#916448"}}>
-                                        Take the detailed career assessment to discover a career path personally picked for you! 
-                                        
+                                    <Col className= "orangeWithWorm box magilio" style={{color:"#916448", marginTop: ".5%", height: "101%"}}>                    
                                     </Col>
                                 </Row>
                             </Col>
                             
                         </Row>
 
+                    </Container>
+
+                    <Container style= {{marginTop: "5%", minWidth: "95%"}}>
+                        <Row style= {{marginTop:"2%", backgroundColor: "#855440"}}>
+                            <h1 className="magilio" style={{color:"white", fontSize: "400%", opacity: "80%", marginTop: "5%", marginBottom: "2%", letterSpacing:5}}> Results made reliable with AI
+                            </h1>
+                            <hr style={{height: 4, width: "60%", backgroundColor: "white", marginLeft: "20%", borderRadius:80, color: "white", marginBottom: "5%"}}></hr>
+                        </Row>
+                        <Row className= "HP-lower" style={{minHeight: "100%", backgroundColor: "#b56f53b2"}}>
+                            {/* this row contains underneath part of home page with more information on basic and detailed questions*/}
                         
-                        <Row className= "HP-lower">
-                            {/* this row contains underneath part of home page with more information on basic and detailed questions- WIP */}
-                            <Col >
+                            <Col style= {{marginTop: "5%", marginBottom: "15%", minHeight: "100%"}}>
                             {/* basic questions info col */}
-                                <header className= "box" style= {{marginTop: 200, marginBottom: 200}}>
-                                    <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "#916448", backgroundColor: "#c9885f",  fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                        <div> <p></p><p> More Information on Basic Questions</p> </div>
+                                <header >
+                                    <div  style={ { fontSize: 30, padding: '8px', color: "#916448", backgroundColor: "#c9885f",  fontFamily: "Helvetica", fontWeight: "bold", height: 550} }>
+                                        <div> <p></p><h1 className= "magilio"> More Information on Basic✦Questions</h1> </div>
                                         <hr style={{height: 5, backgroundColor: "#f8f8f8c7", marginBottom:60, color: "#f8f8f8c7"}}></hr>
-                                         <p style={{fontSize: 20, color: "#f9e0d1"}}> The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. 
-                                        The basic quiz consists of 10 shorter questions with a variety of multiple choice, slider, and short answer to provide a quick and easy experience to determine your results.</p>
-                                        <p style= {{color: "#ae3b3bca"}}> Warning: Might not be as accurate as detailed questions !</p> 
+                                        <p  className= "LouisGeorgeNormal" style={{fontSize: 25, color: "#f9e0d1", marginLeft: "10%", marginRight:"10%"}}> 
+                                        The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. 
+                                        The basic quiz consists of 10 shorter questions with a variety of multiple choice, slider, and short answer to provide a quick and easy experience to determine your results.
+                                        </p>
 
                                     </div>
                                 </header>
                             </Col>
 
-                            <Col >
+                            <Col style= {{marginTop: "5%", marginBottom: "5%", minHeight: "100%"}}>
                             {/* details questions info col */}
-                                <header className= "box " style= {{marginTop: 200, marginBottom: 200}}>
-                                    <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "#916448", backgroundColor: "#c9885f",  fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                        <div  > <p></p><p> More Information on Detailed Questions </p>
-                                        <hr style={{height: 5, backgroundColor: "#f8f8f8c7", marginBottom:60, color: "#f8f8f8c7"}}></hr>
-                                        <p style={{fontSize: 20, color: "#f9e0d1"}}> The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. 
-                                        The detailed quiz consists of 10 longer and more detailed open-ended questions that will then be analyzed by AI to provide the more accurate results.</p> </div>
+                                <header >
+                                    <div  style={ {fontSize: 30, padding: '8px', color: "#916448", backgroundColor: "#c9885f",  fontFamily: "Helvetica", fontWeight: "bold", height: 550} }>
+                                        <div> 
+                                            <p></p>
+                                            <h1 className= "magilio"> More Information on Detailed✦Questions </h1>
+                                            <hr style={{height: 5, backgroundColor: "#f8f8f8c7", marginBottom:60, color: "#f8f8f8c7"}}></hr>
+                                            <p className= "LouisGeorgeNormal" style={{fontSize: 25, color: "#f9e0d1", marginLeft: "10%", marginRight:"10%"}}> 
+                                            The assessment works with advanced artificial intelligence to analyze your personality traits, interests, and values to provide personalized recommendations specifically for the user. 
+                                            The detailed quiz consists of 10 longer and more detailed open-ended questions that will then be analyzed by AI to provide the more accurate results.
+                                            </p>
+                                            <p className= "LouisGeorgeNormal" style={{fontSize: 25, marginLeft: "10%", marginRight:"10%"}}> Tip: Detailed Questions gives more accurate results !
+                                            </p>
+                                        </div>
                                     </div>
                                 </header>
                                     
@@ -71,10 +92,13 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                         </Row>
 
                     </Container>
-                
+
+                    
                 </div>
+                <br></br>
                 
             </div>
+            
         </div>
     );
 }

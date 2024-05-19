@@ -3,8 +3,9 @@ import { ResultsSectionProps } from "../../../interfaces/ResultsSection";
 import ShowPieChart from "./PieChart";
 import '../ResultsPage.css'
 import ReactMarkdown from "react-markdown";
+import Replies from "./Replies";
 
-function ResultsSection ({ setGPTReply, chatGPTReply, industries, overview, pieChartValues, questionsToUse }: ResultsSectionProps) {
+function ResultsSection ({ setChatGPTReply, setError, chatGPTReply, industries, overview, pieChartValues, questionsToUse }: ResultsSectionProps) {
     return (
         <div>
             <h1> Overview: </h1>
@@ -41,7 +42,7 @@ function ResultsSection ({ setGPTReply, chatGPTReply, industries, overview, pieC
             <ReactMarkdown children={industries}></ReactMarkdown>
             <br></br>
             <h1>Replies:</h1>
-            <ReactMarkdown children={chatGPTReply}></ReactMarkdown>
+            <Replies setChatGPTReply={setChatGPTReply} setError={setError} chatGPTReply={chatGPTReply} questionsToUse={questionsToUse}></Replies>
         </div>
     );
 }

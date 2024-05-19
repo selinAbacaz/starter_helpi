@@ -4,7 +4,7 @@ import "../../../App.css"
 import { SwitchPage } from "../../../components/SwitchPage";
 import { AlertMessageProps } from "../../../interfaces/Alert";
 
-export function ShowAlert ({ setBlurPage, setCurrentPage, setQuestionsToUse, blurPage, questionsToUse }: AlertMessageProps) {
+export function ShowAlert ({ setBlurPage, setCurrentPage, setQuestionsToUse, blurPage, questionsToUse, setSubmitted }: AlertMessageProps) {
     const [showMessage, setShowMessage] = useState<boolean>(true);
     const [toastPosition, setToastPosition] = useState<number>(window.scrollY)
     
@@ -27,14 +27,14 @@ export function ShowAlert ({ setBlurPage, setCurrentPage, setQuestionsToUse, blu
 
     return (
         <div>
-            <ToastContainer style={{ position: "fixed", top: toastPosition, left: "50%", transform: "translate(-50%, 200%)"}}>
+            <ToastContainer style={{ position: "fixed", top: toastPosition, left: "50%", transform: "translate(-50%, 100%)", zIndex: "9999"}}>
                 <Toast show={showMessage} onClose={dismissMessage} style={{width: "500px"}}>
                     <Toast.Header style={{fontSize: "28px"}}>
                         <strong className="me-auto">Quiz Completed!</strong> 
                     </Toast.Header>
                     <Toast.Body style={{fontSize: "25px"}}>
                         Congratulations! You have completed all of the questions! Go see your results! 
-                        <SwitchPage setCurrentPage={setCurrentPage} currentPage={3} variant={"primary"} type={"results"} blurPage={blurPage} setBlurPage={setBlurPage} questionsToUse={questionsToUse} setQuestionsToUse={setQuestionsToUse}></SwitchPage>
+                        <SwitchPage setCurrentPage={setCurrentPage} newCurrentPage={3} variant={"primary"} type={"results"} blurPage={blurPage} setBlurPage={setBlurPage} questionsToUse={questionsToUse} setQuestionsToUse={setQuestionsToUse} setSubmitted={setSubmitted}></SwitchPage>
                     </Toast.Body>
                 </Toast>
             </ToastContainer>

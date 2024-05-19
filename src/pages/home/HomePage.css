@@ -1,6 +1,6 @@
 .box {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     border: white 3px;
     color: white;
     display: flex;
@@ -10,64 +10,104 @@
 
 
 }
-.HPImageBox{
-  border: white 3px;
-  color: #ffffff00;
+
+.buttonBox1 {
+  width: 100%;
+  height: 100%;
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #ffaf6e url("../../assets/images/homepagePic.png"); /* Solid color background with background image */
-  background-size: cover; /* Cover the entire container */
-   /* Adjust height as needed */
-
+  background: #fa8072;
+  box-shadow: #e36c6c 5px 5px;
+  border-radius: 10px;
+  transition: background-color 1s ease-out 2ms;
+  transition: 0.5s;
 
 }
 
-.red {
-    background-color: #ff6347;
-}
-.green {
-    background-color: #79cb6f;
+.buttonBox1:hover {
+  background-color: rgb(255, 98, 80);
+  transform: translateY(-5px);
 }
 
-.left {
-    justify-content: left;
-  }
+.buttonBox2 {
+  width: 100%;
+  min-height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #FE8A2E;
+  box-shadow: #d56203 5px 5px;
+  border-radius: 10px;
+  transition: background-color 1s ease-out 2ms;
+  transition: 0.5s;
+
+}
+
+.buttonBox2:hover {
+  background-color: #f76f00;
+  transform: translateY(-5px);
+}
+
+
+.HPImageBox{
   
-  .right {
-    float: right;
-  }
-  .pink {
-    background-color: #e36c6c;
-  }
-  .orange {
-    background-color: #ffb74a;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  background: #ffaf6e url("../../assets/images/homepagePic.png"); /* Solid color background with image of me */
+  background-size: cover; /* this means it covers the entire container */
 
-
-.HomePage-body {
-    background-color: #ffaf6e;
-    min-height: 100%;
-
-    /*
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: rgb(248, 233, 233);*/
-
-  }
-
-  .home-header {
-    width: 100%;
-    background-color: #ffaf6e;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color:#c9885f;
 }
+
+.backgrColor{
+  background-image: url("../../assets/images/backg.jpg"); /*background image */
+  background-size: cover;
+}
+
+.LouisGeorgeNormal {
+  font-family: 'louis_george_caferegular', Arial, sans-serif;
+  font-weight:normal;
+  font-style:normal;
+}
+
+.magilio {
+  font-family: "magilioregular", Arial, sans-serif;
+  font-weight:normal;
+  font-style:normal;
+}
+
+
+.milchella{
+  font-family: 'milchellaregular', Arial, sans-serif;
+  font-weight: normal;
+  font-style:normal;
+
+}
+
+.orangeWithWorm {
+  background-color:#ff9747b9;
+  background-image: url("../../assets/images/careerWorm.png");
+  background-size: cover;
+}
+
+.orangeBun {
+  /* bun is short for bunny- also cuter ! */
+  background-color: #ff9747b9;
+  background-image: url("../../assets/images/careerBun.png");
+  background-size: cover;
+}
+ 
+.HP-lower {
+
+  background: #b56f53; /* note: Solid color background used for more-infromation boxes*/
+  background-size: cover; /* BG Cover the entire container */
+
+}
+

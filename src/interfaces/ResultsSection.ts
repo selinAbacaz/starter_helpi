@@ -1,6 +1,7 @@
 export interface ResultsSectionProps {
-    setGPTReply: (newReply: string) => void;
-    chatGPTReply: string;
+    setChatGPTReply: (newReply: string[]) => void;
+    setError: (error: string) => void;
+    chatGPTReply: string[];
     industries: string;
     overview: string;
     pieChartValues: string;

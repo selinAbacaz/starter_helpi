@@ -1,26 +1,26 @@
 import React, { useState } from "react";
 import { ShowProgressBar } from "./components/ProgressBar";
 import { ShowAlert } from "./components/Alert";
-import { Button, Col, Row, Form } from 'react-bootstrap';
+import { Col, Row, Form } from 'react-bootstrap';
 import './Questions.css';
 import '../../App.css'
-import { SwitchPage } from "../../components/SwitchPage";
 import { QuestionsProps } from "../../interfaces/Questions";
 import { BasicQuestionsProps } from "../../interfaces/BasicQuestions";
+import SubmitButtons from "./components/SubmitButtons";
 
 export const basicAnswerArray: string[] = ["", "", "", "", "", "", "", "", "", ""];
 export const basicQuestionsArray: string[] = 
 [
-    "Question 1: What is most important to you in a job between: Salary, Work Life Balance, Growth, Helping Others, Making a Difference",
-    "Question 2: Do you prefer working solo or with others?",
-    "Question 3: What is your favorite subject in school?",
-    "Question 4: What type of workplace suits you best between: Fast-Paced, Collaborative, Structured, Flexible?",
-    "Question 5: On a scale of 1-10, how much do you like working with technology?",
-    "Question 6: On a scale of 1-10, how much do you enjoy doing art?",
-    "Question 7: Do you prefer working indoors or outdoors?",
-    "Question 8: Do you enjoy coming up with new ideas and solutions?",
-    "Question 9: Do you like tasks that vary each day, or stay the same?",
-    "Question 10: How much education do you plan to pursue? (High School Diploma, Bachelors, Masters, Doctorate)"
+    "What is most important to you in a job between: Salary, Work Life Balance, Growth, Helping Others, Making a Difference?",
+    "Do you prefer working solo or with others?",
+    "What is your favorite subject in school?",
+    "What type of workplace suits you best between: Fast-Paced, Collaborative, Structured, Flexible?",
+    "On a scale of 1-10, how much do you like working with technology?",
+    "On a scale of 1-10, how much do you enjoy doing art?",
+    "Do you prefer working indoors or outdoors?",
+    "Do you enjoy coming up with new ideas and solutions?",
+    "Do you like tasks that vary each day, or stay the same?",
+    "How much education do you plan to pursue? (High School Diploma, Bachelors, Masters, Doctorate)"
 ];
 const optionsArrays: string[][] = 
 [
@@ -38,6 +38,7 @@ const optionsArrays: string[][] =
 
 function Question ({setNumQuestionAnswered, question, answerPlacement, submitted}: QuestionsProps) {
     const [userAnswer, setUserAnswer] = useState<string>(basicAnswerArray[answerPlacement]);
+    question = "Question " + (answerPlacement + 1 ) + ": " + question;
     
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
         if (answerPlacement === 6) {
@@ -67,6 +68,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
                         label={option}
                         value={option}
                         onChange={updateAnswer}
+                        checked={userAnswer === option}
                         disabled={submitted}>
                     </Form.Check>
                 ))}
@@ -83,7 +85,7 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
                         min={1}
                         max={10} 
                         step={1} 
-                        defaultValue={1} 
+                        defaultValue={userAnswer === "" ? 1 : userAnswer} 
                         onChange={updateAnswer}
                         disabled={submitted}>
                     </Form.Range>
@@ -124,65 +126,54 @@ function Question ({setNumQuestionAnswered, question, answerPlacement, submitted
     );
 }
 
-export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFlagBasic, setSubmitFlagBasic, setQuestionsToUse}: BasicQuestionsProps): JSX.Element {
+export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFlagBasic, setSubmitFlagBasic, setQuestionsToUse, setSubmitted}: BasicQuestionsProps): JSX.Element {
     // Contains the number of questions that have been anwered
     const [numQuestionsAnswered, setNumQuestionsAnswered] = useState<number>(basicAnswerArray.reduce((totalAnswered: number, answer: string) => answer !== "" ? totalAnswered + 1 : totalAnswered, 0));
     const [submitted, setSubmittedAnswers] = useState<boolean>(false); // Determines whether or not the results have been submitted
-    const [submitButtonText, setSubmittButtonText] = useState<string>("Submit Answers"); // Sets the text of the submitt button based on submitt status
-
-    function changeSubmitState () {
-        setSubmittedAnswers(!submitted)
-        setSubmitFlagBasic(!submitFlagBasic);
-        if (submitButtonText === "Submit Answers") {
-            setSubmittButtonText("Change Answers");
-            setBlurPage(true);
-        }
-        else {
-            setSubmittButtonText("Submit Answers");
-        }
-    }
 
     return (
-        <div className="disableBlur" style={{backgroundColor: "#F4E9E2"}}>
+        <div className="disableBlur backgrColor">
             {/* Header with information on how to take the quiz */}
             <div className={blurPage ? "enableBlur" : ""}>
-                <Row className="image" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
+                <img src= {require("../../assets/images/strawberry.png")} alt="strawberry" style={{zIndex:100, right: 2, position: "fixed" }}/>
+                <img src= {require("../../assets/images/strawberry.png")} alt="strawberry" style={{zIndex:100, transform:"scaleX(-1)", left: 2, position: "fixed" }}/>
+
+                <Row className="BasicImage" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
                     <Col style= {{marginLeft: 340}}>
+
                         <header className= "box">
-                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                <div> <p></p><p> Answer Truthfully</p> <p>and</p> <p>Have Fun !</p><p></p> </div>
+                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white",position: "relative", backgroundColor: "#fa8072b9",minHeight:"80%", fontFamily: "magilio", wordSpacing:2, letterSpacing:2 } }>
+                                <div> 
+                                    <br></br><p> Answer Truthfully</p> <p>and</p> <p>Have Fun !</p><br></br> 
+                                </div>
                             </div>
                         </header>
                     </Col>
                     <Col style= {{marginRight: 340}}>
                         <header className= "box " >
-                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "salmon", borderRadius: 20, fontFamily: "Helvetica", fontWeight: "bold"} }>
-                                <div><p></p><p> Answer Truthfully</p> <p>and</p> <p>Have a Snack !</p><p></p> </div>
+                            <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white",position: "relative", minHeight:"80%",marginTop:"", backgroundColor: "#fa8072b9", fontFamily: "magilio", wordSpacing:2, letterSpacing:2} }>
+                                <div>
+                                    <br></br><p> Answer Truthfully</p> <p>and</p> <p>Have a Snack !</p><br></br> 
+                                </div>
                             </div>
                         </header>
                         
                     </Col>
                 </Row>
             </div>
-            
-            {/* progress bar's own little box */}
-            <div style= {{top:window.screenTop, position: "sticky"}}>
-            <header className={blurPage ? "enableBlur" : ""} style= {{ padding: '8px', backgroundColor: "white"}}>
-                    <p></p>
-                    <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={basicAnswerArray.length}></ShowProgressBar>
-                    <p></p>
-            </header>
-            </div>
 
-            <div> 
-                <p>  </p>
-            </div>
+            <br></br>
+            <br></br>
 
             {/* Body with all questions */}
-            <div>
-                {submitted && <ShowAlert setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} blurPage={blurPage} setQuestionsToUse={setQuestionsToUse} questionsToUse={"basic"}></ShowAlert>}
-            </div>
+            {submitted && <ShowAlert setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} blurPage={blurPage} setQuestionsToUse={setQuestionsToUse} questionsToUse={"basic"} setSubmitted={setSubmitted}></ShowAlert>}
             <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "salmon", backgroundColor: "white", justifyContent:"right"} }>
+                {/* progress bar's own little box */}
+                <div style= {{top:window.screenTop, position: "sticky"}}>
+                    <div className={blurPage ? "enableBlur" : ""} style= {{ padding: '10px' }}>
+                        <ShowProgressBar numQuestionsAnswered={numQuestionsAnswered} totalQuestions={basicAnswerArray.length}></ShowProgressBar>
+                    </div>
+                </div>
                 <div className= "Questions">
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[0]} answerPlacement={0} submitted={submitted}></Question>
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[1]} answerPlacement={1} submitted={submitted}></Question>
@@ -195,13 +186,21 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFl
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[8]} answerPlacement={8} submitted={submitted}></Question>
                     <Question setNumQuestionAnswered={setNumQuestionsAnswered} question={basicQuestionsArray[9]} answerPlacement={9} submitted={submitted}></Question>
                     <br></br>
-                    <span>
-                        <Button onClick={changeSubmitState} disabled={numQuestionsAnswered !== 10 || blurPage}>{submitButtonText}</Button>
-                        {submitted && <SwitchPage setCurrentPage={setCurrentPage} currentPage={3} variant={"primary"} type={"results"} blurPage={blurPage} setBlurPage={setBlurPage}></SwitchPage>}
-                    </span>
-                    
+                    <SubmitButtons 
+                        setBlurPage={setBlurPage} 
+                        setCurrentPage={setCurrentPage} 
+                        setQuestionsToUse={setQuestionsToUse}
+                        setSubmitted={setSubmitted}
+                        setSubmitFlag={setSubmitFlagBasic} 
+                        setSubmittedAnswers={setSubmittedAnswers} 
+                        blurPage={blurPage} 
+                        questionsToUse={"basic"}
+                        numQuestionsAnswered={numQuestionsAnswered} 
+                        submitted={submitted} 
+                        submitFlag={submitFlagBasic}></SubmitButtons>
                 </div>
             </div>
+            <br></br>
         </div>
     )
 } 
