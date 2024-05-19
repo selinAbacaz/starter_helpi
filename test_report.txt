@@ -100,13 +100,14 @@ All files                       |       0 |        0 |       0 |       0 |
   ProgressBar.tsx               |       0 |        0 |       0 |       0 | 5-11              
   SubmitButtons.tsx             |       0 |        0 |       0 |       0 | 8-16              
  src/pages/results              |       0 |        0 |       0 |       0 |                   
-  GPT.ts                        |       0 |        0 |       0 |       0 | 7-169             
-  ResultsPage.tsx               |       0 |        0 |       0 |       0 | 13-80             
+  GPT.ts                        |       0 |        0 |       0 |       0 | 7-170             
+  ResultsPage.tsx               |       0 |        0 |       0 |       0 | 14-86             
  src/pages/results/components   |       0 |        0 |       0 |       0 |                   
-  GPTInput.tsx                  |       0 |        0 |       0 |       0 | 12-26             
+  ErrorMessage.tsx              |       0 |      100 |       0 |       0 | 4                 
+  GPTInput.tsx                  |       0 |        0 |       0 |       0 | 14-28             
   LoadingScreen.tsx             |       0 |      100 |       0 |       0 | 4                 
   PieChart.tsx                  |       0 |        0 |       0 |       0 | 8-28              
-  Replies.tsx                   |       0 |        0 |       0 |       0 | 12-31             
+  Replies.tsx                   |       0 |        0 |       0 |       0 | 13-32             
   ResultsSection.tsx            |       0 |      100 |       0 |       0 | 9                 
   ResultsSectionText.tsx        |       0 |      100 |       0 |       0 | 4                 
  src/pages/welcome              |       0 |        0 |       0 |       0 |                   
@@ -115,5 +116,5 @@ All files                       |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        5.68 s
+Time:        5.554 s
 Ran all test suites.

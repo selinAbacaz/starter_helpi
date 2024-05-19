@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/starter_helpi/static/css/main.72c9b17b.css",
-    "main.js": "/starter_helpi/static/js/main.e084666c.js",
+    "main.css": "/starter_helpi/static/css/main.d7045380.css",
+    "main.js": "/starter_helpi/static/js/main.0e8c5ffb.js",
     "static/js/213.103f6a0f.chunk.js": "/starter_helpi/static/js/213.103f6a0f.chunk.js",
     "static/js/732.17aa9ed3.chunk.js": "/starter_helpi/static/js/732.17aa9ed3.chunk.js",
     "static/js/453.dda23872.chunk.js": "/starter_helpi/static/js/453.dda23872.chunk.js",
@@ -32,14 +32,14 @@
     "static/media/magilioregular-webfont.woff": "/starter_helpi/static/media/magilioregular-webfont.e94afca17695bb6f7f6e.woff",
     "static/media/magilioregular-webfont.woff2": "/starter_helpi/static/media/magilioregular-webfont.3bad8cabf0d3014eecf3.woff2",
     "index.html": "/starter_helpi/index.html",
-    "main.72c9b17b.css.map": "/starter_helpi/static/css/main.72c9b17b.css.map",
-    "main.e084666c.js.map": "/starter_helpi/static/js/main.e084666c.js.map",
+    "main.d7045380.css.map": "/starter_helpi/static/css/main.d7045380.css.map",
+    "main.0e8c5ffb.js.map": "/starter_helpi/static/js/main.0e8c5ffb.js.map",
     "213.103f6a0f.chunk.js.map": "/starter_helpi/static/js/213.103f6a0f.chunk.js.map",
     "732.17aa9ed3.chunk.js.map": "/starter_helpi/static/js/732.17aa9ed3.chunk.js.map",
     "453.dda23872.chunk.js.map": "/starter_helpi/static/js/453.dda23872.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.72c9b17b.css",
-    "static/js/main.e084666c.js"
+    "static/css/main.d7045380.css",
+    "static/js/main.0e8c5ffb.js"
   ]
 }
