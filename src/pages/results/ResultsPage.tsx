@@ -47,6 +47,10 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
        if (industriesDetailed && overviewDetailed) {
             setSubmitFlagDetailed(false);
        }
+       if (error) {
+            setSubmitFlagBasic(false);
+            setSubmitFlagDetailed(false);
+       }
     });
 
     const pdf = useRef<HTMLDivElement>(null);
