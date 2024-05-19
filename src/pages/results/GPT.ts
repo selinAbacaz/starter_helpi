@@ -24,11 +24,45 @@ function formatQuestionsAndAnswers (page: string) { // Function to format the qu
     combined = basicQuestionsArray.map((question: string, index: number) => question + basicAnswerArray[index]).join(".");
   }
   else {
-    combined = detailedQuestionsArray.map((question: string, index: number) => question + detailedAnswerArray[index]).join(".")
+    combined = detailedQuestionsArray.map((question: string, index: number) => question + detailedAnswerArray[index]).join(".");
   }
 }
 
-async function callGPT (type: string, userPrompt: string, setError: (error: boolean) => void) { // Calls the GPT api and prodcues text based on a user input
+function validateResponses (setError: (error: string) => void, page: string): boolean { // Checks to make sure user responses are valid
+  let isValid: boolean = true;
+  if (!combined) {
+    isValid = false;
+  }
+  else {
+    if (page === "basic") {
+      for (let i = 0; i < basicAnswerArray.length; i++) {
+        isValid = isValid && combined.includes(basicAnswerArray[i]);
+        isValid = isValid && basicAnswerArray[i] !== "";
+      }
+      for (let i = 0; i < basicQuestionsArray.length; i++) {
+        isValid = isValid && combined.includes(basicQuestionsArray[i]);
+      }
+    }
+    else {
+      for (let i = 0; i < detailedAnswerArray.length; i++) {
+        isValid = isValid && combined.includes(detailedAnswerArray[i]);
+        isValid = isValid && detailedAnswerArray[i] !== "";
+      }
+      for (let i = 0; i < detailedQuestionsArray.length; i++) {
+        isValid = isValid && combined.includes(detailedQuestionsArray[i]);
+      }
+    }
+  }
+  if (!isValid) {
+    setError("We encountered an error reading your responses. Make sure none of your answers are empty.");
+  }
+  else {
+    setError("");
+  }
+  return isValid;
+}
+
+async function callGPT (type: string, userPrompt: string, setError: (error: string) => void) { // Calls the GPT api and prodcues text based on a user input
   try {
     let result: OpenAI.Chat.Completions.ChatCompletion;
     const openai = new OpenAI(
@@ -102,72 +136,74 @@ async function callGPT (type: string, userPrompt: string, setError: (error: bool
 
     if (result.choices[0].message.content) { // Checks to see if there is a generated message, if not, result is returned as an empty string
         console.log(result);
-        setError(false);
+       setError("");
       return result.choices[0].message.content;
     }
     return "";
   } catch (error) {
-    setError(true);
+    setError("Please try submititng your results again and make sure your API key is correct.");
     return "";
   }
   
 }
  
-export async function GenerateText (type: string, page: string, userInput: string, setError: (error: boolean) => void, setResult?: (result: string) => void, setUserResult?: (userResult: string[]) => void) {
+export async function GenerateText (type: string, page: string, userInput: string, setError: (error: string) => void, setResult?: (result: string) => void, setUserResult?: (userResult: string[]) => void) {
   let result = "";
   let newResults: string[] = [];
   formatQuestionsAndAnswers(page);
-  result = await callGPT(type, userInput, setError);
-  if (page === "basic") {
-    if (type === "industry") {
-      saveResponses.saveIndustriesBasic = result;
-    }
-    else if (type === "overview") {
-      saveResponses.saveOverviewBasic = result;
-    }
-    else if (type === "user") {
-      if (saveResponses.saveGPTReplyBaic[0] === "") {
-        newResults = [ ...saveResponses.saveGPTReplyBaic ]
-        newResults[0] = result;
-        saveResponses.saveGPTReplyBaic = [...newResults];
+  const isValid: boolean = validateResponses(setError, page);
+  if (isValid) {
+    result = await callGPT(type, userInput, setError);
+    if (page === "basic") {
+      if (type === "industry") {
+        saveResponses.saveIndustriesBasic = result;
+      }
+      else if (type === "overview") {
+        saveResponses.saveOverviewBasic = result;
+      }
+      else if (type === "user") {
+        if (saveResponses.saveGPTReplyBaic[0] === "") {
+          newResults = [ ...saveResponses.saveGPTReplyBaic ]
+          newResults[0] = result;
+          saveResponses.saveGPTReplyBaic = [...newResults];
+        }
+        else {
+          newResults = [ ...saveResponses.saveGPTReplyBaic, result ]
+          saveResponses.saveGPTReplyBaic =  [...newResults];
+        }
       }
       else {
-        newResults = [ ...saveResponses.saveGPTReplyBaic, result ]
-        saveResponses.saveGPTReplyBaic =  [...newResults];
+        saveResponses.savePieChartValuesBasic = result;
       }
     }
     else {
-      saveResponses.savePieChartValuesBasic = result;
-    }
-  }
-  else {
-    if (type === "industry") {
-      saveResponses.saveIndustriesDetailed = result;
-    }
-    else if (type === "overview") {
-      saveResponses.saveOverviewDetailed = result;
-    }
-    else if (type === "user") {
-      if (saveResponses.saveGPTReplyDetailed[0] === "") {
-        newResults = [ ...saveResponses.saveGPTReplyDetailed ]
-        newResults[0] = result;
-        saveResponses.saveGPTReplyDetailed = newResults;
+      if (type === "industry") {
+        saveResponses.saveIndustriesDetailed = result;
+      }
+      else if (type === "overview") {
+        saveResponses.saveOverviewDetailed = result;
+      }
+      else if (type === "user") {
+        if (saveResponses.saveGPTReplyDetailed[0] === "") {
+          newResults = [ ...saveResponses.saveGPTReplyDetailed ]
+          newResults[0] = result;
+          saveResponses.saveGPTReplyDetailed = newResults;
+        }
+        else {
+          newResults = [ ...saveResponses.saveGPTReplyDetailed, result ]
+          saveResponses.saveGPTReplyDetailed = newResults;
+        }
+        
       }
       else {
-        newResults = [ ...saveResponses.saveGPTReplyDetailed, result ]
-        saveResponses.saveGPTReplyDetailed = newResults;
+        saveResponses.savePieChartValuesDetailed = result;
       }
-      
     }
-    else {
-      saveResponses.savePieChartValuesDetailed = result;
+    if (type === "user" && setUserResult) {
+      setUserResult(newResults); // Contains the returned message content generated by chatGPT
+    }
+    else if (setResult) {
+      setResult(result); // Contains the returned message content generated by chatGPT
     }
   }
-  if (type === "user" && setUserResult) {
-    setUserResult(newResults); // Contains the returned message content generated by chatGPT
-  }
-  else if (setResult) {
-    setResult(result); // Contains the returned message content generated by chatGPT
-  }
-  
 }

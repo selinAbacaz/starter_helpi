@@ -60,18 +60,23 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submi
             <div className={blurPage ? "enableBlur" : ""}>
             <img src= {require("../../assets/images/strawberry.png")} alt="strawberry" style={{zIndex:100, right: 2, position: "fixed" }}/>
                 <img src= {require("../../assets/images/strawberry.png")} alt="strawberry" style={{zIndex:100, transform:"scaleX(-1)", left: 2, position: "fixed" }}/>
-                <Row className="image2" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
+                <Row className="DetailImage" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
                     <Col style= {{marginLeft: 340}}>
                         <header className= "box">
                             <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "#c9885fda", minHeight:"80%",marginTop:"", fontFamily: "magilio", wordSpacing:2, letterSpacing:2} }>
-                                <div> <br></br><p> Answer Truthfully</p> <p>and</p> <p>Check for Typos !</p><br></br> </div>
+                                <div> 
+                                    <br></br><p> Answer Truthfully</p> <p>and</p> <p>Check for Typos !</p><br></br> 
+                                </div>
                             </div>
                         </header>
                     </Col>
+
                     <Col style= {{marginRight: 340}}>
                         <header className= "box " >
                             <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white", backgroundColor: "#c9885fda", minHeight:"80%",marginTop:"", fontFamily: "magilio", wordSpacing:2, letterSpacing:2} }>
-                                <div> <br></br><p> Or Don't</p> <p>afterall</p> <p>We cant stop you !</p><br></br> </div>
+                                <div> 
+                                    <br></br><p> Or Don't</p> <p>afterall</p> <p>We cant stop you !</p><br></br> 
+                                </div>
                             </div>
                         </header>
                         
@@ -112,7 +117,9 @@ export function DetailedQuestions({ setBlurPage, blurPage, setCurrentPage, submi
                         questionsToUse={"detailed"}
                         numQuestionsAnswered={numQuestionsAnswered} 
                         submitted={submitted} 
-                        submitFlag={submitFlagDetailed}></SubmitButtons>
+                        submitFlag={submitFlagDetailed}>
+
+                    </SubmitButtons>
                 </div>
             </div>
             <br></br>

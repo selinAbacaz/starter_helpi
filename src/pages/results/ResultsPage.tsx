@@ -19,7 +19,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     const [chatGPTReplyDetailed, setChatGPTReplyDetailed] = useState<string[]>(saveResponses.saveGPTReplyDetailed); // Contains chatGPTs reply to the users input for detailed questions
     const [pieChartValuesBasic, setPieChartValuesBasic] = useState<string>(saveResponses.savePieChartValuesBasic);
     const [pieChartValuesDetailed, setPieChartValuesDetailed] = useState<string>(saveResponses.savePieChartValuesDetailed);
-    const [error, setError] = useState<boolean>(false); // Determiens whether or not there was an error while proccessing GPT responses.
+    const [error, setError] = useState<string>(""); // Determiens whether or not there was an error while proccessing GPT responses.
     
     useEffect(() => {
         if (submitFlagBasic) {
@@ -55,6 +55,9 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
 
     const pdf = useRef<HTMLDivElement>(null);
     const downloadPDF = () => {
+        //essentially takes a screenshot of the results page and turns it into a downloadable pdf file
+        //at the click of a button
+        
         const input = pdf.current;
         if (!input) return;
     
@@ -84,13 +87,18 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
 
 
     return(
+        
         <div>
             <div>
+                {/*checking to see if there is an error or if it is loading- formats box accordingly*/}
                 <div className={ error || submitFlagBasic || submitFlagDetailed ? "backgrColor on-loading" : "backgrColor"} style={{ display: "flex", alignItems: "center", justifyContent: "center"}}>
+                
                     <div>
+                        {/* basically doing the same thing as above div- checking to see if there is an error or if it is loading- formats box accordingly*/}
                         <Col className={ error || submitFlagBasic || submitFlagDetailed ? "textBox loading-screen" : "textBox"} xs={6} md={8}>
                             <Row>
                                 <Col>
+                                    {/*if both results pages have texts rto be displayed, makes it so options box appears for user to be able to pick between them */}
                                     {industriesBasic && industriesDetailed && overviewBasic && overviewDetailed &&
                                     <Form.Select onChange={changeQuestionsToUse} style={{width: "41%", justifyContent: "flex-end", display: "flex"}} defaultValue={questionsToUse} disabled={submitFlagBasic || submitFlagDetailed}>
                                         <option value="basic">Basic Questions</option>
@@ -98,6 +106,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                                     </Form.Select>}
                                 </Col>
                                 <Col style={{justifyContent: "flex-end", display: "flex", alignContent: "flex-end"}}>
+                                    {/* displays download button once results are processed and displayed */}
                                     {((industriesBasic && overviewBasic) || (industriesDetailed && overviewDetailed)) && !submitFlagBasic && !submitFlagDetailed &&
                                     <Button onClick={downloadPDF} variant={"outline-light"} >
                                         <img src={require('../../assets/images/downloadIcon.png')} alt="Download Button"></img>
@@ -105,15 +114,17 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                                 </Col>
                             </Row>
                            
+                           {/*checking if there are basic or detailed reports processed- displays accordingly-- also checks which one to use (hence the question on which one to use) */}
                             {!error && questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsSectionText></ResultsSectionText>}
                             {!error && questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsSectionText></ResultsSectionText>}
                             <div ref = {pdf}> 
-                            {!error && questionsToUse === "basic" && industriesBasic && overviewBasic && !submitFlagBasic && <ResultsSection setChatGPTReply={setChatGPTReplyBasic} setError={setError} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
-                            {!error && questionsToUse === "detailed" && industriesDetailed && overviewDetailed && !submitFlagDetailed &&<ResultsSection setChatGPTReply={setChatGPTReplyDetailed} setError={setError} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
+                            {/*signifies whihc areas to download with the pdf downloader featrue */}
+                                {!error && questionsToUse === "basic" && industriesBasic && overviewBasic && !submitFlagBasic && <ResultsSection setChatGPTReply={setChatGPTReplyBasic} setError={setError} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
+                                {!error && questionsToUse === "detailed" && industriesDetailed && overviewDetailed && !submitFlagDetailed &&<ResultsSection setChatGPTReply={setChatGPTReplyDetailed} setError={setError} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
                             </div>
                             {!error && submitFlagBasic && questionsToUse === "basic" && <LoadingScreen></LoadingScreen>}
                             {!error &&submitFlagDetailed && questionsToUse === "detailed" && <LoadingScreen></LoadingScreen>}
-                            {error && <ErrorMessage></ErrorMessage>}
+                            {error && <ErrorMessage error={error}></ErrorMessage>}
                         </Col>   
                     </div>
                 </div>

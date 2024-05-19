@@ -54,7 +54,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                         </Row>
                         <Row className= "HP-lower" style={{minHeight: "100%", backgroundColor: "#b56f53b2"}}>
                             {/* this row contains underneath part of home page with more information on basic and detailed questions*/}
-                            
+                        
                             <Col style= {{marginTop: "5%", marginBottom: "15%", minHeight: "100%"}}>
                             {/* basic questions info col */}
                                 <header >

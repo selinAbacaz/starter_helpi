@@ -138,27 +138,33 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFl
                 <img src= {require("../../assets/images/strawberry.png")} alt="strawberry" style={{zIndex:100, right: 2, position: "fixed" }}/>
                 <img src= {require("../../assets/images/strawberry.png")} alt="strawberry" style={{zIndex:100, transform:"scaleX(-1)", left: 2, position: "fixed" }}/>
 
-                <Row className="image" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
+                <Row className="BasicImage" style={ {border: '2px white', padding: '2px', color: "#44506a", display: "flex"}}>
                     <Col style= {{marginLeft: 340}}>
 
                         <header className= "box">
                             <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white",position: "relative", backgroundColor: "#fa8072b9",minHeight:"80%", fontFamily: "magilio", wordSpacing:2, letterSpacing:2 } }>
-                                <div> <br></br><p> Answer Truthfully</p> <p>and</p> <p>Have Fun !</p><br></br> </div>
+                                <div> 
+                                    <br></br><p> Answer Truthfully</p> <p>and</p> <p>Have Fun !</p><br></br> 
+                                </div>
                             </div>
                         </header>
                     </Col>
                     <Col style= {{marginRight: 340}}>
                         <header className= "box " >
                             <div  style={ {border: '4px solid #f8f8f89a', fontSize: 30, padding: '8px', color: "white",position: "relative", minHeight:"80%",marginTop:"", backgroundColor: "#fa8072b9", fontFamily: "magilio", wordSpacing:2, letterSpacing:2} }>
-                                <div><br></br><p> Answer Truthfully</p> <p>and</p> <p>Have a Snack !</p><br></br> </div>
+                                <div>
+                                    <br></br><p> Answer Truthfully</p> <p>and</p> <p>Have a Snack !</p><br></br> 
+                                </div>
                             </div>
                         </header>
                         
                     </Col>
                 </Row>
             </div>
+
             <br></br>
             <br></br>
+
             {/* Body with all questions */}
             {submitted && <ShowAlert setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} blurPage={blurPage} setQuestionsToUse={setQuestionsToUse} questionsToUse={"basic"} setSubmitted={setSubmitted}></ShowAlert>}
             <div className={blurPage ? "margins enableBlur" : "margins"} style={ {padding: '4px', color: "salmon", backgroundColor: "white", justifyContent:"right"} }>
@@ -191,7 +197,9 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFl
                         questionsToUse={"basic"}
                         numQuestionsAnswered={numQuestionsAnswered} 
                         submitted={submitted} 
-                        submitFlag={submitFlagBasic}></SubmitButtons>
+                        submitFlag={submitFlagBasic}>
+
+                    </SubmitButtons>
                 </div>
             </div>
             <br></br>
