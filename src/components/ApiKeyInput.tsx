@@ -41,7 +41,7 @@ function ApiKeyInput ({ setSubmittedNewKey, setValidKey, blurPage, type }: ApiKe
         await checkValidAPIKey();
     }
 
-    async function handleEnterSubmit(event: React.KeyboardEvent<HTMLInputElement>) {
+    async function handleEnterSubmit(event: React.KeyboardEvent<HTMLInputElement>) { // Makes it so that the user can also press enter instead of the given submit button
         if (event.key === "Enter") {
             event.preventDefault();
             await handleSubmit();
