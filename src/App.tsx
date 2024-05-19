@@ -12,11 +12,10 @@ import ApiError from './components/ApiError';
 import { vistedWelcomePage } from './components/SwitchPage';
 
 let userSubmmittedNewKey: boolean = false;
-export function userHasSubmittedKey(saveSubmittedNewKey: string) {
-  const prevKey = sessionStorage.getItem(saveSubmittedNewKey);
-  if (prevKey !== null) {
-      userSubmmittedNewKey = JSON.parse(prevKey);
-  }
+export const saveSubmittedNewKey = "SUBMITTED_NEW";
+const prevKey = sessionStorage.getItem(saveSubmittedNewKey);
+if (prevKey !== null) {
+    userSubmmittedNewKey = JSON.parse(prevKey);
 }
 
 function App() {

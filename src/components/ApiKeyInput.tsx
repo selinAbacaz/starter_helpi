@@ -4,7 +4,7 @@ import { ApiKeyInputProps } from "../interfaces/ApiKeyInput";
 import { useState } from "react";
 import OpenAI from "openai";
 import './ApiKeyInput.css'
-import { userHasSubmittedKey } from "../App";
+import { saveSubmittedNewKey } from "../App";
 
 export let keyData = "";
 const saveKeyData = "MYKEY";
@@ -37,8 +37,7 @@ function ApiKeyInput ({ setSubmittedNewKey, setValidKey, blurPage, type }: ApiKe
     async function handleSubmit() {
         localStorage.setItem(saveKeyData, JSON.stringify(key));
         setSubmittedNewKey(true);
-        sessionStorage.setItem("SUBMITTED_NEW", JSON.stringify(true));
-        userHasSubmittedKey("SUBMITTED_NEW");
+        sessionStorage.setItem(saveSubmittedNewKey, JSON.stringify(true));
         await checkValidAPIKey();
     }
 
