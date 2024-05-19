@@ -37,7 +37,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                                     <Col className= "buttonBox2 LouisGeorgeNormal" style={{marginRight: "1%", marginTop: "1%"}}>
                                         <SwitchPage setCurrentPage={setCurrentPage} newCurrentPage={2} variant={"primary"} type={"button"} blurPage={blurPage} setBlurPage={setBlurPage}/*Detailed Question Button*/></SwitchPage>
                                     </Col>
-                                    <Col className= "orange2 box magilio" style={{color:"#916448", marginTop: ".5%", height: "101%"}}>                    
+                                    <Col className= "orangeWithWorm box magilio" style={{color:"#916448", marginTop: ".5%", height: "101%"}}>                    
                                     </Col>
                                 </Row>
                             </Col>
@@ -53,7 +53,7 @@ export function HomePage ({setBlurPage, setCurrentPage, blurPage}: HomePageProps
                         </Row>
                         <Row className= "HP-lower" style={{minHeight: "100%", backgroundColor: "#b56f53b2"}}>
                             
-                            {/* this row contains underneath part of home page with more information on basic and detailed questions- WIP */}
+                            {/* this row contains underneath part of home page with more information on basic and detailed questions*/}
                             <Col style= {{marginTop: "5%", marginBottom: "15%", minHeight: "100%"}}>
                             {/* basic questions info col */}
                                 <header >
