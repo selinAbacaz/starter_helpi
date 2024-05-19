@@ -86,9 +86,9 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     return(
         <div>
             <div>
-                <div className= "backgrColor">
+                <div className={ error || submitFlagBasic || submitFlagDetailed ? "backgrColor on-loading" : "backgrColor"} style={{ display: "flex", alignItems: "center", justifyContent: "center"}}>
                     <div>
-                        <Col className = "textBox">
+                        <Col className={ error || submitFlagBasic || submitFlagDetailed ? "textBox loading-screen" : "textBox"}>
                             <Row>
                                 <Col>
                                     {industriesBasic && industriesDetailed && overviewBasic && overviewDetailed &&
@@ -118,10 +118,6 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                     </div>
                 </div>
             </div>
-            <div>
-                
-            </div>
-
         </div>
     );
 }
