@@ -88,7 +88,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
             <div>
                 <div className={ error || submitFlagBasic || submitFlagDetailed ? "backgrColor on-loading" : "backgrColor"} style={{ display: "flex", alignItems: "center", justifyContent: "center"}}>
                     <div>
-                        <Col className={ error || submitFlagBasic || submitFlagDetailed ? "textBox loading-screen" : "textBox"}>
+                        <Col className={ error || submitFlagBasic || submitFlagDetailed ? "textBox loading-screen" : "textBox"} xs={6} md={8}>
                             <Row>
                                 <Col>
                                     {industriesBasic && industriesDetailed && overviewBasic && overviewDetailed &&

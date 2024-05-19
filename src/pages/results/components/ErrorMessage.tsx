@@ -7,7 +7,7 @@ function ErrorMessage () {
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                 <ReactMarkdown>{"# There was an erorr processing your results!"}</ReactMarkdown>
             </div>
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px" }}>
                 <p>Please try submititng your results again and make sure your API key is correct.</p>
             </div>
             <ReactMarkdown>{"***"}</ReactMarkdown>
