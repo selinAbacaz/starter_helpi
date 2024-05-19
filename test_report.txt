@@ -81,6 +81,7 @@ All files                       |       0 |        0 |       0 |       0 |
   ApiKeyInput.ts                |       0 |        0 |       0 |       0 |                   
   BasicQuestions.ts             |       0 |        0 |       0 |       0 |                   
   DetailedQuestions.ts          |       0 |        0 |       0 |       0 |                   
+  ErrorMessage.ts               |       0 |        0 |       0 |       0 |                   
   HomePage.ts                   |       0 |        0 |       0 |       0 |                   
   NavBar.ts                     |       0 |        0 |       0 |       0 |                   
   ProgressBar.ts                |       0 |        0 |       0 |       0 |                   
@@ -100,10 +101,10 @@ All files                       |       0 |        0 |       0 |       0 |
   ProgressBar.tsx               |       0 |        0 |       0 |       0 | 5-11              
   SubmitButtons.tsx             |       0 |        0 |       0 |       0 | 8-16              
  src/pages/results              |       0 |        0 |       0 |       0 |                   
-  GPT.ts                        |       0 |        0 |       0 |       0 | 7-170             
+  GPT.ts                        |       0 |        0 |       0 |       0 | 7-206             
   ResultsPage.tsx               |       0 |        0 |       0 |       0 | 14-86             
  src/pages/results/components   |       0 |        0 |       0 |       0 |                   
-  ErrorMessage.tsx              |       0 |      100 |       0 |       0 | 4                 
+  ErrorMessage.tsx              |       0 |      100 |       0 |       0 | 5                 
   GPTInput.tsx                  |       0 |        0 |       0 |       0 | 14-28             
   LoadingScreen.tsx             |       0 |      100 |       0 |       0 | 4                 
   PieChart.tsx                  |       0 |        0 |       0 |       0 | 8-28              
@@ -116,5 +117,5 @@ All files                       |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        5.874 s
+Time:        5.734 s
 Ran all test suites.
