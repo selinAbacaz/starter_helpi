@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 
 interface GPTInputProps {
     setChatGPTReply: (newReply: string[]) => void;
-    setError: (error: boolean) => void;
+    setError: (error: string) => void;
     questionsToUse: string;
     
 }
