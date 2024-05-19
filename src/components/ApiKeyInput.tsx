@@ -4,6 +4,7 @@ import { ApiKeyInputProps } from "../interfaces/ApiKeyInput";
 import { useState } from "react";
 import OpenAI from "openai";
 import './ApiKeyInput.css'
+import { saveSubmittedNewKey } from "../App";
 
 export let keyData = "";
 const saveKeyData = "MYKEY";
@@ -26,17 +27,18 @@ function ApiKeyInput ({ setSubmittedNewKey, setValidKey, blurPage, type }: ApiKe
         try {
             await openai.models.list();
             setValidKey(true);
-            window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
         } catch (error) {
             localStorage.setItem(saveKeyData, JSON.stringify(""));
             setValidKey(false);
         }
+        window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
     }
 
     async function handleSubmit() {
         localStorage.setItem(saveKeyData, JSON.stringify(key));
-        await checkValidAPIKey();
         setSubmittedNewKey(true);
+        sessionStorage.setItem(saveSubmittedNewKey, JSON.stringify(true));
+        await checkValidAPIKey();
     }
 
     async function handleEnterSubmit(event: React.KeyboardEvent<HTMLInputElement>) {

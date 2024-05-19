@@ -6,7 +6,7 @@ import '../assets/LouisGeorgeCafe/stylesheet.css'
 
 export let vistedWelcomePage = false;
 const savevistedWebPage = "VISITEDWELCOME";
-const prevKey = sessionStorage.getItem(savevistedWebPage); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
+const prevKey = sessionStorage.getItem(savevistedWebPage);
 if (prevKey !== null) {
     vistedWelcomePage = JSON.parse(prevKey);
 }

@@ -197,9 +197,7 @@ export function BasicQuestions({ setBlurPage, blurPage, setCurrentPage, submitFl
                         questionsToUse={"basic"}
                         numQuestionsAnswered={numQuestionsAnswered} 
                         submitted={submitted} 
-                        submitFlag={submitFlagBasic}>
-
-                    </SubmitButtons>
+                        submitFlag={submitFlagBasic}></SubmitButtons>
                 </div>
             </div>
             <br></br>
