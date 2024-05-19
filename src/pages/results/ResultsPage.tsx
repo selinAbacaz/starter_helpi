@@ -82,7 +82,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     return(
         <div>
             <div>
-                <div className= "backgrColor "style={{border: '3px white', padding: '4px', color: "#44506a",justifyContent:"right"}}>
+                <div className= "backgrColor">
                     <div>
                         <Col className = "textBox">
                             <Row>
