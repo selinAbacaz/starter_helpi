@@ -5,7 +5,7 @@ import '../ResultsPage.css'
 import ReactMarkdown from "react-markdown";
 import Replies from "./Replies";
 
-function ResultsSection ({ setChatGPTReply, chatGPTReply, industries, overview, pieChartValues, questionsToUse }: ResultsSectionProps) {
+function ResultsSection ({ setChatGPTReply, setError, chatGPTReply, industries, overview, pieChartValues, questionsToUse }: ResultsSectionProps) {
     return (
         <div>
             <h1> Overview: </h1>
@@ -42,7 +42,7 @@ function ResultsSection ({ setChatGPTReply, chatGPTReply, industries, overview, 
             <ReactMarkdown children={industries}></ReactMarkdown>
             <br></br>
             <h1>Replies:</h1>
-            <Replies setChatGPTReply={setChatGPTReply} chatGPTReply={chatGPTReply} questionsToUse={questionsToUse}></Replies>
+            <Replies setChatGPTReply={setChatGPTReply} setError={setError} chatGPTReply={chatGPTReply} questionsToUse={questionsToUse}></Replies>
         </div>
     );
 }

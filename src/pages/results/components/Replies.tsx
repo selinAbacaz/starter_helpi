@@ -4,11 +4,12 @@ import { useEffect, useRef } from "react";
 
 interface RepliesProps {
     setChatGPTReply: (newReply: string[]) => void;
+    setError: (error: boolean) => void;
     chatGPTReply: string[];
     questionsToUse: string;
 }
 
-function Replies ({setChatGPTReply, chatGPTReply, questionsToUse}: RepliesProps) {
+function Replies ({setChatGPTReply, setError, chatGPTReply, questionsToUse}: RepliesProps) {
     const endReplies = useRef<HTMLDivElement>(null)
 
     useEffect (() => {
@@ -19,7 +20,7 @@ function Replies ({setChatGPTReply, chatGPTReply, questionsToUse}: RepliesProps)
         return (
             <div>
                 <br></br>
-                <GPTInput setChatGPTReply={setChatGPTReply} questionsToUse={questionsToUse}></GPTInput>
+                <GPTInput setChatGPTReply={setChatGPTReply} setError={setError} questionsToUse={questionsToUse}></GPTInput>
             </div>
         )
     }
@@ -32,7 +33,7 @@ function Replies ({setChatGPTReply, chatGPTReply, questionsToUse}: RepliesProps)
                         <ReactMarkdown>{"***"}</ReactMarkdown>
                         <ReactMarkdown children={reply}></ReactMarkdown>
                         <br></br>
-                        {(index === chatGPTReply.length - 1) && <GPTInput setChatGPTReply={setChatGPTReply} questionsToUse={questionsToUse}></GPTInput>}
+                        {(index === chatGPTReply.length - 1) && <GPTInput setChatGPTReply={setChatGPTReply} setError={setError} questionsToUse={questionsToUse}></GPTInput>}
                         <div ref={endReplies}/>
                     </div>
                     

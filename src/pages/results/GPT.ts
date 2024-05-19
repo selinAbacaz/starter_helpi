@@ -28,95 +28,96 @@ function formatQuestionsAndAnswers (page: string) { // Function to format the qu
   }
 }
 
-async function callGPT (type: string, userPrompt: string) { // Calls the GPT api and prodcues text based on a user input
-  let result: OpenAI.Chat.Completions.ChatCompletion;
-  const openai = new OpenAI(
-    {
-      apiKey: keyData,
-      dangerouslyAllowBrowser: true
-    }
-  );
-
-  if (type === "industry") {
-    result = await openai.chat.completions.create(
+async function callGPT (type: string, userPrompt: string, setError: (error: boolean) => void) { // Calls the GPT api and prodcues text based on a user input
+  try {
+    let result: OpenAI.Chat.Completions.ChatCompletion;
+    const openai = new OpenAI(
       {
-        messages: 
-        [
-          { role: "user", content: combined + "Please provide 5 industries I should work in based off of my answers. Proivide a concise description of the job. Give 1 paragraph as for why. Give an average salary." },
-          { role: "system", content: "Your job is to list 5 job industries you think the user will fit into. Industries should start with  ## . Put the description in a bullet point labeled Description. Put the reasons paragraph in a single bullet point labled Reasons. The paragraph should be at least 3 long sentences. The average salary should also be a bulelt point."}
-        ],
-          model: "gpt-4-turbo",
+        apiKey: keyData,
+        dangerouslyAllowBrowser: true
       }
     );
+
+    if (type === "industry") {
+      result = await openai.chat.completions.create(
+        {
+          messages: 
+          [
+            { role: "user", content: combined + "Please provide 5 industries I should work in based off of my answers. Proivide a concise description of the job. Give 1 paragraph as for why. Give an average salary." },
+            { role: "system", content: "Your job is to list 5 job industries you think the user will fit into. Industries should start with  ## . Put the description in a bullet point labeled Description. Put the reasons paragraph in a single bullet point labled Reasons. The paragraph should be at least 3 long sentences. The average salary should also be a bulelt point."}
+          ],
+            model: "gpt-4-turbo",
+        }
+      );
+    }
+    
+    else if (type === "overview") {
+      result = await openai.chat.completions.create(
+        {
+          messages: 
+          [
+            { role: "user", content: combined + " Based on my answers, please provide an overview of what my results mean." },
+            { role: "system", content: "Your job is to provide a brief 1 paragraph overview of what their answers mean."
+            }
+          ],
+            model: "gpt-4-turbo",
+        }
+      );
+    }
+
+    else if (type === "user") {
+      result = await openai.chat.completions.create(
+        {
+          messages: 
+          [
+            { role: "user", content: combined + userPrompt },
+            { role: "system", content: "You are a helpful assistant designed to help people answer career related questions." }
+          ],
+            model: "gpt-4-turbo",
+        }
+      );
+    }
+    else {
+      const json_format =
+      `
+        {
+          humanitarian: <humanitarian value>,
+          caretaker: <caretaker value>,
+          innovator: <innovator value>,
+          pragmatist: <pragmatist value>
+        }
+      `;
+      result = await openai.chat.completions.create(
+        {
+          messages: 
+          [
+            { role: "user", content: combined + " Based on my answers, what are my humanitarian, caretaker, innovator, pragmatist values based on my answers." },
+            { role: "system", content: "Please output your response following this JSON format: " + json_format + ". All of the values should add up to 100." }
+          ],
+            model: "gpt-4-turbo",
+            response_format: { type: "json_object" }
+        }
+      );
+    }
+
+    if (result.choices[0].message.content) { // Checks to see if there is a generated message, if not, result is returned as an empty string
+        console.log(result);
+        setError(false);
+      return result.choices[0].message.content;
+    }
+    return "";
+  } catch (error) {
+    setError(true);
+    return "";
   }
   
-  else if (type === "overview") {
-    result = await openai.chat.completions.create(
-      {
-        messages: 
-        [
-          { role: "user", content: combined + " Based on my answers, please provide an overview of what my results mean." },
-          { role: "system", content: "Your job is to provide a brief 1 paragraph overview of what their answers mean."
-          }
-        ],
-          model: "gpt-4-turbo",
-      }
-    );
-  }
-
-  else if (type === "user") {
-    result = await openai.chat.completions.create(
-      {
-        messages: 
-        [
-          { role: "user", content: combined + userPrompt },
-          { role: "system", content: "You are a helpful assistant designed to help people answer career related questions." }
-        ],
-          model: "gpt-4-turbo",
-      }
-    );
-  }
-  else {
-    const json_format =
-    `
-      {
-        humanitarian: <humanitarian value>,
-        caretaker: <caretaker value>,
-        innovator: <innovator value>,
-        pragmatist: <pragmatist value>
-      }
-    `;
-    result = await openai.chat.completions.create(
-      {
-        messages: 
-        [
-          { role: "user", content: combined + " Based on my answers, what are my humanitarian, caretaker, innovator, pragmatist values based on my answers." },
-          { role: "system", content: "Please output your response following this JSON format: " + json_format + ". All of the values should add up to 100." }
-        ],
-          model: "gpt-4-turbo",
-          response_format: { type: "json_object" }
-      }
-    );
-  }
-
-  if (result.choices[0].message.content) { // Checks to see if there is a generated message, if not, result is returned as an empty string
-      
-      console.log(result);
-    return (
-      
-      result.choices[0].message.content
-    );
-  }
-  return (
-    ""
-  );
 }
  
-export async function GenerateText (type: string, page: string, userInput: string, setResult?: (result: string) => void, setUserResult?: (userResult: string[]) => void) {
+export async function GenerateText (type: string, page: string, userInput: string, setError: (error: boolean) => void, setResult?: (result: string) => void, setUserResult?: (userResult: string[]) => void) {
   let result = "";
   let newResults: string[] = [];
   formatQuestionsAndAnswers(page);
-  result = await callGPT(type, userInput);
+  result = await callGPT(type, userInput, setError);
   if (page === "basic") {
     if (type === "industry") {
       saveResponses.saveIndustriesBasic = result;
