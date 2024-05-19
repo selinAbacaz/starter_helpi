@@ -28,6 +28,10 @@ function formatQuestionsAndAnswers (page: string) { // Function to format the qu
   }
 }
 
+function validateResponses (isValid: boolean, page: string) { // Checks to make sure user responses are valid
+  
+}
+
 async function callGPT (type: string, userPrompt: string, setError: (error: string) => void) { // Calls the GPT api and prodcues text based on a user input
   try {
     let result: OpenAI.Chat.Completions.ChatCompletion;
@@ -116,6 +120,7 @@ async function callGPT (type: string, userPrompt: string, setError: (error: stri
 export async function GenerateText (type: string, page: string, userInput: string, setError: (error: string) => void, setResult?: (result: string) => void, setUserResult?: (userResult: string[]) => void) {
   let result = "";
   let newResults: string[] = [];
+  let isValid = true;
   formatQuestionsAndAnswers(page);
   result = await callGPT(type, userInput, setError);
   if (page === "basic") {
