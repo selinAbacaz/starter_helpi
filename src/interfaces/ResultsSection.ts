@@ -1,6 +1,6 @@
 export interface ResultsSectionProps {
     setChatGPTReply: (newReply: string[]) => void;
-    setError: (error: boolean) => void;
+    setError: (error: string) => void;
     chatGPTReply: string[];
     industries: string;
     overview: string;

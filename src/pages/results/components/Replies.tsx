@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 interface RepliesProps {
     setChatGPTReply: (newReply: string[]) => void;
-    setError: (error: boolean) => void;
+    setError: (error: string) => void;
     chatGPTReply: string[];
     questionsToUse: string;
 }
