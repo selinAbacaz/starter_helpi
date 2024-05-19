@@ -38,7 +38,10 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     function changeQuestionsToUse (event: React.ChangeEvent<HTMLSelectElement>) {
         setQuestionsToUse(event.target.value);
     }
+    // const value that obtains the amount that will be downloaded in the pdf
     const pdf = useRef<HTMLDivElement>(null);
+    // Function that allows the user to download the results page as a pdf file
+    // Function adjusted by Chat GPT to be properly implemented
     const downloadPDF = () => {
         const input = pdf.current;
         if (!input) return;
