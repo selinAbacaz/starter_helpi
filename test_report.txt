@@ -102,7 +102,7 @@ All files                       |       0 |        0 |       0 |       0 |
   SubmitButtons.tsx             |       0 |        0 |       0 |       0 | 8-16              
  src/pages/results              |       0 |        0 |       0 |       0 |                   
   GPT.ts                        |       0 |        0 |       0 |       0 | 7-205             
-  ResultsPage.tsx               |       0 |        0 |       0 |       0 | 14-87             
+  ResultsPage.tsx               |       0 |        0 |       0 |       0 | 14-88             
  src/pages/results/components   |       0 |        0 |       0 |       0 |                   
   ErrorMessage.tsx              |       0 |      100 |       0 |       0 | 5                 
   GPTInput.tsx                  |       0 |        0 |       0 |       0 | 14-28             
@@ -117,5 +117,5 @@ All files                       |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        5.722 s
+Time:        5.691 s
 Ran all test suites.
