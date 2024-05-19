@@ -28,7 +28,7 @@ function formatQuestionsAndAnswers (page: string) { // Function to format the qu
   }
 }
 
-async function callGPT (type: string, userPrompt: string, setError: (error: boolean) => void) { // Calls the GPT api and prodcues text based on a user input
+async function callGPT (type: string, userPrompt: string, setError: (error: string) => void) { // Calls the GPT api and prodcues text based on a user input
   try {
     let result: OpenAI.Chat.Completions.ChatCompletion;
     const openai = new OpenAI(
@@ -102,18 +102,18 @@ async function callGPT (type: string, userPrompt: string, setError: (error: bool
 
     if (result.choices[0].message.content) { // Checks to see if there is a generated message, if not, result is returned as an empty string
         console.log(result);
-        setError(false);
+        setError("Please try submititng your results again and make sure your API key is correct.");
       return result.choices[0].message.content;
     }
     return "";
   } catch (error) {
-    setError(true);
+    setError("");
     return "";
   }
   
 }
  
-export async function GenerateText (type: string, page: string, userInput: string, setError: (error: boolean) => void, setResult?: (result: string) => void, setUserResult?: (userResult: string[]) => void) {
+export async function GenerateText (type: string, page: string, userInput: string, setError: (error: string) => void, setResult?: (result: string) => void, setUserResult?: (userResult: string[]) => void) {
   let result = "";
   let newResults: string[] = [];
   formatQuestionsAndAnswers(page);

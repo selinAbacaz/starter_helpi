@@ -19,7 +19,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     const [chatGPTReplyDetailed, setChatGPTReplyDetailed] = useState<string[]>(saveResponses.saveGPTReplyDetailed); // Contains chatGPTs reply to the users input for detailed questions
     const [pieChartValuesBasic, setPieChartValuesBasic] = useState<string>(saveResponses.savePieChartValuesBasic);
     const [pieChartValuesDetailed, setPieChartValuesDetailed] = useState<string>(saveResponses.savePieChartValuesDetailed);
-    const [error, setError] = useState<boolean>(false); // Determiens whether or not there was an error while proccessing GPT responses.
+    const [error, setError] = useState<string>(""); // Determiens whether or not there was an error while proccessing GPT responses.
     
     useEffect(() => {
         if (submitFlagBasic) {
@@ -113,7 +113,7 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                             </div>
                             {!error && submitFlagBasic && questionsToUse === "basic" && <LoadingScreen></LoadingScreen>}
                             {!error &&submitFlagDetailed && questionsToUse === "detailed" && <LoadingScreen></LoadingScreen>}
-                            {error && <ErrorMessage></ErrorMessage>}
+                            {error && <ErrorMessage error={error}></ErrorMessage>}
                         </Col>   
                     </div>
                 </div>

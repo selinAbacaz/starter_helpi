@@ -1,6 +1,7 @@
 import ReactMarkdown from "react-markdown";
+import { ErrorMessageProps } from "../../../interfaces/ErrorMessage";
 
-function ErrorMessage () {
+function ErrorMessage ({error}: ErrorMessageProps) {
     return (
         <div className="magilio" style={{color: "#855440"}}>
             <ReactMarkdown>{"***"}</ReactMarkdown>
@@ -8,7 +9,7 @@ function ErrorMessage () {
                 <ReactMarkdown>{"# There was an erorr processing your results!"}</ReactMarkdown>
             </div>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px" }}>
-                <p>Please try submititng your results again and make sure your API key is correct.</p>
+                <p>{error}</p>
             </div>
             <ReactMarkdown>{"***"}</ReactMarkdown>
         </div>
