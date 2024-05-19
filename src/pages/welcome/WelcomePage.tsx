@@ -19,13 +19,13 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
                                 Career Chef
                             </div>
                             <div className="ai-text">
-                                <TypewriterComponent onInit={(typewriter) => {
+                                <TypewriterComponent onInit={(typewriter) => { // Adds typing animation to welcome page
                                     typewriter
                                     .pauseFor(500)
                                     .changeDelay(75)
                                     .typeString("(Powered by AI)")
                                     .start()
-                                    .callFunction(() => {
+                                    .callFunction(() => { // Removes cursor once animation has finished
                                         const cursor = document.querySelector(".Typewriter__cursor");
                                         if (cursor) {
                                             cursor.setAttribute('style', 'visibility: hidden');
@@ -35,10 +35,12 @@ function WelcomePage ({ setCurrentPage, setSubmittedNewKey, setValidKey, validKe
                             <br></br>
                             <div className="api-text">
                                 <p>The Career Chef uses chatGPT to provide accurate results.</p>
+                                {/*Checks to see if the user has submitted a proper api key, if they have not, it prompts them to do so*/}
                                 {!validKey && <p>Please provide an OpenAI API key before moving forward.</p>}
                                 {validKey && <p>You're all set! Enjoy the quiz!</p>}
                             </div>
                             <div>
+                                {/*Checks to see if the user has submitted a proper api key, if they have, then they can proceed to the home page.*/}
                                 {!validKey && <ApiKeyInput setSubmittedNewKey={setSubmittedNewKey} setValidKey={setValidKey} blurPage={false} type={"welcome"}></ApiKeyInput>}
                                 {validKey && <SwitchPage setCurrentPage={setCurrentPage} newCurrentPage={0} type={"welcome"}></SwitchPage>}
                             </div>
