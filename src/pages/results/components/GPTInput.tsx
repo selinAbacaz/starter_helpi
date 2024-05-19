@@ -4,17 +4,19 @@ import { GenerateText } from "../GPT";
 import { Button } from "@mui/material";
 
 interface GPTInputProps {
-    questionsToUse: string;
     setChatGPTReply: (newReply: string[]) => void;
+    setError: (error: boolean) => void;
+    questionsToUse: string;
+    
 }
 
-function GPTInput ({questionsToUse, setChatGPTReply}: GPTInputProps) {
+function GPTInput ({setChatGPTReply, setError, questionsToUse}: GPTInputProps) {
     const [userInput, setUserInput] = useState<string>(""); // Contains the users input for GPT communication
     const [loading, setLoading] = useState<boolean>(false);
 
     async function submitToGPT () {
         setLoading(true);
-        await GenerateText("user", questionsToUse, userInput, undefined, setChatGPTReply);
+        await GenerateText("user", questionsToUse, userInput, setError, undefined, setChatGPTReply);
         setLoading(false);
         
     }

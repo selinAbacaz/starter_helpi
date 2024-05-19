@@ -15,7 +15,29 @@
 .backgrColor{
     background: url("../../assets/images/backg.jpg"); /* Solid color background with background image */
     background-size: cover;
+    border: 3px white;
+    padding: 4px;
+    color: #44506a;
+    justify-content :right;
+    min-height: 100vmin;
   }
+
+
+.on-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-screen {
+    border-radius: 10px;
+    box-shadow: 8px 8px rgb(168, 168, 168);
+    transition: 0.5s;
+}
+
+.loading-screen:hover {
+    transform: translateY(-10px);
+}
 
 .home-header {
     width: 100%;

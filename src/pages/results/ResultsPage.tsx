@@ -8,6 +8,7 @@ import { ResultsPageProps } from '../../interfaces/ResultsPage';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import LoadingScreen from './components/LoadingScreen';
+import ErrorMessage from './components/ErrorMessage';
 
 export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitFlagDetailed, questionsToUse, submitFlagBasic, submitFlagDetailed}: ResultsPageProps) {
     const [overviewBasic, setOverviewBasic] = useState<string>(saveResponses.saveOverviewBasic); // Contains the general overview chatGPT returns for the basic questions
@@ -18,18 +19,19 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     const [chatGPTReplyDetailed, setChatGPTReplyDetailed] = useState<string[]>(saveResponses.saveGPTReplyDetailed); // Contains chatGPTs reply to the users input for detailed questions
     const [pieChartValuesBasic, setPieChartValuesBasic] = useState<string>(saveResponses.savePieChartValuesBasic);
     const [pieChartValuesDetailed, setPieChartValuesDetailed] = useState<string>(saveResponses.savePieChartValuesDetailed);
+    const [error, setError] = useState<boolean>(false); // Determiens whether or not there was an error while proccessing GPT responses.
     
     useEffect(() => {
         if (submitFlagBasic) {
-            GenerateText("overview", "basic", "", setOverviewBasic);
-            GenerateText("industry", "basic", "", setIndustriesBasic);
-            GenerateText("pie", "basic", "", setPieChartValuesBasic);
+            GenerateText("overview", "basic", "", setError, setOverviewBasic);
+            GenerateText("industry", "basic", "", setError, setIndustriesBasic);
+            GenerateText("pie", "basic", "", setError, setPieChartValuesBasic);
             console.log("basic");
         }
         if (submitFlagDetailed) {
-            GenerateText("overview", "detailed", "", setOverviewDetailed);
-            GenerateText("industry", "detailed", "", setIndustriesDetailed);
-            GenerateText("pie", "detailed", "", setPieChartValuesDetailed);
+            GenerateText("overview", "detailed", "", setError, setOverviewDetailed);
+            GenerateText("industry", "detailed", "", setError, setIndustriesDetailed);
+            GenerateText("pie", "detailed", "", setError, setPieChartValuesDetailed);
             console.log("detailed");
         }
     }, [submitFlagBasic, setSubmitFlagBasic, submitFlagDetailed, setSubmitFlagDetailed]);
@@ -43,6 +45,10 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
             setSubmitFlagBasic(false);
        }
        if (industriesDetailed && overviewDetailed) {
+            setSubmitFlagDetailed(false);
+       }
+       if (error) {
+            setSubmitFlagBasic(false);
             setSubmitFlagDetailed(false);
        }
     });
@@ -80,9 +86,9 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
     return(
         <div>
             <div>
-                <div className= "backgrColor "style={{border: '3px white', padding: '4px', color: "#44506a",justifyContent:"right"}}>
+                <div className={ error || submitFlagBasic || submitFlagDetailed ? "backgrColor on-loading" : "backgrColor"} style={{ display: "flex", alignItems: "center", justifyContent: "center"}}>
                     <div>
-                        <Col className = "textBox">
+                        <Col className={ error || submitFlagBasic || submitFlagDetailed ? "textBox loading-screen" : "textBox"} xs={6} md={8}>
                             <Row>
                                 <Col>
                                     {industriesBasic && industriesDetailed && overviewBasic && overviewDetailed &&
@@ -99,22 +105,19 @@ export function ResultsPage ({ setQuestionsToUse, setSubmitFlagBasic, setSubmitF
                                 </Col>
                             </Row>
                            
-                            {questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsSectionText></ResultsSectionText>}
-                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsSectionText></ResultsSectionText>}
+                            {!error && questionsToUse === "basic" && industriesBasic && overviewBasic && <ResultsSectionText></ResultsSectionText>}
+                            {!error && questionsToUse === "detailed" && industriesDetailed && overviewDetailed && <ResultsSectionText></ResultsSectionText>}
                             <div ref = {pdf}> 
-                            {questionsToUse === "basic" && industriesBasic && overviewBasic && !submitFlagBasic && <ResultsSection setChatGPTReply={setChatGPTReplyBasic} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
-                            {questionsToUse === "detailed" && industriesDetailed && overviewDetailed && !submitFlagDetailed &&<ResultsSection setChatGPTReply={setChatGPTReplyDetailed} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
+                            {!error && questionsToUse === "basic" && industriesBasic && overviewBasic && !submitFlagBasic && <ResultsSection setChatGPTReply={setChatGPTReplyBasic} setError={setError} chatGPTReply={chatGPTReplyBasic} industries={industriesBasic} overview={overviewBasic} pieChartValues={pieChartValuesBasic} questionsToUse={questionsToUse}></ResultsSection>}
+                            {!error && questionsToUse === "detailed" && industriesDetailed && overviewDetailed && !submitFlagDetailed &&<ResultsSection setChatGPTReply={setChatGPTReplyDetailed} setError={setError} chatGPTReply={chatGPTReplyDetailed} industries={industriesDetailed} overview={overviewDetailed} pieChartValues={pieChartValuesDetailed} questionsToUse={questionsToUse}></ResultsSection>}
                             </div>
-                            {submitFlagBasic && questionsToUse === "basic" && <LoadingScreen></LoadingScreen>}
-                            {submitFlagDetailed && questionsToUse === "detailed" && <LoadingScreen></LoadingScreen>}
+                            {!error && submitFlagBasic && questionsToUse === "basic" && <LoadingScreen></LoadingScreen>}
+                            {!error &&submitFlagDetailed && questionsToUse === "detailed" && <LoadingScreen></LoadingScreen>}
+                            {error && <ErrorMessage></ErrorMessage>}
                         </Col>   
                     </div>
                 </div>
             </div>
-            <div>
-                
-            </div>
-
         </div>
     );
 }
