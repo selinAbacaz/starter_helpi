@@ -1,11 +1,5 @@
-.show-error {
+.error {
     position: fixed;
     left: 50%;
     transform: translate(-50%);
-    opacity: 1;
-
-}
-
-.hide-error {
-    opacity: 0;
 }

@@ -14,7 +14,7 @@ function ApiError () {
     });
 
     return (
-        <div className={"show-error"}>
+        <div className={"error"}>
             {showError && <Alert severity="error" variant="filled">Invalid API Key! You must submit a valid API key!</Alert>}
         </div>
     )
