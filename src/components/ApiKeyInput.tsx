@@ -31,13 +31,13 @@ function ApiKeyInput ({ setSubmittedNewKey, setValidKey, blurPage, type }: ApiKe
             localStorage.setItem(saveKeyData, JSON.stringify(""));
             setValidKey(false);
         }
+        setSubmittedNewKey(true);
+        sessionStorage.setItem(saveSubmittedNewKey, JSON.stringify(true));
         window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
     }
 
     async function handleSubmit() {
         localStorage.setItem(saveKeyData, JSON.stringify(key));
-        setSubmittedNewKey(true);
-        sessionStorage.setItem(saveSubmittedNewKey, JSON.stringify(true));
         await checkValidAPIKey();
     }
 
