@@ -30,7 +30,7 @@ function App() {
 
   return (
       <div className={blurPage ? "App enableBlur" : "App"}>
-        {!validKey && submittedNewKey && <ApiError></ApiError>}
+        {!validKey && submittedNewKey && <ApiError setSubmittedNewKey={setSubmittedNewKey}></ApiError>}
         {currentPage !== 4 && <NavBar setCurrentPage={setCurrentPage} currentPage={currentPage} blurPage={blurPage} setBlurPage={setBlurPage} questionsSubmitted={submitFlagBasic || submitFlagDetailed} submitted={submitted}></NavBar>}
         {currentPage === 0 && <HomePage setCurrentPage={setCurrentPage} blurPage={blurPage} setBlurPage={setBlurPage}></HomePage>}
         {currentPage === 1 && <BasicQuestions blurPage={blurPage} setBlurPage={setBlurPage} setCurrentPage={setCurrentPage} submitFlagBasic={submitFlagBasic} setSubmitFlagBasic={setSubmitFlagBasic} setQuestionsToUse={setQuestionsToUse} setSubmitted={setSubmitted}></BasicQuestions>}
