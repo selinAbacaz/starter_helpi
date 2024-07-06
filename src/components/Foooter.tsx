@@ -33,7 +33,7 @@ export function FooterEx({ setSubmittedNewKey, setValidKey, blurPage }: FooterPr
               <div style={{alignContent:"center", justifyContent:"center", display:"flex"}}>
                   <p style={{float:"left", marginLeft:"10%"}}>
                     <br></br>
-                    Career Helpi authored by Selin Bacaz, Nathan Rowell, Brandon Nauta.
+                    Career Helpi authored by Selin Bacaz, Nathan Rowell, LM30.
                     <br></br>
                     All art assets produced by Selin Bacaz.
                   </p>
